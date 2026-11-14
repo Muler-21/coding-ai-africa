@@ -72,7 +72,7 @@ nav.side{position:sticky;top:57px;align-self:start;height:calc(100vh - 57px);ove
 .nav-link{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:15px}
 .nav-link:hover{background:var(--accent-soft)}
 .nav-link[aria-current="page"]{background:var(--accent-soft);font-weight:600}
-.nav-num{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;border:1px solid var(--line);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;flex:none}
+.nav-num{display:inline-grid;place-items:center;min-width:24px;padding:0 3px;height:24px;border-radius:6px;border:1px solid var(--line);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;flex:none}
 .nav-link[aria-current="page"] .nav-num{background:var(--accent);border-color:var(--accent);color:var(--surface)}
 .nav-pct{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 main{padding:28px 32px 80px;min-width:0}
@@ -137,6 +137,24 @@ details.mod[open] .mod-caret{transform:rotate(90deg)}
 .mod-act{padding:10px 12px;border-radius:8px;background:var(--gold-soft);border-left:3px solid var(--gold)}
 .mod-tip{font-size:14px;color:var(--muted)}
 .mod-tools{display:flex;justify-content:flex-end}
+.ex{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.ex+.ex{margin-top:16px}
+.ex-head{padding:14px 16px;background:var(--accent-soft);display:grid;gap:4px}
+.ex-head h3{font-size:17px}
+.ex-body{padding:14px 16px;display:grid;gap:14px}
+.ex-body h4{margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
+.ex-meta{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;font-size:15px}
+.ex-meta dt{color:var(--muted)}
+.ex-meta dd{margin:0}
+.ex th,.ex td{padding:5px 8px}
+pre.code{margin:0;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);overflow-x:auto;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre}
+pre.out{border-left:3px solid var(--good)}
+details.code-box>summary{cursor:pointer;font-weight:600;font-size:14px;padding:6px 0;display:flex;gap:10px;align-items:center}
+.copy-row{display:flex;justify-content:flex-end;margin-bottom:6px}
+.btn.sm{font-size:12.5px;padding:4px 10px}
+.decide{padding:10px 12px;border-radius:8px;background:var(--accent-soft);border-left:3px solid var(--accent)}
+.bizline{padding:10px 12px;border-radius:8px;background:var(--gold-soft);border-left:3px solid var(--gold);font-size:15px}
+.tag-s{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 @media (max-width:880px){
   .shell{grid-template-columns:1fr}
   nav.side{display:none;position:fixed;top:57px;left:0;right:0;bottom:0;height:auto;background:var(--surface);z-index:15;border-right:0}
@@ -183,6 +201,11 @@ html[lang="am"] .nav-link{font-size:15.5px}
 <script src="content/modules-6.js"></script>
 <script src="content/modules-7.js"></script>
 <script src="content/modules-8.js"></script>
+<script src="content/stats-core.js"></script>
+<script src="content/stats-0.js"></script>
+<script src="content/stats-1.js"></script>
+<script src="content/stats-2.js"></script>
+<script src="content/stats-3.js"></script>
 <script>
 (function(){
 "use strict";
@@ -219,7 +242,7 @@ const UI = {
       gradingTitle:'Grading inside each level',thPart:'Part',thWeight:'Weight',g1:'Projects',g2:'Practical tests',g3:'Enterprise results (users, sales, profit)',g4:'Code reviews and peer teaching',g5:'Reflection journal',
       portfolio:'<strong>Portfolio:</strong> from Level 2 up, every learner keeps one GitHub profile holding all projects, with a README per project and, from Level 6, a CITATION.cff and Zenodo DOI for anything others might cite.',
       aboutLead:'Coding & AI for Africa is a free curriculum designed by Mulusew Kassa Bitew.',author:'Author',aName:'Name',aPos:'Position',aAff:'Affiliation',aWeb:'Website',aApps:'Other apps',
-      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License',outcomes:'Learners will be able to',lessonPlan:'Lesson plan',activity:'Hands-on: build from what you have',materials:'Materials',checkQ:'Check understanding',tipT:'Teacher tip',openAll:'Open all modules',closeAll:'Close all modules',lessonN:'Lesson'},
+      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License',outcomes:'Learners will be able to',lessonPlan:'Lesson plan',activity:'Hands-on: build from what you have',materials:'Materials',checkQ:'Check understanding',tipT:'Teacher tip',openAll:'Open all modules',closeAll:'Close all modules',lessonN:'Lesson',statsNav:'Statistics for agriculture',statsOverview:'Overview',statsLevels:'Statistics levels',chooserT:'Which design or test should I use?',thQuestion:'Your question',thDesignTest:'Design or test',thLevelS:'Level',toolsT:'Tools from today to the future',thTools:'Tools',bizT:'Statistics businesses you can build',thBiz:'Business',thSells:'What it sells',thPays:'Who pays',examplesT:'Worked field examples',exQ:'Research question',exD:'Design',exData:'Data',exRows:'rows; first rows shown',exFile:'Full data file',pyT:'Python code (run to produce the output below)',rT:'Same analysis in R (standard code, not run in this build)',outT:'Output',readT:'How to read it',decideT:'Decision',bizNote:'Business angle',copy:'Copy',copied2:'Copied',copyFail:'Select and copy by hand',statsStart:'Start at Level S0',noEx:'This level is hands-on: activities are in the modules above.',statsLead:'From counting seeds to leading breeding programmes and AI experiments.'},
   am:{brand:'ኮዲንግና AI ለአፍሪካ',home:'ዋና ገጽ',levels:'ደረጃዎች',more:'ኮርስ',tracks:'የልዩ ሙያ መስመሮች',business:'ንግድና ሀብት',resources:'ነፃ ምንጮች',progress:'የኔ እድገት',certificates:'ሰርተፊኬቶች',about:'ደራሲና ማጣቀሻ',
       goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',checklist:'ማረጋገጫ ዝርዝር',practiceN:'ልምምድ',
       bizSkills:'የሚሰጡ የንግድ ክህሎቶች',milestone:'የሚደረስበት ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
@@ -244,7 +267,7 @@ const UI = {
       gradingTitle:'በእያንዳንዱ ደረጃ ውስጥ ያለው ውጤት አሰጣጥ',thPart:'ክፍል',thWeight:'ድርሻ',g1:'ፕሮጀክቶች',g2:'ተግባራዊ ፈተናዎች',g3:'የሥራ ፈጠራ ውጤቶች (ተጠቃሚዎች፣ ሽያጭ፣ ትርፍ)',g4:'የኮድ ግምገማና አቻን ማስተማር',g5:'የነጸብራቅ ማስታወሻ',
       portfolio:'<strong>የሥራ ማኅደር፡</strong> ከደረጃ 2 ጀምሮ እያንዳንዱ ተማሪ ሁሉንም ፕሮጀክቶች የያዘ አንድ የGitHub ፕሮፋይል ይኖረዋል፤ ለእያንዳንዱ ፕሮጀክት README፣ ከደረጃ 6 ጀምሮ ደግሞ ሌሎች ሊጠቅሱት ለሚችሉት ሁሉ CITATION.cff እና የZenodo DOI ይኖረዋል።',
       aboutLead:'ኮዲንግና AI ለአፍሪካ በMulusew Kassa Bitew የተዘጋጀ ነፃ ሥርዓተ ትምህርት ነው።',author:'ደራሲ',aName:'ስም',aPos:'የሥራ መደብ',aAff:'ተቋም',aWeb:'ድረ-ገጽ',aApps:'ሌሎች መተግበሪያዎች',
-      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ',outcomes:'ተማሪዎች የሚችሉት',lessonPlan:'የትምህርት ዕቅድ',activity:'በተግባር፡ በእጅ ካለው ሥራ',materials:'ቁሳቁሶች',checkQ:'ግንዛቤን ፈትሽ',tipT:'ለመምህሩ ምክር',openAll:'ሁሉንም ሞጁሎች ክፈት',closeAll:'ሁሉንም ሞጁሎች ዝጋ',lessonN:'ትምህርት'}
+      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ',outcomes:'ተማሪዎች የሚችሉት',lessonPlan:'የትምህርት ዕቅድ',activity:'በተግባር፡ በእጅ ካለው ሥራ',materials:'ቁሳቁሶች',checkQ:'ግንዛቤን ፈትሽ',tipT:'ለመምህሩ ምክር',openAll:'ሁሉንም ሞጁሎች ክፈት',closeAll:'ሁሉንም ሞጁሎች ዝጋ',lessonN:'ትምህርት',statsNav:'ስታቲስቲክስ ለግብርና',statsOverview:'አጠቃላይ እይታ',statsLevels:'የስታቲስቲክስ ደረጃዎች',chooserT:'የትኛውን ንድፍ ወይም ፈተና ልጠቀም?',thQuestion:'ጥያቄህ',thDesignTest:'ንድፍ ወይም ፈተና',thLevelS:'ደረጃ',toolsT:'ከዛሬ እስከ ወደፊት መሣሪያዎች',thTools:'መሣሪያዎች',bizT:'ልትገነባቸው የምትችላቸው የስታቲስቲክስ ንግዶች',thBiz:'ንግድ',thSells:'የሚሸጠው',thPays:'የሚከፍለው',examplesT:'የተሠሩ የመስክ ምሳሌዎች',exQ:'የምርምር ጥያቄ',exD:'ንድፍ',exData:'ዳታ',exRows:'ረድፎች፤ የመጀመሪያዎቹ ረድፎች ቀርበዋል',exFile:'ሙሉ የዳታ ፋይል',pyT:'የPython ኮድ (ከታች ያለውን ውጤት ለማግኘት የተሠራ)',rT:'ተመሳሳይ ትንተና በR (መደበኛ ኮድ፣ በዚህ ግንባታ አልተሠራም)',outT:'ውጤት',readT:'እንዴት እንደሚነበብ',decideT:'ውሳኔ',bizNote:'የንግድ ዕይታ',copy:'ቅዳ',copied2:'ተቀድቷል',copyFail:'መርጠህ በእጅ ቅዳ',statsStart:'ከደረጃ S0 ጀምር',noEx:'ይህ ደረጃ በተግባር የሚሰጥ ነው፤ እንቅስቃሴዎቹ ከላይ ባሉት ሞጁሎች ውስጥ ናቸው።',statsLead:'ዘር ከመቁጠር እስከ የዝርያ ማሻሻያ ፕሮግራሞችንና የAI ሙከራዎችን መምራት።'}
 };
 const t = k => (UI[state.lang] && UI[state.lang][k]) || UI.en[k] || k;
 
@@ -609,6 +632,7 @@ function renderNav(route){
   document.getElementById('sideNav').innerHTML =
    `<div class="nav-group">${link('home',t('home'))}</div>
     <div class="nav-group"><div class="nav-label">${esc(t('levels'))}</div>${LEVELS.map(L=>link('level-'+L.n,levelName(L),L.n,levelPct(L.n))).join('')}</div>
+    <div class="nav-group"><div class="nav-label">${esc(t('statsNav'))}</div>${link('stats',t('statsOverview'))}${SL().map(n=>link('stats-'+n,pick(window.STATS[n].name),'S'+n)).join('')}</div>
     <div class="nav-group"><div class="nav-label">${esc(t('more'))}</div>${link('business',t('business'))}${link('tracks',t('tracks'))}${link('resources',t('resources'))}${link('progress',t('progress'))}${link('certificates',t('certificates'))}${link('about',t('about'))}</div>`;
 }
 
@@ -659,13 +683,11 @@ function viewHome(){
   </div>`;
 }
 
-function modulesHTML(n,L){
-  const set = (window.MODS && window.MODS[n]) ? (window.MODS[n][state.lang] || window.MODS[n].en) : null;
-  if(!set) return `<ol class="clean">${L.modules.map(m=>`<li><strong>${esc(m[0])}.</strong> ${esc(m[1])}</li>`).join('')}</ol>`;
+function modAccordion(set, summaries){
   return `<div class="mod-tools"><button class="btn" id="toggleMods" data-open="0">${esc(t('openAll'))}</button></div>
   <div>${set.map((m,i)=>`<details class="mod"><summary><span class="mod-n">${i+1}</span><span class="mod-title">${esc(m.t)}</span><span class="mod-dur">${esc(m.d)}</span><span class="mod-caret" aria-hidden="true">›</span></summary>
     <div class="mod-body">
-      <p>${esc(L.modules[i]?L.modules[i][1]:'')}</p>
+      ${summaries&&summaries[i]?`<p>${esc(summaries[i])}</p>`:''}
       <div><h4>${esc(t('outcomes'))}</h4><ul>${m.o.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
       <div><h4>${esc(t('lessonPlan'))}</h4><ol>${m.l.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>
       <div class="mod-act"><h4>${esc(t('activity'))}</h4><p>${esc(m.a)}</p></div>
@@ -673,6 +695,64 @@ function modulesHTML(n,L){
       <div><h4>${esc(t('checkQ'))}</h4><ul>${m.q.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
       <p class="mod-tip"><strong>${esc(t('tipT'))}:</strong> ${esc(m.tip)}</p>
     </div></details>`).join('')}</div>`;
+}
+function modulesHTML(n,L){
+  const set = (window.MODS && window.MODS[n]) ? (window.MODS[n][state.lang] || window.MODS[n].en) : null;
+  if(!set) return `<ol class="clean">${L.modules.map(m=>`<li><strong>${esc(m[0])}.</strong> ${esc(m[1])}</li>`).join('')}</ol>`;
+  return modAccordion(set, L.modules.map(m=>m[1]));
+}
+
+/* ---------- statistics track ---------- */
+const SL = () => Object.keys(window.STATS||{}).map(Number).sort((a,b)=>a-b);
+const pick = o => o ? (o[state.lang] || o.en) : '';
+function csvTable(csv){
+  const rows = csv.split('\n').map(r=>r.split(','));
+  return `<div class="tablewrap"><table><tr>${rows[0].map(h=>`<th>${esc(h)}</th>`).join('')}</tr>${rows.slice(1).map(r=>`<tr>${r.map(c=>`<td class="num">${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div>`;
+}
+let codeSeq = 0;
+function codeBlock(title, code, open, cls){
+  const id = 'code'+(++codeSeq);
+  return `<details class="code-box" ${open?'open':''}><summary>${esc(title)}</summary><div class="copy-row"><button class="btn sm" data-copy="${id}">${esc(t('copy'))}</button></div><pre class="code ${cls||''}" id="${id}">${esc(code)}</pre></details>`;
+}
+function exampleHTML(e){
+  return `<article class="ex" id="ex-${esc(e.id)}"><div class="ex-head"><h3>${esc(pick(e.t))}</h3></div><div class="ex-body">
+    <dl class="ex-meta"><dt>${esc(t('exQ'))}</dt><dd>${esc(pick(e.q))}</dd><dt>${esc(t('exD'))}</dt><dd><strong>${esc(pick(e.design))}</strong></dd></dl>
+    <div><h4>${esc(t('exData'))} · ${e.n} ${esc(t('exRows'))}</h4>${csvTable(e.head)}<p class="small muted">${esc(t('exFile'))}: <a href="content/data/${esc(e.csv)}" target="_blank" rel="noopener">${esc(e.csv)}</a></p></div>
+    ${codeBlock(t('pyT'), e.py, true)}
+    <div><h4>${esc(t('outT'))}</h4><pre class="code out">${esc(e.out)}</pre></div>
+    ${codeBlock(t('rT'), e.r, false)}
+    <div><h4>${esc(t('readT'))}</h4><ul class="clean">${pick(e.read).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+    <div class="decide"><strong>${esc(t('decideT'))}:</strong> ${esc(pick(e.decide))}</div>
+    ${e.biz?`<div class="bizline"><strong>${esc(t('bizNote'))}:</strong> ${esc(pick(e.biz))}</div>`:''}
+  </div></article>`;
+}
+function viewStatsHome(){
+  const C = window.STATS_CORE || {}, lv = SL();
+  const tbl = (head, rows) => `<div class="tablewrap"><table><tr>${head.map(h=>`<th>${esc(h)}</th>`).join('')}</tr>${rows.join('')}</table></div>`;
+  const tag = x => `<span class="tag-s">${esc(x)}</span>`;
+  return `<div class="col">
+   <div class="card accent"><span class="eyebrow">${esc(t('statsNav'))}</span><h1>${esc(t('statsNav'))}</h1>
+     ${pick(C.intro).map((p,i)=>`<p class="${i===0?'lead':''}">${p}</p>`).join('')}
+     <div><a class="btn primary" href="#stats-0">${esc(t('statsStart'))}</a></div></div>
+   <section class="card"><h2>${esc(t('statsLevels'))}</h2><div class="ladder">${lv.map(n=>{const S=window.STATS[n];return `<a class="rung" href="#stats-${n}"><div class="rung-top"><span class="rung-n">S${n}</span><span class="rung-name">${esc(pick(S.name))}</span></div><span class="small muted">${esc(pick(S.stage))}</span><span class="small muted">${(S.ex||[]).length} ${esc(t('examplesT').toLowerCase())}</span></a>`}).join('')}</div></section>
+   <section class="card"><h2>${esc(t('chooserT'))}</h2>${tbl([t('thQuestion'),t('thDesignTest'),t('thLevelS')], pick(C.chooser).map(r=>`<tr><td>${esc(r[0])}</td><td><strong>${esc(r[1])}</strong></td><td>${tag(r[2])}</td></tr>`))}</section>
+   <section class="card"><h2>${esc(t('bizT'))}</h2>${tbl([t('thBiz'),t('thSells'),t('thPays'),t('thLevelS')], pick(C.biz).map(r=>`<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${tag(r[3])}</td></tr>`))}</section>
+   <section class="card"><h2>${esc(t('toolsT'))}</h2>${tbl([t('thLevelS'),t('thTools')], pick(C.tools).map(r=>`<tr><td>${tag(r[0])}</td><td>${esc(r[1])}</td></tr>`))}</section>
+  </div>`;
+}
+function viewStatsLevel(n){
+  const S = (window.STATS||{})[n]; if(!S) return viewStatsHome();
+  const lv = SL(), i = lv.indexOf(n);
+  const prev = i>0?`<a class="btn" href="#stats-${lv[i-1]}">← S${lv[i-1]}</a>`:`<a class="btn" href="#stats">← ${esc(t('statsOverview'))}</a>`;
+  const next = i<lv.length-1?`<a class="btn primary" href="#stats-${lv[i+1]}">S${lv[i+1]} →</a>`:'';
+  return `<div class="col">
+   <div class="hero-level"><span class="big-n">S${n}</span><div style="display:flex;flex-direction:column;gap:8px">
+     <span class="eyebrow">${esc(t('statsNav'))} · ${esc(pick(S.stage))}</span><h1>${esc(pick(S.name))}</h1></div></div>
+   <section class="card"><h2>${esc(t('goal'))}</h2><p class="lead">${esc(pick(S.goal))}</p></section>
+   <section class="card"><h2>${esc(t('modules'))}</h2>${modAccordion(pick(S.mods))}</section>
+   <section class="card"><h2>${esc(t('examplesT'))}</h2>${(S.ex||[]).length?S.ex.map(exampleHTML).join(''):`<p class="muted">${esc(t('noEx'))}</p>`}</section>
+   <div class="pager">${prev}${next}</div>
+  </div>`;
 }
 
 function viewLevel(n){
@@ -779,6 +859,8 @@ function route(){
   const h = (location.hash||'#home').slice(1);
   let html, r = h;
   if(/^level-[0-8]$/.test(h)) html = viewLevel(+h.split('-')[1]);
+  else if(h==='stats') html = viewStatsHome();
+  else if(/^stats-[0-8]$/.test(h)) html = viewStatsLevel(+h.split('-')[1]);
   else if(h==='business') html = viewBusiness();
   else if(h==='tracks') html = viewTracks();
   else if(h==='resources') html = viewResources();
@@ -823,6 +905,11 @@ function bindView(){
     if(reset.dataset.armed){ state.progress={}; save('progress',state.progress); route(); setStatus('progStatus',t('cleared')); }
     else { reset.dataset.armed='1'; reset.textContent=t('resetConfirm'); }
   });
+  document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+    const el=document.getElementById(b.dataset.copy); const txt=el?el.textContent:'';
+    const ok=()=>{b.textContent=t('copied2');}, bad=()=>{ try{const r=document.createRange(); r.selectNodeContents(el); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r);}catch(e){} b.textContent=t('copyFail'); };
+    try{ navigator.clipboard.writeText(txt).then(ok,bad); }catch(e){ bad(); }
+  }));
   const tg = document.getElementById('toggleMods');
   if(tg) tg.addEventListener('click',()=>{ const open = tg.dataset.open!=='1';
     document.querySelectorAll('details.mod').forEach(d=>d.open=open); tg.dataset.open=open?'1':'0'; tg.textContent=t(open?'closeAll':'openAll'); });
