@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this curriculum or web app, please cite it as below."
+title: "Coding & AI for Africa: Build, Solve, Create (KG1 to World-Class Innovator)"
+type: software
+authors:
+  - family-names: Bitew
+    given-names: Mulusew Kassa
+    orcid: "https://orcid.org/0000-0001-6223-0037"
+    affiliation: "University of Molise, Italy; Department of Plant Science, College of Agriculture and Natural Resources, Debre Markos University, Ethiopia"
+repository-code: "https://github.com/Muler-21/coding-ai-africa"
+url: "https://muler-21.github.io/coding-ai-africa/"
+abstract: >-
+  A free, offline-first coding and AI curriculum and web app with nine levels,
+  from KG1 to frontier-AI research and the future of AI. It is built around African
+  problems and resources, frugal engineering, and an enterprise and wealth path,
+  so learners can use, reproduce, innovate and produce technology from what they have at hand.
+keywords:
+  - coding education
+  - artificial intelligence
+  - curriculum
+  - Africa
+  - entrepreneurship
+  - frugal innovation
+  - offline-first
+license: CC-BY-NC-4.0
+version: "1.0.0"
+date-released: "2026-11-14"

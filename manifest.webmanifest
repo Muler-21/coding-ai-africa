@@ -1,0 +1,14 @@
+{
+  "name": "Coding & AI for Africa",
+  "short_name": "Code Africa",
+  "description": "Free offline-first coding and AI curriculum from KG1 to world-class innovator.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5F7F2",
+  "theme_color": "#1E6B47",
+  "lang": "en",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

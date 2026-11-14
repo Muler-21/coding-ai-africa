@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coding &amp; AI for Africa</title>
+<meta name="description" content="A free, offline-first coding and AI curriculum from KG1 to world-class innovator, built for African problems, resources and entrepreneurs.">
+<meta name="author" content="Mulusew Kassa Bitew">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Crect width=%22512%22 height=%22512%22 rx=%22112%22 fill=%22%231E6B47%22/%3E%3Cpath d=%22M128 368h72v-72h72v-72h72v-72%22 fill=%22none%22 stroke=%22white%22 stroke-width=%2240%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Ccircle cx=%22384%22 cy=%22136%22 r=%2228%22 fill=%22%23E2B45C%22/%3E%3C/svg%3E">
+<meta name="theme-color" content="#1E6B47">
+<meta property="og:title" content="Coding &amp; AI for Africa">
+<meta property="og:description" content="Free, offline-first coding and AI curriculum from KG1 to world-class innovator, built for African problems and entrepreneurs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Noto+Sans:wght@400;600&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a sticky top bar, a left "ladder" navigation of the 9 levels, and a reading column; each level page is one card stack. */
+:root{
+  --bg:#F5F7F2;
+  --surface:#FFFFFF;
+  --ink:#18221C;
+  --muted:#55625A;
+  --line:#D8DED4;
+  --accent:#1E6B47;
+  --accent-soft:#E2EFE7;
+  --gold:#A8701A;
+  --gold-soft:#F6EAD3;
+  --good:#2F7D4F;
+  --font-display:'Bricolage Grotesque','Noto Sans Ethiopic',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Noto Sans','Noto Sans Ethiopic',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1612;--surface:#17211B;--ink:#E7EEE9;--muted:#A2B0A7;--line:#2A372F;
+    --accent:#5BC28E;--accent-soft:#1B3125;--gold:#E2B45C;--gold-soft:#3A2E18;--good:#6CCB95;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1612;--surface:#17211B;--ink:#E7EEE9;--muted:#A2B0A7;--line:#2A372F;
+  --accent:#5BC28E;--accent-soft:#1B3125;--gold:#E2B45C;--gold-soft:#3A2E18;--good:#6CCB95;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700}
+h2{font-size:24px;font-weight:700}
+h3{font-size:18px;font-weight:600}
+p{margin:0}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--font-display);font-weight:700;font-size:18px}
+.brand-mark{width:30px;height:30px;flex:none}
+.spacer{flex:1}
+.btn{text-decoration:none;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{font:inherit;font-size:14px;border:0;background:transparent;color:var(--muted);padding:6px 10px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+.menu-btn{display:none}
+.lang .short{display:none}
+.shell{display:grid;grid-template-columns:250px minmax(0,1fr);max-width:1200px;margin:0 auto}
+nav.side{position:sticky;top:57px;align-self:start;height:calc(100vh - 57px);overflow-y:auto;padding:20px 12px 40px;border-right:1px solid var(--line)}
+.nav-group{display:flex;flex-direction:column;gap:2px;margin-bottom:18px}
+.nav-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 10px 6px}
+.nav-link{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:15px}
+.nav-link:hover{background:var(--accent-soft)}
+.nav-link[aria-current="page"]{background:var(--accent-soft);font-weight:600}
+.nav-num{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;border:1px solid var(--line);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;flex:none}
+.nav-link[aria-current="page"] .nav-num{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.nav-pct{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+main{padding:28px 32px 80px;min-width:0}
+.col{max-width:860px;display:flex;flex-direction:column;gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.card.accent{border-color:var(--accent);background:var(--accent-soft)}
+.card.gold{border-color:var(--gold);background:var(--gold-soft)}
+.lead{font-size:18px;color:var(--ink);max-width:68ch}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted)}
+.chip strong{color:var(--ink);font-weight:600}
+.eyebrow{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.04em;text-transform:uppercase}
+ul.clean,ol.clean{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.ladder{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.rung{display:flex;flex-direction:column;gap:6px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.rung:hover{border-color:var(--accent)}
+.rung-top{display:flex;align-items:center;gap:10px}
+.rung-n{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+.rung-name{font-weight:600}
+.bar{height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--good)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--muted);font-size:13px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums}
+.check{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.check:last-child{border-bottom:0}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent);flex:none}
+.check label{cursor:pointer}
+.check.done label{color:var(--muted)}
+.hero-level{display:flex;gap:18px;align-items:flex-start}
+.big-n{font-family:var(--font-display);font-size:72px;line-height:.9;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.filter{display:flex;flex-wrap:wrap;gap:6px}
+.filter button{font:inherit;font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.filter button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+textarea{width:100%;min-height:80px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}
+.note{font-size:14px;padding:10px 12px;border-left:3px solid var(--gold);background:var(--gold-soft);border-radius:0 8px 8px 0}
+.status{font-size:14px;color:var(--good);min-height:1.4em}
+.author dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;margin:0}
+.author dt{color:var(--muted);font-size:14px}
+.author dd{margin:0}
+svg.cycle{width:100%;height:auto;display:block}
+footer.foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
+@media (max-width:880px){
+  .shell{grid-template-columns:1fr}
+  nav.side{display:none;position:fixed;top:57px;left:0;right:0;bottom:0;height:auto;background:var(--surface);z-index:15;border-right:0}
+  nav.side.open{display:block}
+  .menu-btn{display:inline-block}
+  .topbar{gap:8px;padding:10px 12px}
+  .brand{font-size:15px}
+  .brand-mark{width:26px;height:26px}
+  .lang .long{display:none}
+  .lang .short{display:inline}
+  main{padding:20px 16px 64px}
+  .big-n{font-size:52px}
+}
+@media (prefers-reduced-motion:no-preference){.rung,.btn,.nav-link{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <button class="btn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sideNav">Menu</button>
+  <a class="brand" href="#home">
+    <svg class="brand-mark" viewBox="0 0 30 30" aria-hidden="true"><rect x="1" y="1" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M8 21h4v-4h4v-4h4V9" fill="none" stroke="var(--surface)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span id="brandText">Coding &amp; AI for Africa</span>
+  </a>
+  <span class="spacer"></span>
+  <div class="lang" role="group" aria-label="Language">
+    <button id="langEn" aria-pressed="true"><span class="long">English</span><span class="short">EN</span></button>
+    <button id="langAm" aria-pressed="false"><span class="long">አማርኛ</span><span class="short">አማ</span></button>
+  </div>
+</header>
+<div class="shell">
+  <nav class="side" id="sideNav" aria-label="Course"></nav>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- storage (safe) ---------- */
+function load(k, d){ try{ const v = localStorage.getItem('cafa:'+k); return v ? JSON.parse(v) : d; }catch(e){ return d; } }
+function save(k, v){ try{ localStorage.setItem('cafa:'+k, JSON.stringify(v)); }catch(e){} }
+
+const state = { lang: load('lang','en'), progress: load('progress',{}), resFilter: 'all' };
+
+/* ---------- UI strings ---------- */
+const UI = {
+  en:{brand:'Coding & AI for Africa',home:'Home',levels:'Levels',more:'Course',tracks:'Specialisation tracks',business:'Business & wealth',resources:'Free resources',progress:'My progress',certificates:'Certificates',about:'Author & citation',
+      goal:'Goal',modules:'Modules',tools:'Tools',signature:'Signature project',africa:'Africa challenge & enterprise',exit:'Exit test',practice:'Practice projects',bizSkills:'Business skills',milestone:'Business milestone',also:'Also in this level',levelRes:'Free resources for this level',
+      ages:'Ages / years',hours:'Hours per week',prev:'Previous level',next:'Next level',start:'Start at Level 0',done:'done',menu:'Menu',
+      amNote:''},
+  am:{brand:'ኮዲንግና AI ለአፍሪካ',home:'ዋና ገጽ',levels:'ደረጃዎች',more:'ኮርስ',tracks:'የልዩ ሙያ መስመሮች',business:'ንግድና ሀብት',resources:'ነፃ ምንጮች',progress:'የኔ እድገት',certificates:'ሰርተፊኬቶች',about:'ደራሲና ማጣቀሻ',
+      goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',bizSkills:'የንግድ ክህሎቶች',milestone:'የንግድ ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
+      ages:'ዕድሜ / ዓመታት',hours:'በሳምንት ሰዓታት',prev:'ቀዳሚ ደረጃ',next:'ቀጣይ ደረጃ',start:'ከደረጃ 0 ጀምር',done:'ተጠናቀቀ',menu:'ማውጫ',
+      amNote:'ማስታወሻ፡ የገጹ ርዕሶችና ዋና ዋና ግቦች በአማርኛ ቀርበዋል። ዝርዝር ትምህርቶቹ በቅርቡ ይተረጎማሉ (ረቂቅ ትርጉም)።'}
+};
+const t = k => (UI[state.lang] && UI[state.lang][k]) || UI.en[k] || k;
+
+/* ---------- course content ---------- */
+const MISSION = {
+  en:['<strong>Mission: grow Africa with its own engineers.</strong> This curriculum aims to produce the top <span style="white-space:nowrap">1–3%</span> of problem-solvers in the world: African entrepreneurs who build new technology from what is at hand.',
+      'What is at hand: a mobile phone, recycled parts, solar power, local data and local languages. Learners use, reproduce, improve and produce technology for African farms, health, water, energy, schools and markets.'],
+  am:['<strong>ተልዕኮ፡ አፍሪካን በራሷ መሐንዲሶች ማሳደግ።</strong> ይህ ሥርዓተ ትምህርት በዓለም ከፍተኛ <span style="white-space:nowrap">1–3%</span> ውስጥ የሚገኙ ችግር ፈቺዎችን ለማፍራት ያለመ ነው፤ በእጃቸው ካለው ነገር አዲስ ቴክኖሎጂ የሚገነቡ አፍሪካዊ ሥራ ፈጣሪዎች።',
+      'በእጅ ያለው፡ ሞባይል ስልክ፣ እንደገና ጥቅም ላይ የሚውሉ ዕቃዎች፣ የፀሐይ ኃይል፣ የአካባቢ መረጃና የአካባቢ ቋንቋዎች። ተማሪዎች ለግብርና፣ ለጤና፣ ለውሃ፣ ለኃይል፣ ለትምህርት ቤትና ለገበያ ቴክኖሎጂ ይጠቀማሉ፣ ደግመው ይሠራሉ፣ ያሻሽላሉ፣ ያመርታሉ።']
+};
+
+const RULES = [
+  ['Problem first.','Start from a real problem the learner can see: the farm, water, health, school, market or energy at home.'],
+  ['Frugal by default.','Use a phone, recycled electronics, solar power and free open-source software. Nothing should need fast internet or expensive equipment.'],
+  ['Offline first.','Every tool and project must work without internet and sync when a connection comes.'],
+  ['Mother tongue first.','Teach ideas in the local language (Amharic, Swahili, Hausa, Yoruba, Oromo and others), with English for code words.'],
+  ['A user and a price.','Every project names who uses it and who would pay for it, even if the price at KG is tokens.'],
+  ['Teach back.','Each graduate of a level trains at least five learners at the level below.']
+];
+
+const LEVELS = [
+ {n:0,name:'Little Coders',am:'ትንንሽ ኮደሮች',stage:'KG1–KG3',ages:'4–6',hours:'1–2',
+  goal:'Children learn that a computer does exactly what it is told, in order, through play, with at most 15 minutes of screen time per session.',
+  goalAm:'ልጆች ኮምፒውተር የተነገረውን ብቻ በቅደም ተከተል እንደሚሠራ በጨዋታ ይማራሉ።',
+  modules:[['Sequences','"Robot teacher" games: a child gives step-by-step moves to a classmate; morning routines as picture-card sequences.'],['Patterns','Bead and colour patterns, clapping rhythms; spotting what repeats.'],['Directions and grids','Left/right, arrow cards on a floor grid, treasure-map paths.'],['Loops','"Repeat 3 times" cards to shorten a long sequence.'],['Debugging','Find the wrong card in a broken path and fix it; mistakes are normal.'],['First screen coding','ScratchJr: make a character move, jump and speak.'],['Floor robots','Bee-Bot or a cardboard robot: program a path to a target.'],['Sort and classify','Group toys or fruit by colour, size and shape (the root of data and AI).'],['Tell a story','A 3-scene ScratchJr story with a beginning, middle and end.']],
+  tools:'Arrow cards, floor grid (chalk or tape), picture cards, ScratchJr on a tablet, optional Bee-Bot.',
+  extras:[['Bilingual note','Every activity works in the mother tongue first (for example Amharic), with English command words (forward, repeat, start) added gradually.']],
+  signature:'"My robot goes home": the child programs a robot or ScratchJr character along a path to its house, avoiding obstacles.',
+  africa:'No electricity or screens needed. Children build a grid with chalk on the ground, use bottle caps, stones and seeds as "robots" and counters, and make a cardboard robot. On class market day they trade with tokens, counting and pricing what they sorted.',
+  exit:'The child can write a 6–8 step arrow sequence, use one repeat card, and fix one deliberate bug without help.',
+  biz:['Counting, saving, fair trade','Run a class market stall with tokens'],
+  practice:['Arrow-card path to a toy on a floor grid','ScratchJr character that dances to a clap pattern','Sort a fruit basket by two rules (colour, then size)']},
+ {n:1,name:'Block Builders',am:'ብሎክ ገንቢዎች',stage:'Grades 1–4',ages:'6–10',hours:'2',
+  goal:'By the end of Grade 4 a child builds an interactive game in Scratch using loops, conditions, variables and events, and can explain how it works.',
+  goalAm:'በ4ኛ ክፍል መጨረሻ ልጁ በScratch ሉፕ፣ ሁኔታ፣ ተለዋዋጭና ክስተት የሚጠቀም ጨዋታ ይገነባል።',
+  modules:[['Grade 1','Events and motion ("when clicked, move"); loops: repeat and forever, drawing shapes.'],['Grade 2','Conditions: if/else, touching, keys; sound, costumes and animation.'],['Grade 3','Variables: score, lives, timer; coordinates (x, y) and simple maths in code.'],['Grade 4','Lists and messages between sprites; mini-design: plan on paper, build, test, fix.']],
+  tools:'Scratch (offline app), Code.org courses, paper planning sheets.',
+  extras:[['Thinking skills','Breaking a big problem into small steps, spotting patterns, ignoring unneeded detail, writing the steps as an algorithm.'],['Digital citizenship','Passwords, being kind online, asking before sharing photos, what a computer "remembers".'],['First taste of AI (Grade 4)','Teach a computer to recognise pictures with a drag-and-drop tool such as Teachable Machine, then discuss why it sometimes gets things wrong.']],
+  signature:'"Catch the fruit": a Scratch game with a score, a timer, three levels and sound.',
+  africa:'Make a Scratch game that teaches something useful at home, such as hand-washing, letters of the local alphabet or counting money. Use the offline Scratch app on one shared laptop or phone per group of 3–4 children. Show the games at a school fair, where younger pupils "pay" with tokens and give feedback.',
+  exit:'Build a working game from a one-page brief in 90 minutes, with at least one loop, one condition and one variable, and explain each to the teacher.',
+  biz:['Needs and wants, simple pricing, listening to feedback','10 "customers" try your game and give feedback'],
+  practice:['Animated birthday card in Scratch','Maze game with a timer','Times-table quiz with a score']},
+ {n:2,name:'Young Makers',am:'ወጣት ሠሪዎች',stage:'Grades 5–8',ages:'10–14',hours:'3',
+  goal:'Move from blocks to typed code. By Grade 8 the learner writes 100-line Python programs, publishes a personal website and programs a small physical device.',
+  goalAm:'ከብሎክ ወደ ተጻፈ ኮድ መሸጋገር። በ8ኛ ክፍል ተማሪው 100 መስመር የPython ፕሮግራም ይጽፋል፣ ድረ-ገጽ ያወጣል፣ ትንሽ መሣሪያ ፕሮግራም ያደርጋል።',
+  modules:[['Grade 5','Bridge from Scratch to Python: print, input, variables, maths. micro:bit: buttons, LEDs, sensors.'],['Grade 6','Python: if/elif/else, while and for loops, functions. Spreadsheets: tables, sorting, simple charts.'],['Grade 7','Python: lists, dictionaries, files; turtle graphics; small text games. HTML and CSS: a 3-page personal website.'],['Grade 8','Python: modules, error handling, a first API call; intro JavaScript. Arduino or Raspberry Pi sensor project; how the internet works.']],
+  tools:'Python with Thonny or a browser editor, micro:bit, VS Code (Grade 8), a free GitHub Pages site.',
+  extras:[['AI and data literacy','What data is, how a model learns from examples, bias in data, using AI assistants honestly: ask it to explain, never to do the homework for you.'],['Habits','Typing speed, naming things well, comments, saving versions, asking good questions.']],
+  signature:'"Smart garden monitor": a micro:bit or Arduino reads soil moisture or temperature, a Python script logs the readings, and a web page shows the results.',
+  africa:'Build the monitor from what is at hand: salvaged parts from old radios and phones, a low-cost Arduino-compatible board, a solar power bank and the sensors already inside a phone. Grow seedlings with the monitor and sell them, keeping a simple income-and-cost sheet. Repair one broken device in the community and write how you fixed it.',
+  exit:'Write a Python program from a written spec (for example a quiz game with a score file) in 2 hours, with functions and a list, and explain one bug you fixed.',
+  biz:['Income, costs and profit; saving','First real sale (seedlings, repairs) with a written income–cost sheet'],
+  practice:['Python number-guessing game','Turtle-graphics drawing of a flag or pattern','micro:bit step counter']},
+ {n:3,name:'Programmers',am:'ፕሮግራመሮች',stage:'Grades 9–12',ages:'14–18',hours:'4–6',
+  goal:'University-ready programming: solve classic algorithm problems, build a full web app with a database, use Git daily and train a first machine-learning model.',
+  goalAm:'ለዩኒቨርሲቲ ዝግጁ ፕሮግራሚንግ፡ አልጎሪዝም መፍታት፣ ዳታቤዝ ያለው ዌብ አፕ መገንባት፣ Git መጠቀምና የመጀመሪያ ML ሞዴል ማሰልጠን።',
+  modules:[['Grade 9','Python in depth: classes, testing with pytest. Binary, logic gates, how a CPU and memory work. NumPy and pandas basics.'],['Grade 10','JavaScript, HTML/CSS, the DOM; Git and GitHub. Algorithms: searching, sorting, Big-O, recursion. Charts with matplotlib; descriptive statistics.'],['Grade 11','Back-end web with Flask or FastAPI, REST APIs. Data structures: stacks, queues, trees, graphs, hashing. SQL and relational databases.'],['Grade 12','Command line and Linux; a team project with code review. Networks, security, ethics and law of computing. Intro ML with scikit-learn.']],
+  tools:'VS Code, Git/GitHub, Python, Node.js, SQLite or PostgreSQL, Jupyter.',
+  extras:[['Maths in parallel','Algebra, functions, probability, vectors and matrices, a first look at derivatives.'],['Competitions','National olympiad in informatics, Kaggle beginner competitions, hackathons, open-source "good first issues".']],
+  signature:'"Farm market app": farmers list produce and prices in a database-backed web app, with a price-trend chart and a simple model that predicts next week’s price.',
+  africa:'The app must work where users are: offline with later sync, an SMS or USSD version for basic phones, local-language menus and mobile-money payments. Goal: 10 real farmers or shops using it and paying a small fee. Pitch it at a school or national innovation competition.',
+  exit:'A 3-hour practical (one algorithm task, one bug-fix in an unfamiliar repo, one small data analysis) plus a 10-minute talk defending the signature project.',
+  biz:['Customer interviews, mobile money, pitching, simple bookkeeping','10 paying users; place in a pitch competition'],
+  practice:['To-do web app with login','Pathfinding visualiser (BFS and A*)','Kaggle Titanic model with a written report']},
+ {n:4,name:'CS Foundations',am:'የኮምፒውተር ሳይንስ መሠረቶች',stage:'BSc years 1–3',ages:'18–21',hours:'15–20',
+  goal:'The theory and maths every later level stands on: analyse an algorithm’s cost, explain how an operating system runs a program, and derive gradient descent by hand.',
+  goalAm:'የቀጣይ ደረጃዎች መሠረት የሆኑ ቲዎሪና ሒሳብ፡ አልጎሪዝም መተንተን፣ ኦፕሬቲንግ ሲስተም ማብራራትና gradient descent በእጅ ማውጣት።',
+  modules:[['Year 1','Intro programming (Python), C and memory, Linux and shell. Discrete maths. Calculus I–II, linear algebra I.'],['Year 2','Data structures, object-oriented design, computer architecture. Algorithms: graphs, dynamic programming, greedy, complexity. Probability, statistics, linear algebra II.'],['Year 3','Operating systems, databases, networks, compilers (elective). Theory of computation. Optimisation, numerical methods.'],['AI in year 3','Introduction to AI (search, logic, planning) and Machine Learning I (regression, SVMs, trees, k-means, PCA, cross-validation).']],
+  tools:'Python, C, Linux, Git, SQL, Jupyter, LaTeX.',
+  extras:[['Professional skills','Technical writing, LaTeX, Git workflows, reading research papers, presenting.']],
+  signature:'Build a small interpreter, a key–value database or a search engine from scratch, then write a report on its design trade-offs.',
+  africa:'Design for real conditions: slow networks, power cuts and old devices. Practise data compression, offline sync and low-power computing on a Raspberry Pi. Reverse-engineer and repair one piece of local equipment, such as a pump controller or a clinic device. Register a small student business, learn basic intellectual property and take internships at local tech hubs.',
+  exit:'A core-CS exam (algorithms, systems, maths) at the level of a good university’s third-year finals, plus the project report.',
+  biz:['Registering a business, contracts, intellectual property, unit economics, team-building','A registered student company with repeat revenue'],
+  practice:['A Unix shell in C','Neural network from scratch in NumPy','Compiler for a tiny calculator language']},
+ {n:5,name:'Professional',am:'ባለሙያ',stage:'Final BSc year + 1–3 years of work',ages:'21–25',hours:'Full-time',
+  goal:'Build software and ML systems that real people depend on: design, test, deploy and monitor a service, and take a model from notebook to production.',
+  goalAm:'ሰዎች የሚተማመኑበት ሶፍትዌርና ML ሲስተም መገንባት፡ መንደፍ፣ መፈተሽ፣ ማሰማራትና መከታተል።',
+  modules:[['Software engineering','Clean code, design patterns, testing pyramid, code review, documentation, agile delivery.'],['Cloud and infrastructure','Docker, Kubernetes basics, one cloud provider, infrastructure as code, CI/CD.'],['Data engineering','Pipelines, SQL at scale, data warehouses, data quality checks.'],['Applied statistics','Experimental design, hypothesis tests, A/B testing, regression, Bayesian basics.'],['Deep learning in practice','PyTorch, CNNs, transformers, transfer learning, fine-tuning pretrained models.'],['MLOps','Experiment tracking, model versioning, serving, drift monitoring, cost control.'],['Building with AI models','LLM APIs, prompt design, retrieval-augmented generation, evaluation sets, tool-using agents, safety and privacy guardrails.'],['Security and reliability','Secure coding, secrets, logging, incident response.'],['Product sense','Understanding users, writing a spec, estimating impact.']],
+  tools:'Python, a typed language (TypeScript, Go or Rust), Docker, a cloud platform, PyTorch, MLflow or Weights & Biases, an LLM API.',
+  extras:[],
+  signature:'A deployed AI service with real users, for example a crop-disease photo classifier with a web front-end, monitoring dashboard and a documented retraining pipeline.',
+  africa:'The service must run on low-cost Android phones and work offline, using small on-device models (TinyML, quantised models). Build and release open datasets in African languages and for local crops, livestock and diseases. Business goal: a product with paying users, one or two junior hires, and training Level 3 learners.',
+  exit:'A system-design interview, a take-home ML project with production code, and evidence of one service running for 3+ months.',
+  biz:['Sales, marketing, pricing strategy, hiring, financial statements','A profitable product: revenue covers all costs, salaries included'],
+  practice:['REST API with tests, CI and Docker, deployed to the cloud','Fine-tuned image or text classifier served behind an API','RAG assistant over a document collection, with an evaluation set']},
+ {n:6,name:'Researcher',am:'ተመራማሪ',stage:'MSc + PhD (4–6 years)',ages:'22–30',hours:'Full-time',
+  goal:'Create new knowledge: turn an open question into a testable design, run reproducible experiments at scale, publish in peer-reviewed venues and release open, citable software.',
+  goalAm:'አዲስ ዕውቀት መፍጠር፡ ጥያቄን ወደ ሙከራ መቀየር፣ ተደጋጋሚ ውጤት ያለው ጥናት ማካሄድና በታዋቂ መጽሔቶች ማሳተም።',
+  modules:[['Machine learning theory','Statistical learning theory, kernels, graphical models, Bayesian inference, causal inference.'],['Deep learning','Optimisation, regularisation, attention and transformers, generative models (VAEs, GANs, diffusion), graph neural networks.'],['Reinforcement learning','MDPs, dynamic programming, Q-learning, policy gradients, actor-critic.'],['Scientific computing','HPC clusters and SLURM, GPUs, parallel computing, Nextflow or Snakemake workflows.'],['Statistics for science','Mixed models, multiple testing, power analysis, simulation-based inference (ABC).'],['Research craft','Reading 3–5 papers a week; hypotheses, baselines and ablations; reproducibility (containers, seeds, Zenodo DOI, CITATION.cff); writing papers and grants; research integrity; teaching and supervising.']],
+  tools:'PyTorch or JAX, R, Bash, SLURM, Docker/Apptainer, Nextflow/Snakemake, Git, LaTeX or Quarto.',
+  extras:[],
+  signature:'A PhD thesis of 3–4 first-author papers plus at least one open-source tool other labs use.',
+  africa:'The research question comes from an African need: genomics of indigenous cattle, goats and crops, endemic diseases, climate adaptation, soil and water. Data come from African samples and are shared openly, with African co-authors and data ownership. Each thesis ends with a plan to use the result: a patent, a spin-off, a service for farmers, or a consultancy.',
+  exit:'A successful thesis defence and an independent research statement for the next 5 years.',
+  biz:['Patents, licensing, grants and investor funding, consulting','A research result licensed, or a spin-off founded'],
+  practice:['Reproduce a published paper’s main result and share the code','A Nextflow or Snakemake pipeline published with a DOI','A workshop or conference paper as first author']},
+ {n:7,name:'Top Scientist',am:'ከፍተኛ ሳይንቲስት',stage:'Postdoc to principal investigator',ages:'28+',hours:'Full-time',
+  goal:'Lead a field: set an agenda others follow, build and fund a team, and produce methods or discoveries that change practice.',
+  goalAm:'መስኩን መምራት፡ ሌሎች የሚከተሉትን አጀንዳ ማውጣት፣ ቡድን መገንባትና ተግባርን የሚቀይሩ ግኝቶችን ማፍራት።',
+  modules:[['Large language models','Transformer internals, tokenisation, scaling laws, data curation, instruction tuning, RLHF and preference optimisation.'],['Training at scale','Data, model and pipeline parallelism, mixed precision, LoRA, inference optimisation and quantisation.'],['Multimodal and foundation models','Vision–language models, protein and DNA language models, single-cell foundation models.'],['Agents','Planning, tool use, memory, multi-agent systems, evaluating long tasks.'],['Reasoning and RL','RL from feedback, test-time compute, search, verifiers.'],['Interpretability','Probing, attribution, mechanistic interpretability.'],['Alignment and safety','Robustness, red-teaming, dangerous-capability evaluations, responsible release.'],['Evaluation science','Benchmarks that measure what matters and resist contamination.'],['Leadership','Winning grants (ERC, MSCA, national funders), hiring and mentoring, cross-discipline and industry partnerships, patents and spin-offs, public and policy communication.']],
+  tools:'Frontier and open models, distributed training frameworks, GPU clusters.',
+  extras:[],
+  signature:'A research programme of 5+ years with a funded team, a widely used open model, tool or dataset, and high-impact publications.',
+  africa:'Build and lead centres of excellence on the continent rather than only abroad. Train foundation models for African languages, genomes and farming systems, and bring diaspora scientists into joint projects. Business goal: found or scale a technology company that employs African engineers and sells beyond Africa.',
+  exit:'No exam: measured by independent funding, invited keynotes, citations of your methods, and the careers of the people you trained.',
+  biz:['Fundraising rounds, governance, scaling across countries','A company of 50+ staff, or exporting beyond Africa'],
+  practice:['Train or adapt a foundation model for your domain','Release a public benchmark dataset','Lead a multi-lab collaborative grant']},
+ {n:8,name:'Future of AI',am:'የAI መጪው ዘመን',stage:'Lifelong, any age from 14',ages:'Any',hours:'2–4 (ongoing)',
+  goal:'Stay ahead of the field as it changes. A standing seminar: every module is revisited each year with that year’s newest papers and tools.',
+  goalAm:'ከለውጡ ቀድሞ መገኘት። በየዓመቱ በአዳዲስ ጥናቶችና መሳሪያዎች የሚታደስ ቋሚ ሴሚናር።',
+  modules:[['Agentic AI','Autonomous agents that plan, code, browse and run experiments; human oversight of agents.'],['AI for science','AI-driven discovery in biology, chemistry, materials and climate; self-driving labs.'],['AI in agriculture and food','Genomic prediction, precision farming, drones, climate-resilient breeding.'],['Embodied AI and robotics','Robot foundation models, simulation-to-real transfer, farm and lab robots.'],['New computing','Quantum computing basics, neuromorphic and energy-efficient AI hardware.'],['Safety, ethics and governance','Alignment, AI law and regulation, bias, privacy, misinformation.'],['Human–AI collaboration','Coding with AI assistants, AI tutors, the changing job market.'],['AI entrepreneurship','Finding problems worth solving, building AI products, funding, open-source business models.']],
+  tools:'Agents, AI-for-science tools, robotics kits, policy documents; one new tool tried every week.',
+  extras:[['How to keep current','Read one AI paper summary daily, try one new tool weekly, write one reflection monthly, attend one conference or workshop yearly.'],['Mindset','Today’s frontier becomes everyday practice within a few years. The skills that last are fundamentals (maths, clear thinking, writing), learning speed, and judgement about what is worth building.']],
+  signature:'A yearly "future brief": a 5-page forecast of where your field will be in 5 years and what you will build to get there, reviewed with a mentor.',
+  africa:'Leapfrog, as mobile money skipped bank branches. Study how local manufacturing, 3D printing, solar micro-grids, drones and AI on phones can skip expensive old infrastructure. Study policies for data ownership and AI built on the continent, so that African data creates African value.',
+  exit:'Renewed every year: the future brief, reviewed with a mentor.',
+  biz:['Investing, a portfolio of income streams, philanthropy, policy influence','Profits reinvested in new ventures and in the next learners'],
+  practice:['Build an AI agent that runs one step of your research automatically','Write a public explainer on an emerging AI topic','Launch a small AI product or service with paying users']}
+];
+
+const TRACKS = [
+ ['Bioinformatics & genomics','DNA as data; Biopython; Rosalind problems','Sequence alignment, variant calling, PLINK, GWAS, population genetics, R/Bioconductor','Multi-omics integration, selection signatures, ABC and ML for demography, genomic foundation models'],
+ ['Agri-tech AI','Sensor logging, weather data','Remote sensing, crop and livestock data pipelines, plant-disease image classification','Genomic selection, digital twins of farms, climate-adaptation modelling'],
+ ['Frugal engineering & local manufacturing','Repairing devices, e-waste recovery, simple circuits','CAD, 3D printing, CNC, low-cost machine and tool design','Design for local production at scale, appropriate-technology research'],
+ ['Energy & water tech','Solar kits, water-level sensors','Solar micro-grids, battery management, smart irrigation, water treatment control','Off-grid energy systems, climate and water modelling'],
+ ['Web & mobile apps','HTML/CSS/JS, one framework','React or similar, APIs, databases, Flutter or React Native, USSD/SMS and mobile-money integration','Large-scale systems, human–computer interaction research'],
+ ['Robotics & embedded','micro:bit, Arduino','ROS, control theory, computer vision, embedded C','Robot learning, embodied foundation models'],
+ ['AI entrepreneurship','A small paid app or service','Product management, startup finance, open-source licensing','Spin-offs from research, venture funding, scaling a company'],
+ ['AI education','Teaching younger peers','Curriculum design, educational technology, bilingual content','Learning-science research, AI tutors']
+];
+
+const MODELS = [
+ ['Repair, refurbish and resell electronics','Hand tools and e-waste','Margin on each refurbished device',2],
+ ['Software for small businesses (SaaS)','A laptop and one clear problem','Monthly subscription',3],
+ ['Marketplace app (produce, transport, services)','Offline-first app with a USSD version','Commission on each transaction',3],
+ ['Courses and content in local languages','A phone camera and a YouTube channel','Ads, subscriptions, school contracts',3],
+ ['Pay-as-you-go hardware (solar, pumps, sensors)','A low-cost kit plus mobile money','Small daily or weekly payments',4],
+ ['Agri- and fintech data services','Phone and sensor data','Fees for credit scoring, insurance, yield forecasts',5],
+ ['AI products and agents for local markets','Open models plus local data','Subscriptions and per-use fees',5],
+ ['Remote software and data work for global clients','Skills and an internet connection','Contracts paid in foreign currency',5],
+ ['Research-based IP and consulting','A proven method or tool','Licensing fees, consulting, contract research',6]
+];
+
+const WEALTH = [
+ ['Solve a problem many people pay for again and again.','Repeat payments build wealth; one-off sales do not.'],
+ ['Keep costs low.','Use frugal tools, open-source software and a small team until revenue proves the idea.'],
+ ['Own equity and intellectual property,','not only a salary. Register your company, your brand and your inventions.'],
+ ['Separate business money from personal money,','and review the accounts every month.'],
+ ['Reinvest before you spend.','Build a cash reserve, then put profits back into growth.'],
+ ['Build several income streams','(product, services, teaching, licensing, investments), so one failure does not stop you.'],
+ ['Earn in strong currencies','by selling beyond your home market as early as you can.'],
+ ['Stay legal and pay taxes.','Trust from customers, banks and investors is a business asset.'],
+ ['Hire and train others.','A company that grows people grows the continent, and it outlasts its founder.']
+];
+
+const RESOURCES = [
+ ['CS Unplugged','https://www.csunplugged.org','Screen-free computational-thinking games',[0,1]],
+ ['ScratchJr','https://www.scratchjr.org','First tablet coding',[0]],
+ ['Scratch','https://scratch.mit.edu','Block-based games and stories (offline app available)',[1]],
+ ['Code.org','https://code.org','Structured courses by grade',[1,2]],
+ ['Teachable Machine','https://teachablemachine.withgoogle.com','First hands-on machine learning',[1,2]],
+ ['micro:bit','https://microbit.org','Physical computing projects',[2]],
+ ['Python tutorial','https://docs.python.org/3/tutorial/','The official Python introduction',[2,3]],
+ ['freeCodeCamp','https://www.freecodecamp.org','Web development and Python certificates',[2,3]],
+ ['Khan Academy','https://www.khanacademy.org','Maths from algebra to linear algebra',[3,4]],
+ ['CS50','https://cs50.harvard.edu','Harvard’s introduction to computer science',[3,4]],
+ ['MIT OpenCourseWare','https://ocw.mit.edu','Full university CS and maths courses',[4]],
+ ['The Missing Semester','https://missing.csail.mit.edu','Shell, Git, editors, debugging',[4,5]],
+ ['Kaggle Learn','https://www.kaggle.com/learn','Short data-science and ML courses',[4,5]],
+ ['fast.ai','https://course.fast.ai','Practical deep learning',[5]],
+ ['Dive into Deep Learning','https://d2l.ai','Interactive deep-learning textbook with code',[5,6]],
+ ['Hugging Face courses','https://huggingface.co/learn','Transformers, LLMs and agents',[5,6]],
+ ['Neural Networks: Zero to Hero','https://karpathy.ai/zero-to-hero.html','Building GPT-style models from scratch',[6]],
+ ['Deep Learning book','https://www.deeplearningbook.org','The theory of deep learning',[6]],
+ ['Spinning Up in Deep RL','https://spinningup.openai.com','Reinforcement learning',[6]],
+ ['Stanford CS224N','https://web.stanford.edu/class/cs224n/','NLP with deep learning',[6]],
+ ['Rosalind','https://rosalind.info','Bioinformatics problem sets',[3,6]],
+ ['Software Carpentry','https://software-carpentry.org','Reproducible research computing',[6]],
+ ['arXiv','https://arxiv.org','Newest research papers, daily',[7,8]]
+];
+
+const CERTS = [
+ [0,'Little Coder badge','Exit-test sequence + robot-path video','Teacher'],
+ [1,'Block Builder certificate','Scratch game + oral explanation','Teacher'],
+ [2,'Young Maker certificate','Python program + website + device project','Teacher + peer review'],
+ [3,'Programmer certificate','3-hour practical + defended project + GitHub profile','Two teachers or mentors'],
+ [4,'CS Foundations diploma','Core-CS exam + design report','University panel'],
+ [5,'Professional AI Engineer','System design + production service evidence','Senior engineers'],
+ [6,'Research Scientist','Thesis defence + open-source tool','Thesis committee'],
+ [7,'Fellow','Funded programme + field impact','External peers'],
+ [8,'Futurist (renewed yearly)','Annual future brief','Mentor']
+];
+
+const CYCLE = {en:['Use','Reproduce','Innovate','Produce'],am:['ተጠቀም','ደግመህ ሥራ','አሻሽል','አምርት'],
+  en2:[['Learn a tool by','using it on a task'],['Rebuild it yourself','from local parts'],['Change it to fit','a local problem'],['Make it, price it','and sell it']],
+  am2:[['መሣሪያን በመጠቀም','ተማር'],['ከአካባቢ ዕቃዎች','ራስህ ደግመህ ሥራ'],['ለአካባቢ ችግር','አስተካክለው'],['ሥራው፣ ዋጋ አውጣ','ሽጠው']],
+  loopEn:'Teach the next learner, who starts the cycle again', loopAm:'ቀጣዩን ተማሪ አስተምር፤ እሱም ዑደቱን እንደገና ይጀምራል'};
+
+/* ---------- helpers ---------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const itemKeys = n => ['p0','p1','p2','sig','exit'].map(k => 'L'+n+'-'+k);
+function levelPct(n){ const ks = itemKeys(n); const d = ks.filter(k => state.progress[k]).length; return Math.round(100*d/ks.length); }
+function levelName(L){ return state.lang==='am' ? L.am : L.name; }
+
+/* ---------- nav ---------- */
+function renderNav(route){
+  const link = (href,label,num,pct) => `<a class="nav-link" href="#${href}" ${route===href?'aria-current="page"':''}>${num!==undefined?`<span class="nav-num">${num}</span>`:''}<span>${esc(label)}</span>${pct!==undefined?`<span class="nav-pct">${pct}%</span>`:''}</a>`;
+  document.getElementById('sideNav').innerHTML =
+   `<div class="nav-group">${link('home',t('home'))}</div>
+    <div class="nav-group"><div class="nav-label">${esc(t('levels'))}</div>${LEVELS.map(L=>link('level-'+L.n,levelName(L),L.n,levelPct(L.n))).join('')}</div>
+    <div class="nav-group"><div class="nav-label">${esc(t('more'))}</div>${link('business',t('business'))}${link('tracks',t('tracks'))}${link('resources',t('resources'))}${link('progress',t('progress'))}${link('certificates',t('certificates'))}${link('about',t('about'))}</div>`;
+}
+
+/* ---------- views ---------- */
+function cycleSVG(){
+  const am = state.lang==='am', names = am?CYCLE.am:CYCLE.en, lines = am?CYCLE.am2:CYCLE.en2;
+  const xs=[104,288,472,656];
+  let s = `<svg class="cycle" viewBox="0 0 760 200" role="img" aria-label="${esc(names.join(', '))}"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs><g fill="none" stroke="var(--muted)" stroke-width="1.25">`;
+  for(let i=0;i<3;i++) s += `<path d="M${xs[i]+80} 72H${xs[i+1]-80}" marker-end="url(#ar)"/>`;
+  s += `<path d="M656 108V150H104V108" marker-end="url(#ar)"/></g>`;
+  xs.forEach((x,i)=>{ const main=i===3;
+    s += `<rect x="${x-80}" y="36" width="160" height="72" rx="8" fill="${main?'var(--accent-soft)':'var(--surface)'}" stroke="${main?'var(--accent)':'var(--line)'}" stroke-width="${main?2:1.25}"/>
+      <text x="${x}" y="60" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="var(--font-display)">${esc(names[i])}</text>
+      <text x="${x}" y="78" text-anchor="middle" font-size="11.5" fill="var(--muted)">${esc(lines[i][0])}</text>
+      <text x="${x}" y="94" text-anchor="middle" font-size="11.5" fill="var(--muted)">${esc(lines[i][1])}</text>`; });
+  s += `<text x="380" y="174" text-anchor="middle" font-size="11.5" fill="var(--muted)">${esc(am?CYCLE.loopAm:CYCLE.loopEn)}</text></svg>`;
+  return s;
+}
+
+function viewHome(){
+  const m = MISSION[state.lang]||MISSION.en;
+  return `<div class="col">
+   <div class="card accent">
+     <span class="eyebrow">${state.lang==='am'?'ከKG1 እስከ ዓለም አቀፍ ፈጣሪ':'KG1 to world-class innovator'}</span>
+     <h1>${esc(t('brand'))}</h1>
+     <p class="lead">${m[0]}</p><p>${m[1]}</p>
+     <div class="chips"><span class="chip"><strong>9</strong> levels</span><span class="chip"><strong>8</strong> specialisation tracks</span><span class="chip"><strong>9</strong> business models</span><span class="chip">Free · offline-first</span></div>
+     <div><a class="btn primary" href="#level-0">${esc(t('start'))}</a></div>
+   </div>
+   ${state.lang==='am'?`<p class="note">${esc(t('amNote'))}</p>`:''}
+   <section class="card"><h2>${state.lang==='am'?'የግንባታ ዑደት':'The build cycle every module follows'}</h2>
+     <p>A learner first uses a tool, then rebuilds it, then changes it for a local need, then makes and sells it. The loop back is how the continent grows its own human resource.</p>
+     <div class="tablewrap">${cycleSVG()}</div></section>
+   <section class="card"><h2>${esc(t('levels'))}</h2>
+     <p class="muted small">Move up by passing each level’s exit test, not by age. Adults usually start at Level 2.</p>
+     <div class="ladder">${LEVELS.map(L=>`<a class="rung" href="#level-${L.n}"><div class="rung-top"><span class="rung-n">${L.n}</span><span class="rung-name">${esc(levelName(L))}</span></div><span class="small muted">${esc(L.stage)} · ${esc(L.ages)}</span><div class="bar" aria-label="${levelPct(L.n)}% ${esc(t('done'))}"><span style="width:${levelPct(L.n)}%"></span></div></a>`).join('')}</div></section>
+   <section class="card"><h2>Six rules every lesson follows</h2>
+     <ol class="clean">${RULES.map(r=>`<li><strong>${esc(r[0])}</strong> ${esc(r[1])}</li>`).join('')}</ol>
+     <p class="note"><strong>The world-class bar.</strong> Local tools, global standard: olympiads and hackathons at school, Kaggle and open source at university, top journals and investors at research level.</p></section>
+  </div>`;
+}
+
+function viewLevel(n){
+  const L = LEVELS[n]; if(!L) return viewHome();
+  const keys = itemKeys(n);
+  const items = [...L.practice.map((p,i)=>[keys[i], (state.lang==='am'?'ልምምድ':'Practice')+' '+(i+1)+': '+p]), [keys[3], t('signature')+': '+L.signature], [keys[4], t('exit')+': '+L.exit]];
+  const res = RESOURCES.filter(r=>r[3].includes(n));
+  const prev = n>0?`<a class="btn" href="#level-${n-1}">← ${esc(t('prev'))}</a>`:'<span></span>';
+  const next = n<8?`<a class="btn primary" href="#level-${n+1}">${esc(t('next'))} →</a>`:'';
+  return `<div class="col">
+   <div class="hero-level"><span class="big-n">${n}</span><div style="display:flex;flex-direction:column;gap:8px">
+     <span class="eyebrow">${esc(L.stage)}</span><h1>${esc(levelName(L))}</h1>
+     <div class="chips"><span class="chip">${esc(t('ages'))}: <strong>${esc(L.ages)}</strong></span><span class="chip">${esc(t('hours'))}: <strong>${esc(L.hours)}</strong></span><span class="chip">${levelPct(n)}% ${esc(t('done'))}</span></div></div></div>
+   <section class="card"><h2>${esc(t('goal'))}</h2><p class="lead">${esc(state.lang==='am'?L.goalAm:L.goal)}</p>${state.lang==='am'?`<p class="muted small">${esc(L.goal)}</p>`:''}</section>
+   <section class="card"><h2>${esc(t('modules'))}</h2><ol class="clean">${L.modules.map(m=>`<li><strong>${esc(m[0])}.</strong> ${esc(m[1])}</li>`).join('')}</ol>
+     <p class="small"><strong>${esc(t('tools'))}:</strong> ${esc(L.tools)}</p></section>
+   ${L.extras.length?`<section class="card"><h3>${esc(t('also'))}</h3><ul class="clean">${L.extras.map(e=>`<li><strong>${esc(e[0])}:</strong> ${esc(e[1])}</li>`).join('')}</ul></section>`:''}
+   <section class="card"><h2>${esc(t('signature'))}</h2><p>${esc(L.signature)}</p></section>
+   <section class="card gold"><h2>${esc(t('africa'))}</h2><p>${esc(L.africa)}</p>
+     <div class="tablewrap"><table><tr><th>${esc(t('bizSkills'))}</th><th>${esc(t('milestone'))}</th></tr><tr><td>${esc(L.biz[0])}</td><td>${esc(L.biz[1])}</td></tr></table></div></section>
+   <section class="card"><h2>${esc(t('exit'))}</h2><p>${esc(L.exit)}</p></section>
+   <section class="card"><h2>${esc(t('practice'))} &amp; ${state.lang==='am'?'ማረጋገጫ':'checklist'}</h2>
+     <div>${items.map(([k,label])=>`<div class="check ${state.progress[k]?'done':''}"><input type="checkbox" id="${k}" data-key="${k}" ${state.progress[k]?'checked':''}><label for="${k}">${esc(label)}</label></div>`).join('')}</div>
+     <p class="muted small">Ticks are saved in this browser only. Use My progress to copy them to another device.</p></section>
+   ${res.length?`<section class="card"><h2>${esc(t('levelRes'))}</h2><ul class="clean">${res.map(r=>`<li><a href="${esc(r[1])}" target="_blank" rel="noopener">${esc(r[0])}</a> <span class="muted">– ${esc(r[2])}</span></li>`).join('')}</ul></section>`:''}
+   <div class="pager">${prev}${next}</div>
+  </div>`;
+}
+
+function viewBusiness(){
+  return `<div class="col">
+   <div class="card accent"><span class="eyebrow">Enterprise and wealth path</span><h1>${esc(t('business'))}</h1>
+     <p class="lead">Business skills are taught beside code at every level, so a graduate turns skill into income, income into a company, and the company into lasting wealth.</p></div>
+   <section class="card"><h2>Business ladder by level</h2><div class="tablewrap"><table><tr><th>Level</th><th>${esc(t('bizSkills'))}</th><th>${esc(t('milestone'))}</th></tr>
+     ${LEVELS.map(L=>`<tr><td class="num"><a href="#level-${L.n}">${L.n} · ${esc(levelName(L))}</a></td><td>${esc(L.biz[0])}</td><td>${esc(L.biz[1])}</td></tr>`).join('')}</table></div></section>
+   <section class="card"><h2>High-profit business models that start small</h2>
+     <p>Pick models that cost little to start and earn again and again. Software and knowledge businesses are the most profitable because one product sells many times at almost no extra cost.</p>
+     <div class="tablewrap"><table><tr><th>Business model</th><th>Start with</th><th>How it earns</th><th>From level</th></tr>
+     ${MODELS.map(m=>`<tr><td><strong>${esc(m[0])}</strong></td><td>${esc(m[1])}</td><td>${esc(m[2])}</td><td class="num"><a href="#level-${m[3]}">${m[3]}</a></td></tr>`).join('')}</table></div>
+     <p class="note"><strong>Stack the models.</strong> Run a product that earns subscriptions, a services arm that pays the bills early, and courses or licensing that earn from what the team already knows.</p></section>
+   <section class="card"><h2>Rules for turning profit into wealth</h2><p class="muted small">Taught from Level 3, practised with real money from Level 5.</p>
+     <ol class="clean">${WEALTH.map(w=>`<li><strong>${esc(w[0])}</strong> ${esc(w[1])}</li>`).join('')}</ol></section>
+  </div>`;
+}
+
+function viewTracks(){
+  return `<div class="col"><div class="card accent"><h1>${esc(t('tracks'))}</h1><p class="lead">Choose one or two from Level 3 upward. Each track runs beside the main ladder, with domain modules swapped in. Finish the Level 4 maths and CS core before going deep.</p></div>
+   <section class="card"><div class="tablewrap"><table><tr><th>Track</th><th>Level 3 (school)</th><th>Level 4–5 (BSc / work)</th><th>Level 6–7 (research)</th></tr>
+   ${TRACKS.map(r=>`<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')}</table></div></section></div>`;
+}
+
+function viewResources(){
+  const f = state.resFilter;
+  const list = RESOURCES.filter(r => f==='all' || r[3].includes(+f));
+  const btn = (v,label) => `<button data-res="${v}" aria-pressed="${String(f)===String(v)}">${label}</button>`;
+  return `<div class="col"><div class="card accent"><h1>${esc(t('resources'))}</h1><p class="lead">Every level can be completed with free material. Check each site for its current course version before starting.</p></div>
+   <section class="card"><div class="filter" role="group" aria-label="Filter by level">${btn('all','All levels')}${LEVELS.map(L=>btn(L.n,'Level '+L.n)).join('')}</div>
+   <div class="tablewrap"><table><tr><th>Resource</th><th>Use it for</th><th>Levels</th></tr>
+   ${list.map(r=>`<tr><td><a href="${esc(r[1])}" target="_blank" rel="noopener">${esc(r[0])}</a></td><td>${esc(r[2])}</td><td class="num">${r[3].join(', ')}</td></tr>`).join('')}</table></div></section></div>`;
+}
+
+function viewProgress(){
+  const total = LEVELS.length*5, done = Object.values(state.progress).filter(Boolean).length;
+  return `<div class="col"><div class="card accent"><h1>${esc(t('progress'))}</h1><p class="lead">${done} of ${total} items done across all levels.</p></div>
+   <section class="card"><div class="tablewrap"><table><tr><th>Level</th><th>Done</th><th style="width:45%">Progress</th></tr>
+   ${LEVELS.map(L=>{const p=levelPct(L.n);return `<tr><td><a href="#level-${L.n}">${L.n} · ${esc(levelName(L))}</a></td><td class="num">${p}%</td><td><div class="bar"><span style="width:${p}%"></span></div></td></tr>`}).join('')}</table></div></section>
+   <section class="card"><h2>Move your progress to another device</h2>
+     <p class="small">Progress is stored only in this browser. Copy your progress code, then paste it on the other device.</p>
+     <div class="chips"><button class="btn" id="copyCode">Copy progress code</button><button class="btn" id="resetProg">Clear all ticks</button></div>
+     <label for="codeBox" class="small muted">Progress code</label>
+     <textarea id="codeBox" spellcheck="false" placeholder="Paste a progress code here, then press Load code"></textarea>
+     <div><button class="btn primary" id="loadCode">Load code</button></div>
+     <p class="status" id="progStatus" role="status"></p></section></div>`;
+}
+
+function viewCerts(){
+  return `<div class="col"><div class="card accent"><h1>${esc(t('certificates'))}</h1><p class="lead">A certificate is earned only by passing the exit test and showing a portfolio. Age, years enrolled and hours logged never count on their own.</p></div>
+   <section class="card"><div class="tablewrap"><table><tr><th>Level</th><th>Certificate</th><th>Evidence required</th><th>Assessed by</th></tr>
+   ${CERTS.map(c=>`<tr><td class="num"><a href="#level-${c[0]}">${c[0]}</a></td><td><strong>${esc(c[1])}</strong></td><td>${esc(c[2])}</td><td>${esc(c[3])}</td></tr>`).join('')}</table></div></section>
+   <section class="card"><h2>Grading inside each level</h2><div class="tablewrap"><table><tr><th>Part</th><th>Weight</th></tr>
+     <tr><td>Projects</td><td class="num">35%</td></tr><tr><td>Practical tests</td><td class="num">25%</td></tr><tr><td>Enterprise results (users, sales, profit)</td><td class="num">15%</td></tr><tr><td>Code reviews and peer teaching</td><td class="num">15%</td></tr><tr><td>Reflection journal</td><td class="num">10%</td></tr></table></div>
+     <p class="small"><strong>Portfolio:</strong> from Level 2 up, every learner keeps one GitHub profile holding all projects, with a README per project and, from Level 6, a CITATION.cff and Zenodo DOI for anything others might cite.</p></section></div>`;
+}
+
+function viewAbout(){
+  return `<div class="col"><div class="card accent"><h1>${esc(t('about'))}</h1><p class="lead">Coding &amp; AI for Africa is a free curriculum designed by Mulusew Kassa Bitew.</p></div>
+   <section class="card author"><h2>Author</h2><dl>
+     <dt>Name</dt><dd><strong>Mulusew Kassa Bitew</strong></dd>
+     <dt>Position</dt><dd>Postdoctoral Research Fellow, University of Molise, Italy</dd>
+     <dt>Affiliation</dt><dd>Department of Plant Science, College of Agriculture and Natural Resources, Debre Markos University, Ethiopia</dd>
+     <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0001-6223-0037" target="_blank" rel="noopener">0000-0001-6223-0037</a></dd>
+     <dt>GitHub</dt><dd><a href="https://github.com/Muler-21" target="_blank" rel="noopener">@Muler-21</a></dd>
+     <dt>Website</dt><dd><a href="https://muler-21.github.io" target="_blank" rel="noopener">muler-21.github.io</a></dd>
+     <dt>Other apps</dt><dd><a href="https://muler-21.github.io/apps/adaptfit" target="_blank" rel="noopener">AdaptFit</a> · <a href="https://muler-21.github.io/sebel-hakim" target="_blank" rel="noopener">Sebel Hakim</a> · <a href="https://muler-21.github.io/AMBKidsJoy/" target="_blank" rel="noopener">AMBKidsJoy</a> · <a href="https://github.com/Muler-21/Research-Integrity-Compass-" target="_blank" rel="noopener">Research Integrity Compass</a></dd>
+   </dl></section>
+   <section class="card"><h2>How to cite</h2>
+     <p class="small" id="citeText">Bitew, M. K. (2026). Coding &amp; AI for Africa: Build, Solve, Create (KG1 to World-Class Innovator) [Curriculum and web app]. https://github.com/Muler-21/coding-ai-africa</p>
+     <div><button class="btn" id="copyCite">Copy citation</button></div><p class="status" id="citeStatus" role="status"></p>
+     <p class="small muted">The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.</p></section>
+  </div>`;
+}
+
+/* ---------- router ---------- */
+function route(){
+  const h = (location.hash||'#home').slice(1);
+  let html, r = h;
+  if(/^level-[0-8]$/.test(h)) html = viewLevel(+h.split('-')[1]);
+  else if(h==='business') html = viewBusiness();
+  else if(h==='tracks') html = viewTracks();
+  else if(h==='resources') html = viewResources();
+  else if(h==='progress') html = viewProgress();
+  else if(h==='certificates') html = viewCerts();
+  else if(h==='about') html = viewAbout();
+  else { html = viewHome(); r='home'; }
+  const main = document.getElementById('main');
+  main.innerHTML = html + `<footer class="foot"><span>© 2026 Mulusew Kassa Bitew</span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">License: CC BY-NC 4.0</a><a href="#about">${esc(t('about'))}</a><a href="https://github.com/Muler-21" target="_blank" rel="noopener">GitHub @Muler-21</a></footer>`;
+  renderNav(r);
+  document.getElementById('sideNav').classList.remove('open');
+  document.getElementById('menuBtn').setAttribute('aria-expanded','false');
+  bindView();
+}
+
+function setStatus(id,msg){ const el=document.getElementById(id); if(el) el.textContent=msg; }
+
+function bindView(){
+  document.querySelectorAll('input[data-key]').forEach(cb=>cb.addEventListener('change',e=>{
+    const k=e.target.dataset.key; if(e.target.checked) state.progress[k]=true; else delete state.progress[k];
+    save('progress',state.progress); e.target.closest('.check').classList.toggle('done',e.target.checked);
+    const h=(location.hash||'').slice(1); renderNav(h);
+  }));
+  document.querySelectorAll('[data-res]').forEach(b=>b.addEventListener('click',()=>{ state.resFilter=b.dataset.res; route(); }));
+  const copy = document.getElementById('copyCode');
+  if(copy) copy.addEventListener('click',()=>{
+    const code = btoa(unescape(encodeURIComponent(JSON.stringify(state.progress))));
+    const box = document.getElementById('codeBox'); box.value = code;
+    try{ navigator.clipboard.writeText(code).then(()=>setStatus('progStatus','Progress code copied.'),()=>{ box.select(); setStatus('progStatus','Copy blocked here: the code is selected in the box, copy it by hand.'); }); }
+    catch(e){ box.select(); setStatus('progStatus','Copy blocked here: the code is selected in the box, copy it by hand.'); }
+  });
+  const loadBtn = document.getElementById('loadCode');
+  if(loadBtn) loadBtn.addEventListener('click',()=>{
+    const v=document.getElementById('codeBox').value.trim();
+    try{ const obj=JSON.parse(decodeURIComponent(escape(atob(v)))); if(typeof obj!=='object'||Array.isArray(obj)) throw 0;
+      state.progress={}; Object.keys(obj).forEach(k=>{ if(/^L[0-8]-(p[0-2]|sig|exit)$/.test(k)&&obj[k]) state.progress[k]=true; });
+      save('progress',state.progress); route(); setStatus('progStatus','Progress loaded.'); }
+    catch(e){ setStatus('progStatus','That code could not be read. Check that you pasted the whole code.'); }
+  });
+  const reset = document.getElementById('resetProg');
+  if(reset) reset.addEventListener('click',()=>{
+    if(reset.dataset.armed){ state.progress={}; save('progress',state.progress); route(); setStatus('progStatus','All ticks cleared.'); }
+    else { reset.dataset.armed='1'; reset.textContent='Press again to clear all ticks'; }
+  });
+  const cite = document.getElementById('copyCite');
+  if(cite) cite.addEventListener('click',()=>{
+    const txt=document.getElementById('citeText').textContent;
+    try{ navigator.clipboard.writeText(txt).then(()=>setStatus('citeStatus','Citation copied.'),()=>setStatus('citeStatus','Copy blocked here: select the citation text and copy it by hand.')); }
+    catch(e){ setStatus('citeStatus','Copy blocked here: select the citation text and copy it by hand.'); }
+  });
+}
+
+function setLang(l){
+  state.lang=l; save('lang',l);
+  document.documentElement.lang = l==='am'?'am':'en';
+  document.getElementById('langEn').setAttribute('aria-pressed',String(l==='en'));
+  document.getElementById('langAm').setAttribute('aria-pressed',String(l==='am'));
+  document.getElementById('brandText').textContent = t('brand');
+  document.getElementById('menuBtn').textContent = t('menu');
+  route();
+}
+
+document.getElementById('langEn').addEventListener('click',()=>setLang('en'));
+document.getElementById('langAm').addEventListener('click',()=>setLang('am'));
+document.getElementById('menuBtn').addEventListener('click',e=>{
+  const nav=document.getElementById('sideNav'); const open=nav.classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded',String(open));
+});
+window.addEventListener('hashchange',()=>{ route(); window.scrollTo(0,0); });
+setLang(state.lang==='am'?'am':'en');
+
+/* ---------- GitHub Pages only: offline cache + visitor count ---------- */
+try{
+  if(/\.github\.io$/.test(location.hostname)){
+    if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+    const gc=document.createElement('script'); gc.async=true; gc.src='https://gc.zgo.at/count.js';
+    gc.setAttribute('data-goatcounter','https://ambkidsjoy.goatcounter.com/count'); document.body.appendChild(gc);
+  }
+}catch(e){}
+})();
+</script>
+</body>
+</html>
