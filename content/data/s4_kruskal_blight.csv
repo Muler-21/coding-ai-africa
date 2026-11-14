@@ -1,0 +1,33 @@
+plot,fungicide,blight_score_1to9
+1,Program B,4
+2,Untreated,8
+3,Program B,3
+4,Program A,4
+5,Program C,4
+6,Program A,5
+7,Untreated,8
+8,Program B,4
+9,Program A,7
+10,Program B,4
+11,Program C,6
+12,Program B,3
+13,Program A,5
+14,Untreated,7
+15,Untreated,8
+16,Untreated,8
+17,Program C,6
+18,Untreated,7
+19,Program C,7
+20,Program C,4
+21,Program B,3
+22,Untreated,7
+23,Untreated,8
+24,Program C,4
+25,Program C,5
+26,Program B,5
+27,Program A,4
+28,Program B,4
+29,Program C,5
+30,Program A,5
+31,Program A,5
+32,Program A,3

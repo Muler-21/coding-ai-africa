@@ -131,7 +131,7 @@ details.mod[open]>summary{border-bottom:1px solid var(--line);border-radius:10px
 .mod-dur{font-size:13px;color:var(--muted);text-align:right}
 .mod-caret{color:var(--muted);transition:transform .15s}
 details.mod[open] .mod-caret{transform:rotate(90deg)}
-.mod-body{padding:14px 16px 16px;display:grid;gap:14px}
+.mod-body{padding:14px 16px 16px;display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
 .mod-body h4{margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
 .mod-body ol,.mod-body ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
 .mod-act{padding:10px 12px;border-radius:8px;background:var(--gold-soft);border-left:3px solid var(--gold)}
@@ -141,7 +141,8 @@ details.mod[open] .mod-caret{transform:rotate(90deg)}
 .ex+.ex{margin-top:16px}
 .ex-head{padding:14px 16px;background:var(--accent-soft);display:grid;gap:4px}
 .ex-head h3{font-size:17px}
-.ex-body{padding:14px 16px;display:grid;gap:14px}
+.ex-body{padding:14px 16px;display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.ex,.card,.col>*{min-width:0}
 .ex-body h4{margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
 .ex-meta{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;font-size:15px}
 .ex-meta dt{color:var(--muted)}
@@ -206,6 +207,8 @@ html[lang="am"] .nav-link{font-size:15.5px}
 <script src="content/stats-1.js"></script>
 <script src="content/stats-2.js"></script>
 <script src="content/stats-3.js"></script>
+<script src="content/stats-4.js"></script>
+<script src="content/stats-5.js"></script>
 <script>
 (function(){
 "use strict";
