@@ -1,0 +1,6 @@
+component,variance
+genotype,0.08
+genotype_x_location,0.04
+genotype_x_year,0.03
+genotype_x_location_x_year,0.05
+plot_error,0.1

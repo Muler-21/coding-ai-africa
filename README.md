@@ -69,6 +69,30 @@ Every module is ready to teach: **duration, learning outcomes, a lesson-by-lesso
   <img src="docs/screenshot-mobile.png" alt="Business and wealth page on a phone" width="200">
 </p>
 
+## Statistics for agriculture: S0 to S8
+
+A second track takes learners from counting seeds in KG to designing national breeding programmes. It has **50 bilingual modules** and **26 worked examples on real-style agricultural datasets**. Each example gives:
+
+- the farm question and the design;
+- the data, as a CSV you can download;
+- Python code, with output produced by actually running it;
+- the same analysis in R;
+- a plain-language reading, a field decision and a business angle.
+
+| Level | Name | Stage | Modules | Worked examples |
+| :---: | --- | --- | :---: | --- |
+| S0 | Count and Compare | KG1–KG3 | 3 | Hands-on: counting on the farm, more/less/same, picture charts |
+| S1 | Data Detectives | Grades 1–4 | 4 | Bean sprouting: tables, dot plots, mean and range |
+| S2 | Fair Tests | Grades 5–8 | 4 | Compost pot trial with controls and replicates |
+| S3 | Evidence and Inference | Grades 9–12 | 5 | t-test, chi-square adoption survey, nitrogen regression |
+| S4 | Field Experiment Designer | BSc | 8 | CRD + Tukey, RCBD (LSD, CV, efficiency), factorial N×P, split-plot, Kruskal–Wallis |
+| S5 | Applied Agricultural Analyst | MSc / professional | 8 | MET with Finlay–Wilkinson and AMMI, economic optimum N, logistic GLM, PCA, partial budget and MRR |
+| S6 | Quantitative Researcher | PhD | 7 | Heritability and BLUP, GWAS with PCs and FDR, genomic prediction, random forest, price forecasting, Bayesian scouting |
+| S7 | Leading Scientist | Postdoc → PI → enterprise leader | 6 | Breeder’s equation in birr per year, optimal locations × years × reps, Smith–Hazel economic index |
+| S8 | Future of Agricultural Data Science | Lifelong | 5 | Thompson-sampling adaptive trials, conformal prediction intervals |
+
+The app also has a **test chooser** (22 farm questions mapped to the right design or test), a **tools ladder** (paper and spreadsheet → R and Python → cloud and AI) and **nine statistics-based businesses**. The generators in `tools/` rebuild every example from its data, so readings and decisions always match the numbers.
+
 ## Fully bilingual: English and አማርኛ
 
 Every page switches between English and Amharic with one tap: all 9 levels, modules, projects, exit tests, business models, wealth rules, tracks, resources and certificates. Technical names (Python, Scratch, Git) stay in English, following the curriculum's own rule: *mother tongue first, English for code words*.
@@ -101,6 +125,9 @@ No accounts and no personal data. Progress ticks stay in the learner's own brows
 | --- | --- |
 | `index.html` | The app: layout, logic and level content |
 | `content/modules-0.js` … `modules-8.js` | The 57 complete modules, English and Amharic |
+| `content/stats-core.js`, `stats-0.js` … `stats-8.js` | Statistics track: overview, test chooser, 50 modules and 26 worked examples |
+| `content/data/` | Datasets for the worked examples (CSV) |
+| `tools/` | Python generators that run every example and write the stats files |
 | `sw.js` | Offline cache |
 | `manifest.webmanifest`, `icon.svg` | Install as a phone app |
 | `CITATION.cff` | Citation metadata for GitHub and Zenodo |

@@ -1,0 +1,4 @@
+trait,sd_phenotypic,heritability,economic_value_birr_per_unit
+milk_kg_per_lactation,450.0,0.3,25.0
+fat_percent,0.45,0.45,3000.0
+calving_interval_days,40.0,0.05,-500.0
