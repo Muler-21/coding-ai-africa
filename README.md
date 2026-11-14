@@ -8,6 +8,8 @@
 
 A free, offline-first coding and AI curriculum that grows Africa with its own engineers and entrepreneurs.
 
+**ኮዲንግና AI ለአፍሪካ** · ከKG1 እስከ ዓለም አቀፍ ፈጣሪ የሚያደርስ ነፃ፣ ያለ ኢንተርኔት የሚሠራ የኮዲንግና የAI ሥርዓተ ትምህርት · ሙሉ በሙሉ በእንግሊዝኛና በአማርኛ
+
 [![Open the app](https://img.shields.io/badge/Open%20the%20app-muler--21.github.io-1E6B47?style=for-the-badge)](https://muler-21.github.io/coding-ai-africa/)
 
 ![Levels](https://img.shields.io/badge/levels-9-1E6B47)
@@ -50,6 +52,12 @@ Each level has a **goal, modules, tools, a signature project, an Africa challeng
   <img src="docs/screenshot-mobile.png" alt="Business and wealth page on a phone" width="200">
 </p>
 
+## Fully bilingual: English and አማርኛ
+
+Every page switches between English and Amharic with one tap: all 9 levels, modules, projects, exit tests, business models, wealth rules, tracks, resources and certificates. Technical names (Python, Scratch, Git) stay in English, following the curriculum's own rule: *mother tongue first, English for code words*.
+
+<p align="center"><img src="docs/screenshot-amharic.png" alt="Level 3 page in Amharic" width="860"></p>
+
 ## What makes it different
 
 - **Problem first:** every project starts from a real local problem.
@@ -85,9 +93,10 @@ No accounts and no personal data. Progress ticks stay in the learner's own brows
 
 Teachers, translators and engineers are welcome. The most useful help right now:
 
-1. **Translations** into Amharic, Afaan Oromo, Tigrinya, Swahili, Hausa, Yoruba and other African languages.
-2. **Lesson plans** and worksheets for any level.
-3. **Local project ideas** that solve real problems with low-cost materials.
+1. **Translations** into Afaan Oromo, Tigrinya, Swahili, Hausa, Yoruba and other African languages.
+2. **Review of the Amharic text** by teachers, so wording fits classrooms.
+3. **Lesson plans** and worksheets for any level.
+4. **Local project ideas** that solve real problems with low-cost materials.
 
 Open an issue or a pull request.
 

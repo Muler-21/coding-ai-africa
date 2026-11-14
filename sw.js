@@ -1,6 +1,6 @@
 // Offline cache for Coding & AI for Africa (GitHub Pages).
 // Bump CACHE when index.html changes so learners get the new version.
-const CACHE = 'cafa-v2';
+const CACHE = 'cafa-v3';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', event => {

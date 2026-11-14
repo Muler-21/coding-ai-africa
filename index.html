@@ -133,6 +133,9 @@ footer.foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);fo
   main{padding:20px 16px 64px}
   .big-n{font-size:52px}
 }
+html[lang="am"] body{font-size:17px;line-height:1.75}
+html[lang="am"] .small,html[lang="am"] table{font-size:15px}
+html[lang="am"] .nav-link{font-size:15.5px}
 @media (prefers-reduced-motion:no-preference){.rung,.btn,.nav-link{transition:border-color .15s,background .15s}}
 </style>
 </head>
@@ -167,13 +170,55 @@ const state = { lang: load('lang','en'), progress: load('progress',{}), resFilte
 /* ---------- UI strings ---------- */
 const UI = {
   en:{brand:'Coding & AI for Africa',home:'Home',levels:'Levels',more:'Course',tracks:'Specialisation tracks',business:'Business & wealth',resources:'Free resources',progress:'My progress',certificates:'Certificates',about:'Author & citation',
-      goal:'Goal',modules:'Modules',tools:'Tools',signature:'Signature project',africa:'Africa challenge & enterprise',exit:'Exit test',practice:'Practice projects',bizSkills:'Business skills',milestone:'Business milestone',also:'Also in this level',levelRes:'Free resources for this level',
-      ages:'Ages / years',hours:'Hours per week',prev:'Previous level',next:'Next level',start:'Start at Level 0',done:'done',menu:'Menu',
-      amNote:''},
+      goal:'Goal',modules:'Modules',tools:'Tools',signature:'Signature project',africa:'Africa challenge & enterprise',exit:'Exit test',practice:'Practice projects',checklist:'checklist',practiceN:'Practice',
+      bizSkills:'Business skills taught',milestone:'Milestone to reach',also:'Also in this level',levelRes:'Free resources for this level',
+      ages:'Ages / years',hours:'Hours per week',prev:'Previous level',next:'Next level',start:'Start at Level 0',done:'done',menu:'Menu',level:'Level',
+      eyebrowHome:'KG1 to world-class innovator',chipLevels:'levels',chipTracks:'specialisation tracks',chipModels:'business models',chipFree:'Free · works offline',
+      cycleTitle:'The build cycle every module follows',cycleText:'A learner first uses a tool, then rebuilds it, then changes it for a local need, then makes and sells it. The loop back is how the continent grows its own human resource.',
+      ladderNote:'Move up by passing each level’s exit test, not by age. Adults usually start at Level 2.',rulesTitle:'Six rules every lesson follows',
+      worldBar:'<strong>The world-class bar.</strong> Local tools, global standard: olympiads and hackathons at school, Kaggle and open source at university, top journals and investors at research level.',
+      tickNote:'Ticks are saved in this browser only. Use My progress to copy them to another device.',
+      bizEyebrow:'Enterprise and wealth path',bizLead:'Business skills are taught beside code at every level, so a graduate turns skill into income, income into a company, and the company into lasting wealth.',
+      bizLadder:'Business ladder by level',modelsTitle:'High-profit business models that start small',modelsLead:'Pick models that cost little to start and earn again and again. Software and knowledge businesses are the most profitable because one product sells many times at almost no extra cost.',
+      thModel:'Business model',thStart:'Start with',thEarn:'How it earns',thFrom:'From level',
+      stack:'<strong>Stack the models.</strong> Run a product that earns subscriptions, a services arm that pays the bills early, and courses or licensing that earn from what the team already knows.',
+      wealthTitle:'Rules for turning profit into wealth',wealthNote:'Taught from Level 3, practised with real money from Level 5.',
+      tracksLead:'Choose one or two from Level 3 upward. Each track runs beside the main ladder, with domain modules swapped in. Finish the Level 4 maths and CS core before going deep.',
+      thTrack:'Track',thL3:'Level 3 (school)',thL45:'Level 4–5 (BSc / work)',thL67:'Level 6–7 (research)',
+      resLead:'Every level can be completed with free material. Check each site for its current course version before starting.',allLevels:'All levels',filterBy:'Filter by level',thRes:'Resource',thUse:'Use it for',thLevels:'Levels',
+      progLead:'{d} of {t} items done across all levels.',thDone:'Done',thProgress:'Progress',moveTitle:'Move your progress to another device',moveText:'Progress is stored only in this browser. Copy your progress code, then paste it on the other device.',
+      copyCode:'Copy progress code',resetProg:'Clear all ticks',resetConfirm:'Press again to clear all ticks',codeLabel:'Progress code',codePh:'Paste a progress code here, then press Load code',loadCode:'Load code',
+      copied:'Progress code copied.',copyBlocked:'Copy blocked here: the code is selected in the box, copy it by hand.',loaded:'Progress loaded.',badCode:'That code could not be read. Check that you pasted the whole code.',cleared:'All ticks cleared.',
+      certLead:'A certificate is earned only by passing the exit test and showing a portfolio. Age, years enrolled and hours logged never count on their own.',thCert:'Certificate',thEvidence:'Evidence required',thAssessor:'Assessed by',
+      gradingTitle:'Grading inside each level',thPart:'Part',thWeight:'Weight',g1:'Projects',g2:'Practical tests',g3:'Enterprise results (users, sales, profit)',g4:'Code reviews and peer teaching',g5:'Reflection journal',
+      portfolio:'<strong>Portfolio:</strong> from Level 2 up, every learner keeps one GitHub profile holding all projects, with a README per project and, from Level 6, a CITATION.cff and Zenodo DOI for anything others might cite.',
+      aboutLead:'Coding & AI for Africa is a free curriculum designed by Mulusew Kassa Bitew.',author:'Author',aName:'Name',aPos:'Position',aAff:'Affiliation',aWeb:'Website',aApps:'Other apps',
+      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License'},
   am:{brand:'ኮዲንግና AI ለአፍሪካ',home:'ዋና ገጽ',levels:'ደረጃዎች',more:'ኮርስ',tracks:'የልዩ ሙያ መስመሮች',business:'ንግድና ሀብት',resources:'ነፃ ምንጮች',progress:'የኔ እድገት',certificates:'ሰርተፊኬቶች',about:'ደራሲና ማጣቀሻ',
-      goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',bizSkills:'የንግድ ክህሎቶች',milestone:'የንግድ ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
-      ages:'ዕድሜ / ዓመታት',hours:'በሳምንት ሰዓታት',prev:'ቀዳሚ ደረጃ',next:'ቀጣይ ደረጃ',start:'ከደረጃ 0 ጀምር',done:'ተጠናቀቀ',menu:'ማውጫ',
-      amNote:'ማስታወሻ፡ የገጹ ርዕሶችና ዋና ዋና ግቦች በአማርኛ ቀርበዋል። ዝርዝር ትምህርቶቹ በቅርቡ ይተረጎማሉ (ረቂቅ ትርጉም)።'}
+      goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',checklist:'ማረጋገጫ ዝርዝር',practiceN:'ልምምድ',
+      bizSkills:'የሚሰጡ የንግድ ክህሎቶች',milestone:'የሚደረስበት ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
+      ages:'ዕድሜ / ዓመታት',hours:'በሳምንት ሰዓታት',prev:'ቀዳሚ ደረጃ',next:'ቀጣይ ደረጃ',start:'ከደረጃ 0 ጀምር',done:'ተጠናቋል',menu:'ማውጫ',level:'ደረጃ',
+      eyebrowHome:'ከKG1 እስከ ዓለም አቀፍ ፈጣሪ',chipLevels:'ደረጃዎች',chipTracks:'የልዩ ሙያ መስመሮች',chipModels:'የንግድ ሞዴሎች',chipFree:'ነፃ · ያለ ኢንተርኔት ይሠራል',
+      cycleTitle:'እያንዳንዱ ሞጁል የሚከተለው የግንባታ ዑደት',cycleText:'ተማሪው መጀመሪያ መሣሪያን ይጠቀማል፣ ከዚያ ራሱ ደግሞ ይሠራዋል፣ ለአካባቢው ፍላጎት ያስተካክለዋል፣ በመጨረሻም አምርቶ ይሸጠዋል። ቀጣዩን ተማሪ ማስተማር አህጉሪቱ የራሷን የሰው ኃይል የምታሳድግበት መንገድ ነው።',
+      ladderNote:'ወደ ቀጣይ ደረጃ የሚሸጋገሩት የማለፊያ ፈተናውን በማለፍ እንጂ በዕድሜ አይደለም። አዋቂዎች ብዙውን ጊዜ ከደረጃ 2 ይጀምራሉ።',rulesTitle:'እያንዳንዱ ትምህርት የሚከተላቸው ስድስት ሕጎች',
+      worldBar:'<strong>የዓለም አቀፍ ደረጃ መለኪያ።</strong> የአካባቢ መሣሪያዎች፣ ዓለም አቀፍ ደረጃ፡ በትምህርት ቤት ኦሊምፒያድና ሃካቶን፣ በዩኒቨርሲቲ Kaggle እና ክፍት ምንጭ፣ በምርምር ደረጃ ከፍተኛ መጽሔቶችና ባለሀብቶች።',
+      tickNote:'ምልክቶቹ የሚቀመጡት በዚህ ብራውዘር ብቻ ነው። ወደ ሌላ መሣሪያ ለማዛወር «የኔ እድገት» ገጽን ይጠቀሙ።',
+      bizEyebrow:'የሥራ ፈጠራና የሀብት መንገድ',bizLead:'በእያንዳንዱ ደረጃ የንግድ ክህሎት ከኮድ ጎን ለጎን ይሰጣል፤ ስለዚህ ተመራቂው ክህሎቱን ወደ ገቢ፣ ገቢውን ወደ ኩባንያ፣ ኩባንያውን ደግሞ ወደ ዘላቂ ሀብት ይቀይራል።',
+      bizLadder:'የንግድ መሰላል በደረጃ',modelsTitle:'በትንሽ የሚጀምሩ ከፍተኛ ትርፍ ያላቸው የንግድ ሞዴሎች',modelsLead:'ለመጀመር ትንሽ ወጪ የሚጠይቁና ደጋግመው ገቢ የሚያስገኙ ሞዴሎችን ምረጥ። የሶፍትዌርና የዕውቀት ንግዶች ከፍተኛ ትርፍ ያላቸው አንድ ምርት ያለ ተጨማሪ ወጪ ብዙ ጊዜ ስለሚሸጥ ነው።',
+      thModel:'የንግድ ሞዴል',thStart:'የሚጀመረው በ',thEarn:'ገቢ የሚያገኘው',thFrom:'ከደረጃ',
+      stack:'<strong>ሞዴሎቹን አጣምር።</strong> የደንበኝነት ክፍያ የሚያስገኝ ምርት፣ መጀመሪያ ወጪዎችን የሚሸፍን የአገልግሎት ክፍል፣ እንዲሁም ቡድኑ ካለው ዕውቀት ገቢ የሚያስገኙ ኮርሶችን ወይም የፈቃድ ሽያጭን አንድ ላይ አካሂድ።',
+      wealthTitle:'ትርፍን ወደ ሀብት የመቀየሪያ ሕጎች',wealthNote:'ከደረጃ 3 ጀምሮ ይሰጣል፤ ከደረጃ 5 ጀምሮ በእውነተኛ ገንዘብ ይለማመዳል።',
+      tracksLead:'ከደረጃ 3 ጀምሮ አንድ ወይም ሁለት ምረጥ። እያንዳንዱ መስመር ከዋናው መሰላል ጎን ይሄዳል። በጥልቀት ከመግባትህ በፊት የደረጃ 4 ሒሳብና የኮምፒውተር ሳይንስ መሠረትን አጠናቅ።',
+      thTrack:'መስመር',thL3:'ደረጃ 3 (ትምህርት ቤት)',thL45:'ደረጃ 4–5 (ዲግሪ / ሥራ)',thL67:'ደረጃ 6–7 (ምርምር)',
+      resLead:'እያንዳንዱን ደረጃ በነፃ ማቴሪያሎች ማጠናቀቅ ይቻላል። ከመጀመርህ በፊት የእያንዳንዱን ድረ-ገጽ ወቅታዊ የኮርስ እትም አረጋግጥ።',allLevels:'ሁሉም ደረጃዎች',filterBy:'በደረጃ አጣራ',thRes:'ምንጭ',thUse:'ለምን ይጠቅማል',thLevels:'ደረጃዎች',
+      progLead:'ከ{t} ተግባራት ውስጥ {d} ተጠናቀዋል።',thDone:'ተጠናቋል',thProgress:'እድገት',moveTitle:'እድገትህን ወደ ሌላ መሣሪያ አዛውር',moveText:'እድገትህ የሚቀመጠው በዚህ ብራውዘር ብቻ ነው። የእድገት ኮድህን ቅዳ፣ ከዚያ በሌላው መሣሪያ ላይ ለጥፈው።',
+      copyCode:'የእድገት ኮድ ቅዳ',resetProg:'ሁሉንም ምልክቶች አጥፋ',resetConfirm:'ሁሉንም ለማጥፋት እንደገና ተጫን',codeLabel:'የእድገት ኮድ',codePh:'የእድገት ኮድ እዚህ ለጥፍና «ኮዱን ጫን» ተጫን',loadCode:'ኮዱን ጫን',
+      copied:'የእድገት ኮዱ ተቀድቷል።',copyBlocked:'እዚህ መቅዳት አልተቻለም፤ ኮዱ በሳጥኑ ውስጥ ተመርጧል፣ በእጅ ቅዳው።',loaded:'እድገቱ ተጭኗል።',badCode:'ኮዱን ማንበብ አልተቻለም። ሙሉውን ኮድ መለጠፍህን አረጋግጥ።',cleared:'ሁሉም ምልክቶች ጠፍተዋል።',
+      certLead:'ሰርተፊኬት የሚገኘው የማለፊያ ፈተናን በማለፍና የሥራ ማኅደር (portfolio) በማሳየት ብቻ ነው። ዕድሜ፣ የተማሩበት ዓመታትና ሰዓታት ብቻቸውን አይቆጠሩም።',thCert:'ሰርተፊኬት',thEvidence:'የሚያስፈልግ ማስረጃ',thAssessor:'የሚገመግመው',
+      gradingTitle:'በእያንዳንዱ ደረጃ ውስጥ ያለው ውጤት አሰጣጥ',thPart:'ክፍል',thWeight:'ድርሻ',g1:'ፕሮጀክቶች',g2:'ተግባራዊ ፈተናዎች',g3:'የሥራ ፈጠራ ውጤቶች (ተጠቃሚዎች፣ ሽያጭ፣ ትርፍ)',g4:'የኮድ ግምገማና አቻን ማስተማር',g5:'የነጸብራቅ ማስታወሻ',
+      portfolio:'<strong>የሥራ ማኅደር፡</strong> ከደረጃ 2 ጀምሮ እያንዳንዱ ተማሪ ሁሉንም ፕሮጀክቶች የያዘ አንድ የGitHub ፕሮፋይል ይኖረዋል፤ ለእያንዳንዱ ፕሮጀክት README፣ ከደረጃ 6 ጀምሮ ደግሞ ሌሎች ሊጠቅሱት ለሚችሉት ሁሉ CITATION.cff እና የZenodo DOI ይኖረዋል።',
+      aboutLead:'ኮዲንግና AI ለአፍሪካ በMulusew Kassa Bitew የተዘጋጀ ነፃ ሥርዓተ ትምህርት ነው።',author:'ደራሲ',aName:'ስም',aPos:'የሥራ መደብ',aAff:'ተቋም',aWeb:'ድረ-ገጽ',aApps:'ሌሎች መተግበሪያዎች',
+      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ'}
 };
 const t = k => (UI[state.lang] && UI[state.lang][k]) || UI.en[k] || k;
 
@@ -374,6 +419,158 @@ const CYCLE = {en:['Use','Reproduce','Innovate','Produce'],am:['ተጠቀም','�
   am2:[['መሣሪያን በመጠቀም','ተማር'],['ከአካባቢ ዕቃዎች','ራስህ ደግመህ ሥራ'],['ለአካባቢ ችግር','አስተካክለው'],['ሥራው፣ ዋጋ አውጣ','ሽጠው']],
   loopEn:'Teach the next learner, who starts the cycle again', loopAm:'ቀጣዩን ተማሪ አስተምር፤ እሱም ዑደቱን እንደገና ይጀምራል'};
 
+/* ---------- Amharic content (አማርኛ) ---------- */
+const AM_LEVELS = [
+ {stage:'KG1–KG3',
+  goal:'ልጆች ኮምፒውተር የተነገረውን ብቻ በቅደም ተከተል እንደሚፈጽም በጨዋታ ይማራሉ፤ በአንድ ክፍለ ጊዜ ከ15 ደቂቃ ያልበለጠ የስክሪን ጊዜ።',
+  modules:[['ቅደም ተከተል','«ሮቦት አስተማሪ» ጨዋታዎች፡ ልጅ ለጓደኛው ደረጃ በደረጃ እንቅስቃሴ ይሰጣል፤ የጠዋት ልማዶች በሥዕል ካርዶች ቅደም ተከተል።'],['ንድፎች (patterns)','የዶቃና የቀለም ንድፎች፣ የጭብጨባ ምቶች፤ የሚደጋገመውን መለየት።'],['አቅጣጫና ፍርግርግ','ግራ/ቀኝ፣ መሬት ላይ በተሳለ ፍርግርግ የቀስት ካርዶች፣ የሀብት ካርታ መንገዶች።'],['ድግግሞሽ (loops)','ረጅም ቅደም ተከተልን ለማሳጠር «3 ጊዜ ድገም» ካርዶች።'],['ስህተት ማረም (debugging)','በተበላሸ መንገድ ውስጥ የተሳሳተውን ካርድ ፈልጎ ማስተካከል፤ መሳሳት የተለመደ ነው።'],['የመጀመሪያ የስክሪን ኮዲንግ','ScratchJr፡ ገጸ-ባሕሪን ማንቀሳቀስ፣ ማዝለልና ማናገር።'],['የወለል ሮቦቶች','Bee-Bot ወይም ከካርቶን የተሠራ ሮቦት፡ ወደ ዒላማ የሚወስድ መንገድ ፕሮግራም ማድረግ።'],['መደርደርና መመደብ','መጫወቻዎችን ወይም ፍራፍሬዎችን በቀለም፣ በመጠንና በቅርጽ መመደብ (የዳታና የAI መሠረት)።'],['ታሪክ መንገር','መጀመሪያ፣ መካከልና መጨረሻ ያለው ባለ 3 ትዕይንት የScratchJr ታሪክ።']],
+  tools:'የቀስት ካርዶች፣ የወለል ፍርግርግ (በኖራ ወይም በቴፕ)፣ የሥዕል ካርዶች፣ ScratchJr በታብሌት፣ ካለ Bee-Bot።',
+  extras:[['የሁለት ቋንቋ ማስታወሻ','እያንዳንዱ እንቅስቃሴ በመጀመሪያ በአፍ መፍቻ ቋንቋ (ለምሳሌ አማርኛ) ይሰጣል፤ የእንግሊዝኛ የትዕዛዝ ቃላት (forward, repeat, start) ቀስ በቀስ ይጨመራሉ።']],
+  signature:'«ሮቦቴ ወደ ቤት ይሄዳል»፡ ልጁ ሮቦትን ወይም የScratchJr ገጸ-ባሕሪን እንቅፋቶችን እያለፈ ወደ ቤቱ እንዲሄድ ፕሮግራም ያደርጋል።',
+  africa:'ኤሌክትሪክም ስክሪንም አያስፈልግም። ልጆች መሬት ላይ በኖራ ፍርግርግ ይሠራሉ፣ የጠርሙስ ክዳን፣ ድንጋይና ዘር እንደ «ሮቦት» እና መቁጠሪያ ይጠቀማሉ፣ ከካርቶን ሮቦት ይሠራሉ። በክፍል የገበያ ቀን በቶከን ይገበያያሉ፤ የመደቡትን ይቆጥራሉ፣ ዋጋ ያወጣሉ።',
+  exit:'ልጁ ያለ እገዛ ከ6–8 ደረጃ ያለው የቀስት ቅደም ተከተል ይጽፋል፣ አንድ የድግግሞሽ ካርድ ይጠቀማል፣ ሆን ተብሎ የገባ አንድ ስህተትን ያርማል።',
+  biz:['መቁጠር፣ መቆጠብ፣ ፍትሐዊ ንግድ','በክፍል ውስጥ በቶከን የገበያ ቦታ ማካሄድ'],
+  practice:['በወለል ፍርግርግ ላይ ወደ መጫወቻ የሚወስድ የቀስት ካርድ መንገድ','በጭብጨባ ምት የሚደንስ የScratchJr ገጸ-ባሕሪ','የፍራፍሬ ቅርጫትን በሁለት ሕግ መደርደር (መጀመሪያ በቀለም፣ ከዚያ በመጠን)']},
+ {stage:'1ኛ–4ኛ ክፍል',
+  goal:'በ4ኛ ክፍል መጨረሻ ልጁ ድግግሞሽ፣ ሁኔታ፣ ተለዋዋጭና ክስተት በመጠቀም በScratch በይነተገናኝ ጨዋታ ይገነባል፤ እንዴት እንደሚሠራም ያብራራል።',
+  modules:[['1ኛ ክፍል','ክስተትና እንቅስቃሴ («ሲጫን ተንቀሳቀስ»)፤ ድግግሞሽ፡ repeat እና forever፣ ቅርጾችን መሳል።'],['2ኛ ክፍል','ሁኔታዎች፡ if/else፣ መነካካት፣ ቁልፎች፤ ድምፅ፣ አልባሳትና አኒሜሽን።'],['3ኛ ክፍል','ተለዋዋጮች፡ ነጥብ፣ ሕይወት፣ ሰዓት ቆጣሪ፤ መጋጠሚያዎች (x, y) እና ቀላል ሒሳብ በኮድ።'],['4ኛ ክፍል','ዝርዝሮች (lists) እና በስፕራይቶች መካከል መልእክቶች፤ አነስተኛ ንድፍ፡ በወረቀት ማቀድ፣ መገንባት፣ መፈተሽ፣ ማስተካከል።']],
+  tools:'Scratch (ያለ ኢንተርኔት የሚሠራው መተግበሪያ)፣ የCode.org ኮርሶች፣ የወረቀት ማቀጃ ሉሆች።',
+  extras:[['የአስተሳሰብ ክህሎቶች','ትልቅ ችግርን ወደ ትናንሽ ደረጃዎች መከፋፈል፣ ንድፎችን መለየት፣ አላስፈላጊ ዝርዝርን መተው፣ ደረጃዎቹን እንደ አልጎሪዝም መጻፍ።'],['ዲጂታል ዜግነት','የይለፍ ቃሎች፣ በኢንተርኔት ላይ ደግ መሆን፣ ፎቶ ከማጋራት በፊት መጠየቅ፣ ኮምፒውተር ምን «እንደሚያስታውስ»።'],['የመጀመሪያ የAI ቅምሻ (4ኛ ክፍል)','እንደ Teachable Machine ባለ ቀላል መሣሪያ ኮምፒውተር ሥዕሎችን እንዲለይ ማስተማር፣ ከዚያ አንዳንዴ ለምን እንደሚሳሳት መወያየት።']],
+  signature:'«ፍራፍሬውን ያዝ»፡ ነጥብ፣ ሰዓት ቆጣሪ፣ ሦስት ደረጃዎችና ድምፅ ያለው የScratch ጨዋታ።',
+  africa:'በቤት ውስጥ የሚጠቅም ነገር የሚያስተምር የScratch ጨዋታ ሥራ፤ ለምሳሌ እጅ መታጠብ፣ የፊደል ሆሄያት ወይም ገንዘብ መቁጠር። ለ3–4 ልጆች ቡድን አንድ የጋራ ላፕቶፕ ወይም ስልክ ላይ ያለ ኢንተርኔት የሚሠራውን Scratch ተጠቀም። ጨዋታዎቹን በትምህርት ቤት ትርኢት አሳይ፤ ታናናሽ ተማሪዎች በቶከን «ይከፍላሉ»፣ አስተያየትም ይሰጣሉ።',
+  exit:'ከአንድ ገጽ መግለጫ በ90 ደቂቃ ውስጥ ቢያንስ አንድ ድግግሞሽ፣ አንድ ሁኔታና አንድ ተለዋዋጭ ያለው የሚሠራ ጨዋታ መገንባትና እያንዳንዱን ለመምህሩ ማብራራት።',
+  biz:['ፍላጎትና ምኞት፣ ቀላል ዋጋ አወጣጥ፣ አስተያየት ማዳመጥ','10 «ደንበኞች» ጨዋታህን ሞክረው አስተያየት ይሰጣሉ'],
+  practice:['በScratch አኒሜሽን ያለው የልደት ካርድ','ሰዓት ቆጣሪ ያለው የሜዝ ጨዋታ','ነጥብ ያለው የማባዛት ሰንጠረዥ ጥያቄ']},
+ {stage:'5ኛ–8ኛ ክፍል',
+  goal:'ከብሎክ ወደ ተጻፈ ኮድ መሸጋገር። በ8ኛ ክፍል ተማሪው 100 መስመር የPython ፕሮግራሞችን ይጽፋል፣ የግል ድረ-ገጽ ያወጣል፣ ትንሽ አካላዊ መሣሪያ ፕሮግራም ያደርጋል።',
+  modules:[['5ኛ ክፍል','ከScratch ወደ Python ድልድይ፡ print፣ input፣ ተለዋዋጮች፣ ሒሳብ። micro:bit፡ ቁልፎች፣ LED፣ ሴንሰሮች።'],['6ኛ ክፍል','Python፡ if/elif/else፣ while እና for ድግግሞሾች፣ ፋንክሽኖች። ስፕሬድሺት፡ ሰንጠረዦች፣ መደርደር፣ ቀላል ቻርቶች።'],['7ኛ ክፍል','Python፡ lists፣ dictionaries፣ ፋይሎች፤ turtle graphics፤ ትናንሽ የጽሑፍ ጨዋታዎች። HTML እና CSS፡ ባለ 3 ገጽ የግል ድረ-ገጽ።'],['8ኛ ክፍል','Python፡ modules፣ ስህተት አያያዝ፣ የመጀመሪያ API ጥሪ፤ የJavaScript መግቢያ። የArduino ወይም Raspberry Pi ሴንሰር ፕሮጀክት፤ ኢንተርኔት እንዴት እንደሚሠራ።']],
+  tools:'Python በThonny ወይም በብራውዘር ኤዲተር፣ micro:bit፣ VS Code (8ኛ ክፍል)፣ ነፃ የGitHub Pages ድረ-ገጽ።',
+  extras:[['የAI እና የዳታ ዕውቀት','ዳታ ምንድነው፣ ሞዴል ከምሳሌዎች እንዴት እንደሚማር፣ በዳታ ውስጥ ያለ አድልዎ፣ የAI ረዳቶችን በታማኝነት መጠቀም፡ እንዲያብራራልህ ጠይቅ እንጂ የቤት ሥራህን እንዲሠራልህ አይደለም።'],['ልማዶች','የመተየብ ፍጥነት፣ ነገሮችን በአግባቡ መሰየም፣ ማብራሪያዎች (comments)፣ እትሞችን ማስቀመጥ፣ ጥሩ ጥያቄ መጠየቅ።']],
+  signature:'«ብልህ የአትክልት ቦታ መቆጣጠሪያ»፡ micro:bit ወይም Arduino የአፈር እርጥበትን ወይም ሙቀትን ያነባል፣ የPython ስክሪፕት ንባቦቹን ይመዘግባል፣ ድረ-ገጽ ውጤቱን ያሳያል።',
+  africa:'መቆጣጠሪያውን በእጅ ካለው ነገር ሥራ፡ ከአሮጌ ሬዲዮና ስልኮች የተገኙ ክፍሎች፣ ርካሽ Arduino-ተኳኋኝ ቦርድ፣ የፀሐይ ፓወር ባንክና በስልክ ውስጥ ያሉ ሴንሰሮች። በመቆጣጠሪያው ችግኞችን አሳድግና ሽጥ፤ ቀላል የገቢና የወጪ ሉህ ያዝ። በአካባቢህ የተበላሸ አንድ መሣሪያ ጠግንና እንዴት እንደጠገንከው ጻፍ።',
+  exit:'ከተጻፈ መግለጫ (ለምሳሌ የነጥብ ፋይል ያለው የጥያቄ ጨዋታ) በ2 ሰዓት ውስጥ ፋንክሽኖችና list ያለው የPython ፕሮግራም መጻፍና ያረምከውን አንድ ስህተት ማብራራት።',
+  biz:['ገቢ፣ ወጪና ትርፍ፤ ቁጠባ','የመጀመሪያ እውነተኛ ሽያጭ (ችግኝ፣ ጥገና) ከተጻፈ የገቢ–ወጪ ሉህ ጋር'],
+  practice:['የPython ቁጥር መገመቻ ጨዋታ','በturtle graphics የሰንደቅ ዓላማ ወይም ንድፍ ሥዕል','የmicro:bit የእርምጃ ቆጣሪ']},
+ {stage:'9ኛ–12ኛ ክፍል',
+  goal:'ለዩኒቨርሲቲ ዝግጁ ፕሮግራሚንግ፡ መሠረታዊ የአልጎሪዝም ችግሮችን መፍታት፣ ዳታቤዝ ያለው ሙሉ ዌብ አፕ መገንባት፣ Git በየቀኑ መጠቀምና የመጀመሪያ የማሽን ለርኒንግ ሞዴል ማሰልጠን።',
+  modules:[['9ኛ ክፍል','Python በጥልቀት፡ classes፣ በpytest መፈተሽ። ባይነሪ፣ logic gates፣ CPU እና ሜሞሪ እንዴት እንደሚሠሩ። የNumPy እና pandas መሠረቶች።'],['10ኛ ክፍል','JavaScript፣ HTML/CSS፣ DOM፤ Git እና GitHub። አልጎሪዝሞች፡ መፈለግ፣ መደርደር፣ Big-O፣ recursion። በmatplotlib ቻርቶች፤ ገላጭ ስታቲስቲክስ።'],['11ኛ ክፍል','የኋላ ክፍል ዌብ በFlask ወይም FastAPI፣ REST APIs። የዳታ መዋቅሮች፡ stacks፣ queues፣ trees፣ graphs፣ hashing። SQL እና ዳታቤዞች።'],['12ኛ ክፍል','Command line እና Linux፤ የኮድ ግምገማ ያለው የቡድን ፕሮጀክት። ኔትወርክ፣ ደኅንነት፣ የኮምፒውቲንግ ሥነ-ምግባርና ሕግ። በscikit-learn የML መግቢያ።']],
+  tools:'VS Code፣ Git/GitHub፣ Python፣ Node.js፣ SQLite ወይም PostgreSQL፣ Jupyter።',
+  extras:[['በትይዩ የሚሰጥ ሒሳብ','አልጀብራ፣ ፋንክሽኖች፣ ፕሮባቢሊቲ፣ ቬክተሮችና ማትሪክሶች፣ የderivative የመጀመሪያ እይታ።'],['ውድድሮች','ብሔራዊ የኢንፎርማቲክስ ኦሊምፒያድ፣ የKaggle ጀማሪ ውድድሮች፣ ሃካቶኖች፣ የክፍት ምንጭ «good first issues»።']],
+  signature:'«የእርሻ ገበያ አፕ»፡ ገበሬዎች ምርታቸውንና ዋጋቸውን ዳታቤዝ ባለው ዌብ አፕ ላይ ይዘረዝራሉ፤ የዋጋ አዝማሚያ ቻርትና የሚቀጥለውን ሳምንት ዋጋ የሚተነብይ ቀላል ሞዴል አለው።',
+  africa:'አፑ ተጠቃሚዎች ባሉበት መሥራት አለበት፡ ያለ ኢንተርኔት ሠርቶ በኋላ የሚያመሳስል፣ ለተራ ስልኮች የSMS ወይም USSD እትም፣ በአካባቢ ቋንቋ ምናሌዎችና የሞባይል ገንዘብ ክፍያ። ግቡ፡ 10 እውነተኛ ገበሬዎች ወይም ሱቆች ተጠቅመው አነስተኛ ክፍያ መክፈላቸው። በትምህርት ቤት ወይም በብሔራዊ የፈጠራ ውድድር አቅርበው።',
+  exit:'የ3 ሰዓት ተግባራዊ ፈተና (አንድ የአልጎሪዝም ተግባር፣ ባልታወቀ ኮድ ውስጥ አንድ ስህተት ማረም፣ አንድ ትንሽ የዳታ ትንተና) እና ዋናውን ፕሮጀክት የሚከላከል የ10 ደቂቃ ገለጻ።',
+  biz:['የደንበኛ ቃለ-መጠይቅ፣ የሞባይል ገንዘብ፣ ሐሳብን ማቅረብ (pitching)፣ ቀላል የሂሳብ አያያዝ','10 የሚከፍሉ ተጠቃሚዎች፤ በpitch ውድድር ደረጃ ማግኘት'],
+  practice:['መግቢያ (login) ያለው የተግባር ዝርዝር ዌብ አፕ','የመንገድ ፍለጋ ማሳያ (BFS እና A*)','የKaggle Titanic ሞዴል ከጽሑፍ ሪፖርት ጋር']},
+ {stage:'የመጀመሪያ ዲግሪ 1ኛ–3ኛ ዓመት',
+  goal:'ቀጣዮቹ ደረጃዎች ሁሉ የሚቆሙበት ቲዎሪና ሒሳብ፡ የአልጎሪዝምን ወጪ መተንተን፣ ኦፕሬቲንግ ሲስተም ፕሮግራምን እንዴት እንደሚያስኬድ ማብራራት፣ gradient descentን በእጅ ማውጣት።',
+  modules:[['1ኛ ዓመት','የፕሮግራሚንግ መግቢያ (Python)፣ C እና ሜሞሪ፣ Linux እና shell። Discrete mathematics። Calculus I–II፣ linear algebra I።'],['2ኛ ዓመት','የዳታ መዋቅሮች፣ object-oriented ንድፍ፣ የኮምፒውተር አርክቴክቸር። አልጎሪዝሞች፡ graphs፣ dynamic programming፣ greedy፣ complexity። ፕሮባቢሊቲ፣ ስታቲስቲክስ፣ linear algebra II።'],['3ኛ ዓመት','ኦፕሬቲንግ ሲስተሞች፣ ዳታቤዞች፣ ኔትወርኮች፣ compilers (ምርጫ)። የኮምፒውቴሽን ቲዎሪ። Optimisation፣ numerical methods።'],['AI በ3ኛ ዓመት','የAI መግቢያ (search፣ logic፣ planning) እና Machine Learning I (regression፣ SVM፣ trees፣ k-means፣ PCA፣ cross-validation)።']],
+  tools:'Python፣ C፣ Linux፣ Git፣ SQL፣ Jupyter፣ LaTeX።',
+  extras:[['የሙያ ክህሎቶች','ቴክኒካዊ ጽሑፍ፣ LaTeX፣ የGit የሥራ ፍሰቶች፣ የምርምር ጽሑፎችን ማንበብ፣ ገለጻ ማቅረብ።']],
+  signature:'ትንሽ interpreter፣ key–value ዳታቤዝ ወይም የፍለጋ ሞተር ከባዶ መገንባትና ስለ ንድፉ ምርጫዎች ሪፖርት መጻፍ።',
+  africa:'ለእውነተኛ ሁኔታዎች ንድፍ፡ ቀርፋፋ ኔትወርክ፣ የመብራት መቋረጥና አሮጌ መሣሪያዎች። የዳታ መጭመቅ፣ ያለ ኢንተርኔት ማመሳሰልና በRaspberry Pi አነስተኛ ኃይል ኮምፒውቲንግን ተለማመድ። አንድ የአካባቢ መሣሪያ (ለምሳሌ የፓምፕ መቆጣጠሪያ ወይም የክሊኒክ መሣሪያ) ፈትተህ ተረዳና ጠግን። አነስተኛ የተማሪዎች ንግድ አስመዝግብ፣ የአእምሯዊ ንብረት መሠረቶችን ተማር፣ በአካባቢ የቴክ ማዕከላት ልምምድ (internship) አድርግ።',
+  exit:'በጥሩ ዩኒቨርሲቲ የ3ኛ ዓመት የመጨረሻ ፈተና ደረጃ የኮምፒውተር ሳይንስ መሠረት ፈተና (አልጎሪዝም፣ ሲስተሞች፣ ሒሳብ) እና የፕሮጀክቱ ሪፖርት።',
+  biz:['ንግድ ማስመዝገብ፣ ውሎች፣ አእምሯዊ ንብረት፣ የአንድ ምርት ኢኮኖሚክስ፣ ቡድን መገንባት','ተደጋጋሚ ገቢ ያለው የተመዘገበ የተማሪዎች ኩባንያ'],
+  practice:['በC የተጻፈ Unix shell','በNumPy ከባዶ የተሠራ ኒውራል ኔትወርክ','ለትንሽ የካልኩሌተር ቋንቋ compiler']},
+ {stage:'የመጨረሻ የዲግሪ ዓመት + 1–3 ዓመት ሥራ',hours:'ሙሉ ጊዜ',
+  goal:'ሰዎች የሚተማመኑበት ሶፍትዌርና የML ሲስተም መገንባት፡ አገልግሎትን መንደፍ፣ መፈተሽ፣ ማሰማራትና መከታተል፣ ሞዴልን ከnotebook ወደ ምርት (production) ማድረስ።',
+  modules:[['የሶፍትዌር ምሕንድስና','ንጹሕ ኮድ፣ design patterns፣ የፈተና ፒራሚድ፣ የኮድ ግምገማ፣ ሰነድ አዘገጃጀት፣ agile አሠራር።'],['ክላውድና መሠረተ ልማት','Docker፣ የKubernetes መሠረቶች፣ አንድ የክላውድ አቅራቢ፣ infrastructure as code፣ CI/CD።'],['የዳታ ምሕንድስና','Pipelines፣ SQL በትልቅ መጠን፣ data warehouses፣ የዳታ ጥራት ፍተሻ።'],['ተግባራዊ ስታቲስቲክስ','የሙከራ ንድፍ፣ የመላምት ፈተናዎች፣ A/B testing፣ regression፣ የBayesian መሠረቶች።'],['ጥልቅ ትምህርት በተግባር','PyTorch፣ CNNs፣ transformers፣ transfer learning፣ ቀድሞ የሰለጠኑ ሞዴሎችን ማስተካከል (fine-tuning)።'],['MLOps','የሙከራ ክትትል፣ የሞዴል እትም፣ አገልግሎት መስጠት (serving)፣ የdrift ክትትል፣ የወጪ ቁጥጥር።'],['በAI ሞዴሎች መገንባት','LLM APIs፣ የprompt ንድፍ፣ retrieval-augmented generation (RAG)፣ የግምገማ ስብስቦች፣ መሣሪያ የሚጠቀሙ ኤጀንቶች፣ የደኅንነትና የግላዊነት ጥበቃዎች።'],['ደኅንነትና አስተማማኝነት','ደኅንነቱ የተጠበቀ ኮድ፣ ሚስጥሮች (secrets)፣ logging፣ የአደጋ ምላሽ።'],['የምርት ግንዛቤ','ተጠቃሚዎችን መረዳት፣ መግለጫ (spec) መጻፍ፣ ተጽዕኖን መገመት።']],
+  tools:'Python፣ አንድ typed ቋንቋ (TypeScript፣ Go ወይም Rust)፣ Docker፣ የክላውድ መድረክ፣ PyTorch፣ MLflow ወይም Weights & Biases፣ LLM API።',
+  extras:[],
+  signature:'እውነተኛ ተጠቃሚዎች ያሉት የተሰማራ የAI አገልግሎት፤ ለምሳሌ የዌብ ገጽ፣ የክትትል ዳሽቦርድና የተሰነደ የዳግም ሥልጠና pipeline ያለው የሰብል በሽታ ፎቶ መለያ።',
+  africa:'አገልግሎቱ በርካሽ የAndroid ስልኮች ላይና ያለ ኢንተርኔት መሥራት አለበት፤ በመሣሪያው ላይ የሚሠሩ ትናንሽ ሞዴሎችን (TinyML፣ quantised models) ተጠቀም። በአፍሪካ ቋንቋዎችና ለአካባቢ ሰብሎች፣ እንስሳትና በሽታዎች ክፍት ዳታሴቶችን ገንብተህ ልቀቅ። የንግድ ግብ፡ የሚከፍሉ ተጠቃሚዎች ያሉት ምርት፣ አንድ ወይም ሁለት ጀማሪ ሠራተኞች መቅጠርና የደረጃ 3 ተማሪዎችን ማሰልጠን።',
+  exit:'የሲስተም ንድፍ ቃለ-መጠይቅ፣ የምርት ደረጃ ኮድ ያለው የቤት ውስጥ ML ፕሮጀክት፣ እና አንድ አገልግሎት ለ3+ ወራት እየሠራ መሆኑን የሚያሳይ ማስረጃ።',
+  biz:['ሽያጭ፣ ማርኬቲንግ፣ የዋጋ ስትራቴጂ፣ ቅጥር፣ የሂሳብ መግለጫዎች','ትርፋማ ምርት፡ ገቢው ደሞዝን ጨምሮ ሁሉንም ወጪዎች ይሸፍናል'],
+  practice:['ፈተናዎች፣ CI እና Docker ያለው፣ ክላውድ ላይ የተሰማራ REST API','በAPI የሚቀርብ፣ fine-tune የተደረገ የምስል ወይም የጽሑፍ መለያ','በሰነዶች ስብስብ ላይ የሚሠራ፣ የግምገማ ስብስብ ያለው RAG ረዳት']},
+ {stage:'ሁለተኛ ዲግሪ + PhD (4–6 ዓመት)',hours:'ሙሉ ጊዜ',
+  goal:'አዲስ ዕውቀት መፍጠር፡ ክፍት ጥያቄን ወደሚፈተሽ ንድፍ መቀየር፣ ተደጋግሞ ሊረጋገጥ የሚችል ሙከራ በትልቅ መጠን ማካሄድ፣ በአቻ-ግምገማ መጽሔቶች ማሳተምና ክፍት፣ ሊጠቀስ የሚችል ሶፍትዌር መልቀቅ።',
+  modules:[['የማሽን ለርኒንግ ቲዎሪ','Statistical learning theory፣ kernels፣ graphical models፣ Bayesian inference፣ causal inference።'],['ጥልቅ ትምህርት (deep learning)','Optimisation፣ regularisation፣ attention እና transformers፣ generative models (VAE፣ GAN፣ diffusion)፣ graph neural networks።'],['Reinforcement learning','MDPs፣ dynamic programming፣ Q-learning፣ policy gradients፣ actor-critic።'],['ሳይንሳዊ ኮምፒውቲንግ','HPC ክላስተሮችና SLURM፣ GPUs፣ parallel computing፣ የNextflow ወይም Snakemake የሥራ ፍሰቶች።'],['ስታቲስቲክስ ለሳይንስ','Mixed models፣ multiple testing፣ power analysis፣ simulation-based inference (ABC)።'],['የምርምር ጥበብ','በሳምንት 3–5 ጽሑፎችን ማንበብ፤ መላምቶች፣ baselines እና ablations፤ ተደጋግሞ ማረጋገጥ (containers፣ seeds፣ Zenodo DOI፣ CITATION.cff)፤ ጽሑፎችንና የፕሮጀክት ማመልከቻዎችን መጻፍ፤ የምርምር ታማኝነት፤ ማስተማርና መቆጣጠር።']],
+  tools:'PyTorch ወይም JAX፣ R፣ Bash፣ SLURM፣ Docker/Apptainer፣ Nextflow/Snakemake፣ Git፣ LaTeX ወይም Quarto።',
+  extras:[],
+  signature:'ከ3–4 የመጀመሪያ ደራሲ ጽሑፎች የተዋቀረ የPhD ጥናታዊ ጽሑፍ እና ሌሎች ላብራቶሪዎች የሚጠቀሙበት ቢያንስ አንድ የክፍት ምንጭ መሣሪያ።',
+  africa:'የምርምር ጥያቄው ከአፍሪካ ፍላጎት ይመነጫል፡ የሀገር በቀል ከብቶች፣ ፍየሎችና ሰብሎች ጂኖሚክስ፣ ሥር የሰደዱ በሽታዎች፣ የአየር ንብረት መላመድ፣ አፈርና ውሃ። ዳታው ከአፍሪካ ናሙናዎች ይገኛል፣ በግልጽ ይጋራል፣ አፍሪካዊ ተባባሪ ደራሲዎችና የዳታ ባለቤትነት ይኖሩታል። እያንዳንዱ ጥናት ውጤቱን የመጠቀሚያ ዕቅድ ይዞ ይጠናቀቃል፡ የፈጠራ ባለቤትነት (patent)፣ spin-off ኩባንያ፣ ለገበሬዎች አገልግሎት ወይም የማማከር ሥራ።',
+  exit:'የተሳካ የጥናት መከላከያ እና ለቀጣዮቹ 5 ዓመታት ራሱን የቻለ የምርምር ዕቅድ።',
+  biz:['የፈጠራ ባለቤትነት፣ ፈቃድ መስጠት (licensing)፣ የምርምር ድጋፍና የባለሀብት ገንዘብ፣ ማማከር','የምርምር ውጤትን በፈቃድ መሸጥ ወይም spin-off ኩባንያ መመሥረት'],
+  practice:['የታተመ ጽሑፍን ዋና ውጤት ደግሞ መሥራትና ኮዱን ማጋራት','በDOI የታተመ የNextflow ወይም Snakemake pipeline','የመጀመሪያ ደራሲ የሆንክበት የworkshop ወይም የኮንፈረንስ ጽሑፍ']},
+ {stage:'ከpostdoc እስከ ዋና ተመራማሪ (PI)',hours:'ሙሉ ጊዜ',
+  goal:'መስኩን መምራት፡ ሌሎች የሚከተሉትን የምርምር አጀንዳ ማውጣት፣ ቡድን መገንባትና ገንዘብ ማስገኘት፣ አሠራርን የሚቀይሩ ዘዴዎችን ወይም ግኝቶችን ማፍራት።',
+  modules:[['ትላልቅ የቋንቋ ሞዴሎች (LLMs)','የtransformer ውስጣዊ አሠራር፣ tokenisation፣ scaling laws፣ የዳታ ዝግጅት፣ instruction tuning፣ RLHF እና preference optimisation።'],['በትልቅ መጠን ማሰልጠን','Data፣ model እና pipeline parallelism፣ mixed precision፣ LoRA፣ inference optimisation እና quantisation።'],['ባለብዙ ሞዳልና መሠረታዊ ሞዴሎች','Vision–language models፣ የፕሮቲንና የDNA ቋንቋ ሞዴሎች፣ single-cell foundation models።'],['ኤጀንቶች (agents)','ዕቅድ፣ መሣሪያ መጠቀም፣ ማስታወሻ (memory)፣ ባለብዙ ኤጀንት ሲስተሞች፣ ረጅም ተግባራትን መገምገም።'],['ምክንያታዊነትና RL','RL from feedback፣ test-time compute፣ search፣ verifiers።'],['ተተርጓሚነት (interpretability)','Probing፣ attribution፣ mechanistic interpretability።'],['አሰላለፍና ደኅንነት (alignment)','Robustness፣ red-teaming፣ አደገኛ አቅሞችን መገምገም፣ ኃላፊነት የተሞላበት መልቀቅ።'],['የግምገማ ሳይንስ','የሚያስፈልገውን የሚለኩና ከብክለት የሚጠበቁ benchmarks።'],['አመራር','የምርምር ድጋፍ ማሸነፍ (ERC፣ MSCA፣ ብሔራዊ ገንዘብ ሰጪዎች)፣ መቅጠርና መምከር፣ ከሌሎች ዘርፎችና ኢንዱስትሪ ጋር አጋርነት፣ patents እና spin-offs፣ ለሕዝብና ለፖሊሲ ማሳወቅ።']],
+  tools:'ፍሮንቲየር እና ክፍት ሞዴሎች፣ distributed training frameworks፣ የGPU ክላስተሮች።',
+  extras:[],
+  signature:'ገንዘብ የተገኘለት ቡድን፣ በስፋት ጥቅም ላይ የዋለ ክፍት ሞዴል፣ መሣሪያ ወይም ዳታሴት፣ እንዲሁም ከፍተኛ ተጽዕኖ ያላቸው ጽሑፎች ያሉት ከ5 ዓመት በላይ የሚዘልቅ የምርምር ፕሮግራም።',
+  africa:'የልህቀት ማዕከላትን በውጭ ብቻ ሳይሆን በአህጉሪቱ ላይ ገንባና ምራ። ለአፍሪካ ቋንቋዎች፣ ጂኖሞችና የእርሻ ሥርዓቶች መሠረታዊ ሞዴሎችን አሰልጥን፤ በዳያስፖራ ያሉ ሳይንቲስቶችን በጋራ ፕሮጀክቶች አሳትፍ። የንግድ ግብ፡ አፍሪካዊ መሐንዲሶችን የሚቀጥርና ከአፍሪካ ውጭ የሚሸጥ የቴክኖሎጂ ኩባንያ መመሥረት ወይም ማስፋፋት።',
+  exit:'ፈተና የለውም፡ የሚለካው ራሱን በቻለ የምርምር ገንዘብ፣ በተጋባዥ ዋና ገለጻዎች፣ ዘዴዎችህ በሚጠቀሱበት መጠንና ባሰለጠንካቸው ሰዎች የሙያ ዕድገት ነው።',
+  biz:['የገንዘብ ማሰባሰቢያ ዙሮች፣ አስተዳደር (governance)፣ በብዙ አገሮች መስፋፋት','50+ ሠራተኞች ያሉት ወይም ከአፍሪካ ውጭ የሚሸጥ ኩባንያ'],
+  practice:['ለመስክህ መሠረታዊ ሞዴል ማሰልጠን ወይም ማስተካከል','ለሕዝብ ክፍት የሆነ benchmark ዳታሴት መልቀቅ','ብዙ ላብራቶሪዎች የሚሳተፉበትን የጋራ የምርምር ፕሮጀክት መምራት']},
+ {stage:'ዕድሜ ልክ፣ ከ14 ዓመት ጀምሮ',ages:'ማንኛውም',hours:'2–4 (ቀጣይ)',
+  goal:'ከመስኩ ለውጥ ቀድሞ መገኘት። ቋሚ ሴሚናር ነው፡ እያንዳንዱ ሞጁል በየዓመቱ በዚያ ዓመት አዳዲስ ጥናቶችና መሣሪያዎች ይታደሳል።',
+  modules:[['ኤጀንቲክ AI','የሚያቅዱ፣ ኮድ የሚጽፉ፣ ኢንተርኔት የሚያስሱና ሙከራ የሚያካሂዱ ራሳቸውን የቻሉ ኤጀንቶች፤ የሰው ቁጥጥር በኤጀንቶች ላይ።'],['AI ለሳይንስ','በባዮሎጂ፣ በኬሚስትሪ፣ በማቴሪያሎችና በአየር ንብረት በAI የሚመራ ግኝት፤ ራሳቸውን የሚያስኬዱ ላብራቶሪዎች።'],['AI በግብርናና በምግብ','የጂኖሚክ ትንበያ፣ ትክክለኛ እርሻ (precision farming)፣ ድሮኖች፣ የአየር ንብረትን የሚቋቋም ዝርያ ማሻሻል።'],['አካላዊ AI እና ሮቦቲክስ','የሮቦት መሠረታዊ ሞዴሎች፣ ከሲሙሌሽን ወደ እውነታ ማሸጋገር፣ የእርሻና የላብራቶሪ ሮቦቶች።'],['አዲስ ኮምፒውቲንግ','የኳንተም ኮምፒውቲንግ መሠረቶች፣ ኃይል ቆጣቢ የAI ሃርድዌር።'],['ደኅንነት፣ ሥነ-ምግባርና አስተዳደር','Alignment፣ የAI ሕግና ደንብ፣ አድልዎ፣ ግላዊነት፣ የተሳሳተ መረጃ።'],['የሰውና የAI ትብብር','በAI ረዳቶች ኮድ መጻፍ፣ የAI አስጠኚዎች፣ የሚለዋወጠው የሥራ ገበያ።'],['የAI ሥራ ፈጠራ','ሊፈቱ የሚገባቸውን ችግሮች መለየት፣ የAI ምርቶችን መገንባት፣ ገንዘብ ማግኘት፣ የክፍት ምንጭ የንግድ ሞዴሎች።']],
+  tools:'ኤጀንቶች፣ የAI-ለሳይንስ መሣሪያዎች፣ የሮቦቲክስ ኪቶች፣ የፖሊሲ ሰነዶች፤ በየሳምንቱ አንድ አዲስ መሣሪያ መሞከር።',
+  extras:[['እንዴት ወቅታዊ መሆን እንደሚቻል','በየቀኑ አንድ የAI ጥናት ማጠቃለያ አንብብ፣ በየሳምንቱ አንድ አዲስ መሣሪያ ሞክር፣ በየወሩ አንድ ነጸብራቅ ጻፍ፣ በየዓመቱ አንድ ኮንፈረንስ ወይም ወርክሾፕ ተሳተፍ።'],['አስተሳሰብ','የዛሬው ፍሮንቲየር በጥቂት ዓመታት ውስጥ የዕለት ተዕለት አሠራር ይሆናል። ዘላቂ የሆኑት ክህሎቶች መሠረቶች (ሒሳብ፣ ግልጽ አስተሳሰብ፣ ጽሑፍ)፣ የመማር ፍጥነትና ምን መገንባት እንደሚገባ የመለየት ብስለት ናቸው።']],
+  signature:'ዓመታዊ «የወደፊት ማጠቃለያ»፡ መስክህ በ5 ዓመት ውስጥ የት እንደሚደርስና እዚያ ለመድረስ ምን እንደምትገነባ የሚገልጽ ባለ 5 ገጽ ትንበያ፣ ከአማካሪ ጋር የሚገመገም።',
+  africa:'የሞባይል ገንዘብ የባንክ ቅርንጫፎችን እንደዘለለ ዝለል (leapfrog)። የአካባቢ ማምረት፣ 3D ፕሪንቲንግ፣ የፀሐይ ማይክሮ-ግሪዶች፣ ድሮኖችና በስልክ ላይ ያለ AI ውድ የሆኑ አሮጌ መሠረተ ልማቶችን እንዴት መዝለል እንደሚችሉ አጥና። የአፍሪካ ዳታ የአፍሪካ እሴት እንዲፈጥር የዳታ ባለቤትነትንና በአህጉሪቱ የሚገነባ AIን የሚመለከቱ ፖሊሲዎችን አጥና።',
+  exit:'በየዓመቱ ይታደሳል፡ ከአማካሪ ጋር የሚገመገመው የወደፊት ማጠቃለያ።',
+  biz:['ኢንቨስትመንት፣ የብዙ የገቢ ምንጮች ፖርትፎሊዮ፣ በጎ አድራጎት፣ በፖሊሲ ላይ ተጽዕኖ','ትርፍን በአዳዲስ ሥራዎችና በቀጣዮቹ ተማሪዎች ላይ እንደገና ኢንቨስት ማድረግ'],
+  practice:['የምርምርህን አንድ ደረጃ በራሱ የሚያከናውን AI ኤጀንት መገንባት','ስለ አዲስ የAI ርዕስ ለሕዝብ የሚሆን ማብራሪያ መጻፍ','የሚከፍሉ ተጠቃሚዎች ያሉት ትንሽ የAI ምርት ወይም አገልግሎት መጀመር']}
+];
+
+const AM_RULES = [
+  ['ችግር ቅድሚያ።','ተማሪው ሊያየው ከሚችለው እውነተኛ ችግር ጀምር፡ እርሻ፣ ውሃ፣ ጤና፣ ትምህርት ቤት፣ ገበያ ወይም በቤት ውስጥ ያለ ኃይል።'],
+  ['በቁጠባ ጀምር።','ስልክ፣ እንደገና ጥቅም ላይ የሚውሉ ኤሌክትሮኒክስ፣ የፀሐይ ኃይልና ነፃ የክፍት ምንጭ ሶፍትዌር ተጠቀም። ምንም ነገር ፈጣን ኢንተርኔት ወይም ውድ መሣሪያ መጠየቅ የለበትም።'],
+  ['ያለ ኢንተርኔት ቅድሚያ።','እያንዳንዱ መሣሪያና ፕሮጀክት ያለ ኢንተርኔት መሥራትና ግንኙነት ሲገኝ ማመሳሰል አለበት።'],
+  ['አፍ መፍቻ ቋንቋ ቅድሚያ።','ሐሳቦችን በአካባቢ ቋንቋ (አማርኛ፣ ስዋሂሊ፣ ሃውሳ፣ ዮሩባ፣ ኦሮምኛና ሌሎች) አስተምር፤ ለኮድ ቃላት እንግሊዝኛ ተጠቀም።'],
+  ['ተጠቃሚና ዋጋ።','እያንዳንዱ ፕሮጀክት ማን እንደሚጠቀምበትና ማን እንደሚከፍል ይገልጻል፤ በKG ደረጃ «ዋጋው» ቶከን ቢሆንም።'],
+  ['መልሶ ማስተማር።','የእያንዳንዱ ደረጃ ተመራቂ ከሱ በታች ባለው ደረጃ ቢያንስ አምስት ተማሪዎችን ያሰለጥናል።']
+];
+
+const AM_TRACKS = [
+ ['ባዮኢንፎርማቲክስና ጂኖሚክስ','DNA እንደ ዳታ፤ Biopython፤ የRosalind ችግሮች','Sequence alignment፣ variant calling፣ PLINK፣ GWAS፣ population genetics፣ R/Bioconductor','Multi-omics integration፣ selection signatures፣ ABC እና ML ለዲሞግራፊ፣ ጂኖሚክ መሠረታዊ ሞዴሎች'],
+ ['የግብርና ቴክኖሎጂ AI','የሴንሰር መረጃ መመዝገብ፣ የአየር ሁኔታ ዳታ','Remote sensing፣ የሰብልና የእንስሳት ዳታ pipelines፣ የዕፅዋት በሽታ ምስል መለያ','Genomic selection፣ የእርሻ ዲጂታል መንታ (digital twin)፣ የአየር ንብረት መላመድ ሞዴሊንግ'],
+ ['ቆጣቢ ምሕንድስናና የአካባቢ ማምረት','መሣሪያዎችን መጠገን፣ ከኤሌክትሮኒክ ቆሻሻ ክፍሎችን ማግኘት፣ ቀላል ሰርኪቶች','CAD፣ 3D ፕሪንቲንግ፣ CNC፣ ርካሽ ማሽንና መሣሪያ ንድፍ','በብዛት ለአካባቢ ማምረት የሚሆን ንድፍ፣ ተስማሚ የቴክኖሎጂ ምርምር'],
+ ['የኃይልና የውሃ ቴክኖሎጂ','የፀሐይ ኪቶች፣ የውሃ ደረጃ ሴንሰሮች','የፀሐይ ማይክሮ-ግሪዶች፣ የባትሪ አስተዳደር፣ ብልህ መስኖ፣ የውሃ ማጣሪያ ቁጥጥር','ከግሪድ ውጭ የኃይል ሲስተሞች፣ የአየር ንብረትና የውሃ ሞዴሊንግ'],
+ ['ዌብና ሞባይል አፖች','HTML/CSS/JS፣ አንድ framework','React ወይም ተመሳሳይ፣ APIs፣ ዳታቤዞች፣ Flutter ወይም React Native፣ USSD/SMS እና የሞባይል ገንዘብ ውህደት','ትላልቅ ሲስተሞች፣ የሰውና የኮምፒውተር መስተጋብር ምርምር'],
+ ['ሮቦቲክስና embedded ሲስተሞች','micro:bit፣ Arduino','ROS፣ control theory፣ computer vision፣ embedded C','Robot learning፣ አካላዊ መሠረታዊ ሞዴሎች'],
+ ['የAI ሥራ ፈጠራ','ትንሽ የሚከፈልበት አፕ ወይም አገልግሎት','የምርት አስተዳደር፣ የstartup ፋይናንስ፣ የክፍት ምንጭ ፈቃዶች','ከምርምር የሚወጡ spin-offs፣ venture funding፣ ኩባንያን ማስፋፋት'],
+ ['የAI ትምህርት','ታናናሽ ተማሪዎችን ማስተማር','የሥርዓተ ትምህርት ንድፍ፣ የትምህርት ቴክኖሎጂ፣ የሁለት ቋንቋ ይዘት','የመማር ሳይንስ ምርምር፣ የAI አስጠኚዎች']
+];
+
+const AM_MODELS = [
+ ['ኤሌክትሮኒክስ መጠገን፣ ማደስና እንደገና መሸጥ','የእጅ መሣሪያዎችና የኤሌክትሮኒክ ቆሻሻ','በእያንዳንዱ የታደሰ መሣሪያ ላይ ያለ ትርፍ'],
+ ['ለአነስተኛ ንግዶች ሶፍትዌር (SaaS)','ላፕቶፕና አንድ ግልጽ ችግር','ወርሃዊ የደንበኝነት ክፍያ'],
+ ['የገበያ ቦታ አፕ (ምርት፣ ትራንስፖርት፣ አገልግሎቶች)','USSD እትም ያለው፣ ያለ ኢንተርኔት የሚሠራ አፕ','በእያንዳንዱ ግብይት ላይ ኮሚሽን'],
+ ['በአካባቢ ቋንቋዎች ኮርሶችና ይዘት','የስልክ ካሜራና የYouTube ቻናል','ማስታወቂያ፣ የደንበኝነት ክፍያ፣ ከትምህርት ቤቶች ጋር ውል'],
+ ['እየተከፈለ የሚጠቀሙበት ሃርድዌር (ፀሐይ፣ ፓምፕ፣ ሴንሰር)','ርካሽ ኪትና የሞባይል ገንዘብ','አነስተኛ ዕለታዊ ወይም ሳምንታዊ ክፍያዎች'],
+ ['የግብርናና የፊንቴክ ዳታ አገልግሎቶች','የስልክና የሴንሰር ዳታ','ለብድር ምዘና፣ ለመድን፣ ለምርት ትንበያ ክፍያዎች'],
+ ['ለአካባቢ ገበያ AI ምርቶችና ኤጀንቶች','ክፍት ሞዴሎችና የአካባቢ ዳታ','የደንበኝነትና በአጠቃቀም ልክ ክፍያ'],
+ ['ለዓለም አቀፍ ደንበኞች የርቀት ሶፍትዌርና የዳታ ሥራ','ክህሎትና የኢንተርኔት ግንኙነት','በውጭ ምንዛሪ የሚከፈሉ ውሎች'],
+ ['በምርምር ላይ የተመሠረተ አእምሯዊ ንብረትና ማማከር','የተረጋገጠ ዘዴ ወይም መሣሪያ','የፈቃድ ክፍያ፣ ማማከር፣ የኮንትራት ምርምር']
+];
+
+const AM_WEALTH = [
+ ['ብዙ ሰዎች ደጋግመው የሚከፍሉበትን ችግር ፍታ።','ተደጋጋሚ ክፍያዎች ሀብት ይገነባሉ፤ የአንድ ጊዜ ሽያጮች አይገነቡም።'],
+ ['ወጪን ዝቅ አድርግ።','ገቢ ሐሳቡን እስኪያረጋግጥ ድረስ ቆጣቢ መሣሪያዎችን፣ የክፍት ምንጭ ሶፍትዌርና ትንሽ ቡድን ተጠቀም።'],
+ ['የአክሲዮንና የአእምሯዊ ንብረት ባለቤት ሁን፤','ደሞዝ ብቻ አይደለም። ኩባንያህን፣ የንግድ ምልክትህንና ፈጠራዎችህን አስመዝግብ።'],
+ ['የንግድ ገንዘብን ከግል ገንዘብ ለይ፤','ሂሳቦቹንም በየወሩ ገምግም።'],
+ ['ከማውጣትህ በፊት እንደገና ኢንቨስት አድርግ።','የመጠባበቂያ ገንዘብ ገንባ፣ ከዚያ ትርፍን ወደ ዕድገት መልሰህ አስገባ።'],
+ ['ብዙ የገቢ ምንጮችን ገንባ','(ምርት፣ አገልግሎት፣ ማስተማር፣ ፈቃድ፣ ኢንቨስትመንት)፤ አንዱ ቢወድቅ ሥራህ አይቆምም።'],
+ ['በጠንካራ ምንዛሪ አግኝ፤','በተቻለ ፍጥነት ከሀገርህ ገበያ ውጭ ሽጥ።'],
+ ['በሕግ ሥራ፣ ግብር ክፈል።','የደንበኞች፣ የባንኮችና የባለሀብቶች እምነት የንግድ ሀብት ነው።'],
+ ['ቅጠርና አሰልጥን።','ሰዎችን የሚያሳድግ ኩባንያ አህጉሪቱን ያሳድጋል፣ ከመሥራቹም በላይ ይኖራል።']
+];
+
+const AM_RES = ['ስክሪን የማይፈልጉ የኮምፒውቴሽናል አስተሳሰብ ጨዋታዎች','በታብሌት ላይ የመጀመሪያ ኮዲንግ','በብሎክ የሚሠሩ ጨዋታዎችና ታሪኮች (ያለ ኢንተርኔት የሚሠራ መተግበሪያ አለው)','በክፍል ደረጃ የተዋቀሩ ኮርሶች','የመጀመሪያ በእጅ የሚሠራ የማሽን ለርኒንግ ልምምድ','አካላዊ ኮምፒውቲንግ ፕሮጀክቶች','ይፋዊው የPython መግቢያ','የዌብ ልማትና የPython ሰርተፊኬቶች','ከአልጀብራ እስከ linear algebra ሒሳብ','የሃርቫርድ የኮምፒውተር ሳይንስ መግቢያ','ሙሉ የዩኒቨርሲቲ የኮምፒውተር ሳይንስና የሒሳብ ኮርሶች','Shell፣ Git፣ ኤዲተሮች፣ ስህተት ማረም','አጫጭር የዳታ ሳይንስና የML ኮርሶች','ተግባራዊ ጥልቅ ትምህርት','ኮድ ያለው በይነተገናኝ የጥልቅ ትምህርት መጽሐፍ','Transformers፣ LLMs እና ኤጀንቶች','የGPT ዓይነት ሞዴሎችን ከባዶ መገንባት','የጥልቅ ትምህርት ቲዎሪ','Reinforcement learning','NLP በጥልቅ ትምህርት','የባዮኢንፎርማቲክስ ችግሮች','ተደጋግሞ ሊረጋገጥ የሚችል የምርምር ኮምፒውቲንግ','አዳዲስ የምርምር ጽሑፎች፣ በየቀኑ'];
+
+const AM_CERTS = [
+ ['የትንሽ ኮደር ባጅ','የማለፊያ ፈተና ቅደም ተከተል + የሮቦት መንገድ ቪዲዮ','መምህር'],
+ ['የብሎክ ገንቢ ሰርተፊኬት','የScratch ጨዋታ + የቃል ማብራሪያ','መምህር'],
+ ['የወጣት ሠሪ ሰርተፊኬት','የPython ፕሮግራም + ድረ-ገጽ + የመሣሪያ ፕሮጀክት','መምህር + የአቻ ግምገማ'],
+ ['የፕሮግራመር ሰርተፊኬት','የ3 ሰዓት ተግባራዊ ፈተና + የተከላከሉት ፕሮጀክት + የGitHub ፕሮፋይል','ሁለት መምህራን ወይም አማካሪዎች'],
+ ['የኮምፒውተር ሳይንስ መሠረቶች ዲፕሎማ','የኮምፒውተር ሳይንስ መሠረት ፈተና + የንድፍ ሪፖርት','የዩኒቨርሲቲ ኮሚቴ'],
+ ['ባለሙያ የAI መሐንዲስ','የሲስተም ንድፍ + የሚሠራ አገልግሎት ማስረጃ','ከፍተኛ መሐንዲሶች'],
+ ['የምርምር ሳይንቲስት','የጥናት መከላከያ + የክፍት ምንጭ መሣሪያ','የጥናት ኮሚቴ'],
+ ['ፌሎው (Fellow)','ገንዘብ የተገኘለት ፕሮግራም + በመስኩ ላይ ተጽዕኖ','የውጭ አቻዎች'],
+ ['የወደፊት አሳቢ (በየዓመቱ ይታደሳል)','ዓመታዊ የወደፊት ማጠቃለያ','አማካሪ']
+];
+
 /* ---------- helpers ---------- */
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const itemKeys = n => ['p0','p1','p2','sig','exit'].map(k => 'L'+n+'-'+k);
@@ -389,9 +586,19 @@ function renderNav(route){
     <div class="nav-group"><div class="nav-label">${esc(t('more'))}</div>${link('business',t('business'))}${link('tracks',t('tracks'))}${link('resources',t('resources'))}${link('progress',t('progress'))}${link('certificates',t('certificates'))}${link('about',t('about'))}</div>`;
 }
 
+/* ---------- language helpers ---------- */
+const isAm = () => state.lang==='am';
+function lv(n){ const L=LEVELS[n]; return isAm()?Object.assign({},L,AM_LEVELS[n]):L; }
+const rules = () => isAm()?AM_RULES:RULES;
+const tracks = () => isAm()?AM_TRACKS:TRACKS;
+const models = () => MODELS.map((m,i)=> isAm()?[...AM_MODELS[i],m[3]]:m);
+const wealth = () => isAm()?AM_WEALTH:WEALTH;
+const resDesc = i => isAm()?AM_RES[i]:RESOURCES[i][2];
+const certs = () => CERTS.map((c,i)=> isAm()?[c[0],...AM_CERTS[i]]:c);
+
 /* ---------- views ---------- */
 function cycleSVG(){
-  const am = state.lang==='am', names = am?CYCLE.am:CYCLE.en, lines = am?CYCLE.am2:CYCLE.en2;
+  const am = isAm(), names = am?CYCLE.am:CYCLE.en, lines = am?CYCLE.am2:CYCLE.en2;
   const xs=[104,288,472,656];
   let s = `<svg class="cycle" viewBox="0 0 760 200" role="img" aria-label="${esc(names.join(', '))}"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs><g fill="none" stroke="var(--muted)" stroke-width="1.25">`;
   for(let i=0;i<3;i++) s += `<path d="M${xs[i]+80} 72H${xs[i+1]-80}" marker-end="url(#ar)"/>`;
@@ -409,37 +616,35 @@ function viewHome(){
   const m = MISSION[state.lang]||MISSION.en;
   return `<div class="col">
    <div class="card accent">
-     <span class="eyebrow">${state.lang==='am'?'ከKG1 እስከ ዓለም አቀፍ ፈጣሪ':'KG1 to world-class innovator'}</span>
+     <span class="eyebrow">${esc(t('eyebrowHome'))}</span>
      <h1>${esc(t('brand'))}</h1>
      <p class="lead">${m[0]}</p><p>${m[1]}</p>
-     <div class="chips"><span class="chip"><strong>9</strong> levels</span><span class="chip"><strong>8</strong> specialisation tracks</span><span class="chip"><strong>9</strong> business models</span><span class="chip">Free · offline-first</span></div>
+     <div class="chips"><span class="chip"><strong>9</strong> ${esc(t('chipLevels'))}</span><span class="chip"><strong>8</strong> ${esc(t('chipTracks'))}</span><span class="chip"><strong>9</strong> ${esc(t('chipModels'))}</span><span class="chip">${esc(t('chipFree'))}</span></div>
      <div><a class="btn primary" href="#level-0">${esc(t('start'))}</a></div>
    </div>
-   ${state.lang==='am'?`<p class="note">${esc(t('amNote'))}</p>`:''}
-   <section class="card"><h2>${state.lang==='am'?'የግንባታ ዑደት':'The build cycle every module follows'}</h2>
-     <p>A learner first uses a tool, then rebuilds it, then changes it for a local need, then makes and sells it. The loop back is how the continent grows its own human resource.</p>
+   <section class="card"><h2>${esc(t('cycleTitle'))}</h2><p>${esc(t('cycleText'))}</p>
      <div class="tablewrap">${cycleSVG()}</div></section>
    <section class="card"><h2>${esc(t('levels'))}</h2>
-     <p class="muted small">Move up by passing each level’s exit test, not by age. Adults usually start at Level 2.</p>
-     <div class="ladder">${LEVELS.map(L=>`<a class="rung" href="#level-${L.n}"><div class="rung-top"><span class="rung-n">${L.n}</span><span class="rung-name">${esc(levelName(L))}</span></div><span class="small muted">${esc(L.stage)} · ${esc(L.ages)}</span><div class="bar" aria-label="${levelPct(L.n)}% ${esc(t('done'))}"><span style="width:${levelPct(L.n)}%"></span></div></a>`).join('')}</div></section>
-   <section class="card"><h2>Six rules every lesson follows</h2>
-     <ol class="clean">${RULES.map(r=>`<li><strong>${esc(r[0])}</strong> ${esc(r[1])}</li>`).join('')}</ol>
-     <p class="note"><strong>The world-class bar.</strong> Local tools, global standard: olympiads and hackathons at school, Kaggle and open source at university, top journals and investors at research level.</p></section>
+     <p class="muted small">${esc(t('ladderNote'))}</p>
+     <div class="ladder">${LEVELS.map(L0=>{const L=lv(L0.n);return `<a class="rung" href="#level-${L.n}"><div class="rung-top"><span class="rung-n">${L.n}</span><span class="rung-name">${esc(levelName(L))}</span></div><span class="small muted">${esc(L.stage)} · ${esc(L.ages)}</span><div class="bar" aria-label="${levelPct(L.n)}% ${esc(t('done'))}"><span style="width:${levelPct(L.n)}%"></span></div></a>`}).join('')}</div></section>
+   <section class="card"><h2>${esc(t('rulesTitle'))}</h2>
+     <ol class="clean">${rules().map(r=>`<li><strong>${esc(r[0])}</strong> ${esc(r[1])}</li>`).join('')}</ol>
+     <p class="note">${t('worldBar')}</p></section>
   </div>`;
 }
 
 function viewLevel(n){
-  const L = LEVELS[n]; if(!L) return viewHome();
-  const keys = itemKeys(n);
-  const items = [...L.practice.map((p,i)=>[keys[i], (state.lang==='am'?'ልምምድ':'Practice')+' '+(i+1)+': '+p]), [keys[3], t('signature')+': '+L.signature], [keys[4], t('exit')+': '+L.exit]];
-  const res = RESOURCES.filter(r=>r[3].includes(n));
+  if(!LEVELS[n]) return viewHome();
+  const L = lv(n), keys = itemKeys(n);
+  const items = [...L.practice.map((p,i)=>[keys[i], t('practiceN')+' '+(i+1)+': '+p]), [keys[3], t('signature')+': '+L.signature], [keys[4], t('exit')+': '+L.exit]];
+  const res = RESOURCES.map((r,i)=>[r,i]).filter(([r])=>r[3].includes(n));
   const prev = n>0?`<a class="btn" href="#level-${n-1}">← ${esc(t('prev'))}</a>`:'<span></span>';
   const next = n<8?`<a class="btn primary" href="#level-${n+1}">${esc(t('next'))} →</a>`:'';
   return `<div class="col">
    <div class="hero-level"><span class="big-n">${n}</span><div style="display:flex;flex-direction:column;gap:8px">
      <span class="eyebrow">${esc(L.stage)}</span><h1>${esc(levelName(L))}</h1>
      <div class="chips"><span class="chip">${esc(t('ages'))}: <strong>${esc(L.ages)}</strong></span><span class="chip">${esc(t('hours'))}: <strong>${esc(L.hours)}</strong></span><span class="chip">${levelPct(n)}% ${esc(t('done'))}</span></div></div></div>
-   <section class="card"><h2>${esc(t('goal'))}</h2><p class="lead">${esc(state.lang==='am'?L.goalAm:L.goal)}</p>${state.lang==='am'?`<p class="muted small">${esc(L.goal)}</p>`:''}</section>
+   <section class="card"><h2>${esc(t('goal'))}</h2><p class="lead">${esc(L.goal)}</p></section>
    <section class="card"><h2>${esc(t('modules'))}</h2><ol class="clean">${L.modules.map(m=>`<li><strong>${esc(m[0])}.</strong> ${esc(m[1])}</li>`).join('')}</ol>
      <p class="small"><strong>${esc(t('tools'))}:</strong> ${esc(L.tools)}</p></section>
    ${L.extras.length?`<section class="card"><h3>${esc(t('also'))}</h3><ul class="clean">${L.extras.map(e=>`<li><strong>${esc(e[0])}:</strong> ${esc(e[1])}</li>`).join('')}</ul></section>`:''}
@@ -447,84 +652,83 @@ function viewLevel(n){
    <section class="card gold"><h2>${esc(t('africa'))}</h2><p>${esc(L.africa)}</p>
      <div class="tablewrap"><table><tr><th>${esc(t('bizSkills'))}</th><th>${esc(t('milestone'))}</th></tr><tr><td>${esc(L.biz[0])}</td><td>${esc(L.biz[1])}</td></tr></table></div></section>
    <section class="card"><h2>${esc(t('exit'))}</h2><p>${esc(L.exit)}</p></section>
-   <section class="card"><h2>${esc(t('practice'))} &amp; ${state.lang==='am'?'ማረጋገጫ':'checklist'}</h2>
+   <section class="card"><h2>${esc(t('practice'))} &amp; ${esc(t('checklist'))}</h2>
      <div>${items.map(([k,label])=>`<div class="check ${state.progress[k]?'done':''}"><input type="checkbox" id="${k}" data-key="${k}" ${state.progress[k]?'checked':''}><label for="${k}">${esc(label)}</label></div>`).join('')}</div>
-     <p class="muted small">Ticks are saved in this browser only. Use My progress to copy them to another device.</p></section>
-   ${res.length?`<section class="card"><h2>${esc(t('levelRes'))}</h2><ul class="clean">${res.map(r=>`<li><a href="${esc(r[1])}" target="_blank" rel="noopener">${esc(r[0])}</a> <span class="muted">– ${esc(r[2])}</span></li>`).join('')}</ul></section>`:''}
+     <p class="muted small">${esc(t('tickNote'))}</p></section>
+   ${res.length?`<section class="card"><h2>${esc(t('levelRes'))}</h2><ul class="clean">${res.map(([r,i])=>`<li><a href="${esc(r[1])}" target="_blank" rel="noopener">${esc(r[0])}</a> <span class="muted">– ${esc(resDesc(i))}</span></li>`).join('')}</ul></section>`:''}
    <div class="pager">${prev}${next}</div>
   </div>`;
 }
 
 function viewBusiness(){
   return `<div class="col">
-   <div class="card accent"><span class="eyebrow">Enterprise and wealth path</span><h1>${esc(t('business'))}</h1>
-     <p class="lead">Business skills are taught beside code at every level, so a graduate turns skill into income, income into a company, and the company into lasting wealth.</p></div>
-   <section class="card"><h2>Business ladder by level</h2><div class="tablewrap"><table><tr><th>Level</th><th>${esc(t('bizSkills'))}</th><th>${esc(t('milestone'))}</th></tr>
-     ${LEVELS.map(L=>`<tr><td class="num"><a href="#level-${L.n}">${L.n} · ${esc(levelName(L))}</a></td><td>${esc(L.biz[0])}</td><td>${esc(L.biz[1])}</td></tr>`).join('')}</table></div></section>
-   <section class="card"><h2>High-profit business models that start small</h2>
-     <p>Pick models that cost little to start and earn again and again. Software and knowledge businesses are the most profitable because one product sells many times at almost no extra cost.</p>
-     <div class="tablewrap"><table><tr><th>Business model</th><th>Start with</th><th>How it earns</th><th>From level</th></tr>
-     ${MODELS.map(m=>`<tr><td><strong>${esc(m[0])}</strong></td><td>${esc(m[1])}</td><td>${esc(m[2])}</td><td class="num"><a href="#level-${m[3]}">${m[3]}</a></td></tr>`).join('')}</table></div>
-     <p class="note"><strong>Stack the models.</strong> Run a product that earns subscriptions, a services arm that pays the bills early, and courses or licensing that earn from what the team already knows.</p></section>
-   <section class="card"><h2>Rules for turning profit into wealth</h2><p class="muted small">Taught from Level 3, practised with real money from Level 5.</p>
-     <ol class="clean">${WEALTH.map(w=>`<li><strong>${esc(w[0])}</strong> ${esc(w[1])}</li>`).join('')}</ol></section>
+   <div class="card accent"><span class="eyebrow">${esc(t('bizEyebrow'))}</span><h1>${esc(t('business'))}</h1>
+     <p class="lead">${esc(t('bizLead'))}</p></div>
+   <section class="card"><h2>${esc(t('bizLadder'))}</h2><div class="tablewrap"><table><tr><th>${esc(t('level'))}</th><th>${esc(t('bizSkills'))}</th><th>${esc(t('milestone'))}</th></tr>
+     ${LEVELS.map(L0=>{const L=lv(L0.n);return `<tr><td class="num"><a href="#level-${L.n}">${L.n} · ${esc(levelName(L))}</a></td><td>${esc(L.biz[0])}</td><td>${esc(L.biz[1])}</td></tr>`}).join('')}</table></div></section>
+   <section class="card"><h2>${esc(t('modelsTitle'))}</h2><p>${esc(t('modelsLead'))}</p>
+     <div class="tablewrap"><table><tr><th>${esc(t('thModel'))}</th><th>${esc(t('thStart'))}</th><th>${esc(t('thEarn'))}</th><th>${esc(t('thFrom'))}</th></tr>
+     ${models().map(m=>`<tr><td><strong>${esc(m[0])}</strong></td><td>${esc(m[1])}</td><td>${esc(m[2])}</td><td class="num"><a href="#level-${m[3]}">${m[3]}</a></td></tr>`).join('')}</table></div>
+     <p class="note">${t('stack')}</p></section>
+   <section class="card"><h2>${esc(t('wealthTitle'))}</h2><p class="muted small">${esc(t('wealthNote'))}</p>
+     <ol class="clean">${wealth().map(w=>`<li><strong>${esc(w[0])}</strong> ${esc(w[1])}</li>`).join('')}</ol></section>
   </div>`;
 }
 
 function viewTracks(){
-  return `<div class="col"><div class="card accent"><h1>${esc(t('tracks'))}</h1><p class="lead">Choose one or two from Level 3 upward. Each track runs beside the main ladder, with domain modules swapped in. Finish the Level 4 maths and CS core before going deep.</p></div>
-   <section class="card"><div class="tablewrap"><table><tr><th>Track</th><th>Level 3 (school)</th><th>Level 4–5 (BSc / work)</th><th>Level 6–7 (research)</th></tr>
-   ${TRACKS.map(r=>`<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')}</table></div></section></div>`;
+  return `<div class="col"><div class="card accent"><h1>${esc(t('tracks'))}</h1><p class="lead">${esc(t('tracksLead'))}</p></div>
+   <section class="card"><div class="tablewrap"><table><tr><th>${esc(t('thTrack'))}</th><th>${esc(t('thL3'))}</th><th>${esc(t('thL45'))}</th><th>${esc(t('thL67'))}</th></tr>
+   ${tracks().map(r=>`<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join('')}</table></div></section></div>`;
 }
 
 function viewResources(){
   const f = state.resFilter;
-  const list = RESOURCES.filter(r => f==='all' || r[3].includes(+f));
-  const btn = (v,label) => `<button data-res="${v}" aria-pressed="${String(f)===String(v)}">${label}</button>`;
-  return `<div class="col"><div class="card accent"><h1>${esc(t('resources'))}</h1><p class="lead">Every level can be completed with free material. Check each site for its current course version before starting.</p></div>
-   <section class="card"><div class="filter" role="group" aria-label="Filter by level">${btn('all','All levels')}${LEVELS.map(L=>btn(L.n,'Level '+L.n)).join('')}</div>
-   <div class="tablewrap"><table><tr><th>Resource</th><th>Use it for</th><th>Levels</th></tr>
-   ${list.map(r=>`<tr><td><a href="${esc(r[1])}" target="_blank" rel="noopener">${esc(r[0])}</a></td><td>${esc(r[2])}</td><td class="num">${r[3].join(', ')}</td></tr>`).join('')}</table></div></section></div>`;
+  const list = RESOURCES.map((r,i)=>[r,i]).filter(([r]) => f==='all' || r[3].includes(+f));
+  const btn = (v,label) => `<button data-res="${v}" aria-pressed="${String(f)===String(v)}">${esc(label)}</button>`;
+  return `<div class="col"><div class="card accent"><h1>${esc(t('resources'))}</h1><p class="lead">${esc(t('resLead'))}</p></div>
+   <section class="card"><div class="filter" role="group" aria-label="${esc(t('filterBy'))}">${btn('all',t('allLevels'))}${LEVELS.map(L=>btn(L.n,t('level')+' '+L.n)).join('')}</div>
+   <div class="tablewrap"><table><tr><th>${esc(t('thRes'))}</th><th>${esc(t('thUse'))}</th><th>${esc(t('thLevels'))}</th></tr>
+   ${list.map(([r,i])=>`<tr><td><a href="${esc(r[1])}" target="_blank" rel="noopener">${esc(r[0])}</a></td><td>${esc(resDesc(i))}</td><td class="num">${r[3].join(', ')}</td></tr>`).join('')}</table></div></section></div>`;
 }
 
 function viewProgress(){
   const total = LEVELS.length*5, done = Object.values(state.progress).filter(Boolean).length;
-  return `<div class="col"><div class="card accent"><h1>${esc(t('progress'))}</h1><p class="lead">${done} of ${total} items done across all levels.</p></div>
-   <section class="card"><div class="tablewrap"><table><tr><th>Level</th><th>Done</th><th style="width:45%">Progress</th></tr>
+  return `<div class="col"><div class="card accent"><h1>${esc(t('progress'))}</h1><p class="lead">${esc(t('progLead').replace('{d}',done).replace('{t}',total))}</p></div>
+   <section class="card"><div class="tablewrap"><table><tr><th>${esc(t('level'))}</th><th>${esc(t('thDone'))}</th><th style="width:45%">${esc(t('thProgress'))}</th></tr>
    ${LEVELS.map(L=>{const p=levelPct(L.n);return `<tr><td><a href="#level-${L.n}">${L.n} · ${esc(levelName(L))}</a></td><td class="num">${p}%</td><td><div class="bar"><span style="width:${p}%"></span></div></td></tr>`}).join('')}</table></div></section>
-   <section class="card"><h2>Move your progress to another device</h2>
-     <p class="small">Progress is stored only in this browser. Copy your progress code, then paste it on the other device.</p>
-     <div class="chips"><button class="btn" id="copyCode">Copy progress code</button><button class="btn" id="resetProg">Clear all ticks</button></div>
-     <label for="codeBox" class="small muted">Progress code</label>
-     <textarea id="codeBox" spellcheck="false" placeholder="Paste a progress code here, then press Load code"></textarea>
-     <div><button class="btn primary" id="loadCode">Load code</button></div>
+   <section class="card"><h2>${esc(t('moveTitle'))}</h2>
+     <p class="small">${esc(t('moveText'))}</p>
+     <div class="chips"><button class="btn" id="copyCode">${esc(t('copyCode'))}</button><button class="btn" id="resetProg">${esc(t('resetProg'))}</button></div>
+     <label for="codeBox" class="small muted">${esc(t('codeLabel'))}</label>
+     <textarea id="codeBox" spellcheck="false" placeholder="${esc(t('codePh'))}"></textarea>
+     <div><button class="btn primary" id="loadCode">${esc(t('loadCode'))}</button></div>
      <p class="status" id="progStatus" role="status"></p></section></div>`;
 }
 
 function viewCerts(){
-  return `<div class="col"><div class="card accent"><h1>${esc(t('certificates'))}</h1><p class="lead">A certificate is earned only by passing the exit test and showing a portfolio. Age, years enrolled and hours logged never count on their own.</p></div>
-   <section class="card"><div class="tablewrap"><table><tr><th>Level</th><th>Certificate</th><th>Evidence required</th><th>Assessed by</th></tr>
-   ${CERTS.map(c=>`<tr><td class="num"><a href="#level-${c[0]}">${c[0]}</a></td><td><strong>${esc(c[1])}</strong></td><td>${esc(c[2])}</td><td>${esc(c[3])}</td></tr>`).join('')}</table></div></section>
-   <section class="card"><h2>Grading inside each level</h2><div class="tablewrap"><table><tr><th>Part</th><th>Weight</th></tr>
-     <tr><td>Projects</td><td class="num">35%</td></tr><tr><td>Practical tests</td><td class="num">25%</td></tr><tr><td>Enterprise results (users, sales, profit)</td><td class="num">15%</td></tr><tr><td>Code reviews and peer teaching</td><td class="num">15%</td></tr><tr><td>Reflection journal</td><td class="num">10%</td></tr></table></div>
-     <p class="small"><strong>Portfolio:</strong> from Level 2 up, every learner keeps one GitHub profile holding all projects, with a README per project and, from Level 6, a CITATION.cff and Zenodo DOI for anything others might cite.</p></section></div>`;
+  return `<div class="col"><div class="card accent"><h1>${esc(t('certificates'))}</h1><p class="lead">${esc(t('certLead'))}</p></div>
+   <section class="card"><div class="tablewrap"><table><tr><th>${esc(t('level'))}</th><th>${esc(t('thCert'))}</th><th>${esc(t('thEvidence'))}</th><th>${esc(t('thAssessor'))}</th></tr>
+   ${certs().map(c=>`<tr><td class="num"><a href="#level-${c[0]}">${c[0]}</a></td><td><strong>${esc(c[1])}</strong></td><td>${esc(c[2])}</td><td>${esc(c[3])}</td></tr>`).join('')}</table></div></section>
+   <section class="card"><h2>${esc(t('gradingTitle'))}</h2><div class="tablewrap"><table><tr><th>${esc(t('thPart'))}</th><th>${esc(t('thWeight'))}</th></tr>
+     <tr><td>${esc(t('g1'))}</td><td class="num">35%</td></tr><tr><td>${esc(t('g2'))}</td><td class="num">25%</td></tr><tr><td>${esc(t('g3'))}</td><td class="num">15%</td></tr><tr><td>${esc(t('g4'))}</td><td class="num">15%</td></tr><tr><td>${esc(t('g5'))}</td><td class="num">10%</td></tr></table></div>
+     <p class="small">${t('portfolio')}</p></section></div>`;
 }
 
 function viewAbout(){
-  return `<div class="col"><div class="card accent"><h1>${esc(t('about'))}</h1><p class="lead">Coding &amp; AI for Africa is a free curriculum designed by Mulusew Kassa Bitew.</p></div>
-   <section class="card author"><h2>Author</h2><dl>
-     <dt>Name</dt><dd><strong>Mulusew Kassa Bitew</strong></dd>
-     <dt>Position</dt><dd>Postdoctoral Research Fellow, University of Molise, Italy</dd>
-     <dt>Affiliation</dt><dd>Department of Plant Science, College of Agriculture and Natural Resources, Debre Markos University, Ethiopia</dd>
+  return `<div class="col"><div class="card accent"><h1>${esc(t('about'))}</h1><p class="lead">${esc(t('aboutLead'))}</p></div>
+   <section class="card author"><h2>${esc(t('author'))}</h2><dl>
+     <dt>${esc(t('aName'))}</dt><dd><strong>Mulusew Kassa Bitew</strong></dd>
+     <dt>${esc(t('aPos'))}</dt><dd>Postdoctoral Research Fellow, University of Molise, Italy</dd>
+     <dt>${esc(t('aAff'))}</dt><dd>Department of Plant Science, College of Agriculture and Natural Resources, Debre Markos University, Ethiopia</dd>
      <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0001-6223-0037" target="_blank" rel="noopener">0000-0001-6223-0037</a></dd>
      <dt>GitHub</dt><dd><a href="https://github.com/Muler-21" target="_blank" rel="noopener">@Muler-21</a></dd>
-     <dt>Website</dt><dd><a href="https://muler-21.github.io" target="_blank" rel="noopener">muler-21.github.io</a></dd>
-     <dt>Other apps</dt><dd><a href="https://muler-21.github.io/apps/adaptfit" target="_blank" rel="noopener">AdaptFit</a> · <a href="https://muler-21.github.io/sebel-hakim" target="_blank" rel="noopener">Sebel Hakim</a> · <a href="https://muler-21.github.io/AMBKidsJoy/" target="_blank" rel="noopener">AMBKidsJoy</a> · <a href="https://github.com/Muler-21/Research-Integrity-Compass-" target="_blank" rel="noopener">Research Integrity Compass</a></dd>
+     <dt>${esc(t('aWeb'))}</dt><dd><a href="https://muler-21.github.io" target="_blank" rel="noopener">muler-21.github.io</a></dd>
+     <dt>${esc(t('aApps'))}</dt><dd><a href="https://muler-21.github.io/apps/adaptfit" target="_blank" rel="noopener">AdaptFit</a> · <a href="https://muler-21.github.io/sebel-hakim" target="_blank" rel="noopener">Sebel Hakim</a> · <a href="https://muler-21.github.io/AMBKidsJoy/" target="_blank" rel="noopener">AMBKidsJoy</a> · <a href="https://github.com/Muler-21/Research-Integrity-Compass-" target="_blank" rel="noopener">Research Integrity Compass</a></dd>
    </dl></section>
-   <section class="card"><h2>How to cite</h2>
+   <section class="card"><h2>${esc(t('citeTitle'))}</h2>
      <p class="small" id="citeText">Bitew, M. K. (2026). Coding &amp; AI for Africa: Build, Solve, Create (KG1 to World-Class Innovator) [Curriculum and web app]. https://github.com/Muler-21/coding-ai-africa</p>
-     <div><button class="btn" id="copyCite">Copy citation</button></div><p class="status" id="citeStatus" role="status"></p>
-     <p class="small muted">The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.</p></section>
+     <div><button class="btn" id="copyCite">${esc(t('copyCite'))}</button></div><p class="status" id="citeStatus" role="status"></p>
+     <p class="small muted">${esc(t('citeNote'))}</p></section>
   </div>`;
 }
 
@@ -541,7 +745,7 @@ function route(){
   else if(h==='about') html = viewAbout();
   else { html = viewHome(); r='home'; }
   const main = document.getElementById('main');
-  main.innerHTML = html + `<footer class="foot"><span>© 2026 Mulusew Kassa Bitew</span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">License: CC BY-NC 4.0</a><a href="#about">${esc(t('about'))}</a><a href="https://github.com/Muler-21" target="_blank" rel="noopener">GitHub @Muler-21</a></footer>`;
+  main.innerHTML = html + `<footer class="foot"><span>© 2026 Mulusew Kassa Bitew</span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">${esc(t('license'))}: CC BY-NC 4.0</a><a href="#about">${esc(t('about'))}</a><a href="https://github.com/Muler-21" target="_blank" rel="noopener">GitHub @Muler-21</a></footer>`;
   renderNav(r);
   document.getElementById('sideNav').classList.remove('open');
   document.getElementById('menuBtn').setAttribute('aria-expanded','false');
@@ -561,27 +765,27 @@ function bindView(){
   if(copy) copy.addEventListener('click',()=>{
     const code = btoa(unescape(encodeURIComponent(JSON.stringify(state.progress))));
     const box = document.getElementById('codeBox'); box.value = code;
-    try{ navigator.clipboard.writeText(code).then(()=>setStatus('progStatus','Progress code copied.'),()=>{ box.select(); setStatus('progStatus','Copy blocked here: the code is selected in the box, copy it by hand.'); }); }
-    catch(e){ box.select(); setStatus('progStatus','Copy blocked here: the code is selected in the box, copy it by hand.'); }
+    try{ navigator.clipboard.writeText(code).then(()=>setStatus('progStatus',t('copied')),()=>{ box.select(); setStatus('progStatus',t('copyBlocked')); }); }
+    catch(e){ box.select(); setStatus('progStatus',t('copyBlocked')); }
   });
   const loadBtn = document.getElementById('loadCode');
   if(loadBtn) loadBtn.addEventListener('click',()=>{
     const v=document.getElementById('codeBox').value.trim();
     try{ const obj=JSON.parse(decodeURIComponent(escape(atob(v)))); if(typeof obj!=='object'||Array.isArray(obj)) throw 0;
       state.progress={}; Object.keys(obj).forEach(k=>{ if(/^L[0-8]-(p[0-2]|sig|exit)$/.test(k)&&obj[k]) state.progress[k]=true; });
-      save('progress',state.progress); route(); setStatus('progStatus','Progress loaded.'); }
-    catch(e){ setStatus('progStatus','That code could not be read. Check that you pasted the whole code.'); }
+      save('progress',state.progress); route(); setStatus('progStatus',t('loaded')); }
+    catch(e){ setStatus('progStatus',t('badCode')); }
   });
   const reset = document.getElementById('resetProg');
   if(reset) reset.addEventListener('click',()=>{
-    if(reset.dataset.armed){ state.progress={}; save('progress',state.progress); route(); setStatus('progStatus','All ticks cleared.'); }
-    else { reset.dataset.armed='1'; reset.textContent='Press again to clear all ticks'; }
+    if(reset.dataset.armed){ state.progress={}; save('progress',state.progress); route(); setStatus('progStatus',t('cleared')); }
+    else { reset.dataset.armed='1'; reset.textContent=t('resetConfirm'); }
   });
   const cite = document.getElementById('copyCite');
   if(cite) cite.addEventListener('click',()=>{
     const txt=document.getElementById('citeText').textContent;
-    try{ navigator.clipboard.writeText(txt).then(()=>setStatus('citeStatus','Citation copied.'),()=>setStatus('citeStatus','Copy blocked here: select the citation text and copy it by hand.')); }
-    catch(e){ setStatus('citeStatus','Copy blocked here: select the citation text and copy it by hand.'); }
+    try{ navigator.clipboard.writeText(txt).then(()=>setStatus('citeStatus',t('citeCopied')),()=>setStatus('citeStatus',t('citeBlocked'))); }
+    catch(e){ setStatus('citeStatus',t('citeBlocked')); }
   });
 }
 
