@@ -120,6 +120,23 @@ textarea{width:100%;min-height:80px;font:13px/1.4 ui-monospace,Menlo,Consolas,mo
 .author dd{margin:0}
 svg.cycle{width:100%;height:auto;display:block}
 footer.foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
+details.mod{border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+details.mod+details.mod{margin-top:10px}
+details.mod>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 14px}
+details.mod>summary::-webkit-details-marker{display:none}
+details.mod>summary:hover{background:var(--accent-soft);border-radius:10px}
+details.mod[open]>summary{border-bottom:1px solid var(--line);border-radius:10px 10px 0 0}
+.mod-n{display:inline-grid;place-items:center;min-width:30px;height:30px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums;flex:none}
+.mod-title{font-weight:600;flex:1}
+.mod-dur{font-size:13px;color:var(--muted);text-align:right}
+.mod-caret{color:var(--muted);transition:transform .15s}
+details.mod[open] .mod-caret{transform:rotate(90deg)}
+.mod-body{padding:14px 16px 16px;display:grid;gap:14px}
+.mod-body h4{margin:0 0 6px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
+.mod-body ol,.mod-body ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.mod-act{padding:10px 12px;border-radius:8px;background:var(--gold-soft);border-left:3px solid var(--gold)}
+.mod-tip{font-size:14px;color:var(--muted)}
+.mod-tools{display:flex;justify-content:flex-end}
 @media (max-width:880px){
   .shell{grid-template-columns:1fr}
   nav.side{display:none;position:fixed;top:57px;left:0;right:0;bottom:0;height:auto;background:var(--surface);z-index:15;border-right:0}
@@ -157,6 +174,9 @@ html[lang="am"] .nav-link{font-size:15.5px}
   <main id="main" tabindex="-1"></main>
 </div>
 
+<script src="content/modules-0.js"></script>
+<script src="content/modules-1.js"></script>
+<script src="content/modules-2.js"></script>
 <script>
 (function(){
 "use strict";
@@ -193,7 +213,7 @@ const UI = {
       gradingTitle:'Grading inside each level',thPart:'Part',thWeight:'Weight',g1:'Projects',g2:'Practical tests',g3:'Enterprise results (users, sales, profit)',g4:'Code reviews and peer teaching',g5:'Reflection journal',
       portfolio:'<strong>Portfolio:</strong> from Level 2 up, every learner keeps one GitHub profile holding all projects, with a README per project and, from Level 6, a CITATION.cff and Zenodo DOI for anything others might cite.',
       aboutLead:'Coding & AI for Africa is a free curriculum designed by Mulusew Kassa Bitew.',author:'Author',aName:'Name',aPos:'Position',aAff:'Affiliation',aWeb:'Website',aApps:'Other apps',
-      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License'},
+      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License',outcomes:'Learners will be able to',lessonPlan:'Lesson plan',activity:'Hands-on: build from what you have',materials:'Materials',checkQ:'Check understanding',tipT:'Teacher tip',openAll:'Open all modules',closeAll:'Close all modules',lessonN:'Lesson'},
   am:{brand:'ኮዲንግና AI ለአፍሪካ',home:'ዋና ገጽ',levels:'ደረጃዎች',more:'ኮርስ',tracks:'የልዩ ሙያ መስመሮች',business:'ንግድና ሀብት',resources:'ነፃ ምንጮች',progress:'የኔ እድገት',certificates:'ሰርተፊኬቶች',about:'ደራሲና ማጣቀሻ',
       goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',checklist:'ማረጋገጫ ዝርዝር',practiceN:'ልምምድ',
       bizSkills:'የሚሰጡ የንግድ ክህሎቶች',milestone:'የሚደረስበት ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
@@ -218,7 +238,7 @@ const UI = {
       gradingTitle:'በእያንዳንዱ ደረጃ ውስጥ ያለው ውጤት አሰጣጥ',thPart:'ክፍል',thWeight:'ድርሻ',g1:'ፕሮጀክቶች',g2:'ተግባራዊ ፈተናዎች',g3:'የሥራ ፈጠራ ውጤቶች (ተጠቃሚዎች፣ ሽያጭ፣ ትርፍ)',g4:'የኮድ ግምገማና አቻን ማስተማር',g5:'የነጸብራቅ ማስታወሻ',
       portfolio:'<strong>የሥራ ማኅደር፡</strong> ከደረጃ 2 ጀምሮ እያንዳንዱ ተማሪ ሁሉንም ፕሮጀክቶች የያዘ አንድ የGitHub ፕሮፋይል ይኖረዋል፤ ለእያንዳንዱ ፕሮጀክት README፣ ከደረጃ 6 ጀምሮ ደግሞ ሌሎች ሊጠቅሱት ለሚችሉት ሁሉ CITATION.cff እና የZenodo DOI ይኖረዋል።',
       aboutLead:'ኮዲንግና AI ለአፍሪካ በMulusew Kassa Bitew የተዘጋጀ ነፃ ሥርዓተ ትምህርት ነው።',author:'ደራሲ',aName:'ስም',aPos:'የሥራ መደብ',aAff:'ተቋም',aWeb:'ድረ-ገጽ',aApps:'ሌሎች መተግበሪያዎች',
-      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ'}
+      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ',outcomes:'ተማሪዎች የሚችሉት',lessonPlan:'የትምህርት ዕቅድ',activity:'በተግባር፡ በእጅ ካለው ሥራ',materials:'ቁሳቁሶች',checkQ:'ግንዛቤን ፈትሽ',tipT:'ለመምህሩ ምክር',openAll:'ሁሉንም ሞጁሎች ክፈት',closeAll:'ሁሉንም ሞጁሎች ዝጋ',lessonN:'ትምህርት'}
 };
 const t = k => (UI[state.lang] && UI[state.lang][k]) || UI.en[k] || k;
 
@@ -633,6 +653,22 @@ function viewHome(){
   </div>`;
 }
 
+function modulesHTML(n,L){
+  const set = (window.MODS && window.MODS[n]) ? (window.MODS[n][state.lang] || window.MODS[n].en) : null;
+  if(!set) return `<ol class="clean">${L.modules.map(m=>`<li><strong>${esc(m[0])}.</strong> ${esc(m[1])}</li>`).join('')}</ol>`;
+  return `<div class="mod-tools"><button class="btn" id="toggleMods" data-open="0">${esc(t('openAll'))}</button></div>
+  <div>${set.map((m,i)=>`<details class="mod"><summary><span class="mod-n">${i+1}</span><span class="mod-title">${esc(m.t)}</span><span class="mod-dur">${esc(m.d)}</span><span class="mod-caret" aria-hidden="true">›</span></summary>
+    <div class="mod-body">
+      <p>${esc(L.modules[i]?L.modules[i][1]:'')}</p>
+      <div><h4>${esc(t('outcomes'))}</h4><ul>${m.o.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+      <div><h4>${esc(t('lessonPlan'))}</h4><ol>${m.l.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>
+      <div class="mod-act"><h4>${esc(t('activity'))}</h4><p>${esc(m.a)}</p></div>
+      <div><h4>${esc(t('materials'))}</h4><p>${esc(m.m)}</p></div>
+      <div><h4>${esc(t('checkQ'))}</h4><ul>${m.q.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+      <p class="mod-tip"><strong>${esc(t('tipT'))}:</strong> ${esc(m.tip)}</p>
+    </div></details>`).join('')}</div>`;
+}
+
 function viewLevel(n){
   if(!LEVELS[n]) return viewHome();
   const L = lv(n), keys = itemKeys(n);
@@ -645,7 +681,7 @@ function viewLevel(n){
      <span class="eyebrow">${esc(L.stage)}</span><h1>${esc(levelName(L))}</h1>
      <div class="chips"><span class="chip">${esc(t('ages'))}: <strong>${esc(L.ages)}</strong></span><span class="chip">${esc(t('hours'))}: <strong>${esc(L.hours)}</strong></span><span class="chip">${levelPct(n)}% ${esc(t('done'))}</span></div></div></div>
    <section class="card"><h2>${esc(t('goal'))}</h2><p class="lead">${esc(L.goal)}</p></section>
-   <section class="card"><h2>${esc(t('modules'))}</h2><ol class="clean">${L.modules.map(m=>`<li><strong>${esc(m[0])}.</strong> ${esc(m[1])}</li>`).join('')}</ol>
+   <section class="card"><h2>${esc(t('modules'))}</h2>${modulesHTML(n,L)}
      <p class="small"><strong>${esc(t('tools'))}:</strong> ${esc(L.tools)}</p></section>
    ${L.extras.length?`<section class="card"><h3>${esc(t('also'))}</h3><ul class="clean">${L.extras.map(e=>`<li><strong>${esc(e[0])}:</strong> ${esc(e[1])}</li>`).join('')}</ul></section>`:''}
    <section class="card"><h2>${esc(t('signature'))}</h2><p>${esc(L.signature)}</p></section>
@@ -781,6 +817,9 @@ function bindView(){
     if(reset.dataset.armed){ state.progress={}; save('progress',state.progress); route(); setStatus('progStatus',t('cleared')); }
     else { reset.dataset.armed='1'; reset.textContent=t('resetConfirm'); }
   });
+  const tg = document.getElementById('toggleMods');
+  if(tg) tg.addEventListener('click',()=>{ const open = tg.dataset.open!=='1';
+    document.querySelectorAll('details.mod').forEach(d=>d.open=open); tg.dataset.open=open?'1':'0'; tg.textContent=t(open?'closeAll':'openAll'); });
   const cite = document.getElementById('copyCite');
   if(cite) cite.addEventListener('click',()=>{
     const txt=document.getElementById('citeText').textContent;
