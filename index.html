@@ -180,6 +180,9 @@ html[lang="am"] .nav-link{font-size:15.5px}
 <script src="content/modules-3.js"></script>
 <script src="content/modules-4.js"></script>
 <script src="content/modules-5.js"></script>
+<script src="content/modules-6.js"></script>
+<script src="content/modules-7.js"></script>
+<script src="content/modules-8.js"></script>
 <script>
 (function(){
 "use strict";
@@ -196,7 +199,7 @@ const UI = {
       goal:'Goal',modules:'Modules',tools:'Tools',signature:'Signature project',africa:'Africa challenge & enterprise',exit:'Exit test',practice:'Practice projects',checklist:'checklist',practiceN:'Practice',
       bizSkills:'Business skills taught',milestone:'Milestone to reach',also:'Also in this level',levelRes:'Free resources for this level',
       ages:'Ages / years',hours:'Hours per week',prev:'Previous level',next:'Next level',start:'Start at Level 0',done:'done',menu:'Menu',level:'Level',
-      eyebrowHome:'KG1 to world-class innovator',chipLevels:'levels',chipTracks:'specialisation tracks',chipModels:'business models',chipFree:'Free · works offline',
+      eyebrowHome:'KG1 to world-class innovator',chipLevels:'levels',chipTracks:'specialisation tracks',chipMods:'complete modules',chipModels:'business models',chipFree:'Free · works offline',
       cycleTitle:'The build cycle every module follows',cycleText:'A learner first uses a tool, then rebuilds it, then changes it for a local need, then makes and sells it. The loop back is how the continent grows its own human resource.',
       ladderNote:'Move up by passing each level’s exit test, not by age. Adults usually start at Level 2.',rulesTitle:'Six rules every lesson follows',
       worldBar:'<strong>The world-class bar.</strong> Local tools, global standard: olympiads and hackathons at school, Kaggle and open source at university, top journals and investors at research level.',
@@ -221,7 +224,7 @@ const UI = {
       goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',checklist:'ማረጋገጫ ዝርዝር',practiceN:'ልምምድ',
       bizSkills:'የሚሰጡ የንግድ ክህሎቶች',milestone:'የሚደረስበት ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
       ages:'ዕድሜ / ዓመታት',hours:'በሳምንት ሰዓታት',prev:'ቀዳሚ ደረጃ',next:'ቀጣይ ደረጃ',start:'ከደረጃ 0 ጀምር',done:'ተጠናቋል',menu:'ማውጫ',level:'ደረጃ',
-      eyebrowHome:'ከKG1 እስከ ዓለም አቀፍ ፈጣሪ',chipLevels:'ደረጃዎች',chipTracks:'የልዩ ሙያ መስመሮች',chipModels:'የንግድ ሞዴሎች',chipFree:'ነፃ · ያለ ኢንተርኔት ይሠራል',
+      eyebrowHome:'ከKG1 እስከ ዓለም አቀፍ ፈጣሪ',chipLevels:'ደረጃዎች',chipTracks:'የልዩ ሙያ መስመሮች',chipMods:'የተሟሉ ሞጁሎች',chipModels:'የንግድ ሞዴሎች',chipFree:'ነፃ · ያለ ኢንተርኔት ይሠራል',
       cycleTitle:'እያንዳንዱ ሞጁል የሚከተለው የግንባታ ዑደት',cycleText:'ተማሪው መጀመሪያ መሣሪያን ይጠቀማል፣ ከዚያ ራሱ ደግሞ ይሠራዋል፣ ለአካባቢው ፍላጎት ያስተካክለዋል፣ በመጨረሻም አምርቶ ይሸጠዋል። ቀጣዩን ተማሪ ማስተማር አህጉሪቱ የራሷን የሰው ኃይል የምታሳድግበት መንገድ ነው።',
       ladderNote:'ወደ ቀጣይ ደረጃ የሚሸጋገሩት የማለፊያ ፈተናውን በማለፍ እንጂ በዕድሜ አይደለም። አዋቂዎች ብዙውን ጊዜ ከደረጃ 2 ይጀምራሉ።',rulesTitle:'እያንዳንዱ ትምህርት የሚከተላቸው ስድስት ሕጎች',
       worldBar:'<strong>የዓለም አቀፍ ደረጃ መለኪያ።</strong> የአካባቢ መሣሪያዎች፣ ዓለም አቀፍ ደረጃ፡ በትምህርት ቤት ኦሊምፒያድና ሃካቶን፣ በዩኒቨርሲቲ Kaggle እና ክፍት ምንጭ፣ በምርምር ደረጃ ከፍተኛ መጽሔቶችና ባለሀብቶች።',
@@ -642,7 +645,7 @@ function viewHome(){
      <span class="eyebrow">${esc(t('eyebrowHome'))}</span>
      <h1>${esc(t('brand'))}</h1>
      <p class="lead">${m[0]}</p><p>${m[1]}</p>
-     <div class="chips"><span class="chip"><strong>9</strong> ${esc(t('chipLevels'))}</span><span class="chip"><strong>8</strong> ${esc(t('chipTracks'))}</span><span class="chip"><strong>9</strong> ${esc(t('chipModels'))}</span><span class="chip">${esc(t('chipFree'))}</span></div>
+     <div class="chips"><span class="chip"><strong>9</strong> ${esc(t('chipLevels'))}</span><span class="chip"><strong>57</strong> ${esc(t('chipMods'))}</span><span class="chip"><strong>8</strong> ${esc(t('chipTracks'))}</span><span class="chip"><strong>9</strong> ${esc(t('chipModels'))}</span><span class="chip">${esc(t('chipFree'))}</span></div>
      <div><a class="btn primary" href="#level-0">${esc(t('start'))}</a></div>
    </div>
    <section class="card"><h2>${esc(t('cycleTitle'))}</h2><p>${esc(t('cycleText'))}</p>

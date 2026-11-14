@@ -13,6 +13,7 @@ A free, offline-first coding and AI curriculum that grows Africa with its own en
 [![Open the app](https://img.shields.io/badge/Open%20the%20app-muler--21.github.io-1E6B47?style=for-the-badge)](https://muler-21.github.io/coding-ai-africa/)
 
 ![Levels](https://img.shields.io/badge/levels-9-1E6B47)
+![Modules](https://img.shields.io/badge/complete%20modules-57-1E6B47)
 ![Tracks](https://img.shields.io/badge/specialisation%20tracks-8-1E6B47)
 ![Offline](https://img.shields.io/badge/works-offline-A8701A)
 ![Languages](https://img.shields.io/badge/languages-English%20%7C%20%E1%8A%A0%E1%88%9B%E1%88%AD%E1%8A%9B-A8701A)
@@ -44,7 +45,23 @@ What is at hand: a mobile phone, recycled parts, solar power, local data and loc
 | 7 | Top Scientist | Postdoc → PI | 28+ | Set a research agenda, lead a lab, build a company |
 | 8 | Future of AI | Lifelong | Any | Anticipate and shape where AI goes next |
 
-Each level has a **goal, modules, tools, a signature project, an Africa challenge & enterprise step, a business milestone, an exit test, a practice checklist and free resources**. Learners move up by passing the exit test, not by age.
+Each level has a **goal, complete modules, tools, a signature project, an Africa challenge & enterprise step, a business milestone, an exit test, a practice checklist and free resources**. Learners move up by passing the exit test, not by age.
+
+### 57 complete modules, in English and Amharic
+
+Every module is ready to teach: **duration, learning outcomes, a lesson-by-lesson plan, a hands-on project built from what is at hand, low-cost materials, check-understanding questions and a teacher tip.**
+
+| Level | Modules |
+| :---: | --- |
+| 0 | Sequences · Patterns · Directions and grids · Loops · Debugging · First screen coding · Floor robots · Sort and classify · Tell a story |
+| 1 | Grade 1–4: events and loops · conditions and sound · variables and coordinates · lists, messages and first AI |
+| 2 | Grade 5–8: Python and micro:bit · decisions, functions, spreadsheets · lists, files, web · APIs, JavaScript, Arduino |
+| 3 | Grade 9–12: Python in depth · web, Git, algorithms · back-end and databases · Linux, security, ethics, ML |
+| 4 | Year 1–3 foundations · AI and Machine Learning I |
+| 5 | Software engineering · Cloud · Data engineering · Applied statistics · Deep learning · MLOps · Building with AI · Security · Product sense |
+| 6 | ML theory · Deep learning · Reinforcement learning · Scientific computing · Statistics for science · Research craft |
+| 7 | LLMs · Training at scale · Foundation models · Agents · Reasoning · Interpretability · Alignment and safety · Evaluation science · Leadership |
+| 8 | Agentic AI · AI for science · AI in agriculture · Robotics · New computing · Governance · Human–AI collaboration · AI entrepreneurship |
 
 <p align="center">
   <img src="docs/screenshot-level.png" alt="Level 3 page with goal and modules" width="600">
@@ -82,7 +99,8 @@ No accounts and no personal data. Progress ticks stay in the learner's own brows
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The whole app: content, layout and logic in one file |
+| `index.html` | The app: layout, logic and level content |
+| `content/modules-0.js` … `modules-8.js` | The 57 complete modules, English and Amharic |
 | `sw.js` | Offline cache |
 | `manifest.webmanifest`, `icon.svg` | Install as a phone app |
 | `CITATION.cff` | Citation metadata for GitHub and Zenodo |
