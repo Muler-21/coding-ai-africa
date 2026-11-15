@@ -1,0 +1,2675 @@
+Follow a classmate’s instructions exactly
+Explain why order matters
+Robot teacher: one child is the robot, another gives steps (forward, turn, stop)
+Picture-card routines: put washing, eating and going-to-school cards in order
+Chalk, cardboard, a marker, picture cards drawn by the teacher
+Let children be the robot first; giving instructions is harder than following them.
+Make their own repeating pattern
+Say what repeats in a pattern
+Patterns at home: basket weaving, mesob and netela borders
+Mystery pattern: one item is wrong, find it
+Children make a necklace of seeds or bottle tops in a repeating pattern, then swap with a friend who must say the rule.
+Seeds, beans, bottle tops, string, coloured paper
+Use local crafts as examples; children already know many patterns from home.
+Use left, right, forward and back correctly
+Move on a grid by counting squares
+Read a simple treasure map
+Body directions: left hand up, turn right, two steps forward
+Grid walking: move from square to square on a chalk grid
+Treasure map: follow arrows on paper to find a hidden stone
+Make a map of the classroom with arrows to the door
+Chalk, paper, a painted stone, crayons
+Mark the left hand with a small sticker or string for the first week.
+Notice when steps repeat
+Count how many times something repeats
+Songs with loops: find the repeating chorus in a children’s song
+Children rewrite a long arrow path using repeat cards, then test both versions on the floor grid to see they do the same thing.
+Connect loops to songs and dances children already know.
+Find one wrong step in a sequence
+Fix it and test again
+Broken robot: the teacher gives a wrong path, children find the bug
+Bug hunt: one picture card is in the wrong place
+Test, fix, test again: the debugging song
+Friends’ bugs: swap paths and help each other fix them
+Each team builds a path with one secret mistake. Another team must find it, fix it and walk the corrected path.
+Celebrate finding bugs; never punish mistakes in this module.
+Open ScratchJr and add a character
+Make the character move and speak using blocks
+Start a program with the green flag
+Meet the tablet: tap, drag and drop
+Move blocks: forward, back, up, down
+Say block: make your character greet in Amharic and English
+Green flag: start and stop your program
+One shared tablet or phone with ScratchJr, timer for screen turns
+Keep screen turns short; do the same moves on the floor before the tablet.
+Program a robot to reach a target
+Plan a path before pressing go
+Fix a path that misses the target
+Build a cardboard robot with a face and direction arrow
+Plan on paper, then move the robot
+Obstacles: go around a stone or cup
+If you have a Bee-Bot: press the buttons to program the same path
+Make a cardboard robot from an old box. One child reads the arrow cards aloud while another moves the robot exactly as told.
+Old box, bottle tops for eyes, glue, optional Bee-Bot
+A cardboard robot teaches the same idea as an expensive one.
+Sort objects by colour, size or shape
+Explain that computers and AI also sort
+Sort fruit and vegetables by colour
+Big and small: sort stones by size
+Two rules: red AND round
+Children sort a basket of local fruit and vegetables into groups, then make a picture chart showing how many are in each group.
+Fruit, vegetables, stones, paper for a picture chart
+This module is the root of data and AI; keep the charts on the wall.
+Use characters, movement and speech
+Show the story to the class
+Story day: show and tell
+Paper, crayons, shared tablet with ScratchJr or paper puppets
+Local folk tales make strong first programs and keep the mother tongue alive.
+Make a sprite move when the green flag or a key is pressed
+Use repeat and forever loops
+Draw squares and triangles with the pen blocks
+Scratch tour: stage, sprites, blocks, green flag
+Move and turn: walk a cat across the stage
+Keys as events: arrow keys move the sprite
+Forever loops: a spinning windmill or a bouncing ball
+Draw a local scene (a village, a market, a farm) and animate one thing in it, such as a bird that flies forever or a car that moves with arrow keys.
+Shared laptop or phone with offline Scratch, paper for planning
+Act every new block out with bodies before using it on screen.
+Detect touching, colours and key presses
+Animate sprites with costumes and add sound
+If touching: stop when the sprite hits a wall
+Costumes: make a sprite walk with two pictures
+Sound: record your own voice in Amharic
+Mini-game: catch the ball, play a sound when caught
+Make a hand-washing game: if the child touches soap, then water, the hands become clean; else a germ appears. Record the instructions in your own voice.
+Offline Scratch, a phone microphone, paper storyboard
+Let pupils record sound in their mother tongue; it makes the game theirs.
+Create and change variables such as score, lives and timer
+Place sprites using x and y coordinates
+Use simple maths and random numbers in code
+Unplugged: a scoreboard on the chalkboard is a variable
+Make a score variable that goes up when you catch something
+Lives and game over: a variable that goes down
+Coordinates: the stage as a grid, x across, y up
+Random: fruit falls from a random place
+Offline Scratch, drawings or photos of local coins and notes
+Link variables to real things pupils count every day: money, goats, eggs.
+Store several items in a list
+Make sprites talk to each other with messages
+Plan, build, test and fix a project on their own
+Unplugged: a shopping list is a list
+Lists in Scratch: a quiz with questions stored in a list
+Broadcast messages: one sprite tells another to start
+Plan on paper: storyboard, sprites, rules
+Build and test in pairs; swap and find bugs
+First AI: teach Teachable Machine to recognise two objects
+Design a quiz game about your region (rivers, crops, animals, alphabet). Questions live in a list, a host sprite broadcasts the next question, and classmates play it at the school fair.
+Offline Scratch, paper storyboards, optional Teachable Machine on one device
+Grade the plan and the fixing, not only the final game.
+Write and run short Python programs with print, input and variables
+Program a micro:bit to react to buttons and sensors
+Same idea, new language: rebuild a Scratch program in Python
+print and input: a greeting program in Amharic and English
+Variables and maths: a market price calculator
+micro:bit blocks: show a smiley when button A is pressed
+micro:bit sensors: a thermometer and a light meter
+micro:bit Python: the same program as text
+Show the same program in Scratch and Python side by side; pupils see that only the words changed.
+Write their own functions
+Organise data in a spreadsheet and make a chart
+while loops: a guessing game that keeps asking
+Functions: def area(length, width) for a farm plot
+Spreadsheets: rainfall or attendance data in rows and columns
+Charts: turn the data into a bar chart and explain it
+Collect a week of real data (rainfall from a bottle rain gauge, or class attendance), type it into a spreadsheet, chart it, and write a Python function that finds the highest and lowest day.
+A plastic bottle rain gauge, laptop or phone with Python and a free spreadsheet app
+Real local data makes maths and coding feel useful; keep the data sets small.
+Use lists and dictionaries to store data
+Read and write text files
+Lists: a class list, adding and removing names
+Files: save and load game scores
+Turtle graphics: draw a flag, a star, a mesob pattern
+HTML: headings, paragraphs, images, links
+CSS: colours, fonts and layout for your website
+Laptop with Python and a text editor, free GitHub account, phone camera for photos
+Publishing the website makes pupils proud; let parents see it.
+Organise code into modules and handle errors
+Call a simple web API and use the data
+Build a sensor project with Arduino or Raspberry Pi
+Modules: split a big program into files
+APIs: get weather data and print tomorrow’s forecast
+JavaScript: make the website interactive with a button
+How the internet works: IP addresses, servers, packets
+Arduino or Raspberry Pi: read a soil-moisture sensor and log the data
+Arduino-compatible board or Raspberry Pi, soil-moisture sensor, jumper wires, solar power bank, salvaged parts
+Teach soldering and safety only with an adult present; most projects need no soldering.
+Write object-oriented Python with classes and tests
+Explain binary, logic gates, CPU and memory
+Load and summarise a dataset with pandas
+Classes and objects: a Farm class with crops and animals
+Testing with pytest: write tests before fixing bugs
+Logic gates: AND, OR, NOT with switches and a battery
+CPU and memory: how a program runs step by step
+NumPy and pandas: load a CSV of crop yields and find averages
+Laptop with Python, pytest, pandas; battery, switches and an LED for logic gates; farm data on paper
+Ask pupils to write the test first; it trains careful thinking.
+Build interactive web pages with JavaScript and the DOM
+Use Git and GitHub daily
+Analyse algorithms with Big-O and use recursion
+JavaScript basics: variables, functions, events
+The DOM: change a page when a button is clicked
+Git: commit, branch, merge; GitHub: push and pull requests
+Searching and sorting: linear vs binary search, bubble vs merge sort
+Big-O: why some programs get slow with big data
+Recursion and charts: factorial, then matplotlib charts of real data
+Laptop with a browser, VS Code, Git, free GitHub account, Python with matplotlib
+Make every pupil push code to GitHub every week; it becomes their portfolio.
+Build a REST API with Flask or FastAPI
+Choose the right data structure for a problem
+Design and query a relational database with SQL
+HTTP and REST: GET, POST, status codes
+Flask or FastAPI: a small API that returns JSON
+Stacks and queues: undo buttons and waiting lines
+Trees and graphs: family trees and road maps
+Hashing: fast lookup with dictionaries
+SQL: tables, keys, SELECT, JOIN; connect the API to SQLite
+Laptop with Python, Flask or FastAPI, SQLite (no server needed)
+SQLite runs offline in one file; it is perfect for schools without servers.
+Work confidently in the Linux command line
+Deliver a team project with code review
+Train and evaluate a simple machine-learning model responsibly
+Linux and the shell: files, pipes, scripts
+Team project: roles, issues, pull requests and code review
+Networks and security: passwords, encryption, phishing
+Ethics and law: privacy, data ownership, bias, local data laws
+Model project: predict next week’s market price and explain its limits
+Laptops (or a shared Raspberry Pi running Linux), GitHub, scikit-learn
+Grade the team process (issues, reviews, commits) as well as the product.
+Write correct programs in Python and C, including manual memory use
+Work fluently in Linux and the shell
+Use proofs, logic and linear algebra with confidence
+Intro programming: problem solving, functions, recursion, testing
+Linux and shell scripting: automate a data task
+Discrete maths: logic, sets, proofs by induction, counting
+Linear algebra I: vectors, matrices, systems of equations
+Write a C program that reads weather-station logs from a low-cost sensor, stores them efficiently and summarises a month, then a shell script that runs it every night on a Raspberry Pi.
+Laptop or Raspberry Pi with Linux, gcc, Python; a free linear-algebra textbook or OCW course
+Pair maths with code every week, for example implement each matrix operation in Python.
+Design and analyse algorithms (graphs, dynamic programming, greedy)
+Build programs with clean object-oriented design
+Explain how hardware runs software; use probability and statistics
+Data structures: heaps, balanced trees, hash tables, graphs
+Algorithms: shortest paths, spanning trees, dynamic programming, greedy
+Complexity: P, NP and why some problems are hard
+Object-oriented design: SOLID, patterns, UML sketches
+Computer architecture: CPU pipeline, caches, assembly basics
+Probability, statistics and linear algebra II: distributions, estimation, eigenvalues
+Laptop, map data drawn by hand or from free OpenStreetMap exports
+Use local logistics problems (milk collection, bus routes, market days) for every algorithm.
+Explain operating systems, databases and networks from the inside
+Reason about what computers can and cannot compute
+Use optimisation and numerical methods correctly
+Operating systems: processes, threads, scheduling, memory, files
+Databases: indexing, transactions, query planning
+Compilers (elective): lexing, parsing, code generation
+Theory of computation: automata, Turing machines, decidability
+Optimisation and numerical methods: gradient descent, Newton’s method, error
+Design an offline-first data sync for a rural clinic: records saved on a phone, synced to a server when the network returns, with conflict resolution tested under simulated power cuts.
+Laptops, Raspberry Pi as a local server, SQLite and PostgreSQL
+Simulate bad networks and power cuts in labs; that is the real environment of most users.
+Apply search, logic and planning methods
+Train, tune and evaluate classical ML models
+Derive gradient descent and explain bias, variance and overfitting
+Logic and planning: knowledge representation, constraint satisfaction
+Linear and logistic regression: derive and implement from scratch
+SVMs, decision trees, random forests, k-means, PCA
+Evaluation: cross-validation, confusion matrix, fairness checks
+Train a crop-disease or livestock-health classifier on a public African dataset, compare three models with cross-validation, and write one page on how the model could fail in the field.
+Laptop with Python, scikit-learn, NumPy; free Kaggle notebooks with GPU
+Make students implement each model from scratch once before using the library.
+Write clean, readable, tested code
+Apply design patterns where they help
+Review code and deliver in short agile cycles
+Clean code: names, small functions, comments that explain why
+Design patterns: factory, strategy, observer, repository
+Testing pyramid: unit, integration, end-to-end tests
+Code review: how to give and receive useful feedback
+Documentation: README, API docs, decision records
+Agile: sprints, stand-ups, retrospectives with a real client
+Laptop, Git, a test framework, GitHub
+Real clients (a cooperative, a school, a clinic) teach more than invented exercises.
+Cloud and infrastructure
+Package apps in Docker containers
+Deploy to one cloud provider with infrastructure as code
+Docker: images, containers, volumes, compose
+Kubernetes basics: pods, services, scaling
+One cloud provider: compute, storage, managed databases, free tiers
+Infrastructure as code: Terraform or similar
+Cost control: budgets, alerts and choosing regions close to users
+Containerise your farm market API, deploy it on a free or low-cost cloud tier in the nearest region, and add a pipeline that deploys only when all tests pass.
+Laptop with Docker, free cloud account, GitHub Actions
+Always set a budget alert before deploying; surprise bills hurt small teams.
+Build reliable data pipelines
+Model data for analysis in a warehouse
+Check and monitor data quality
+Pipelines: extract, transform, load (ETL) and ELT
+Batch vs streaming: when each fits
+SQL at scale: window functions, partitioning
+Warehouses and lakes: star schema, Parquet files
+Data quality: validation rules, missing values, duplicates
+Orchestration: schedule jobs and recover from failures
+Build a nightly pipeline that collects market prices sent by SMS, cleans them, stores them in Parquet and updates a dashboard of weekly price trends by region.
+Python, SQL database, Parquet tools, a scheduler (cron or Airflow)
+Bad data breaks good models; spend time on cleaning and checks.
+Design experiments and surveys that answer real questions
+Run and interpret hypothesis tests and regressions
+Reason with Bayesian methods
+Experimental design: randomisation, controls, sample size
+Hypothesis tests: t-test, chi-square, p-values and their limits
+Regression: linear, logistic, interpreting coefficients
+Bayesian basics: priors, posteriors, updating beliefs
+Communicating uncertainty: confidence intervals in plain words
+Python or R, your app’s usage logs
+Deep learning in practice
+Build and train neural networks in PyTorch
+Use CNNs and transformers for images and text
+Fine-tune pretrained models for local tasks
+PyTorch: tensors, autograd, training loops
+CNNs for images: plant leaves, livestock photos
+Transformers for text: attention, tokenisation
+Transfer learning and fine-tuning on small local datasets
+Data augmentation and handling imbalance
+Making models small: pruning, distillation, quantisation for phones
+Fine-tune a pretrained image model on a public crop-disease dataset, quantise it, and run it offline inside an Android app on a low-cost phone.
+Free GPU notebooks (Kaggle or Colab), PyTorch, a low-cost Android phone
+Test on photos taken by real farmers; lab photos hide real-world failures.
+Track experiments and version models and data
+Serve models through an API
+Monitor models in production for drift and cost
+Experiment tracking: parameters, metrics, artefacts
+Versioning data and models
+Serving: REST APIs, batch scoring, on-device models
+Monitoring: accuracy over time, data drift, alerts
+Retraining pipelines and human review
+Cost and energy: right-sizing compute
+Put your crop-disease model into production: tracked experiments, a versioned model, an API, a dashboard showing weekly accuracy from farmer feedback, and a retraining job.
+A model without monitoring is a liability; plan monitoring before launch.
+Building with AI models
+Build applications on large language model APIs
+Use retrieval-augmented generation over local documents
+Evaluate AI features and add safety and privacy guardrails
+LLM APIs: requests, tokens, costs, rate limits
+Prompt design: clear instructions, examples, structured output
+RAG: embeddings, vector search, citing sources
+Agents and tools: let the model call functions safely
+Evaluation sets: measure answers, not impressions
+Guardrails: privacy, harmful content, local-language quality
+An LLM API or an open model, a vector database, local agricultural documents
+Test in the local language from day one; quality often differs from English.
+Security and reliability
+Write code that resists common attacks
+Handle secrets and user data safely
+Keep services running and respond to incidents
+OWASP top risks: injection, broken auth, data exposure
+Secrets management: never in code, rotate keys
+Mobile-money and payment safety basics
+Logging and observability
+Backups and disaster recovery for power and network failures
+Incident response: detect, contain, fix, learn
+Run a security review of your own app: find and fix three weaknesses, move all secrets to a secrets manager, and run a drill where the server goes down.
+Your app, a free security scanner, backup storage
+Handle users’ phone numbers and money data as if they were your own.
+Understand users through interviews and observation
+Write a clear product spec
+Estimate impact and choose what to build first
+User interviews: ask about past behaviour, not opinions
+Field visits: watch how farmers or shop owners work today
+Writing a spec: problem, users, success metric, scope
+Prioritisation: impact vs effort
+Pricing for local markets: what people can and will pay
+Launch and learn: measure, talk to users, improve
+Notebook, phone for recording (with permission), spreadsheet
+Engineers who talk to users build products that sell.
+Machine learning theory
+Explain why and when learning algorithms generalise
+Build and reason with probabilistic models
+Separate correlation from causation in data
+Kernels and the kernel trick
+Probabilistic graphical models: Bayesian networks, Markov models
+Bayesian inference: MCMC and variational methods
+Causal inference: DAGs, confounders, do-calculus basics
+Reading theory papers: how to follow a proof
+Estimate the causal effect of an intervention (for example improved forage on milk yield) from observational farm data, comparing a naive regression with a causal method, and explain the difference.
+Python or R, PyMC or Stan, a public agricultural or health dataset
+Ask students to re-derive one key result per week on paper.
+Train deep networks stably and efficiently
+Build attention, transformer and generative models from scratch
+Apply graph neural networks to biological or social networks
+Optimisation: SGD, momentum, Adam, learning-rate schedules
+Regularisation: dropout, weight decay, normalisation
+Attention and transformers: implement a small GPT
+Generative models: VAEs, GANs, diffusion
+Graph neural networks: message passing on networks
+Self-supervised learning with little labelled data
+Train a small transformer on text in an African language (news, proverbs, the Bible or open corpora) and measure its quality; release the model and data card openly.
+Free GPU notebooks or a university cluster, PyTorch or JAX, open text corpora
+Small models trained by students teach more than calling a large model through an API.
+Reinforcement learning
+Formulate decision problems as Markov decision processes
+Implement value-based and policy-based algorithms
+Judge when RL is the right tool and when it is not
+MDPs: states, actions, rewards, discounting
+Dynamic programming: value and policy iteration
+Q-learning and deep Q-networks
+Policy gradients and actor-critic methods
+Exploration vs exploitation, reward design
+RL for real systems: irrigation, energy, logistics; safety limits
+Train an RL agent in a simulator to schedule irrigation on a smallholder farm under limited water, and compare it with a simple rule a farmer would use.
+Python, Gymnasium, a simple crop-water simulator
+Always compare RL with a strong simple baseline; it often wins.
+Run large analyses on HPC clusters and GPUs
+Write parallel and reproducible workflows
+Manage large datasets efficiently
+HPC basics: nodes, cores, memory, queues
+SLURM: job scripts, arrays, resources, monitoring
+GPUs: when they help and how to use them
+Parallel computing: multiprocessing, MPI ideas, embarrassingly parallel jobs
+Workflow managers: Nextflow or Snakemake pipelines
+Containers on clusters: Apptainer for portable software
+Turn a genomics or climate analysis into a Nextflow or Snakemake pipeline that runs on a laptop and on an HPC cluster with the same command, in a container, and publish it with a DOI.
+Many African researchers have free cluster access through regional networks; register early.
+Statistics for science
+Fit mixed models for hierarchical data
+Control false discoveries in large-scale tests
+Plan sample sizes and use simulation-based inference
+Mixed models: farms within regions, animals within herds
+Multiple testing: Bonferroni, FDR in genomics
+Power analysis: how many animals or plots you need
+Resampling: bootstrap and permutation tests
+Simulation-based inference: approximate Bayesian computation (ABC)
+Reporting: effect sizes, uncertainty, reproducible reports
+Design a breeding or field trial: calculate the sample size, simulate the data, analyse it with a mixed model, and write the methods section a journal would accept.
+Simulate your study before collecting data; it saves money and samples.
+Throughout the MSc and PhD
+Turn questions into testable hypotheses with strong baselines
+Make every result reproducible and citable
+Write papers and proposals, review, teach and supervise with integrity
+Hypotheses, baselines and ablations
+Reproducibility: Git, containers, fixed seeds, data on Zenodo, CITATION.cff
+Writing papers: structure, figures, the story of the result
+Grant proposals and peer review
+Research integrity: authorship, data ethics, avoiding predatory journals
+Reference manager (Zotero), LaTeX or Quarto, ORCID, Zenodo account
+Teach students to keep a lab notebook in Git from day one.
+Large language models
+Explain every stage of building an LLM
+Curate pre-training and instruction data responsibly
+Align models with human preferences
+Transformer internals: attention heads, MLPs, residual stream
+Tokenisation, including for Ge’ez script and African languages
+Scaling laws: data, parameters and compute
+Pre-training data curation: quality, licences, consent
+Instruction tuning and preference optimisation (RLHF, DPO)
+Evaluating LLMs in low-resource languages
+Lead a team that adapts an open LLM to an African language or domain (for example animal health), with a documented data pipeline, evaluation set and model card.
+GPU cluster or cloud credits, open models, community-sourced data with consent
+Partner with language communities; they own the data and judge quality best.
+Train models across many GPUs reliably
+Reduce memory and compute with modern techniques
+Serve large models efficiently
+Data, tensor and pipeline parallelism
+Mixed precision and memory-saving tricks
+Parameter-efficient fine-tuning: LoRA and adapters
+Checkpointing and recovering from failures
+Inference optimisation: batching, caching, quantisation
+Energy and cost accounting for large runs
+Plan and budget a multi-GPU fine-tuning run: memory estimate, parallel strategy, failure plan and energy cost, then run a scaled-down version and compare with the estimate.
+Cluster access or cloud credits, distributed training frameworks
+Compute is scarce; teach planning before spending.
+Multimodal and foundation models
+Combine images, text and other data in one model
+Use protein, DNA and single-cell foundation models
+Adapt foundation models to African biology and farming
+Protein language models and structure prediction
+DNA language models for genomes
+Single-cell foundation models
+Remote-sensing foundation models for land and crops
+Benchmarks and limits for each data type
+Fine-tune a genomic or remote-sensing foundation model on data from African breeds or farms, and report where it works and where it fails compared with classical methods.
+Open foundation models, public African genomic or satellite data
+Local data is the advantage; build and share high-quality African datasets.
+Design AI agents that plan and use tools
+Evaluate agents on long, real tasks
+Keep humans in control of agent actions
+Agent loops: plan, act, observe, reflect
+Tool use: code execution, search, databases, lab instruments
+Memory and long tasks
+Multi-agent systems: roles and coordination
+Evaluating agents: success rate, cost, safety
+Oversight: permissions, logs, approval steps
+Build a research agent that runs one step of your lab’s pipeline (for example quality control of sequencing data), with logs and a human approval step, and measure time saved.
+An LLM API or open model, your lab pipeline, a sandbox environment
+Start with narrow, well-tested tasks before giving agents more freedom.
+Explain how models are trained to reason
+Use test-time compute, search and verifiers
+Judge reasoning claims critically
+RL from human and AI feedback
+Chain-of-thought and test-time compute
+Search: sampling many answers, tree search
+Verifiers: checking answers with code, proofs or tests
+Reward hacking and its signs
+Benchmarks for reasoning and their weaknesses
+Build a small verifier-guided solver for a scientific task (for example checking breeding-value calculations) and compare accuracy with and without the verifier.
+Open models, Python, a set of problems with known answers
+Insist on checkable tasks; they show real progress.
+Probe what a model represents internally
+Attribute predictions to inputs
+Use interpretability to find and fix errors
+Probing classifiers on hidden states
+Attribution: gradients, integrated gradients, SHAP
+Mechanistic interpretability: features and circuits
+Sparse autoencoders for finding features
+Communicating explanations to non-experts
+Explain a genomic or crop-disease model: find which inputs drive its predictions, check them with domain experts, and report one error the analysis revealed.
+Your trained model, interpretability libraries, domain experts
+An explanation that experts cannot check is not yet an explanation.
+Identify ways AI systems can fail or be misused
+Test models for robustness and dangerous capabilities
+Release models responsibly
+Robustness: adversarial and out-of-distribution inputs
+Red-teaming: finding harmful behaviour before users do
+Dangerous-capability evaluations
+Bias and fairness across languages and groups
+Responsible release: staged access, model cards, monitoring
+AI policy: national and African Union strategies, data protection laws
+Red-team your own model in two local languages, document every failure, fix the worst three, and write a release plan with a model card.
+Your model, a red-team checklist, volunteer testers who speak the languages
+Safety work is part of the science, not an add-on at the end.
+Design benchmarks that measure what matters
+Avoid contamination and overfitting to benchmarks
+Build African benchmarks the world uses
+What makes a good benchmark: validity, difficulty, coverage
+Contamination: when test data leaks into training
+Human evaluation: design, agreement, cost
+Living benchmarks that update over time
+Statistical testing of model comparisons
+Case study: building a benchmark for an African language or crop
+Create and publish a benchmark from African data (for example agricultural questions in Amharic or crop images from local farms) with a datasheet, baseline results and a leaderboard.
+Collected data with consent, annotation guidelines, Zenodo or Hugging Face for release
+A good benchmark can put a lab on the world map faster than a model.
+Throughout the career
+Win competitive grants and manage budgets
+Hire, mentor and build a lab culture of rigour and openness
+Turn research into partnerships, patents, companies and policy
+Grant writing: ERC, MSCA, national funders, foundations
+Budgets, reporting and research management
+Hiring and mentoring: growing the next generation
+Collaboration across disciplines and with industry
+Patents, licensing and spin-off companies
+Public communication and policy briefings
+Funder calls and templates, budget spreadsheet, mentor network
+Measure success by the people you train as much as by your papers.
+Explain what today’s AI agents can and cannot do
+Design human oversight for agents at work
+Find one task in your work an agent could take over safely
+State of the art this year: agents that code, browse and run experiments
+How agents fail: loops, wrong tools, made-up facts
+Oversight: permissions, approval steps, audit logs
+Workshop: map your weekly tasks and mark what an agent could do
+Pilot an agent on one repetitive task for a month (for example drafting reports from data), keep a log of its errors, and decide whether to keep, change or stop it.
+An AI agent tool, a task log, a simple risk checklist
+Update this module every year; agent abilities change fast.
+Follow how AI is changing discovery in biology, chemistry, materials and climate
+Judge which claims of AI discovery are real
+Plan one AI-driven step in your own research
+Protein and molecule design with AI
+AI weather and climate models
+Self-driving labs: robots plus AI planning experiments
+Write a one-page plan to add one AI method to your research (for example a foundation model for your genomic data) with expected gain, risks and cost.
+Recent review papers, your research data, a mentor
+AI in agriculture and food
+Know the newest AI tools for crops, livestock and food systems
+Match tools to smallholder conditions
+Design an AI service farmers would pay for
+Genomic prediction and AI-assisted breeding
+Precision farming: drones, satellites, sensors on a budget
+AI advice in local languages by phone and SMS
+Climate-resilient breeds and crops: data and models
+Farmer interviews, open satellite and weather data, low-cost sensors
+Visit farms before designing; the best ideas come from the field.
+Embodied AI and robotics
+Follow progress in robot foundation models and low-cost robots
+Understand simulation-to-real transfer
+Spot robotics opportunities in local farms, labs and factories
+Robot foundation models: one model, many robots
+Simulation and transfer to the real world
+Low-cost robots and open hardware
+Workshop: a robot for one local job (weeding, sorting, milking, lab work)
+Build or simulate a simple robot for one local task using open hardware and an open model, and estimate what it would cost to make locally.
+Simulator (free), Arduino or Raspberry Pi, servo motors, open robot designs
+Local manufacturing of simple robot parts is a business in itself.
+Explain the basics of quantum computing and where it may help
+Follow energy-efficient and neuromorphic AI hardware
+Judge hype against real progress
+Quantum computing basics: qubits, gates, what problems may speed up
+Energy-efficient AI: small models, edge devices, solar-powered computing
+Neuromorphic and other new chips
+Run a small quantum circuit on a free simulator, and separately measure the energy use of an AI model on a laptop versus a phone, then write which matters more for your users.
+Free quantum simulator, an energy meter or phone battery stats
+For most African users, energy-efficient AI matters sooner than quantum.
+Safety, ethics and governance
+Know the main AI laws and strategies affecting your country
+Recognise bias, privacy and misinformation risks
+Shape policy on AI and data ownership
+AI regulation: national laws, African Union strategy, international rules
+Bias, deepfakes and misinformation in local languages
+Workshop: write a one-page policy brief
+Write a one-page policy brief for your ministry, university or company on one AI issue (for example local-language data ownership) with three clear recommendations.
+Current national and AU AI strategy documents, data protection law
+Update with the newest laws each year; policy changes quickly.
+Work faster with AI assistants without losing skill
+Use AI tutors well and teach others to
+Prepare for how jobs are changing
+Coding and writing with AI assistants: check everything
+AI tutors in local languages: strengths and limits
+The changing job market: which skills grow in value
+For one month, track how you use AI in your work: time saved, mistakes caught, skills you practised less. Write your personal rules for using AI.
+An AI assistant, a simple time log
+Use AI to go further, not to skip learning the basics.
+Find AI problems worth solving and paying for
+Build a lean AI product and business model
+Raise money and grow a team
+Lean AI products: start with open models and small data
+Business models: subscriptions, per-use, services, licensing, open source
+Funding: grants, competitions, angels, venture capital; pitching
+Open models, a laptop, mobile money, a simple website
+Revenue from real users is the best proof; start selling early.
+A computer only does exactly what we say, in the order we say it.
+Arrow cards move the robot home
+Order matters: making tea
+One child is the robot. It may only do what a card says.
+The result changes. The robot goes the wrong way, or the tea is made wrong.
+Yes: for example forward, forward, turn right, forward, forward. Test it by walking it.
+The child who acts as the robot: it follows the instructions exactly, like a computer.
+Spotting a pattern lets us describe many things with one short rule.
+A repeating pattern and its rule
+Rule: clap, stomp, and repeat
+Find the mistake in the bead pattern
+Rule: red, white, repeat
+Make a seed necklace pattern
+Choose two kinds of seeds or bottle tops (for example red beans and white maize).
+Swap with a friend: they must say your rule out loud.
+Hide one mistake and ask them to find it.
+Basket and mesob weaving, netela borders, floor tiles, songs and the days of the week.
+Grids and directions are how robots, maps and games describe where things are.
+Go around the wall to the treasure
+Grey squares are a wall. A turn card changes direction but does not move the robot.
+Two kinds of instructions
+Turn (stay on the square)
+Draw the arrows a friend must follow.
+The friend walks the chalk grid using only your arrows.
+Count the squares along the path, one step per square, plus any turns you need.
+Yes: draw one arrow for every square you move, and a turn arrow where the path changes direction.
+A loop repeats steps, so long programs become short and easy to check.
+Same path, fewer cards
+Drawing a square with a loop
+Rewrite it with a repeat card.
+Count the cards saved. The team that saves the most wins.
+Do the steps inside the repeat four times, one after the other.
+Yes: a chorus that is sung again after each verse is a loop.
+Every programmer makes mistakes. Finding and fixing them, calmly, is a skill.
+This program has a bug
+until the robot gets home
+Fix the broken robot above
+Point to the first step where the robot leaves the right path: the turn comes too early.
+Walk it again: now the robot reaches the house.
+A mistake in the instructions that makes the program do the wrong thing.
+By walking the path step by step and stopping at the first step that went wrong.
+Test again, to check the fix works and did not break anything else.
+The same ideas (order, loops, fixing) now work on a screen with picture blocks.
+A first ScratchJr-style program
+Blocks snap together from left to right (here top to bottom). The flag block starts the program.
+Arrow cards on the floor
+Group program: one block each
+Groups of three share one tablet or phone with ScratchJr.
+A blue motion block, such as move right or jump.
+By tapping the green flag (or the start block at the beginning).
+Planning before moving is what engineers do: think, write the plan, then test it.
+The stone blocks the straight path, so the robot goes up, across and down again.
+Plan, program, run, check
+if not, fix and run again
+Build a cardboard robot
+Cut a box, draw a face, and draw a big arrow showing which way it faces.
+Put a stone on the grid as an obstacle.
+Plan the path on paper with arrows.
+One child reads the cards aloud; another moves the robot exactly as told.
+If you have a Bee-Bot, press the same steps on its buttons and compare.
+The path, drawn as arrows, before touching the robot.
+By turning before the stone, moving past it, and turning back.
+One card: usually a missing forward, or a left turn that should be right.
+Sorting by rules is how we organise data, and how computers learn to recognise things.
+Sorting a fruit basket with two rules
+Not round: red pepper
+This is a decision tree: the same idea a phone uses to tell a cat from a dog after seeing many examples.
+Bring a basket of local fruit and vegetables.
+Sort by colour into groups on the floor.
+Count each group and draw one picture per item on a chart.
+Sort the same basket again by a new rule (size, or fruit vs vegetable).
+By one rule, for example colour: all red ones together.
+Yes: by size, by shape, or fruit versus vegetable. The same things can be sorted many ways.
+A story is a program too: characters, events and an order with a beginning, middle and end.
+Three scenes, like three boxes
+who and where: a clever hare by the river
+something happens: a lion wants lunch
+how it ends: the hare tricks the lion
+Plan your story on three boxes
+Fold paper into three boxes and draw one scene in each.
+Write one sentence under each box.
+Show your story and ask the audience what they would add.
+We meet the characters and the place.
+With move blocks (or by moving the puppet) in the order planned on paper.
+A new scene, a sound, or a second character who talks.
+Programs react to events (a click, a key) and use loops to repeat actions.
+Draw a square with a repeat loop
+Use for shapes and counted actions
+Runs until you press stop
+Use for animations and games
+What makes a Scratch program run
+A windmill that turns forever
+Draw a windmill sprite (or choose one) and a village backdrop.
+Click the flag; press space. Then press stop.
+repeat runs a fixed number of times and then continues; forever never stops until you press stop.
+Conditions let a program decide: do this if something is true, otherwise do that.
+Hand-washing game logic
+switch costume to clean-hands
+Walking with two costumes
+Sprite slides like a sticker
+Two costumes, switched
+legs forward, legs back
+Catch-the-ball mini-game
+Make a ball that falls from the top of the stage and a basket the player moves with the arrow keys.
+Test with a friend and adjust the falling speed.
+It checks a condition: if it is true the first blocks run, otherwise the blocks under else run.
+Switching between two pictures quickly makes the legs look like they move.
+Variables remember numbers (score, lives, time); coordinates tell where things are.
+The Scratch stage is a coordinate grid
+x grows to the right, y grows upwards.
+Score, lives and game over
+When a coin is clicked, change total by its value.
+A named box that stores a value, such as score, which the program can read and change.
+In the centre of the stage.
+Lists hold many values under one name; messages let sprites work together.
+Ten blocks to change, easy to make mistakes
+One loop reads them all; add more anytime
+Broadcast: one sprite tells others to start
+A quiz about your region
+Make two lists: questions and answers (for example rivers, crops, animals).
+Bonus: train Teachable Machine to recognise two crops and use it as a picture question.
+One list can hold any number of items and one loop can process them all; ten variables need ten separate blocks.
+Usually unclear instructions, a wrong answer check, or a timer that did not reset; testers find what the builder misses.
+Text code (Python) does what blocks do, but faster to write, share and grow.
+The same program in blocks and in Python
+input(), a sensor, a button
+print(), the micro:bit screen
+input() always gives text
+Market price calculator
+Always a string (text), even if the user types digits; convert with int() or float().
+The temperature sensor (inside the processor chip), read with temperature().
+Decisions, loops and functions are the three tools behind almost every program.
+You know how many times
+Repeat until something changes
+A function is a small machine
+def area(length, width):
+Output (return value)
+A week of rain: decisions, a loop, functions and a text bar chart
+When you do not know in advance how many repeats are needed, for example keep asking until the guess is right.
+Lists and dictionaries organise data; files keep it; HTML and CSS show it on the web.
+A web page has three layers
+colours, fonts, layout
+JavaScript: behaviour
+Next day: load it back
+Lists, a bilingual dictionary and saving to a file
+A list keeps items in order and you find them by position; a dictionary stores pairs and you find a value by its key.
+Variables disappear when the program stops; a file keeps the data for next time and for other programs.
+Real programs handle errors, talk to other services and read the physical world.
+Powered by a solar power bank: no grid electricity needed.
+An API: ask a server, get data back
+except ValueError: ask again
+Program keeps running
+The API reply here is a saved sample, so the example runs without internet. In class, use the requests library with a free weather API.
+Python jumps to the except block instead of crashing, so you can handle the problem (for example ask again or skip the value).
+An Application Programming Interface: a set of rules for asking another program or server for data or actions, usually over the internet with JSON replies.
+It compares the reading with a threshold measured beforehand in dry and wet soil; below the threshold means dry.
+Objects model real things; binary and logic show how the machine itself works; pandas turns data into answers.
+says what every farm has (name, crops)
+many objects, one class
+From switches to programs
+load, add, store, jump
+AND, OR, NOT built from transistors
+A class, binary, logic gates and averages with pandas
+A class is the blueprint (what data and actions exist); an object is one real thing made from it, with its own data.
+Good algorithms make programs fast; Git keeps every version safe; the DOM makes pages interactive.
+Binary search: O(log n)
+look in the middle, throw away half
+Linear vs binary search, and recursion
+It saves a snapshot of the staged changes with a message, so you can see or return to that version later.
+The back end stores data and answers requests; the right data structure makes it fast.
+A request to your API
+Stack: last in, first out
+Queue: first in, first out
+print jobs, SMS sending
+SQL JOIN with SQLite, a queue and a stack
+In the full project this query sits inside an API route that returns the rows as JSON.
+When order of arrival must be respected, such as customers waiting or messages to send.
+It combines rows from two tables where a key matches, for example each price with its market’s town.
+Not found: the server is working but the requested address or item does not exist.
+Professionals work in teams, on Linux, safely and ethically, and use machine learning with honest testing.
+Shell pipes join small tools
+Honest machine learning
+the model learns here
+never seen in training
+Predict next week’s market price and test it honestly
+Limits: the data are simulated; real prices also jump with rainfall, holidays and fuel costs, which this model does not know.
+It sends the output of one command as the input of the next, so small tools can be chained.
+To measure performance on data the model has never seen; the training score is always too optimistic.
+The people it describes have rights over it; follow the national data protection law, collect only what you need and ask for consent.
+Memory, proof and mathematics are the base under every advanced topic, including AI.
+A pointer is an address
+transforms a point: rotate, stretch, project
+one transformation after another
+Checking a formula and composing transformations
+Applying one linear transformation after another (for example rotate then stretch); the product is the combined transformation.
+Choosing the right algorithm and understanding the hardware decide whether a system scales.
+Greedy: take the biggest coin
+solves every smaller amount once
+When greedy fails, and an expected value
+Operating systems, databases, networks and numerical methods are what keep real systems correct and fast.
+safe isolation, heavier to start
+shares memory with its process
+light and fast, but needs locks
+A bank transfer is a transaction
+both happen, or neither (ROLLBACK)
+Application: HTTP, DNS
+Internet: IP addresses, routing
+Newton roughly doubles the correct digits each step; gradient descent is slower but needs only the gradient, which is why it trains neural networks.
+A process has its own memory; threads inside one process share memory, so they are lighter but must coordinate with locks.
+So that a group of changes either all happen or none do, even if power or the network fails in the middle (for example a money transfer).
+No. The halting problem, deciding for every program whether it stops, cannot be solved by any algorithm.
+Classical AI searches; machine learning fits data; honest evaluation tells you if it works.
+The supervised learning loop
+regression, tree, network
+repeat, then evaluate on held-out data
+Underfit, good fit, overfit
+test error rises: memorised noise
+g: cost so far, h: estimate to goal
+Test error is lowest at a middle depth; deeper trees keep lowering training error but get worse on new data.
+The model learns noise in the training data, so it scores well there but badly on new data; detect it when training error keeps falling while validation error rises.
+The heuristic decides which nodes to explore first; a good (admissible) one finds the best path while exploring far fewer nodes.
+It rotates the data onto new axes ordered by how much variance they explain, so you can keep the first few and reduce dimensions.
+Clean, tested, reviewed code is cheaper to change, and change is most of a software job.
+the whole app, like a user
+one function, fast, run on every save
+Reviewing a pull request
+Praise what is good, too
+Refactor a function and protect it with a unit test
+It does one thing, has a name that says what, is short, and is easy to test.
+That several parts work together correctly, for example the API really writes to and reads from the database.
+Be specific and kind: point to the line, explain the problem and suggest a fix; ask questions rather than judge; mention what is good.
+Containers and automated pipelines let a small team ship reliably and pay only for what it uses.
+From commit to running service
+cloud region near users
+a frozen recipe: OS, Python, your code
+built once, stored in a registry
+a running copy of an image
+start many, each isolated
+Package an API and test it on every push
+Configuration example (not run here). Add a deploy step for your cloud provider after the build, with keys stored as repository secrets.
+An image is the packaged recipe; a container is a running instance of that image (you can run many containers from one image).
+The setup is written down, reviewed and versioned like code, so it can be rebuilt identically and changes are visible.
+The pipeline stops at the test step and marks the commit as failed; nothing is built or deployed until the test passes.
+Clean, reliable data pipelines are what every dashboard and model depends on.
+SMS reports, CSVs, APIs
+clean, validate, deduplicate, convert units
+warehouse tables, Parquet
+no types, large, slow to scan
+columnar and compressed
+keeps types; reads only needed columns
+Transform step: duplicates, units, missing values and validation
+Keep rejected rows in a separate table with the reason, so someone can fix them at the source.
+Transform: cleans and reshapes the data (types, units, duplicates, joins, validation) before it is loaded.
+It is columnar and compressed, keeps data types, and lets queries read only the columns they need, so it is smaller and faster than CSV.
+Statistics tells you whether a change really worked or you just got lucky.
+the effect is large or important
+Randomisation makes the groups alike in everything except the version, so a difference can be credited to the version, not to who chose it.
+The posterior combines the prior with the data; a strong prior pulls the result towards it, especially when there is little data.
+Deep learning recognises images and text; small models bring it to cheap phones offline.
+Transfer learning for a leaf-disease app
+learned edges, textures, shapes on millions of images
+Train a new last layer
+Model size for phones
+tiny error if done well
+Real projects use PyTorch or TensorFlow Lite tools that quantise a whole trained network and then re-check accuracy on the test set.
+It adjusts some or all of the learned weights (often only the last layers) using your smaller, local dataset.
+It creates realistic new examples (flips, crops, light changes), so the model learns the object, not accidents of the few photos.
+A model is only useful if it keeps working after launch; MLOps watches and renews it.
+parameters, data version, metrics
+API, batch or on-device
+accuracy, drift, cost
+Detecting data drift with a two-sample test
+When the data the model sees in use changes from the data it was trained on (new conditions, sensors, users), so its accuracy can drop silently.
+To know exactly which data produced which model, so results can be reproduced, compared and audited.
+When monitoring shows drift or falling accuracy, when enough new labelled data has arrived, or on a planned schedule, always after review on held-out data.
+Language models become useful products when grounded in your documents and measured honestly.
+Retrieval-augmented generation (RAG)
+Search your documents
+Model reads the top passages
+cites the extension guide
+Evaluating an assistant
+score every new version the same way
+The retrieval half of RAG, with an evaluation set
+The model does not know your private or recent documents and may invent facts; RAG retrieves the relevant passages and makes it answer from them, with sources.
+Keep a fixed evaluation set of real questions with correct answers and score each version (accuracy, citation correctness), plus regular human review.
+Personal identifiers (names with phone numbers, ID or account numbers), health details and anything users did not agree to share; store the minimum and delete on request.
+Users trust services with money and data only if they are secure and recover from failure.
+Unsafe: text glued into SQL
+the input is only ever data
+SQL injection, shown safely on a throw-away database
+Attacker input changes the meaning of an SQL query; stop it with parameterised queries (placeholders), never by gluing text into SQL.
+In environment variables or a secrets manager, outside the code and repository, with access limited and keys rotated.
+What happened and when (timeline), impact on users, root cause, how it was detected and fixed, and the actions to prevent it again, without blaming individuals.
+Great engineers build the right thing: what users need and will pay for.
+ask about past behaviour
+problem, users, one metric, scope
+Prioritise by impact and effort
+high impact, low effort
+e.g. SMS price alerts
+low impact, high effort
+Rank features with a RICE score
+Numbers guide the discussion; the team still checks them against what users said in interviews.
+People are poor at predicting their own future behaviour but reliable about what they actually did; past behaviour shows real needs and real spending.
+One number that shows the problem is solved, for example the share of farmers who sell at a better price within a month of signing up.
+Theory explains when learning works, and causal thinking stops us confusing correlation with effect.
+A confounder on the farm
+Fertilizer and yield move together partly because wealth drives both. Adjust for wealth, or randomise, to see fertilizer’s own effect.
+fits noise, fails on new data
+regularisation, more data, validation
+Confounding: the naive estimate is badly wrong
+It may have memorised noise (high variance) or found patterns that do not hold in new conditions; only performance on new data shows real learning.
+A variable that affects both the cause and the outcome, such as farm wealth affecting both fertilizer use and yield.
+MCMC when you need accurate posteriors and can afford the time; variational inference when data or models are large and a fast approximation is enough.
+Modern deep learning rests on a few ideas: good optimisers, regularisation and attention.
+Self-attention in one picture
+query, key, value vectors
+How diffusion generates an image
+Remove a little noise
+a network predicts the noise
+Attention weights from scratch, and Adam vs SGD
+Adam gives each parameter its own step size from running averages of the gradient and its square, so flat and steep directions both make progress; plain SGD uses one step size for all.
+It starts from random noise and repeatedly removes a little predicted noise with a trained network until an image appears.
+Reinforcement learning learns decisions from rewards: useful for irrigation, energy and logistics, with care.
+Q-learning a simple irrigation rule
+The learned policy (irrigate when dry, wait otherwise) is the rule an agronomist would write: when a simple rule is known, use it; RL pays off when the system is too complex for rules.
+The agent maximises exactly what is rewarded, so it finds loopholes (for example pumping water to earn points) that defeat the real goal.
+When the system is well understood, data are scarce, or mistakes are costly: a tested expert rule is cheaper, safer and easier to explain.
+Research data outgrow laptops; clusters, workflows and containers make big analyses possible and repeatable.
+edit, submit; never compute here
+Shell script vs workflow manager
+reruns everything after a failure
+hard to parallelise and track
+knows which outputs exist, resumes
+runs steps in parallel, logs everything, uses containers
+SLURM job array (bash)
+It submits many similar tasks at once (for example one per sample), each with its own task ID, so they run in parallel under one job.
+It tracks dependencies and finished outputs, resumes after failures, runs independent steps in parallel and records exactly what was run.
+It packages the exact software and versions, so the analysis runs the same on any machine and years later.
+Correct statistics separate real findings from noise and give results others can trust.
+Data with structure need a mixed model
+Herd A (random effect)
+Herd B (random effect)
+Cows in one herd share feed and management, so they are not independent. A herd random effect accounts for this.
+Power analysis before the experiment
+Smallest effect worth finding
+Animals in the same herd share conditions, so their records are correlated; a random effect models this and gives honest standard errors and conclusions that extend to other herds.
+When the likelihood is too complex to write down but you can simulate data from the model, for example demographic history from genomes.
+Good research is a craft: clear questions, fair comparisons, reproducible work and honest publishing.
+From question to paper
+remove one part at a time
+spam e-mails promising fast acceptance
+fee before review, fake impact factor
+not indexed in Scopus, Web of Science or DOAJ
+real editorial board you can verify
+clear peer-review process
+indexed; a recognised society or publisher
+Make your code citable
+Reproducibility checklist: code in Git with a release, data on Zenodo with a DOI, fixed random seeds, a container or environment file, and a README that reproduces every figure.
+To show which parts of a method actually cause the improvement, by removing or replacing one component at a time and measuring the change.
+Code (versioned), data or how to obtain it, exact software environment, parameters and random seeds, and the steps that produce each figure and table.
+Unsolicited e-mails, promises of very fast acceptance, fees before review, unverifiable editors or impact factors, and no listing in Scopus, Web of Science or DOAJ; check before submitting.
+Understanding how LLMs are built shows where they fail for African languages and how to fix it.
+quality, licences, consent
+predict the next token
+Why tokenisers matter for Amharic
+English-heavy tokeniser
+Tokeniser trained with Amharic
+common syllables and words become single tokens
+fair cost and quality
+Bytes per word, and the scaling-law rule of thumb
+The Chinchilla ratio is a rule of thumb for compute-optimal training; many recent models train on far more tokens to make inference cheaper.
+How loss falls as parameters, data and compute grow, roughly as power laws, which lets you plan model and data size for a budget.
+The model can learn to please raters (flattery, overconfident or long answers) instead of being correct; it can also lose skills or become over-cautious.
+Large models need many GPUs working together, and smart tricks to cut memory, time and cost.
+Three ways to split the work
+each GPU has the whole model, different data
+each layer’s matrices split across GPUs
+groups of layers on different GPUs: needed when the model does not fit on one GPU
+Full fine-tuning vs LoRA
+memory for all gradients and optimiser states
+What LoRA and quantisation save
+Inference is mostly limited by moving weights from memory; fewer bytes per weight means faster tokens and fits on smaller GPUs.
+When the model (weights and activations) is too large for one GPU even with data parallelism, so groups of layers must sit on different devices.
+Fewer bytes must be read from memory for each token, and low-precision arithmetic is faster on modern hardware.
+The same transformer ideas now read images, proteins, genomes, cells and satellite data.
+One idea, many data types
+Self-supervised foundation model
+regulatory grammar, variant effects
+land use, crop type, yield
+Testing a foundation model fairly
+test regions also in pre-training
+only European or US benchmarks
+held-out African regions, breeds and seasons
+compare with a simple local baseline
+How a DNA language model sees a genome
+Their training data under-represent African breeds, crops, soils, landscapes and people, so the patterns differ (distribution shift).
+Test on held-out local data never seen in pre-training, compare with simple baselines, and report results per region or group with uncertainty.
+Agents act, not just answer, so their power must come with permissions, logs and human approval.
+Allowed automatically
+read files, search, run tests
+send money, e-mail outsiders
+delete data, change lab instruments
+anything irreversible
+A permission gate and an audit log for an agent
+Anything irreversible or high-impact: moving money, deleting data, contacting people outside, changing physical equipment, or sharing private data.
+Compare with a baseline on real tasks: task success rate, time saved, errors caught by reviewers, and cost per task.
+Errors compound over many steps, costs grow, and the agent can drift from the goal or take unsafe actions unnoticed; use checkpoints, budgets and logs.
+Models reason better when they can think longer and check their own answers with verifiers.
+Search with a verifier
+run the code, check the proof
+Keep a passing answer
+make the unit tests pass by fixing the bug
+edit the tests so they always pass
+high reward, no real progress
+This assumes a perfect verifier. With an imperfect one (for example a learned reward model), more samples can find answers that fool it.
+A procedure that checks whether an answer is correct, such as running tests, a proof checker or exact calculation, independent of the model that wrote it.
+The model can explore several reasoning paths or answers and keep the best one, so a harder problem gets more effort.
+When a model gets high reward by exploiting flaws in the reward or tests, rather than doing the intended task.
+Interpretability asks why a model decided, which builds trust and finds hidden errors.
+train a small classifier on hidden states
+score each input for one prediction
+A good explanation for a farmer
+scout tomorrow; spray if pustules
+A probe tests whether some information is encoded in the model’s internal states; an attribution scores how much each input contributed to one specific output.
+They can look convincing but be unfaithful to what the model really computed, be unstable to small changes, or reflect correlation in the data rather than causes.
+By whether it matches what they see in the field, uses factors they know, and leads to a clear action that works when they try it.
+Powerful AI must stay robust, fair across languages and released responsibly.
+try to make it fail or cause harm
+Evaluate in many languages
+uses, limits, data, results by group
+leaf photos like the training set
+a new crop, night-time photos, a different phone camera
+Flag inputs unlike the training data
+Inputs that differ from what the model was trained on (new places, crops, cameras, languages), where its accuracy is unknown and often poor.
+Quality and safety often drop in languages with less training data; harms and errors can hide in Amharic, Tigrinya or Afaan Oromo if you test only English.
+Intended uses and users, out-of-scope uses, training data, evaluation results broken down by language and group, known limitations and risks, and contact and version information.
+A benchmark decides what the field optimises, so it must measure the right thing, honestly.
+Building a benchmark for an African language
+e.g. extension advice in Amharic
+Native-speaker experts write items
+Keep a hidden test set
+Reporting a model comparison
+contamination checked
+Confidence interval for a model comparison, and a contamination check
+Look for long word-sequence (n-gram) overlaps between test items and training data, test with fresh or rephrased items, and watch for suspiciously high scores on old items.
+Scores on a few hundred items vary by chance; an interval shows whether a difference between models is real or within noise.
+Native speakers with domain expertise, paid fairly and trained with clear guidelines, with agreement between annotators measured.
+Top scientists turn ideas into funded programmes, strong teams and organisations that last.
+who suffers, how much
+Bold, specific objectives
+methods, risks, pilot data
+open questions remain
+no clear paying customer yet
+the method works and is repeatable
+customers will pay; a team wants to build it
+Write the one-sentence problem and the one-sentence promise.
+Read the call text twice and copy its evaluation criteria into your outline.
+Show preliminary data: one figure that proves feasibility.
+Build the work plan as work packages with deliverables, months and a risk table.
+Cost it honestly: people, equipment, travel, open-access fees, overheads.
+Get two colleagues to review it as panel members, then revise.
+An important problem, a clear and ambitious but feasible plan backed by preliminary data, the right team, a realistic budget and a convincing path to impact, all matched to the call’s criteria.
+By the growth of the people mentored: skills gained, papers and grants they lead, jobs or companies they reach, and whether they mentor others.
+When the result works reliably outside the lab, there is a customer who will pay, and a team ready to build and support a product.
+Agents will do more of our work; knowing where to trust them is a new core skill.
+Map your weekly tasks
+first drafts, data cleaning, literature search
+routine code with tests
+final decisions, approvals, payments
+talking with farmers and partners, ethics
+How agents fail and how you notice
+same step again and again
+Checks: logs, tests, spot review
+Decisions with legal, financial or ethical weight, anything irreversible, and work that depends on trust and relationships.
+Check its logs and outputs against tests or known answers, review a random sample every week, and set alerts for unusual actions or costs.
+AI is speeding up discovery in biology, chemistry and climate; the winners own good data and good questions.
+AI proposes an experiment
+only computer predictions
+no comparison with a simple baseline
+code and data not shared
+confirmed in the lab or field
+beats strong baselines on held-out data
+independent replication
+List the steps of one research project from idea to paper and write how many weeks each takes.
+Circle the slowest step.
+Find one AI tool or model that targets that step (for example a protein model, a weather model, an analysis agent).
+Name the data you hold that others do not: local breeds, field trials, local-language records.
+Design a two-week test that measures the time saved.
+Experimental confirmation, strong baselines on held-out data, shared code and data, and independent replication.
+Answer for your own project; for many field scientists it is data collection or waiting for the next season.
+Local data such as indigenous breeds, multi-year field trials, farmer records and local-language text; these make your AI work unique.
+AI can raise smallholder income only if it reaches them by channels they already use, in their language.
+An advisory service that works on any phone
+weather, prices, crop calendar
+Data that feed AI-assisted breeding
+SNP chips, sequencing
+trials, drones, farmer records
+pick climate-resilient parents
+The prices and costs here are illustrative assumptions; replace them with numbers from your own pilot.
+Timely, trusted, local advice and market information that raises income or cuts losses, delivered simply and cheaply.
+SMS, USSD menus and voice calls (IVR) in local languages, plus extension agents and radio.
+Through small fees via cooperatives or mobile money, input companies or buyers who benefit, insurers, or government and donor contracts; check the break-even number.
+Robots that learn from data could take on dull, dirty and dangerous farm and lab work.
+Simulation vs the real field
+perfect light, flat ground
+unlimited free practice
+dust, mud, shadows, wind
+every weed looks different
+Bridge the gap with domain randomisation (vary everything in simulation) and real-world fine-tuning.
+A low-cost weeding robot
+Vision model: weed vs crop
+made locally from steel and bicycle parts
+Workshop: a robot for one local job
+Pick one job that is dull, dirty or dangerous: weeding, sorting coffee beans, cleaning barns, pipetting.
+Write what the robot must sense, decide and do, step by step.
+Choose the cheapest sensors that work (a phone camera often does).
+List parts that can be made by local workshops and parts that must be bought.
+Build a cardboard or wooden mock-up and test the movement by hand.
+Estimate cost per hour compared with a person, and who would own and maintain it.
+Real sensors are noisy, light and terrain change, objects vary and mistakes break things; simulations simplify all of this.
+Answer for your area; common examples are weeding, sorting grain or coffee, cleaning barns and repetitive lab pipetting.
+Frames, wheels, mounts and tools from local metal and wood workshops; electronics and motors are usually bought.
+New kinds of computing and energy-efficient AI decide who can afford to use AI.
+useful for some problems: chemistry simulation, certain searches
+no benchmark against the best classical method
+a clear task, measured speed-up
+independent results, error rates reported
+A qubit in a few lines, and an energy budget for edge AI
+This simulates a qubit on an ordinary computer; real quantum hardware is noisy and still small.
+Problems with special structure, such as simulating molecules and materials, factoring, and some optimisation and search problems; not everyday computing.
+Electricity is costly and unreliable in many places; efficient models on solar-powered edge devices make AI affordable and available offline.
+Ask for a clear task, comparison with the best classical method, independent results and reported error rates; be wary of broad promises.
+Rules on data and AI decide whether African data create African value and protect people.
+Layers of AI governance
+continental AI strategy, data policy framework
+data protection law, sector rules
+consent, data agreements, audits
+A fair farmer-data agreement
+in the farmer’s language
+better advice, payment or ownership
+Write a one-page policy brief
+Why it matters now: two facts with sources.
+Options: list two or three policy options with costs and risks.
+Who acts and by when.
+Ask a lawyer or policy expert to review it.
+Legally it depends on the country’s data protection law and the agreement signed; ethically farmers should keep rights over data about them, with consent and a fair share of the benefits.
+Fake audio or video in local languages can spread false health or market information, damage reputations, and fuel conflict, and fewer fact-checkers work in those languages.
+The best results come from people and AI working together, each doing what they do best.
+Checking an AI answer
+run the code, redo the sum, try in the field
+Ask an expert if it matters
+Skills that grow in value
+Practise without AI too
+reading carefully, mental maths
+writing your own argument
+judging quality and evidence
+first drafts, translation drafts
+boilerplate code, summaries to check
+Ask the AI a question from your field and save its answer.
+Underline every fact, number and name in the answer.
+Run any code or redo any calculation yourself.
+Write one sentence: what was right, what was wrong, and what you will always check next time.
+Core skills you must judge AI with: careful reading, writing your own reasoning, basic maths and knowledge of your field.
+Check sources, test code and numbers yourself, compare with trusted references, and ask an expert when the stakes are high.
+Usually jobs with routine text, data entry and simple customer questions change first; jobs needing trust, hands-on skill and judgement change more slowly.
+A profitable AI company starts from a painful problem and a customer who pays, not from the model.
+From problem to company
+Your edge over a free chatbot
+no local data, no integration
+local prices, soils, breeds, language
+works by SMS, connects to payment and inputs
+trusted partners and support
+All numbers are assumptions to replace with your own measurements after talking to customers.
+Name the buyer (farmer, cooperative, company, government) and the price they agreed to in interviews or a pilot, not a guess.
+Use local data, language, delivery channels and integrations (payments, inputs, extension) that a general chatbot does not have.
+Through partners who already reach them: cooperatives, unions, input dealers, extension agents; offer a free pilot and convert satisfied users.
+Children count real things from the farm and home, compare groups, and show what they found with pictures. This is the first step of all statistics: data are counts and measures of real things.
+Counting things on the farm
+Use tally marks (four lines and a cross)
+Say how many there are in each group
+Count seeds, stones and bottle tops on a mat
+Tally marks: one line for each thing, a cross every fifth
+Count eggs, goats or chickens at home with a parent
+Class count: how many children walk, how many ride to school
+Each child brings a handful of seeds from home. The class sorts them by kind (maize, beans, chickpea) and counts each kind with tally marks on the floor.
+Seeds, stones, chalk, paper
+Always count real objects before drawing numbers; touching makes counting stick.
+Compare two groups: more, less or the same
+Match one-to-one to check
+Explain how they know
+One-to-one matching: line up two rows of seeds
+Heavier or lighter: compare two maize cobs in the hands
+Taller or shorter: compare two seedlings with a stick
+Plant beans in two cups, one in the sun and one in the shade. Every week, children compare which seedling is taller, using a stick to measure.
+Two cups, soil, bean seeds, a straight stick
+Make a picture chart where one picture is one thing
+Read a picture chart: most, least, how many
+Tell a short story from a chart
+Our favourite fruit: each child sticks one picture in a column
+Weather chart: draw sun, cloud or rain each day for two weeks
+Make a class weather chart for two weeks with drawn suns, clouds and rain drops, then count which weather came most often and talk about what it means for the farm.
+Paper, crayons, a wall
+Keep the chart on the wall and refer to it often; it is the class’s first dataset.
+Asking questions and collecting data
+Turn a curiosity into a question data can answer
+Collect data with a tally table
+Record data neatly with dates
+Tally tables with categories
+Data sheets: date, what, how many
+Class project: count sprouted beans every day for a week
+Beans from three sources, wet cloth or cups of soil, a data sheet
+Let pupils design the data sheet; they learn why columns matter.
+Turn a tally into a table and a bar chart
+Read bar charts and pictographs
+Choose a good chart title and labels
+Labels: title, axis names, units
+Reading charts from newspapers and seed packets
+Draw a bar chart of sprouted beans per seed lot on squared paper, with a title and labels, and present it to the school farm club.
+Squared paper, ruler, coloured pencils
+Insist on titles and labels from the first chart.
+Measure length, mass and volume with units
+Measure the same thing the same way each time
+Record measurements in a table over time
+Centimetres and a ruler: measure seedlings
+Grams and kilograms: weigh a cob on a kitchen scale
+Millilitres: water given to each cup
+Ruler, kitchen scale, cups with ml marks, seedlings
+Agree on one measuring rule (from soil to tip of the longest leaf) and keep it.
+Fair share (mean) and chance
+Describe chance as likely, unlikely, certain
+See that results vary even when nothing changes
+Mean seedling height: add up and share
+Seeds, cups, ruler, coins
+Natural variation is the most important idea in statistics; return to it often.
+Count and percentage comparison (no test yet)
+Certified seed sprouted most, market seed least.
+A sprouting-test service for farmers before planting is a simple business a school club can run.
+Learners summarise data with mean, median, mode and range, draw the right graph, understand probability and sampling, and run their first fair experiment with a control, replicates and random allocation.
+Mean, median, mode and range
+Calculate mean, median, mode and range
+Choose the right average for skewed data
+Use spreadsheet functions AVERAGE, MEDIAN, MIN, MAX
+Median: the middle value; why it resists one huge farm
+Mode: the most common category
+Spreadsheets: formulas for a class dataset
+Mini-project: farm sizes in the village
+Notebook, calculator or spreadsheet
+Use one real village dataset for the whole module.
+Graphs that tell the truth
+Choose bar, line, histogram or scatter for the data type
+Spot misleading graphs
+Make graphs in a spreadsheet
+Bar charts for categories
+Histograms for measures: plant heights
+Line graphs for change over time: rainfall by month
+Scatter plots for two measures: rainfall vs yield
+Plot monthly rainfall from the local weather station or a school rain gauge as a line graph, and yield records against rainfall as a scatter plot.
+Rain gauge from a plastic bottle, spreadsheet
+Ask learners to redraw a misleading chart from an advert or newspaper.
+Probability and sampling
+Calculate simple probabilities
+Take a random sample from a field
+Explain why random samples are fair
+Populations and samples: the field and the plants we measure
+Random sampling with numbered paper or a phone
+Bias: why measuring only plants near the path is unfair
+Stakes, string, numbered paper, ruler
+Let learners see that random samples land close to the truth, but not exactly.
+Design an experiment with one change and a control
+Use replicates and random allocation
+Summarise results and draw a careful conclusion
+Treatments and controls
+Random allocation by drawing lots
+Recording data carefully
+Writing a conclusion: what the data show, and what they do not
+Pots or plastic bottles cut in half, soil, compost, maize seed, ruler
+Compost pots have a clearly higher mean and median.
+Most compost pots are taller, but the two dot clouds overlap a little: plants vary even with the same treatment.
+Evidence and Inference
+Learners move from describing data to drawing conclusions with known uncertainty: distributions, confidence intervals, t-tests, chi-square, correlation and regression, a first field experiment and a first farmer survey, with spreadsheets, Python or R.
+Distributions and variability
+Describe spread with variance and standard deviation
+Recognise the normal distribution and skewed data
+Explain the standard error and why bigger samples help
+Variance and SD by hand and in code
+The normal curve: plant heights, grain weights
+Skewed data: farm sizes, incomes
+Kitchen or lab scale, grain, Python or spreadsheet
+Simulation makes sampling distributions click; use it before formulas.
+Confidence intervals and tests
+Run one-sample, paired and two-sample t-tests
+Explain p-values, type I and type II errors honestly
+From sample to population: the CI
+The logic of a test: null and alternative
+Two-sample t-test (Welch)
+Paired t-test: the same farms, two seasons
+p-values: what they mean and do not mean
+Errors and power: why small trials miss real effects
+Python (scipy) or R, the example dataset
+Always report the effect size and CI, not only p.
+Counts and categories
+Compare proportions between groups
+Run and check a chi-square test of independence
+Separate association from causation
+Proportions and percentages with CIs
+Chi-square test and expected counts
+Fisher’s exact test for small counts
+Association vs causation: confounders
+Survey form, phone or paper, Python or R
+Teach survey ethics: consent, privacy and sharing results back with farmers.
+Relationships: correlation and regression
+Measure linear association with r
+Fit and interpret a simple linear regression
+Check residuals and avoid extrapolation
+Scatter plots and correlation r
+Least-squares line: intercept and slope
+Checking assumptions with residual plots
+Prediction vs extrapolation
+Trial data, Python or R
+Tie every slope to money: kg of grain per kg of fertilizer.
+First field experiment and first survey
+Plan a simple random or stratified farmer survey
+Choose free tools: spreadsheets, JASP, Python, R
+From pots to plots: plot size, borders, labels
+Randomising plots with a phone or random numbers
+Field data sheets and data entry checks
+Sampling frames: lists of farmers, strata by kebele or village
+Questionnaire design: clear, short, unbiased questions
+Software tour: JASP (point-and-click), Python, R
+Pegs, string, tape measure, scale, phone, free software
+A well-run small trial teaches more than a large messy one.
+Recommend the improved variety if the extra seed cost is less than the value of the lower end of the CI gain (a cautious, profitable rule).
+Seed companies pay for independent on-farm comparisons like this.
+Invest in extension contact (or a phone-based advice service) where adoption is low, and test its effect with a randomised trial.
+Survey and monitoring services for NGOs and seed firms are paid work for statisticians.
+Fertilizer recommendation services based on local response data save farmers money and earn fees.
+Field Experiment Designer
+Graduates design, lay out and analyse the core agricultural experiments correctly: CRD, RCBD, Latin square, factorial, split-plot and non-parametric analyses. They choose the right mean comparisons and turn ANOVA tables into field recommendations.
+Principles of field experimentation
+Define experimental unit, treatment, replicate and control
+Apply the three principles: replication, randomisation, local control (blocking)
+Plan plot size, borders, layout and data collection
+Why experiments: causation needs control
+Experimental units and pseudo-replication (plants in one plot are not replicates)
+Randomisation with random numbers or software
+Blocking: follow the gradient you can see
+Plot technique: size, shape, borders, guard rows
+Field book, labels and data entry checks
+Field, pegs, string, tape measure, phone with a random-number app
+Most failed trials fail in the field, not in the analysis.
+CRD and one-way ANOVA
+Explain how ANOVA splits variation into treatment and error
+Check assumptions with residuals
+Transform data when assumptions fail
+The ANOVA table: SS, df, MS, F
+Coefficient of variation (CV) as a quality signal
+Residual checks: normality, equal variance, outliers
+Transformations: log, square root, arcsine
+Pots, soil, seed, scale, Python or R
+Have students compute one ANOVA fully by hand before using software.
+Comparing means: LSD, Tukey, Dunnett and contrasts
+Choose the right mean-comparison method
+Control error rates when making many comparisons
+Plan contrasts that answer real questions
+LSD: when it is acceptable (planned, few comparisons)
+Tukey HSD for all pairs
+Dunnett for comparisons with a check
+Orthogonal contrasts: organic vs inorganic, linear trend in rates
+Letter displays and their misuse
+Re-analyse a published variety trial using Dunnett vs the check and compare the conclusions with the paper’s Duncan letters.
+A published trial table, Python or R
+Lay out and analyse an RCBD
+Measure how much blocking helped
+Handle a missing plot
+Blocking across gradients
+Two-way ANOVA without interaction
+Relative efficiency of RCBD vs CRD
+Missing plots: estimation or mixed models
+On-farm trials: farms as blocks
+Make every on-farm trial an RCBD with farms as blocks.
+Use a Latin square to remove two gradients
+Two-way blocking: rows and columns
+Latin square layout and randomisation
+ANOVA for a Latin square
+Squared paper, Python or R
+Factorial experiments and interaction
+Design factorial trials
+Interpret main effects and interactions
+Recommend combinations, not single factors
+Why factorials beat one-factor-at-a-time
+Two-way ANOVA with interaction
+Simple effects: P at each N rate
+Three-factor factorials and confounding
+Always plot the interaction before reading the F-test.
+Split-plot and strip-plot designs
+Recognise when one factor needs large plots
+Analyse with the correct two error terms
+Use mixed models for split-plots
+Main plots and subplots
+Error (a) and Error (b): why two errors
+Strip-plot for two large-plot factors
+Split-plot as a mixed model
+Common mistakes: analysing as a factorial
+Ask how the field work was done; that decides the design, not the analyst’s wish.
+Non-parametric tests, covariates and messy data
+Analyse scores and ranks correctly
+Use a covariate (ANCOVA) to remove known noise
+Deal with outliers and missing data honestly
+ANCOVA: adjusting yield for plant stand
+Outliers: check, do not delete blindly
+Missing data and what to report
+Record covariates like stand count in every trial; they rescue noisy experiments.
+The ANOVA F-test is highly significant: at least one treatment differs.
+Biofertilizer makers pay for screen-house and field efficacy testing before registration.
+National variety trials and seed companies need exactly this analysis every season.
+N and P both raise yield strongly (very small p-values).
+When the interaction is significant, recommend the best combination from the table of means, not each nutrient separately.
+Blended-fertilizer companies and soil-testing labs sell nutrient recommendations built on factorial trials.
+Where farmers can irrigate, recommend Belete; under rainfed conditions choose the variety with the highest rainfed mean.
+The test is significant: at least one programme changes blight scores.
+Crop-protection companies pay for independent efficacy trials with proper statistics.
+Applied Agricultural Analyst
+Analysts handle the data agriculture really produces: unbalanced and incomplete trials, many sites and years, counts and proportions, many traits, repeated measures, surveys and money. Every analysis ends in a recommendation with a profit test.
+Linear mixed models and incomplete-block designs
+Decide what is fixed and what is random
+Fit mixed models with REML; read BLUEs and BLUPs
+Design and analyse alpha-lattice and augmented trials
+Fixed vs random effects: the question decides
+REML variance components
+BLUEs for comparing entries, BLUPs for predicting
+Augmented designs when seed is scarce
+Missing data: why mixed models cope
+Re-analyse an alpha-lattice variety trial both as RCBD and as a mixed model with incomplete blocks; compare standard errors and rankings.
+Draw the design on paper before writing the model formula.
+Analyse trials across locations and years
+Measure stability and adaptation
+Identify mega-environments and target genotypes
+Combined ANOVA and the right error terms
+Which-won-where and mega-environments
+R (metan) or Python, MET data
+Map the sites and their weather beside every biplot.
+Spatial analysis of field trials
+Detect field trends and patches in residuals
+Improve precision without more plots
+Residual heat maps by row and column
+Moving-average and nearest-neighbour adjustment
+P-spline surfaces (SpATS)
+Choosing models with AIC
+Map residuals of a large variety trial by row and column, fit a spatial model, and show how rankings and heritability change.
+R (SpATS, ASReml-R if available), field coordinates
+Insist on row and column coordinates in every field book.
+Generalised linear models
+Model proportions, counts and binary outcomes
+Check and handle overdispersion
+Report odds ratios and rate ratios clearly
+Binomial (logistic) models for germination and survival
+Poisson and negative binomial for insect and weed counts
+Overdispersion and quasi-likelihood
+GLMMs: random blocks in a GLM
+Odds ratios in plain words
+Model seed germination after storage in hermetic bags vs sacks, and produce a safe-storage-time table for seed cooperatives.
+Choose the model from how the data were generated: counts of successes out of n trials are binomial.
+Response curves and economic optimum
+Fit quadratic, plateau and Mitscherlich response models
+Find agronomic and economic optimum rates
+Turn results into price-ratio tables
+Linear-plateau and quadratic-plateau models
+Mitscherlich (diminishing returns)
+Marginal product and the price ratio
+Uncertainty in the optimum (bootstrap)
+Site-specific recommendations
+Response trial data, Python or R
+Every response curve should end in a money table farmers can use.
+Multivariate analysis
+Summarise many traits with PCA
+Group accessions with cluster analysis
+Use multivariate tools for genetic diversity and selection
+Correlation matrices among traits
+PCA: scores, loadings, biplots
+Hierarchical and k-means clustering
+Discriminant analysis
+Diversity studies for gene banks
+Characterisation data, Python or R
+Always read loadings before naming a component.
+Repeated measures and growth curves
+Analyse the same animals or plots over time
+Fit growth curves for livestock and crops
+Choose correlation structures for repeated data
+Why repeated measures are not independent
+Mixed models with time and animal effects
+Gompertz and logistic growth curves
+Lactation curves (Wood model)
+Fit growth curves to monthly weights of lambs on two feeding systems and estimate the age at which each reaches market weight.
+Animal weight records, R (nlme) or Python
+Livestock data are almost always repeated measures; treat them that way.
+Surveys, impact and economics
+Design stratified and multistage farmer surveys
+Model adoption with logistic regression
+Judge profitability with partial budgets and MRR
+Sampling frames and sample size
+Stratified, cluster and multistage designs; survey weights
+Logistic models of adoption
+Impact evaluation basics: randomised trials, difference-in-differences, matching
+Partial budget, dominance and marginal rate of return
+Run a partial budget and MRR analysis for four fertilizer options and write a one-page profit recommendation.
+Trial means, local prices, spreadsheet, Python or R
+A recommendation without a profit test is not a recommendation.
+MET analysis is the core paid service for seed companies and national breeding programmes.
+If prices change, only the price ratio changes the optimum: cheaper fertilizer or dearer grain moves it up.
+A phone or SMS service that gives each farmer the optimum rate for today’s prices is a clear business.
+Hermetic-bag sellers and seed cooperatives use this evidence to sell storage solutions.
+Two components summarise most of the variation in six traits.
+One axis groups maturity, height and panicle length (late, tall types vs early, short types).
+The other axis groups grain yield and grain weight against Striga count: accessions high on it yield well and resist Striga.
+Gene banks and breeders pay for characterisation analytics that turn collections into parent lists.
+A dominated option costs more but earns a lower net benefit than a cheaper option; it is dropped.
+Input companies and microfinance lenders need profit evidence like this before they invest or lend.
+Quantitative Researcher
+Researchers estimate genetic parameters and breeding values, map genes, predict merit from DNA, build and honestly validate prediction and forecasting models, reason with Bayesian methods, and separate cause from correlation in agricultural data.
+Variance components and heritability
+Estimate variance components by ANOVA and REML
+Calculate heritability and repeatability with standard errors
+Design half-sib and full-sib experiments
+Genetic models: additive, dominance, environment
+Half-sib and full-sib designs
+ANOVA vs REML estimates
+Heritability, repeatability and their uses
+Genetic correlations between traits
+Estimate the heritability of weaning weight from a community sheep breeding programme and report sire EBVs to the breeders’ cooperative.
+Animal model and BLUP
+Build the numerator relationship matrix from pedigree
+Solve mixed-model equations for breeding values
+Use EBVs and their accuracies for selection
+Pedigree and the A matrix
+Henderson’s mixed-model equations
+Sire model vs animal model
+Accuracy and reliability of EBVs
+Run an animal-model evaluation for a small goat or dairy herd with pedigree and publish a ranked EBV list with accuracies.
+Clean pedigree errors first; they distort every EBV.
+Run GWAS with mixed models and population-structure control
+Control false discoveries
+Interpret Manhattan and QQ plots honestly
+Genotype quality control: call rate, MAF, HWE
+Population structure: PCs and kinship
+Single-marker and mixed-model GWAS
+Bonferroni, FDR and genomic inflation
+From hits to candidate genes and validation
+Run a GWAS with and without structure correction on a real or simulated dataset and explain why the uncorrected hits are false.
+Genotype data, PLINK, GAPIT or Python
+Always show the QQ plot next to the Manhattan plot.
+Genomic prediction and selection
+Fit GBLUP, ridge and Bayesian models
+Measure accuracy with proper cross-validation
+Plan training populations
+From markers to breeding values
+GBLUP and the genomic relationship matrix
+Cross-validation designs that match real use
+Training-population size and relatedness
+Genomic data, R (rrBLUP, BGLR) or Python
+Match the cross-validation to the real decision: new animals, new sites or new years.
+Combine prior knowledge with data
+Fit hierarchical models with MCMC
+Make decisions from posterior probabilities
+Bayes’ theorem with conjugate priors
+Hierarchical models: farms within districts
+brms and Stan in practice
+Decision analysis with posterior probabilities
+Build a Bayesian spray-decision rule for wheat rust from scouting data and a prior from past seasons.
+Scouting data, R (brms) or Python
+State the prior openly and test how much it changes the decision.
+Machine learning and forecasting
+Build and validate prediction models without fooling yourself
+Use satellite and weather data
+Forecast prices and yields with honest benchmarks
+Train, validation and test; data leakage
+Random forests and gradient boosting
+Feature importance and its limits
+Remote sensing: NDVI and crop models
+Time series: trend, seasonality, ETS and ARIMA
+Always beat a simple benchmark
+Predict farm yields from rainfall, NDVI, fertilizer and soil, and forecast monthly grain prices with a hold-out test.
+Farm and price data, Python (scikit-learn) or R
+Split by time or place when predicting the future or new places.
+Causal inference and spatial statistics
+Estimate effects from observational data carefully
+Model spatial and spatio-temporal data
+Link climate data to crop and livestock outcomes
+Difference-in-differences and matching
+Instrumental variables (overview)
+Geostatistics: variograms and kriging
+Spatio-temporal models for climate and disease
+Map soil organic carbon from sampled points by kriging, and estimate the effect of a soil-conservation programme with difference-in-differences.
+Geo-referenced samples, R (gstat, sf) or Python
+Draw a DAG for fertilizer, rainfall and yield.
+Draw the causal diagram before choosing the method.
+A sire’s EBV is its estimated genetic merit passed to offspring, in kg above or below the flock average.
+Selling performance-recorded rams with EBVs earns more than selling unrecorded rams; breeders pay for the EBV service.
+Where the phenotypic variance comes from
+True value used in the simulation
+Breeding value for weaning weight (kg, deviation from flock)
+Validated markers become diagnostic tests that genotyping labs sell to breeders.
+SNP position along the genome
+Significant after Bonferroni
+Cross-validation hides one fifth of the animals, predicts them from the rest, and repeats five times: an honest test of prediction.
+Use genomic predictions to pre-select young animals before they have their own records, and grow the training population every year.
+Predictive ability and accuracy across shrinkage (ridge alpha)
+Random forest captures thresholds and interactions (for example, nitrogen pays more on soils with more organic carbon) that a straight-line model misses.
+Permutation importance shows which inputs the predictions rely on most; it is not proof of cause.
+Use the model for early yield estimates per district (for planning, credit and insurance), and keep testing it on new seasons before trusting it.
+Yield-forecast services sell to insurers, banks, traders and food-security agencies.
+Both forecasts show the same strong seasonal pattern, which is what matters for selling: prices are lowest after harvest and highest before the next one.
+If storage costs per month are below the forecast seasonal price rise, store after harvest and sell in the high-price months; update the forecast every month.
+Price-forecast SMS subscriptions for cooperatives and traders are a proven African business model.
+Spray now: incidence is very likely above the economic threshold.
+Scouting apps with Bayesian alerts sell to cooperatives, estates and crop-protection firms.
+Leaders design whole breeding and testing programmes for maximum gain per year and per birr, integrate big data and multi-omics, simulate before investing, and build organisations that sell statistical decisions.
+Designing breeding programmes
+Set breeding goals with farmers and markets
+Use the breeder’s equation to compare strategies
+Balance gain, inbreeding and cost
+Breeding goals: participatory definition
+Gain per year: intensity, accuracy, variation, generation interval
+Community-based and nucleus breeding schemes
+Managing inbreeding and effective population size
+Compare phenotypic, BLUP and genomic strategies for a sheep or dairy cooperative in birr per year and recommend one.
+Programme parameters, spreadsheet or Python
+Start from what farmers can sell; a breeding goal without a market fails.
+Selection indices and economic values
+Derive economic values for traits
+Explain trade-offs from genetic correlations
+Profit functions and economic values
+Index weights, accuracy and responses
+Desired-gains and restricted indices
+Indices for crops: yield, quality, resistance
+Build an index for dairy (milk, fat, fertility) and compare it with single-trait selection.
+Parameter estimates, Python or R
+Revisit economic values whenever markets change.
+Optimising testing networks
+Allocate locations, years and replicates under a budget
+Use sparse testing and genomic prediction to test more entries
+Define target populations of environments
+Locations vs years vs replicates
+Sparse testing and p-rep designs
+Genomic prediction to fill the gaps
+Environmental characterisation with climate data
+Use variance components from a past MET to choose the best design within a fixed budget.
+MET variance components, Python or R
+Most programmes over-replicate and under-locate; check yours.
+Simulation and decision science
+Simulate whole breeding programmes before investing
+Use stochastic simulation to compare risks
+Combine biology, statistics and economics in one model
+Deterministic vs stochastic simulation
+AlphaSimR in practice
+Risk and uncertainty in long programmes
+Presenting results to investors and ministries
+R (AlphaSimR), spreadsheet
+Show investors the range of outcomes, not just the average.
+Big data, phenomics and multi-omics integration
+Handle high-throughput phenotypes from drones and sensors
+Integrate genomics, transcriptomics, metabolomics and environment
+Apply FAIR data standards and breeding databases
+Drone and sensor phenotyping pipelines
+Multi-omics integration methods
+Breeding databases and the BrAPI standard
+FAIR principles and data sovereignty
+Reproducible, scalable workflows
+Integrate drone-based canopy data with genomic and weather data to improve prediction of yield in a multi-site trial.
+Drone images or vegetation indices, genomic and weather data
+Build the data platform before the data flood arrives.
+Leading a statistics-driven enterprise
+Turn statistical expertise into products and services
+Lead consortia and win large grants
+Protect and license methods and data
+Service lines: trial analytics, breeding design, forecasting
+Pricing analytics services
+Consortia, grants and partnerships
+Licensing, IP and open science together
+Building and keeping a team of analysts
+Write a business plan for an agricultural analytics company serving seed companies and cooperatives in your region.
+Business-plan template, market data
+Sell decisions and money saved, not statistics.
+Breeding-programme design and evaluation is a high-value consulting service for cooperatives, ranches and investors.
+kg of weaning weight per year
+Phenotypic selection on own weight
+Genomic selection on young rams
+Test in more locations with fewer replicates (even one replicate per site in an augmented or p-rep design), and spread testing over at least two years.
+Seed companies save millions by optimising trial networks; this analysis is the product.
+Heritability of entry means vs number of locations
+Three traits with their variation, heritability and economic value per unit (longer calving interval loses money). Phenotypic and genetic correlations are given in the code.
+The index puts a price on every trait and lets correlations work for the breeder.
+Rank bulls on the economic index, not on milk alone; update economic values when prices change.
+Bull-ranking and semen-catalogue services built on economic indices are sold by AI centres and breed societies.
+Economic response per generation, by trait (birr per cow)
+Birr per cow per generation
+Economic selection index
+Selection on milk only
+Future of Agricultural Data Science
+Stay ahead as statistics merges with AI: experiments that adapt as they run, predictions that state their uncertainty honestly, models trained without moving private data, real-time digital twins, and statistical products that African enterprises sell to the world.
+AI-driven and adaptive experimentation
+Use designs that learn as data arrive
+Apply bandits and Bayesian optimisation to agronomy
+Keep adaptive designs fair and valid
+Response-adaptive and sequential designs
+Multi-armed bandits and Thompson sampling
+Bayesian optimisation for input recipes
+Self-driving labs and automated phenotyping
+Simulate an on-farm programme where an adaptive design chooses fertilizer blends, and compare profit with a fixed design.
+Pre-register the adaptation rule so results stay credible.
+Trustworthy prediction and uncertainty
+Quantify uncertainty for any model
+Check calibration and coverage
+Communicate risk to farmers, lenders and insurers
+Calibration of probabilities
+Ensembles and Bayesian deep learning
+Communicating ranges and risk
+Add conformal intervals to a yield model and check their coverage on new farms and a new season.
+Never ship a prediction without a range.
+Federated learning and data sovereignty
+Train models without moving private data
+Protect privacy with aggregation and differential privacy
+Design fair data-sharing agreements for African data
+Federated learning across cooperatives or countries
+Data sovereignty, consent and benefit sharing
+Data trusts and cooperatives
+Design a federated yield-prediction scheme for three cooperatives that keeps each one’s farmer data local.
+Diagrams, policy documents, Python
+African data should create African value; design for that from day one.
+Digital twins, sensors and real-time statistics
+Stream and analyse sensor and satellite data in real time
+Build digital twins of farms and herds
+Detect anomalies and send early warnings
+IoT sensors, satellites and drones
+Streaming statistics and change detection
+Digital twins that combine crop models and data
+Early-warning systems for disease and drought
+Build a simple early-warning rule from soil-moisture sensor streams and test how early it would have warned in past dry spells.
+Sensor data or open satellite data, Python
+A warning is only useful if someone can act on it in time.
+Foundation models, causal AI and the statistician-entrepreneur
+Follow foundation models for genomics, remote sensing and agronomy
+Combine machine learning with causal reasoning
+Build profitable products on statistical expertise
+Foundation models for agriculture: what they can and cannot do
+Causal machine learning for heterogeneous effects
+Ethics, bias and accountability
+From analysis to product: pricing, delivery, scale
+Recent papers, market notes, mentor
+Revisit this module every year; the field moves fast.
+Thompson sampling keeps learning but sends more farmers to blends that look best so far, so total profit during the trial is higher.
+Use adaptive allocation for on-farm testing programmes where farmers bear the cost of poor treatments; keep a minimum share for every option so learning never stops.
+Adaptive-trial platforms are a new product for input companies and digital advisory services.
+Split conformal prediction uses errors on farms the model did not train on to set the width of the range.
+Report yield forecasts to lenders and insurers as ranges; price products from the lower bound, not the average.
+Trustworthy uncertainty is what turns a yield model into a sellable credit or insurance product.
+Events: things that start actions
+Say what an event is in everyday life
+Match an event to the action it starts
+Events at home: the bell rings, the kettle boils
+Children make event cards (a drawing of a clap, a bell, a whistle) and action cards, then play in pairs: one shows an event card, the other does the matching action.
+Paper, crayons, a whistle or bell
+Something that happens and makes an action start, like a clap or a bell.
+Everyone jumps: the clap is the event, the jump is the action.
+Computers work the same way: an event (a click, a key) starts a script.
+Ask a child to be the teacher and invent a new event and action.
+Name the stage, sprites, blocks and green flag
+Start and stop a program
+Tour: stage, sprite list, block palette, script area
+Drag a block and click it
+Snap blocks under the green flag
+Save the project and open it again
+In pairs, children find each part of Scratch on the screen and draw a labelled map of it on paper.
+Computer or tablet with Scratch (online or offline app), paper
+In the script area, by dragging blocks from the block palette.
+It stops every script that is running.
+characters and objects
+snap blocks together here
+Click the green flag. Click the red stop sign.
+Change the words to a greeting in Amharic.
+Use move, turn and go-to blocks
+Walk a sprite across the stage on a planned path
+Glide to a place slowly
+Plan a path on paper, then code it
+Draw a village backdrop with a house and a well; make the cat walk from the house to the well and back.
+Scratch, paper for planning
+It turns the sprite a quarter of a full turn, like turning a corner.
+House to well and back
+Paint the backdrop: a house on the left, a well on the right.
+Drag the cat to the house; read its x and y below the stage.
+Snap the blocks shown in the diagram in order.
+Give each arrow key its own script
+Arrow keys: four scripts for four directions
+Point in direction before moving
+Space key: jump or make a sound
+Make a car the player drives with the arrow keys along a road to the market.
+Each key is a different event and should start a different action (a different direction).
+The sprite moves the way it was last facing, so a key may move it the wrong way.
+Steering with arrow keys
+Draw a road backdrop and a market stall at the end.
+Build the four arrow-key scripts.
+Repeat loops: draw shapes
+Use repeat to shorten a script
+Draw squares, triangles and stars with the pen
+Pattern: repeat a shape while turning
+Scratch with the Pen extension
+It is shorter, easier to read and easier to change (one number changes the size).
+From square to pattern
+Try different numbers and colours; print the best pattern.
+Forever loops: animation
+Use forever for things that never stop
+Make smooth animation with small steps and waits
+A spinning windmill: forever turn
+A bouncing ball: if on edge, bounce
+Speed: change steps and wait time
+Final scene: a village that moves
+Animate one thing in your local scene forever: a bird flying, a windmill turning or clouds moving.
+When the action should keep going until the program stops, like an animation or a game loop.
+Move more steps each time, or wait less between moves.
+Choose a ball sprite.
+Build the script in the diagram.
+Click the flag: the ball should bounce around the stage forever.
+Act out decisions in a game
+Traffic lights: if red, stop; else go
+Sorting game with if-cards
+Make your own if-rule for the classroom
+Cards, coloured paper
+Give an if-rule from your home.
+Otherwise: what to do when the condition is not true.
+For example: if it is dark, switch on the lamp, else keep it off.
+Read it aloud; the class acts it out.
+Draw your rule as a picture flowchart.
+Use sensing blocks inside if
+Stop a sprite at a wall
+Sensing blocks: touching, touching colour
+A maze: if touching the wall, go back to start
+Test the maze with friends
+Draw a maze backdrop with black walls and a green goal; steer a sprite with the arrow keys.
+Otherwise it is checked only once at the start, not while the sprite moves.
+Paint the maze; make the walls exactly one colour.
+Add the forever script with the two if blocks.
+Make the sprite smaller if it touches walls too easily.
+Make sprites react to another sprite’s state
+A light with red and green costumes
+The car: if the light is red, wait; else drive
+Add a pedestrian who crosses on red
+Build a road crossing near a school with a traffic light, a car and a child crossing safely.
+The else part runs: the car drives forward.
+Paint the light with two costumes: red and green.
+Bonus: the child crosses only when the light is red for cars.
+Costumes: walking sprites
+Switch costumes to animate
+Draw your own two-costume character
+Costume tab: duplicate and edit
+Draw a local character: a farmer, a donkey
+Move and switch costume together
+Draw a donkey with legs forward and legs back; make it walk to the market carrying sacks.
+Switching quickly between legs-forward and legs-back pictures tricks the eye, like a flip book.
+The costumes change too fast to see, so the walk looks like a blur.
+Make a flip-book walk
+Sound: your own voice
+Record and play sounds
+Use sound as feedback in a program
+Record a greeting in Amharic
+Play sound vs play sound until done
+Make a talking story with recorded lines
+Volume and pitch effects
+play sound vs play sound until done
+Make a bilingual talking dictionary: click a picture (water, bread, cow) and hear the word in Amharic, then English.
+Scratch, a microphone or a phone to record
+Programs in your language help younger children and your community use them.
+when this sprite clicked
+Draw or choose three picture sprites.
+In each, record the word in Amharic and in English.
+Add the click script in the diagram to each picture.
+Test with a younger class.
+Mini-game: catch the ball
+Combine events, loops, conditions and sound in one game
+Test and improve a game with players
+Plan the game on paper: sprites and rules
+The basket moves with arrow keys
+Play-test and fix one problem
+Often the mango was too fast or the basket too small; change the speed or size and test again.
+Play-test like a game designer
+Watch a friend play without helping.
+Write down where they got stuck or bored.
+Change one thing only (speed, size, sound).
+Variables unplugged: the scoreboard
+Explain a variable as a named box that holds a value
+Change a variable by adding or setting
+Chalkboard scoreboard for two teams
+Boxes with labels: score, lives, time
+Quiz game with the board
+A named box that holds one value, which can change while the program runs.
+Set replaces the value; change adds to the value that is already there.
+use when something happens
+A wrong answer: nothing changes.
+Score variable in a game
+Create and show a variable in Scratch
+Increase the score when an event happens
+Show the score on the stage
+Otherwise the score from the last game is still there when you play again.
+Use a variable that goes down
+End a game with repeat until
+Forever never ends; repeat until stops when its condition becomes true.
+Paint a game-over backdrop.
+Read and set a position with x and y
+Know the four corners and the centre of the stage
+The stage is a grid: x across, y up
+Treasure hunt: go to a secret (x, y)
+Draw a shape by visiting points
+Mark the Scratch grid on squared paper; give a friend coordinates to draw a house by joining the points.
+Scratch, squared paper, pencil
+The top-right corner.
+Draw a house by visiting points
+Coordinate treasure hunt
+Hide a treasure sprite at a secret (x, y).
+Random: surprise in games
+Explain why randomness makes games fair and fun
+Fruit falls from a random x
+Random colours and sizes
+Scratch, a real dice, paper
+So the game is different each time and players cannot predict it.
+Draw both tallies as bar charts.
+Make a countdown with a variable and wait
+Run two scripts at the same time
+Two scripts on the flag: game and timer
+Count-the-money game with a timer
+Finish the money game
+Keep your money game from the earlier units.
+Add the timer script.
+Play three rounds and record your best score.
+Lists unplugged: the shopping list
+Explain a list as many items under one name
+Add, remove and find an item by its number
+A shopping list on paper
+One name holds any number of items, and one loop can go through them all.
+Lists in Scratch: a quiz
+Store questions and answers in two lists
+Use a counter variable to step through a list
+Make two lists: questions, answers
+Ask item n, check against answer n
+So item n of answers is the answer to item n of questions.
+Add one item to each list; the loop works without any other change.
+ask (item n of questions) and wait
+Build the loop in the diagram.
+Test every question; fix answers that need exact spelling.
+Broadcast: sprites talk to each other
+Send and receive messages
+Coordinate several sprites and backdrops
+A host sprite runs the quiz
+Scene changes by message
+When the sender must wait until all receivers have finished, for example before asking the next question.
+Messages between sprites
+Add a crowd sprite and a board sprite.
+Write a storyboard, sprite list and rules
+Split a project into small tasks
+Sprite list with what each does
+Rules as if-sentences
+Task list: who builds what
+Changing a drawing takes seconds; changing a finished program takes hours, and the team agrees on what to build.
+Each sprite’s name, what it looks like, and what it does (its events and rules).
+A project plan on one page
+Write the idea in one sentence at the top.
+Draw four storyboard boxes: start, play, win, lose.
+Split the work into tasks with a name next to each.
+Build, test, swap and fix
+Build a project in pairs from the plan
+Find and fix bugs in another team’s project
+Build one task at a time; test after each
+Swap projects with another pair
+Write a bug report: what, where, how to repeat
+Fix and thank the testers
+Each pair builds their planned game, then swaps with another pair who test it and write three bug reports.
+Scratch, bug-report cards
+It says what went wrong, where, and the exact steps to make it happen again.
+A bug is easy to find when you know it came from the last small change.
+First AI: teach a computer to recognise
+Train a model with example pictures
+Explain why more and varied examples help
+Teachable Machine: two classes
+Train and test with new photos
+Train a model to tell two local crops (or two hand signs) apart, then test it with photos it has never seen.
+Computer with webcam or phone photos, Teachable Machine (free, in the browser)
+From many labelled example pictures; it found patterns that separate the two classes.
+Too few or too similar photos (same light, same background), so it learned the background instead of the crop.
+How the machine learns
+Fair test of your model
+Add photos with different light and backgrounds; train and test again.
+Same idea, new language
+Translate a Scratch script into Python line by line
+Run a Python file and read an error message
+Install Thonny or open an online Python
+Indentation shows what is inside a loop
+Read and fix your first error message
+Computer with Thonny (free) or a phone with an online Python
+The indented lines belong inside the loop or if above them, like blocks inside a C-block in Scratch.
+Scratch blocks and Python lines
+Scratch’s square, written in Python
+print and input: talking programs
+Show text with print and get text with input
+Join text with f-strings
+A bilingual greeting program
+Always text (a string), whatever the user types.
+Variables and maths: market calculator
+Store numbers in variables and calculate
+Convert text to numbers with int() and float()
+Convert input to a number
+Market calculator with change
+micro:bit with blocks
+Program a micro:bit with MakeCode blocks
+Use buttons as events and the LED screen as output
+Meet the micro:bit: buttons, LEDs, sensors
+On button A: show a smiley
+Simulator first, then download to the board
+micro:bit (or the free online simulator), USB cable
+It is fast and free, and you only download when the program works.
+Class vote in MakeCode
+MicroPython (micro:bit)
+The same vote in MicroPython
+Runs on the micro:bit or its online simulator (not run in this build).
+Read temperature and light level
+Log readings over time and look for patterns
+temperature(): degrees Celsius
+micro:bit, battery pack, notebook
+The temperature sensor inside the processor chip, read with temperature(); it reads a little high when the board is busy.
+So the only difference is the place (sun or shade), making it a fair test.
+A tiny weather station
+Write in the notebook
+Sun vs shade readings
+Example readings for practice; use your own measurements in class.
+Write MicroPython for the micro:bit
+Use a loop and if to build an alarm
+while True: the forever loop
+Project: chicken-coop light alarm
+Build a light alarm for a chicken coop: when it gets dark, the micro:bit beeps so the door is closed against predators.
+micro:bit, speaker or buzzer, battery pack
+It repeats forever, like Scratch’s forever block.
+By reading the light level at dusk on a few evenings and picking a value just above it.
+Testing the alarm rule on evening readings
+Test the rule on recorded numbers first; then copy the same if into the micro:bit program.
+Choose between many options with elif
+Order conditions correctly
+Why order matters: test the highest first
+Checks from top to bottom
+Grade calculator tested at the boundaries
+for loops: tables and patterns
+Repeat with for and range()
+Nest one loop inside another
+Multiplication table for one number
+inner loop finishes, then the outer moves on
+Repeat while a condition is true
+A guessing game with hints
+When we do not know how many repeats are needed, for example until the guess is right or the goal is reached.
+The condition never becomes false, usually because the variable inside the loop is never changed.
+Savings planner and a guessing game
+Functions: reusable tools
+Define functions with parameters and return values
+Reuse one function many times
+def name(parameters):
+return sends a value back
+Functions calling functions
+Python, tape measure for a real plot
+The value after the word return, which the caller can store or print.
+Write it once, test it once, use it everywhere; a fix in one place fixes every use.
+Functions working together
+Spreadsheets: data in rows and columns
+Enter data in a table with one row per record
+Use formulas: SUM, AVERAGE, MAX
+A bottle rain gauge: a week of data
+The same totals in Python
+Make a rain gauge from a plastic bottle, record rainfall every morning for a week, and enter it into a spreadsheet with formulas.
+Plastic bottle, ruler, a free spreadsheet (LibreOffice or Google Sheets)
+Each row is one record, so formulas, sorting and charts work on whole columns.
+Spreadsheet formulas, the same in Python
+Charts: tell the story of data
+Choose a bar or line chart for the data
+Write one sentence that explains the chart
+Bar chart for categories, line chart for time
+Title, axis labels, units
+A text bar chart in Python
+Chart your week of rainfall (or class attendance) and present it to the class with one clear sentence and one question it raises.
+Spreadsheet or Python, paper for drawing
+When the data change over time and the order matters, such as temperature through a day.
+crops, classes, markets
+A text bar chart and its one-sentence story
+Create, index, add to and remove from lists
+Loop over a list and sort it
+append, remove, len, in
+Build a class register: add pupils, mark who is present, and print the absent list in alphabetical order.
+Look up, add and loop over a dictionary
+Add and update entries
+Count things with a dictionary
+Dictionary lookups and counting
+Write and read text and CSV files
+Keep data between program runs
+Save game high scores
+CSV files: one line per record
+Save your dictionary to a CSV file so it can be opened in a spreadsheet, and load it back next lesson.
+Variables are lost when the program ends; a file keeps the data for next time and for other programs.
+So Amharic characters are saved and read correctly on every computer.
+Next day: read words.csv
+Save a dictionary as CSV and load it again
+Turtle graphics: flags and patterns
+Draw with turtle commands and loops
+Use angles to draw regular shapes and stars
+forward, left, right, penup, color
+A mesob or basket pattern
+Draw a flag with stripes and a star, and a circular basket-weave pattern from repeated shapes.
+Python with turtle (built in)
+The star’s corners, computed the way turtle draws them
+turtle opens a drawing window, so here the same path is computed and printed; run the two commented lines in Thonny to see it drawn.
+HTML: your first web page
+Structure a page with headings, paragraphs, images and links
+Lists and tables in HTML
+A text editor and a browser (works offline)
+Screen readers read it to blind users, and it shows if the image does not load.
+Save as index.html and open it in any browser; no internet needed.
+CSS: style and layout
+Change colours, fonts and spacing with CSS
+Make a page that works on a phone
+Selectors, properties, values
+Colours and fonts (including Ethiopic fonts)
+The box model: margin, border, padding
+Flexbox and a phone-friendly layout
+Style your village website with one shared style.css: a colour theme, readable fonts, and cards that stack on a phone.
+Text editor, browser, a phone to test
+Padding is space inside the border; margin is space outside it, between boxes.
+All pages share one style, so one change updates the whole site.
+style.css shared by all pages
+Modules: split a big program
+Import from the standard library
+Split your own code into files and import it
+import math, random, datetime
+from module import name
+Each file has one job, so the code is easier to find, test, reuse and share.
+Working with dates: today’s date, adding days, the weekday of a date.
+A program made of modules
+A harvest calendar with datetime, math and random
+Validate user input and ask again
+Read a traceback: type, message, line
+ValueError, ZeroDivisionError, KeyError
+Keep asking until the input is valid
+Make your market calculator crash-proof: it must survive empty input, letters, negative numbers and zero kilos.
+Python stops the try block at the error and runs the matching except block instead of crashing.
+So real bugs elsewhere are not hidden; you only handle the problem you expect.
+print a hint, ask again
+Validating input without crashing
+APIs: data from the internet
+Explain requests, responses and JSON
+Read values out of a JSON reply
+What an API is: a menu of requests
+URL, parameters and status codes
+JSON: dictionaries and lists as text
+Tomorrow’s forecast for your town
+Fetch tomorrow’s rain forecast for your town from a free weather API and print a one-line farming tip.
+Python with the requests library, internet (or a saved sample reply)
+A defined way for one program to ask another for data or actions, often over the internet with JSON replies.
+OK: the request worked and the reply contains the data.
+Reading a forecast reply
+The example parses a saved reply so it runs without internet; the commented lines call a real free API.
+JavaScript: interactive pages
+Write JavaScript variables, functions and events
+Change a web page when a button is clicked
+let, const, functions, arrays
+The console: test code quickly
+document.querySelector and textContent
+It runs a function every time an event (such as a click) happens on an element.
+let can be reassigned later; const cannot.
+A button that changes the page
+Word-of-the-day logic
+The logic runs in Node.js here; the commented lines connect it to a button in your page.
+How the internet works
+Explain IP addresses, DNS, servers and packets
+Trace what happens when you open a website
+IP addresses and DNS names
+Packets: messages cut into pieces
+Unplugged: pass packets around the class
+It turns a name like example.org into the IP address the computer needs, like a phone book.
+They can arrive out of order by different paths; numbers let the receiver rebuild the message and ask for missing ones.
+Packets travel via routers
+Server replies with the page
+Packets arrive out of order and are rebuilt
+Physical computing: a soil-moisture logger
+Read a sensor with a low-cost board
+Calibrate a sensor and log readings to a file
+Arduino or Raspberry Pi: what each is good at
+Wire a soil-moisture sensor safely
+Calibrate: dry soil vs wet soil
+Log with time, power with a solar bank
+Arduino Uno or Raspberry Pi Pico, capacitive soil sensor, jumper wires, solar power bank
+It compares the reading with a threshold set from your own dry and wet measurements.
+Every sensor and every soil type reads differently.
+From soil to decision
+Calibrated moisture readings
+Capacitive sensors read higher numbers when drier, so the formula is reversed; check yours.
+Design a class with attributes and methods
+Create and use several objects from one class
+Why objects: bundle data with behaviour
+Methods that change the object
+A Farm class with crops and animals
+Model a cooperative: a Farm class (name, crops, animals, yield records) and a Cooperative class that holds many farms and reports totals.
+The class is the blueprint; each object is one real thing built from it with its own data.
+Objects inside objects
+A cooperative of farm objects
+Write automatic tests for functions
+Use a failing test to find and fix a bug
+Why test: computers check faster than people
+Run pytest; read the failure
+Write the test first, then fix
+Which input gave which wrong result, so you know where to look.
+They warn you immediately if a later change brings the bug back.
+pytest finds the boundary bug, then confirms the fix
+Binary and number systems
+Convert between decimal, binary and hexadecimal
+Explain bits, bytes and why text needs encoding
+Beads in two colours, string, Python
+Place values in binary
+Converting numbers and seeing text as bytes
+Describe AND, OR, NOT and XOR with truth tables
+Build a half adder that adds two bits
+Switches and a bulb: AND in series, OR in parallel
+XOR and the half adder
+Build AND and OR circuits with two switches, a torch bulb and a battery; then write their truth tables and check them in Python.
+Only when both A and B are true (both switches closed).
+XOR gives the sum bit and AND gives the carry bit.
+Truth tables and a half adder
+CPU and memory: how a program runs
+Trace a tiny machine program step by step
+CPU, RAM, storage: what each does
+Registers and the program counter
+Fetch, decode, execute
+Simulate a tiny CPU in Python
+The memory address of the next instruction to fetch.
+RAM keeps data in electric charge for quick access; it needs power. Storage (SSD, disk) keeps data without power but is slower.
+The instruction cycle
+read instruction at PC
+ALU adds, memory stores
+A tiny CPU, step by step
+NumPy and pandas: data basics
+Load a CSV into a DataFrame and summarise it
+Filter, group and sort data
+NumPy arrays: fast maths on many numbers
+Filter rows, select columns
+groupby and mean: yield by crop
+They store numbers in one block of memory and do the maths in compiled code, on all numbers at once.
+Yield per hectare by crop and farm
+Use variables, arrays, objects and functions in JavaScript
+Loop over data with for and array methods
+Arrays and objects (like lists and dictionaries)
+Functions and arrow functions
+Node.js or a browser console
+A new array with only the items for which the test function returns true.
+Array methods in a chain
+Yield analysis with map, filter and reduce
+The DOM: change a page with code
+Select elements and change their text and style
+Respond to clicks and form input
+The page as a tree of elements
+querySelector, textContent, classList
+Events: click, input, submit
+Build a notice board that adds and sorts notices
+Make a school notice board page: a form adds a notice with a date; notices appear sorted by date, newest first.
+The browser’s tree of objects for every element on the page, which JavaScript can read and change.
+textContent shows text as text, so a user cannot inject HTML or scripts into the page.
+Keep logic in functions you can test, and keep DOM code thin.
+Track changes with commits and branches
+Collaborate with push, pull requests and merges
+init, add, commit, log
+Branches for new features
+Merge and resolve a conflict
+GitHub: push, pull request, review
+Put your notice board on GitHub; a partner adds a feature on a branch and opens a pull request that you review and merge.
+Git, a free GitHub account
+Saves a snapshot of the staged changes with a message in the project history.
+So unfinished work does not break the main version; it is merged only after review.
+git switch -c dark-mode
+A branch, a commit and a merge
+Searching and sorting
+Implement linear and binary search
+Compare bubble sort and merge sort by counting steps
+Binary search on sorted data
+Merge sort: divide and conquer
+Python, the class itself
+swap neighbours again and again
+split in halves, sort, merge
+Counting comparisons: bubble vs merge sort
+Big-O: why programs slow down
+Predict running time for bigger data
+Count operations, not seconds
+Choose the right data structure: set vs list
+double loop: too slow
+Write recursive functions with a base case
+Make clear charts of real data with matplotlib
+Recursion: a function calling itself
+Base case and recursive case
+Folder sizes: a natural recursion
+matplotlib: line and bar charts with labels
+Python with matplotlib
+The simplest input that is answered directly, which stops the function from calling itself forever.
+A title, labelled axes with units, and a source for the data.
+Recursive folder sizes and a labelled rainfall chart
+The rainfall numbers are sample data for practice; use your zone’s records in class.
+Explain requests, methods and status codes
+Design REST URLs for a resource
+GET, POST, PUT, DELETE
+Design the API for a market-price service on paper: list each URL, method, example request and example JSON reply.
+Paper, a browser’s developer tools
+Not found: the server works, but nothing exists at that URL.
+To create something new (send data); GET only reads and must not change anything.
+Status codes and a REST design
+A small API with Flask
+Build API routes that return JSON
+Test the API automatically
+Return JSON with jsonify
+Test with the test client
+Build the market-price API you designed: GET prices by crop and POST a new price, with input checks and tests.
+It connects a URL and method to a Python function that builds the response.
+A market-price API, tested with Flask’s test client
+Use a stack (LIFO) and a queue (FIFO)
+Choose the right one for a problem
+Stack: push and pop; undo
+Queue: enqueue and dequeue; waiting lines
+Check balanced brackets with a stack
+Simulate a clinic queue
+Simulate a health-centre queue with a deque: patients arrive, are served in order, and you report average waiting time.
+When the first to arrive must be the first served, such as patients, print jobs or messages.
+Push each opening bracket; each closing bracket must match the top one, which is popped; at the end the stack must be empty.
+Bracket checker (stack) and a clinic queue (queue)
+Represent trees and graphs in code
+Find shortest routes with breadth-first search
+Trees: family trees, folders
+Graphs: towns and roads
+Adjacency lists in a dictionary
+BFS: fewest stops between towns
+A tree has one root and no loops; a graph can have loops and many paths between nodes.
+A road graph as adjacency lists
+Fewest stops between towns with BFS
+Explain how a hash table finds data quickly
+Use hashes to check data has not changed
+Collisions and how they are handled
+Python dict and set are hash tables
+The hash of the key tells Python which bucket to look in, so it does not scan every item.
+That the file is exactly the same as the original: any change, even one character, gives a different hash.
+How a hash table stores a key
+A hand-made hash table and file checksums
+Design tables with keys
+Query with SELECT, WHERE, JOIN, GROUP BY
+Tables, rows, primary and foreign keys
+GROUP BY and connect the API to SQLite
+Move your market-price API from a Python list to an SQLite database with two tables (markets, prices) and answer three questions with SQL.
+It combines rows from two tables where a key matches, such as each price with its market’s town.
+No repeated data, so a correction is made in one place and cannot become inconsistent.
+JOIN and GROUP BY on a market database
+Navigate and manage files from the command line
+Combine tools with pipes and write a script
+pwd, ls, cd, mkdir, cp, mv
+cat, head, grep, sort, uniq, wc
+A bash script to automate a report
+Write a shell script that reads a market-price CSV and prints the number of reports and the highest teff price per town.
+A Linux computer, Raspberry Pi, or WSL on Windows
+It sends the output of one command into the next command as its input.
+Counting and finding with pipes
+Team project: issues, branches and review
+Plan work as issues with clear owners
+Review a teammate’s pull request helpfully
+Roles: product owner, developers, tester
+Issues and a simple board: to do, doing, done
+One branch and one pull request per issue
+Code review checklist
+In teams of four, build a feature for the market-price app over three weeks using issues, branches, pull requests and a weekly demo.
+GitHub (free), a shared board
+A clear title, what done looks like (acceptance criteria), and one owner.
+That it does what the issue asks, has tests, is readable, and has no secrets or obvious bugs; comments are specific and kind.
+From issue to merged feature
+Markdown (pull request description)
+A pull request a reviewer can understand
+Networks and security
+Protect accounts with strong passwords and two-factor authentication
+Explain encryption and recognise phishing
+Passwords: length beats complexity; password managers
+Hashing passwords with a salt
+Encryption: HTTPS and the padlock
+Phishing: SMS and mobile-money scams
+Python, example messages on cards
+Name two signs of a phishing message.
+If the database leaks, attackers get hashes, not passwords; a salt and a slow hash make guessing very costly.
+never asks for your PIN
+Salted password hashing, and why length matters
+Ethics and law in computing
+Apply privacy, consent and data ownership to a real app
+Spot bias in data and decisions
+Privacy and data protection law
+Consent and data minimisation
+Case study cards, the national data protection law (summary)
+The people it describes have rights over it under data protection law; the app should collect only what it needs, with clear consent, and share benefits fairly.
+Rural patterns are missing or rare in its training data, so its predictions are worse for them.
+Collect only what you need
+Clear consent in their language
+Protect and limit access
+Let people see and delete
+Sharing summaries, not personal data
+Machine learning with scikit-learn
+Train, test and evaluate a model honestly
+Read accuracy and a confusion matrix
+A decision tree classifier
+Accuracy and the confusion matrix
+Compare with a simple baseline
+Decision tree classifier
+Python with scikit-learn
+To measure performance on data the model has never seen; training accuracy is too optimistic.
+Reading a confusion matrix
+True negatives: no rust, predicted no
+False positives: predicted rust, none
+True positives: rust caught
+Rust-risk classifier vs a baseline
+Model project: forecast and explain its limits
+Build a forecasting model end to end
+Report error honestly and state limits
+Define the question and the decision it supports
+A baseline: last week’s price
+A model with trend and season; test on the latest weeks
+A one-page report with limits
+Python with scikit-learn, two years of weekly prices
+Name a limit of a price model.
+A forecast is always about the future, so the test must also be later than the training data.
+It cannot foresee shocks it has never seen, such as a drought, a road closure or a new policy.
+An honest forecast project
+Test on the latest weeks
+Simulated prices for practice. Limits to report: shocks (drought, roads, policy), missing holidays, and that the error grows further ahead.
+Problem solving, recursion and testing
+Break a problem into functions with clear contracts
+Write recursive solutions and test them with edge cases
+Recursion and the call stack
+Memoisation: stop repeating work
+Unit tests and property checks
+It recomputes the same sub-problems again and again; the number of calls grows exponentially.
+Exponential vs memoised recursion, with tests
+Use pointers, arrays and dynamic memory in C
+Avoid leaks and out-of-bounds bugs
+Compile and run: gcc -Wall
+Pointers and addresses
+Arrays and pointer arithmetic
+Write a C program that reads n sensor readings into a malloc’d array, computes mean and maximum, and frees the memory; check it with valgrind.
+gcc, valgrind, gdb (all free on Linux)
+A memory leak: the memory stays reserved until the program ends; long-running programs slowly run out of memory.
+Where things live in memory
+local variables; freed automatically
+malloc’d blocks; you must free them
+globals and constants
+Dynamic memory and pointers in C
+Linux and shell scripting
+Automate a data task with a bash script
+Use variables, loops, conditions and exit codes in bash
+Permissions and the PATH
+Variables, for loops, if and test
+Text tools: awk, sed, sort, uniq
+Scheduling with cron; logging
+Write a script that processes every daily sensor file in a folder, writes one summary CSV, and logs errors for files with bad lines.
+Stops the script on errors, on unset variables and on failures inside pipes, so bugs do not pass silently.
+Summarise every sensor file and log bad lines
+Discrete maths: logic, sets, proofs, counting
+Reason with propositional logic and sets
+Prove by induction and count with combinations
+Propositions, truth tables, implication
+Sets: union, intersection, complement
+Counting: permutations, combinations, pigeonhole
+Only when P is true and Q is false.
+Counting, truth tables and sets in code
+Calculus: change and accumulation
+Interpret derivatives as rates and integrals as totals
+Approximate both numerically and check against exact results
+Limits and continuity
+Derivatives: rules and meaning
+Optimisation with derivatives
+Integrals and numerical integration; gradients in many variables
+Paper, Python with NumPy
+Real data come as measurements, not formulas; the trapezoid rule adds up small areas between readings.
+rate of change at a point
+Optimum nitrogen and total storm rainfall
+Solve linear systems with matrices
+Interpret vectors, matrices and their products
+Vectors: length, dot product, angle
+Matrices as transformations
+Rank, inverse and when systems have no solution
+When A is singular (rank less than its size): some columns are combinations of others.
+x: kg of each product (unknown)
+b: target kg of N, P, K
+Solving a fertilizer mix
+Data structures: heaps, trees, hash tables, graphs
+Choose a data structure from the operations a task needs
+State the cost of each operation
+Heaps and priority queues
+Binary search trees and balancing
+Hash tables: load factor, resizing
+Graphs: adjacency lists vs matrices
+A veterinary clinic must always treat the most urgent animal next: implement the queue with a heap and compare it with a sorted list.
+Insert and remove-min both take O(log n), instead of O(n) for keeping a list sorted.
+When keys arrive in sorted order: the tree becomes a long chain and search becomes O(n).
+Graph (adjacency list): neighbours O(degree)
+A clinic priority queue with a heap
+Algorithms: shortest paths, spanning trees, DP, greedy
+Argue why an algorithm is correct
+Dijkstra’s shortest paths
+Minimum spanning trees
+Dynamic programming: knapsack
+Greedy choice and when it fails
+Plan a milk-collection route: shortest road distances from a cooling centre to villages (Dijkstra), and the cheapest pipe network linking all villages (minimum spanning tree).
+It finalises the closest unvisited node; a later negative edge could make a finalised distance shorter, breaking that logic.
+Overlapping sub-problems and optimal substructure: the best answer is built from best answers to smaller problems.
+Milk-collection road network
+Dijkstra and Kruskal on a milk-collection network
+Complexity: P, NP and hard problems
+Distinguish polynomial from exponential algorithms
+Recognise NP-hard problems and practical strategies for them
+P and NP in plain words
+Reductions: one problem is as hard as another
+Brute force grows explosively
+Heuristics and approximations in practice
+A proposed answer can be checked quickly (in polynomial time), even if finding one may be slow.
+Use exact methods for small cases, and heuristics, approximation algorithms or solvers that give good answers fast for big ones.
+How brute force grows
+Exact search vs a heuristic for a delivery round
+Object-oriented design
+Apply SOLID principles and common patterns
+Sketch a design with UML before coding
+Composition over inheritance
+Patterns: strategy, factory, observer, repository
+UML class and sequence sketches
+Design a payment module for a cooperative shop that supports cash, mobile money and credit, where adding a new method needs no change to existing code.
+Paper for UML, Python
+Code should be open to extension but closed to modification: add new behaviour by adding code, not editing working code.
+Objects built from small parts are easier to change and test than deep class hierarchies that break when the base changes.
+Strategy pattern for payments
+Checkout (uses any PaymentMethod)
+Credit (new: no change to Checkout)
+Strategy pattern: new payment methods without editing Checkout
+Computer architecture: pipelines and caches
+Explain the CPU pipeline and the memory hierarchy
+Write cache-friendly code
+Instruction pipeline and hazards
+Caches: lines, hits and misses
+Locality: spatial and temporal
+Assembly basics: what the compiler makes
+Simulate a small cache and measure hit rates for row-by-row and column-by-column traversal of a matrix; then time the same in C.
+C stores rows next to each other, so one cache line brings in the next several elements you will use.
+Memory hierarchy (rough latency)
+Simulating cache hits for two loop orders
+A simple direct-mapped cache model; real CPUs have bigger, smarter caches, but the gap between the two orders is real and easy to time in C.
+Probability, statistics and linear algebra II
+Use distributions, expectation and estimation
+Compute and interpret eigenvalues and eigenvectors
+Random variables, expectation, variance
+Binomial, Poisson, normal; the central limit theorem
+Estimation and confidence intervals
+Eigenvalues: long-run behaviour of a system
+Model a herd with a stage matrix (calves, heifers, cows): find the long-run growth rate and stage mix from its leading eigenvalue and eigenvector, and check by simulation.
+Herd growth from an eigenvalue, and the central limit theorem
+Operating systems: processes, threads, scheduling
+Explain processes, threads and scheduling policies
+Compare schedulers by waiting time
+Processes vs threads; context switches
+Scheduling: FCFS, shortest job first, round robin
+Synchronisation: locks and race conditions
+Virtual memory and files
+Simulate three schedulers on the same set of jobs (a lab’s analysis queue) and recommend one for short interactive jobs mixed with long batch jobs.
+A process has its own memory; threads inside one process share memory, so they are cheaper but need locks.
+Every job gets a short turn soon, so a quick job is not stuck behind a long one.
+simple, fair in order
+short jobs wait behind long ones
+needs job lengths; long jobs can starve
+time slices for everyone
+good response for interactive work
+Comparing schedulers on a lab job queue
+Databases: indexes, transactions, query plans
+Speed up queries with indexes and read query plans
+Keep data consistent with transactions
+Isolation and concurrent users
+So a group of changes happens completely or not at all, even if the program crashes halfway.
+Extra storage and slower inserts and updates, because the index must be kept up to date.
+A transfer that is all-or-nothing
+debit the cooperative
+COMMIT, or ROLLBACK on error
+An index changes the query plan; a transaction rolls back
+Times vary by computer; the change from SCAN to SEARCH USING INDEX is the point.
+Work with IP addresses, subnets and routing tables
+Layers and encapsulation
+IP addressing and subnets (CIDR)
+Routing: longest-prefix match
+TCP vs UDP; DNS; mobile networks and latency
+Python (ipaddress module), paper
+The longest prefix is the most specific route, so traffic goes to the exact subnet rather than a general default.
+For live voice, video or sensor streams where a late packet is useless, so speed matters more than guaranteed delivery.
+Subnets and longest-prefix routing
+Compilers: from text to running code
+Describe lexing, parsing and code generation
+Build a tiny expression compiler
+Grammars and recursive-descent parsing
+Abstract syntax trees
+Generating stack-machine code
+Write a compiler for arithmetic expressions with variables that outputs instructions for a stack machine, and an interpreter that runs them.
+An abstract syntax tree showing the structure of the expression, with operator precedence resolved.
+It has separate rules: an expression is a sum of terms, and a term is a product of factors, so products are grouped first.
+A tiny compiler: lexer, parser, code generator, stack machine
+Theory of computation
+Build finite automata and explain their limits
+Explain Turing machines and undecidable problems
+Finite automata and regular expressions
+What finite memory cannot do
+No. The halting problem: no algorithm can decide, for every program and input, whether it eventually stops.
+It has a fixed number of states, so it cannot count arbitrarily deep nesting; that needs a stack (a pushdown automaton).
+one transition per input bit
+Halting, in one paragraph: if a program H(p) could always decide whether p halts, build D that runs H on itself and does the opposite; D halts if and only if it does not, a contradiction.
+Optimisation and numerical methods
+Fit models by minimising error with gradient descent
+Understand floating-point error and conditioning
+Gradient descent and the learning rate
+Newton’s method and convergence speed
+Floating point: rounding and cancellation
+Ill-conditioned problems
+Fit a straight line to yield data by gradient descent with three learning rates (too small, good, too large) and compare with the exact least-squares solution.
+Steps overshoot the minimum and the error grows or oscillates instead of falling.
+Most decimals cannot be stored exactly in binary, so tiny rounding errors appear; compare floats with a tolerance.
+fast, steady decrease
+Gradient descent with three learning rates
+Formulate problems as states, actions and goals
+Compare uninformed and heuristic search
+Minimax for two-player games
+The heuristic guides it towards the goal; an admissible one keeps the path optimal while exploring far fewer states.
+The heuristic never overestimates the true remaining cost.
+Logic, planning and constraint satisfaction
+Represent knowledge as constraints
+Solve constraint problems with backtracking
+Propositional and first-order logic
+Constraint satisfaction: variables, domains, constraints
+Backtracking with forward checking
+Planning: actions with preconditions and effects
+Assign crops to six plots so that neighbouring plots do not grow the same crop family (to limit pests) and the cooperative’s minimum teff area is met.
+Variables (the plots), domains (possible crops for each) and constraints (rules between them).
+It undoes the most recent choice and tries the next value, instead of starting over.
+Six plots and their neighbours
+Backtracking a crop plan
+Linear and logistic regression from scratch
+Derive and implement least squares and logistic regression
+Interpret coefficients and probabilities
+Least squares: normal equations
+Logistic regression: sigmoid and log-loss
+Gradient descent implementation
+Check against scikit-learn
+Predict whether a farmer adopts improved seed from farm size and extension visits; implement logistic regression in NumPy and confirm the coefficients with scikit-learn.
+Python with NumPy and scikit-learn
+repeat until the loss stops falling
+Logistic regression in NumPy, checked against scikit-learn
+SVMs, trees, forests, k-means and PCA
+Apply core supervised and unsupervised methods
+Explain what each method assumes
+SVMs and margins; kernels
+Decision trees and random forests
+PCA: directions of most variance
+It rotates the data onto new axes ordered by the variance they explain, so the first few can summarise many variables.
+k-means uses distances, so a variable measured in large units (birr) would dominate one in small units (hectares).
+Learning with and without labels
+PCA: find main directions
+SVM, trees, forests: predict a known label
+Farm typology: k-means, PCA and a random forest
+Simulated farms with three built-in types (small mixed, irrigated, livestock-heavy) for practice.
+Evaluation: cross-validation, confusion matrix, fairness
+Estimate performance honestly with cross-validation
+Check errors by group for fairness
+k-fold cross-validation
+Precision, recall and the confusion matrix
+Overfitting: train vs validation curves
+Fairness: compare errors across groups
+Evaluate a loan-eligibility model for farmers by region and gender: report recall for each group and propose a fix if one group is missed more often.
+The model fits noise in the training data; you see training error keep falling while validation error rises.
+A model can be accurate on the large group and much worse on a small group; only per-group metrics show it.
+Questions an evaluation must answer
+confusion matrix, precision, recall
+Recall by group: a hidden fairness gap
+Simulated data. Overall recall looks acceptable, but good women borrowers are approved far less often: their repayment comes partly from trading income the model never sees, and they hold less land. Fixes: collect the missing variable, review features that act as proxies for gender, check thresholds by group, and involve the people affected.
+Neural network basics
+Explain forward pass, loss and backpropagation
+Neurons, weights and activations
+Forward pass and loss
+Backpropagation: the chain rule
+Training curves and the decision boundary
+Without it, stacked layers collapse into one linear function and cannot bend the decision boundary.
+The gradient of the loss with respect to every weight, using the chain rule from the output back to the input.
+Backward: gradients by the chain rule
+Accuracies here are on the training data, to show capacity; in a real project report them on held-out data.

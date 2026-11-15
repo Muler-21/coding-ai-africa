@@ -110,6 +110,27 @@ A second track takes learners from counting seeds in KG to designing national br
 
 The app also has a **test chooser** (22 farm questions mapped to the right design or test), a **tools ladder** (paper and spreadsheet → R and Python → cloud and AI) and **nine statistics-based businesses**. The generators in `tools/` rebuild every example from its data, so readings and decisions always match the numbers.
 
+## Practical labs: from zero to hero
+
+**107 hands-on labs, one for every module**: 57 on the coding and AI path (C0.1 to C8.8) and 50 on the statistics path (S0.1 to S8.5). Open them from *More → Practical labs*, or from each module page. Every lab has the same parts:
+
+1. **Goal**: the real problem and the decision it leads to.
+2. **You will need**: a table of tools, why each is needed and how to get it (free and offline options first).
+3. **Step by step**: numbered practical steps, from setting up to reading the result.
+4. **The code**: complete code that was actually run to build this app, with its real output.
+5. **Results as charts**: interactive, colour-blind-safe charts drawn from that output, each with a data-table view.
+6. **Analysis**: what the numbers show, written from the output, so text and numbers always agree.
+7. **Decision**: what to do next, based on the results.
+
+A tick box records completed labs in the learner's own browser. Examples of what the labs cover:
+
+| Path | From | To |
+| --- | --- | --- |
+| Coding and AI | unplugged robot cards, bug hunts and Scratch (KG–Grade 4) | classes and pandas, algorithm benchmarks, SQL indexes, forecasting, classifiers evaluated by farm, refactoring with tests, ETL and A/B tests, drift monitoring, retrieval evaluation, causal inference, Amharic language models and tokenizers, fine-tuning budgets, agents with human approval, red-teaming, benchmark design, robotics and AI ventures |
+| Statistics | counting seeds, sun vs shade beans, weather charts (KG) | sampling, fair tests, t-tests and chi-square, randomised layouts, ANOVA and multiple comparisons, RCBD, Latin square, factorial and split-plot trials, alpha-lattice and spatial analysis, G × E, GLMs, economic optima, growth curves, heritability, animal-model BLUP, GWAS, genomic prediction, selection indices, programme simulation, multi-omics, adaptive trials, conformal prediction, federated learning and uplift modelling |
+
+Simulated data are labelled as such and are built with realistic patterns, so every lab runs anywhere; learners replace them with their own data. The generators are in `tools/` (`labkit.py`, `lab_c0_2.py`, `lab_c3_5.py`, `lab_c6_8.py`, `lab_s0_3.py`, `lab_s4_5.py`, `lab_s6_8.py`); the two text corpora used by the language-model labs are in `tools/data/`.
+
 ## Fully bilingual: English and አማርኛ
 
 Every page switches between English and Amharic with one tap: all 9 levels, modules, projects, exit tests, business models, wealth rules, tracks, resources and certificates. Technical names (Python, Scratch, Git) stay in English, following the curriculum's own rule: *mother tongue first, English for code words*.
@@ -147,8 +168,9 @@ No accounts and no personal data. Progress ticks stay in the learner's own brows
 | `content/units-1.js` … `units-4.js` | 96 units for Levels 1–4 |
 | `content/viz.js` | Chart renderer (SVG, light/dark, tooltips, table view) |
 | `content/qg.js` | Quantitative genetics toolkit: formula cards and simulator text |
+| `content/labs-c0.js` … `labs-c8.js`, `labs-s0.js` … `labs-s8.js` | The 107 practical labs: tools, steps, run code and output, charts, analysis and decision |
 | `content/data/` | Datasets for the worked examples (CSV) |
-| `tools/` | Python generators that run every example and write the stats files |
+| `tools/` | Python generators that run every example and lab and write the content files; `tools/data/` holds the lab text corpora |
 | `sw.js` | Offline cache |
 | `manifest.webmanifest`, `icon.svg` | Install as a phone app |
 | `CITATION.cff` | Citation metadata for GitHub and Zenodo |
