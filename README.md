@@ -80,7 +80,9 @@ Each level page shows its modules as cards. Each card opens a full module page w
 - the hands-on activity with materials;
 - check-yourself questions with answers you can reveal.
 
-There are 57 module pages, all in English and Amharic. The content generators are in `tools/` (`l0_2.py`, `l3_5.py`, `l6_8.py`).
+There are 57 module pages, all in English and Amharic.
+
+**Levels 1–4 in teachable units.** Each of the 16 year-long modules (Grades 1–12 and BSc years 1–3 plus AI) is split into **6 units of about 5 weeks**: 96 unit pages. Each unit has outcomes, a diagram, lesson steps, a worked example, a hands-on activity and questions with answers. The worked examples run for real at build time: Scratch-style block scripts for Grades 1–4, then Python, JavaScript (Node.js), C (gcc), Bash, SQL, Flask and pytest, so every output shown is real. Generators: `tools/u1.py` … `u4.py`. The content generators are in `tools/` (`l0_2.py`, `l3_5.py`, `l6_8.py`).
 
 ## Statistics for agriculture: S0 to S8
 
@@ -142,6 +144,7 @@ No accounts and no personal data. Progress ticks stay in the learner's own brows
 | `content/modules-0.js` … `modules-8.js` | The 57 complete modules, English and Amharic |
 | `content/stats-core.js`, `stats-0.js` … `stats-8.js` | Statistics track: overview, test chooser, 50 modules and 26 worked examples |
 | `content/modviz.js`, `modx-0.js` … `modx-8.js` | Module diagrams, worked examples and answers |
+| `content/units-1.js` … `units-4.js` | 96 units for Levels 1–4 |
 | `content/viz.js` | Chart renderer (SVG, light/dark, tooltips, table view) |
 | `content/qg.js` | Quantitative genetics toolkit: formula cards and simulator text |
 | `content/data/` | Datasets for the worked examples (CSV) |

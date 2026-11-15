@@ -92,3 +92,60 @@ def emit(level, mods, n_expected):
         f.write('window.MODX = window.MODX || {};\n')
         f.write(f'window.MODX[{level}] = ' + json.dumps(mods, ensure_ascii=False, indent=1) + ';\n')
     return path
+
+# ---------------- units (Levels 1–4) ----------------
+import subprocess, tempfile
+
+def U(t, d, o, l, a, m, q, dg=None, ex=None):
+    """t, d, a, m: (en, am). o, l: list of (en, am). q: list of (q_en, q_am, ans_en, ans_am)."""
+    return {'t': B(*t), 'd': B(*d), 'o': B([x[0] for x in o], [x[1] for x in o]), 'l': B([x[0] for x in l], [x[1] for x in l]),
+            'a': B(*a), 'm': B(*m), 'q': B([x[0] for x in q], [x[1] for x in q]), 'qa': B([x[2] for x in q], [x[3] for x in q]),
+            'dg': dg or [], 'ex': ex}
+
+def ex_js(code, title=None, note=None):
+    code = textwrap.dedent(code).strip('\n')
+    with tempfile.NamedTemporaryFile('w', suffix='.js', delete=False) as f:
+        f.write(code); path = f.name
+    out = subprocess.run(['node', path], capture_output=True, text=True, timeout=30)
+    assert out.returncode == 0, out.stderr
+    e = {'lang': 'JavaScript (Node.js)', 'code': code, 'out': out.stdout.rstrip()}
+    if title: e['title'] = title
+    if note: e['note'] = note
+    return e
+
+def ex_c(code, title=None, note=None):
+    code = textwrap.dedent(code).strip('\n')
+    d = tempfile.mkdtemp(); src = os.path.join(d, 'main.c'); exe = os.path.join(d, 'main')
+    open(src, 'w').write(code)
+    c = subprocess.run(['gcc', '-Wall', '-O1', '-o', exe, src], capture_output=True, text=True)
+    assert c.returncode == 0, c.stderr
+    out = subprocess.run([exe], capture_output=True, text=True, timeout=30)
+    e = {'lang': 'C (gcc)', 'code': code, 'out': out.stdout.rstrip()}
+    if title: e['title'] = title
+    if note: e['note'] = note
+    return e
+
+def emit_units(level, mods):
+    for k, us in enumerate(mods):
+        assert len(us) == 6, (level, k, len(us))
+        for u in us:
+            assert len(u['qa']['en']) == len(u['q']['en']) >= 2 and len(u['o']['am']) == len(u['o']['en']), (level, k, u['t']['en'])
+            assert u['dg'] and u['ex'], (level, k, u['t']['en'])
+    path = os.path.join(REPO, 'content', f'units-{level}.js')
+    with open(path, 'w') as f:
+        f.write(f'/* Level {level}: each year-long module split into 6 units. Generated; code outputs come from running the code. */\n')
+        f.write('window.UNITS = window.UNITS || {};\n')
+        f.write(f'window.UNITS[{level}] = ' + json.dumps(mods, ensure_ascii=False, indent=1) + ';\n')
+    return path
+
+def ex_sh(script, setup=None, title=None, note=None):
+    """Run a bash script in a fresh temp folder (setup = dict of filename -> content)."""
+    script = textwrap.dedent(script).strip('\n'); d = tempfile.mkdtemp()
+    for name, content in (setup or {}).items():
+        open(os.path.join(d, name), 'w').write(textwrap.dedent(content).lstrip('\n'))
+    out = subprocess.run(['bash', '-c', script], cwd=d, capture_output=True, text=True, timeout=30)
+    assert out.returncode == 0, out.stderr
+    e = {'lang': 'Bash', 'code': script, 'out': out.stdout.rstrip()}
+    if title: e['title'] = title
+    if note: e['note'] = note
+    return e

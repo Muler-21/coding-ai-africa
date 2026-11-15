@@ -237,6 +237,7 @@ dl.sym dd{margin:0;color:var(--muted)}
 .mc-meta{font-size:12.5px;color:var(--gold);margin-top:auto}
 .mc-go{font-size:13.5px;color:var(--accent);font-weight:600}
 .crumbs a{color:var(--accent)}
+.big-n.unit-n{font-size:clamp(40px,8vw,72px)}
 .mtiles{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
 .mtiles .tile strong{font-size:16px;line-height:1.35}
 ul.outs{list-style:none;padding:0;margin:0;display:grid;gap:8px}
@@ -356,6 +357,10 @@ html[lang="am"] .nav-link{font-size:15.5px}
 <script src="content/modules-8.js"></script>
 <script src="content/viz.js"></script>
 <script src="content/modviz.js"></script>
+<script src="content/units-1.js"></script>
+<script src="content/units-2.js"></script>
+<script src="content/units-3.js"></script>
+<script src="content/units-4.js"></script>
 <script src="content/modx-0.js"></script>
 <script src="content/modx-1.js"></script>
 <script src="content/modx-2.js"></script>
@@ -412,7 +417,7 @@ const UI = {
       gradingTitle:'Grading inside each level',thPart:'Part',thWeight:'Weight',g1:'Projects',g2:'Practical tests',g3:'Enterprise results (users, sales, profit)',g4:'Code reviews and peer teaching',g5:'Reflection journal',
       portfolio:'<strong>Portfolio:</strong> from Level 2 up, every learner keeps one GitHub profile holding all projects, with a README per project and, from Level 6, a CITATION.cff and Zenodo DOI for anything others might cite.',
       aboutLead:'Coding & AI for Africa is a free curriculum designed by Mulusew Kassa Bitew.',author:'Author',aName:'Name',aPos:'Position',aAff:'Affiliation',aWeb:'Website',aApps:'Other apps',
-      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License',outcomes:'Learners will be able to',lessonPlan:'Lesson plan',activity:'Hands-on: build from what you have',materials:'Materials',checkQ:'Check understanding',tipT:'Teacher tip',openAll:'Open all modules',closeAll:'Close all modules',lessonN:'Lesson',statsNav:'Statistics for agriculture',statsOverview:'Overview',statsLevels:'Statistics levels',chooserT:'Which design or test should I use?',thQuestion:'Your question',thDesignTest:'Design or test',thLevelS:'Level',toolsT:'Tools from today to the future',thTools:'Tools',bizT:'Statistics businesses you can build',thBiz:'Business',thSells:'What it sells',thPays:'Who pays',examplesT:'Worked field examples',exQ:'Research question',exD:'Design',exData:'Data',exRows:'rows; first rows shown',exFile:'Full data file',pyT:'Python code (run to produce the output below)',rT:'Same analysis in R (standard code, not run in this build)',outT:'Output',readT:'How to read it',decideT:'Decision',bizNote:'Business angle',copy:'Copy',copied2:'Copied',copyFail:'Select and copy by hand',statsStart:'Start at Level S0',noEx:'This level is hands-on: activities are in the modules above.',vizT:'Charts',lessonsW:'lessons',lessonsT:'Lessons',diagramsT:'Diagrams',diagramsW:'diagrams',exampleW:'worked example',openModule:'Open module',levelW:'Level',moduleW:'Module',durationW:'Duration',bigPicture:'The big picture',workedEx:'Worked example',ranNote:'run to produce the output below',qaNote:'Try first, then tap a question to check your answer.',cardF:'forward',cardR:'turn right',cardL:'turn left',gridOk:'The robot reaches home.',gridBug:'Bug! The robot stops early. Can you fix the cards?',tableView:'Show the data table',qgNav:'Quantitative genetics',qgOpen:'Open the quantitative genetics toolkit',qgLead:'Formulas, symbols and an interactive selection simulator, each linked to a worked example.',symT:'Symbols',useT:'When to use it',seeEx:'Worked example',simLink:'Simulator on this page',formulaT:'Formula',statsLead:'From counting seeds to leading breeding programmes and AI experiments.'},
+      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License',outcomes:'Learners will be able to',lessonPlan:'Lesson plan',activity:'Hands-on: build from what you have',materials:'Materials',checkQ:'Check understanding',tipT:'Teacher tip',openAll:'Open all modules',closeAll:'Close all modules',lessonN:'Lesson',statsNav:'Statistics for agriculture',statsOverview:'Overview',statsLevels:'Statistics levels',chooserT:'Which design or test should I use?',thQuestion:'Your question',thDesignTest:'Design or test',thLevelS:'Level',toolsT:'Tools from today to the future',thTools:'Tools',bizT:'Statistics businesses you can build',thBiz:'Business',thSells:'What it sells',thPays:'Who pays',examplesT:'Worked field examples',exQ:'Research question',exD:'Design',exData:'Data',exRows:'rows; first rows shown',exFile:'Full data file',pyT:'Python code (run to produce the output below)',rT:'Same analysis in R (standard code, not run in this build)',outT:'Output',readT:'How to read it',decideT:'Decision',bizNote:'Business angle',copy:'Copy',copied2:'Copied',copyFail:'Select and copy by hand',statsStart:'Start at Level S0',noEx:'This level is hands-on: activities are in the modules above.',vizT:'Charts',lessonsW:'lessons',unitsW:'units',unitW:'Unit',unitsT:'Units in this module',unitsLead:'Each unit is about 5–6 weeks of teaching, with its own diagram, worked example and questions.',openUnit:'Open unit',lessonsT:'Lessons',diagramsT:'Diagrams',diagramsW:'diagrams',exampleW:'worked example',openModule:'Open module',levelW:'Level',moduleW:'Module',durationW:'Duration',bigPicture:'The big picture',workedEx:'Worked example',ranNote:'run to produce the output below',qaNote:'Try first, then tap a question to check your answer.',cardF:'forward',cardR:'turn right',cardL:'turn left',gridOk:'The robot reaches home.',gridBug:'Bug! The robot stops early. Can you fix the cards?',tableView:'Show the data table',qgNav:'Quantitative genetics',qgOpen:'Open the quantitative genetics toolkit',qgLead:'Formulas, symbols and an interactive selection simulator, each linked to a worked example.',symT:'Symbols',useT:'When to use it',seeEx:'Worked example',simLink:'Simulator on this page',formulaT:'Formula',statsLead:'From counting seeds to leading breeding programmes and AI experiments.'},
   am:{brand:'ኮዲንግና AI ለአፍሪካ',home:'ዋና ገጽ',levels:'ደረጃዎች',more:'ኮርስ',tracks:'የልዩ ሙያ መስመሮች',business:'ንግድና ሀብት',resources:'ነፃ ምንጮች',progress:'የኔ እድገት',certificates:'ሰርተፊኬቶች',about:'ደራሲና ማጣቀሻ',
       goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',checklist:'ማረጋገጫ ዝርዝር',practiceN:'ልምምድ',
       bizSkills:'የሚሰጡ የንግድ ክህሎቶች',milestone:'የሚደረስበት ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
@@ -437,7 +442,7 @@ const UI = {
       gradingTitle:'በእያንዳንዱ ደረጃ ውስጥ ያለው ውጤት አሰጣጥ',thPart:'ክፍል',thWeight:'ድርሻ',g1:'ፕሮጀክቶች',g2:'ተግባራዊ ፈተናዎች',g3:'የሥራ ፈጠራ ውጤቶች (ተጠቃሚዎች፣ ሽያጭ፣ ትርፍ)',g4:'የኮድ ግምገማና አቻን ማስተማር',g5:'የነጸብራቅ ማስታወሻ',
       portfolio:'<strong>የሥራ ማኅደር፡</strong> ከደረጃ 2 ጀምሮ እያንዳንዱ ተማሪ ሁሉንም ፕሮጀክቶች የያዘ አንድ የGitHub ፕሮፋይል ይኖረዋል፤ ለእያንዳንዱ ፕሮጀክት README፣ ከደረጃ 6 ጀምሮ ደግሞ ሌሎች ሊጠቅሱት ለሚችሉት ሁሉ CITATION.cff እና የZenodo DOI ይኖረዋል።',
       aboutLead:'ኮዲንግና AI ለአፍሪካ በMulusew Kassa Bitew የተዘጋጀ ነፃ ሥርዓተ ትምህርት ነው።',author:'ደራሲ',aName:'ስም',aPos:'የሥራ መደብ',aAff:'ተቋም',aWeb:'ድረ-ገጽ',aApps:'ሌሎች መተግበሪያዎች',
-      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ',outcomes:'ተማሪዎች የሚችሉት',lessonPlan:'የትምህርት ዕቅድ',activity:'በተግባር፡ በእጅ ካለው ሥራ',materials:'ቁሳቁሶች',checkQ:'ግንዛቤን ፈትሽ',tipT:'ለመምህሩ ምክር',openAll:'ሁሉንም ሞጁሎች ክፈት',closeAll:'ሁሉንም ሞጁሎች ዝጋ',lessonN:'ትምህርት',statsNav:'ስታቲስቲክስ ለግብርና',statsOverview:'አጠቃላይ እይታ',statsLevels:'የስታቲስቲክስ ደረጃዎች',chooserT:'የትኛውን ንድፍ ወይም ፈተና ልጠቀም?',thQuestion:'ጥያቄህ',thDesignTest:'ንድፍ ወይም ፈተና',thLevelS:'ደረጃ',toolsT:'ከዛሬ እስከ ወደፊት መሣሪያዎች',thTools:'መሣሪያዎች',bizT:'ልትገነባቸው የምትችላቸው የስታቲስቲክስ ንግዶች',thBiz:'ንግድ',thSells:'የሚሸጠው',thPays:'የሚከፍለው',examplesT:'የተሠሩ የመስክ ምሳሌዎች',exQ:'የምርምር ጥያቄ',exD:'ንድፍ',exData:'ዳታ',exRows:'ረድፎች፤ የመጀመሪያዎቹ ረድፎች ቀርበዋል',exFile:'ሙሉ የዳታ ፋይል',pyT:'የPython ኮድ (ከታች ያለውን ውጤት ለማግኘት የተሠራ)',rT:'ተመሳሳይ ትንተና በR (መደበኛ ኮድ፣ በዚህ ግንባታ አልተሠራም)',outT:'ውጤት',readT:'እንዴት እንደሚነበብ',decideT:'ውሳኔ',bizNote:'የንግድ ዕይታ',copy:'ቅዳ',copied2:'ተቀድቷል',copyFail:'መርጠህ በእጅ ቅዳ',statsStart:'ከደረጃ S0 ጀምር',noEx:'ይህ ደረጃ በተግባር የሚሰጥ ነው፤ እንቅስቃሴዎቹ ከላይ ባሉት ሞጁሎች ውስጥ ናቸው።',vizT:'ቻርቶች',lessonsW:'ትምህርቶች',lessonsT:'ትምህርቶች',diagramsT:'ሥዕላዊ መግለጫዎች',diagramsW:'ሥዕላዊ መግለጫዎች',exampleW:'የተሠራ ምሳሌ',openModule:'ሞጁሉን ክፈት',levelW:'ደረጃ',moduleW:'ሞጁል',durationW:'የጊዜ ርዝመት',bigPicture:'አጠቃላይ ሥዕሉ',workedEx:'የተሠራ ምሳሌ',ranNote:'ከታች ያለውን ውጤት ለማግኘት የተሠራ',qaNote:'መጀመሪያ ሞክር፤ ከዚያ መልስህን ለማረጋገጥ ጥያቄውን ንካ።',cardF:'ወደ ፊት',cardR:'ወደ ቀኝ ዙር',cardL:'ወደ ግራ ዙር',gridOk:'ሮቦቱ ቤት ይደርሳል።',gridBug:'ስህተት! ሮቦቱ ቀድሞ ይቆማል። ካርዶቹን ማስተካከል ትችላለህ?',tableView:'የዳታ ሰንጠረዡን አሳይ',qgNav:'ቁጥራዊ ዘረመል',qgOpen:'የቁጥራዊ ዘረመል መሣሪያ ሳጥኑን ክፈት',qgLead:'ቀመሮች፣ ምልክቶችና በይነተገናኝ የምርጫ አስመሳይ፤ እያንዳንዱ ከተሠራ ምሳሌ ጋር የተገናኘ።',symT:'ምልክቶች',useT:'መቼ እንደሚጠቀሙበት',seeEx:'የተሠራ ምሳሌ',simLink:'በዚህ ገጽ ያለው አስመሳይ',formulaT:'ቀመር',statsLead:'ዘር ከመቁጠር እስከ የዝርያ ማሻሻያ ፕሮግራሞችንና የAI ሙከራዎችን መምራት።'}
+      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ',outcomes:'ተማሪዎች የሚችሉት',lessonPlan:'የትምህርት ዕቅድ',activity:'በተግባር፡ በእጅ ካለው ሥራ',materials:'ቁሳቁሶች',checkQ:'ግንዛቤን ፈትሽ',tipT:'ለመምህሩ ምክር',openAll:'ሁሉንም ሞጁሎች ክፈት',closeAll:'ሁሉንም ሞጁሎች ዝጋ',lessonN:'ትምህርት',statsNav:'ስታቲስቲክስ ለግብርና',statsOverview:'አጠቃላይ እይታ',statsLevels:'የስታቲስቲክስ ደረጃዎች',chooserT:'የትኛውን ንድፍ ወይም ፈተና ልጠቀም?',thQuestion:'ጥያቄህ',thDesignTest:'ንድፍ ወይም ፈተና',thLevelS:'ደረጃ',toolsT:'ከዛሬ እስከ ወደፊት መሣሪያዎች',thTools:'መሣሪያዎች',bizT:'ልትገነባቸው የምትችላቸው የስታቲስቲክስ ንግዶች',thBiz:'ንግድ',thSells:'የሚሸጠው',thPays:'የሚከፍለው',examplesT:'የተሠሩ የመስክ ምሳሌዎች',exQ:'የምርምር ጥያቄ',exD:'ንድፍ',exData:'ዳታ',exRows:'ረድፎች፤ የመጀመሪያዎቹ ረድፎች ቀርበዋል',exFile:'ሙሉ የዳታ ፋይል',pyT:'የPython ኮድ (ከታች ያለውን ውጤት ለማግኘት የተሠራ)',rT:'ተመሳሳይ ትንተና በR (መደበኛ ኮድ፣ በዚህ ግንባታ አልተሠራም)',outT:'ውጤት',readT:'እንዴት እንደሚነበብ',decideT:'ውሳኔ',bizNote:'የንግድ ዕይታ',copy:'ቅዳ',copied2:'ተቀድቷል',copyFail:'መርጠህ በእጅ ቅዳ',statsStart:'ከደረጃ S0 ጀምር',noEx:'ይህ ደረጃ በተግባር የሚሰጥ ነው፤ እንቅስቃሴዎቹ ከላይ ባሉት ሞጁሎች ውስጥ ናቸው።',vizT:'ቻርቶች',lessonsW:'ትምህርቶች',unitsW:'ክፍሎች',unitW:'ክፍል',unitsT:'በዚህ ሞጁል ውስጥ ያሉ ክፍሎች',unitsLead:'እያንዳንዱ ክፍል ወደ 5–6 ሳምንታት ገደማ የማስተማሪያ ጊዜ ነው፤ የራሱ ሥዕላዊ መግለጫ፣ የተሠራ ምሳሌና ጥያቄዎች አሉት።',openUnit:'ክፍሉን ክፈት',lessonsT:'ትምህርቶች',diagramsT:'ሥዕላዊ መግለጫዎች',diagramsW:'ሥዕላዊ መግለጫዎች',exampleW:'የተሠራ ምሳሌ',openModule:'ሞጁሉን ክፈት',levelW:'ደረጃ',moduleW:'ሞጁል',durationW:'የጊዜ ርዝመት',bigPicture:'አጠቃላይ ሥዕሉ',workedEx:'የተሠራ ምሳሌ',ranNote:'ከታች ያለውን ውጤት ለማግኘት የተሠራ',qaNote:'መጀመሪያ ሞክር፤ ከዚያ መልስህን ለማረጋገጥ ጥያቄውን ንካ።',cardF:'ወደ ፊት',cardR:'ወደ ቀኝ ዙር',cardL:'ወደ ግራ ዙር',gridOk:'ሮቦቱ ቤት ይደርሳል።',gridBug:'ስህተት! ሮቦቱ ቀድሞ ይቆማል። ካርዶቹን ማስተካከል ትችላለህ?',tableView:'የዳታ ሰንጠረዡን አሳይ',qgNav:'ቁጥራዊ ዘረመል',qgOpen:'የቁጥራዊ ዘረመል መሣሪያ ሳጥኑን ክፈት',qgLead:'ቀመሮች፣ ምልክቶችና በይነተገናኝ የምርጫ አስመሳይ፤ እያንዳንዱ ከተሠራ ምሳሌ ጋር የተገናኘ።',symT:'ምልክቶች',useT:'መቼ እንደሚጠቀሙበት',seeEx:'የተሠራ ምሳሌ',simLink:'በዚህ ገጽ ያለው አስመሳይ',formulaT:'ቀመር',statsLead:'ዘር ከመቁጠር እስከ የዝርያ ማሻሻያ ፕሮግራሞችንና የAI ሙከራዎችን መምራት።'}
 };
 const t = k => (UI[state.lang] && UI[state.lang][k]) || UI.en[k] || k;
 
@@ -875,8 +880,49 @@ function modulesHTML(n,L){
       <span class="mc-top"><span class="mod-n">${i+1}</span><span class="mc-dur">${esc(m.d)}</span></span>
       <strong class="mc-title">${esc(m.t)}</strong>
       <span class="mc-out">${esc(m.o[0])}</span>
-      <span class="mc-meta">${m.l.length} ${esc(t('lessonsW'))} · ${X[i]&&X[i].dg?X[i].dg.length:0} ${esc(t('diagramsW'))}${X[i]&&X[i].ex?' · '+esc(t('exampleW')):''}</span>
+      <span class="mc-meta">${unitSet(n,i+1)?unitSet(n,i+1).length+' '+esc(t('unitsW'))+' · ':''}${m.l.length} ${esc(t('lessonsW'))} · ${X[i]&&X[i].dg?X[i].dg.length:0} ${esc(t('diagramsW'))}${X[i]&&X[i].ex?' · '+esc(t('exampleW')):''}</span>
       <span class="mc-go">${esc(t('openModule'))} →</span></a>`).join('')}</div>`;
+}
+function unitSet(n,k){ return (((window.UNITS||{})[n])||[])[k-1] || null; }
+function unitCards(n,k,us){
+  return `<div class="modgrid">${us.map((u,i)=>`<a class="modcard" href="#unit-${n}-${k}-${i+1}">
+      <span class="mc-top"><span class="mod-n">${i+1}</span><span class="mc-dur">${esc(pick(u.d))}</span></span>
+      <strong class="mc-title">${esc(pick(u.t))}</strong>
+      <span class="mc-out">${esc(pick(u.o)[0])}</span>
+      <span class="mc-go">${esc(t('openUnit'))} →</span></a>`).join('')}</div>`;
+}
+function viewUnit(n,k,ui){
+  const L = LEVELS[n] && lv(n), set = modSet(n), m = set && set[k-1], us = unitSet(n,k), u = us && us[ui-1];
+  if(!u) return viewModule(n,k);
+  const qa = pick(u.qa)||[], qs = pick(u.q)||[], ex = u.ex;
+  const mats = pick(u.m).split(/[,፣]\s*/).filter(Boolean);
+  const prevU = ui>1 ? [k,ui-1] : (k>1 && unitSet(n,k-1) ? [k-1, unitSet(n,k-1).length] : null);
+  const nextU = ui<us.length ? [k,ui+1] : (unitSet(n,k+1) ? [k+1,1] : null);
+  const uname = (kk,uu) => pick(unitSet(n,kk)[uu-1].t);
+  const prev = prevU?`<a class="btn" href="#unit-${n}-${prevU[0]}-${prevU[1]}">← ${esc(uname(...prevU))}</a>`:`<a class="btn" href="#mod-${n}-${k}">← ${esc(m.t)}</a>`;
+  const next = nextU?`<a class="btn primary" href="#unit-${n}-${nextU[0]}-${nextU[1]}">${esc(uname(...nextU))} →</a>`:`<a class="btn primary" href="#level-${n+1}">${esc(t('next'))} →</a>`;
+  return `<div class="col">
+   <nav class="crumbs small"><a href="#level-${n}">${esc(t('levelW'))} ${n} · ${esc(levelName(L))}</a> › <a href="#mod-${n}-${k}">${esc(m.t)}</a> › ${esc(t('unitW'))} ${ui} / ${us.length}</nav>
+   <div class="hero-level"><span class="big-n unit-n">${n}.${k}.${ui}</span><div style="display:flex;flex-direction:column;gap:8px">
+     <span class="eyebrow">${esc(m.t)}</span><h1>${esc(pick(u.t))}</h1></div></div>
+   <div class="mtiles"><div class="tile"><span class="small muted">${esc(t('durationW'))}</span><strong>${esc(pick(u.d))}</strong></div>
+     <div class="tile"><span class="small muted">${esc(t('lessonsT'))}</span><strong>${pick(u.l).length}</strong></div>
+     <div class="tile"><span class="small muted">${esc(t('diagramsT'))}</span><strong>${(u.dg||[]).length}</strong></div>
+     <div class="tile"><span class="small muted">${esc(t('ages'))}</span><strong>${esc(L.ages)}</strong></div></div>
+   <section class="card"><h2>${esc(t('outcomes'))}</h2><ul class="outs">${pick(u.o).map(x=>`<li><span aria-hidden="true">✓</span>${esc(x)}</li>`).join('')}</ul></section>
+   ${u.dg&&u.dg.length?`<section class="card"><h2>${esc(t('bigPicture'))}</h2><div class="dgset">${diagramHTML(u.dg)}</div></section>`:''}
+   <section class="card"><h2>${esc(t('lessonPlan'))}</h2><ol class="lpath">${pick(u.l).map((x,i)=>`<li><span class="lp-n">${i+1}</span><div>${esc(x)}</div></li>`).join('')}</ol></section>
+   ${ex?`<section class="card"><h2>${esc(t('workedEx'))}</h2>${ex.title?`<p><strong>${esc(pick(ex.title))}</strong></p>`:''}
+      ${ex.steps?`<ol class="lpath">${pick(ex.steps).map((x,i)=>`<li><span class="lp-n">${i+1}</span><div>${esc(x)}</div></li>`).join('')}</ol>`:''}
+      ${ex.code?codeBlock(`${ex.lang||''}${ex.out?' · '+t('ranNote'):''}`, ex.code, true):''}
+      ${ex.out?`<div><h4 class="h4g">${esc(t('outT'))}</h4><pre class="code out">${esc(ex.out)}</pre></div>`:''}
+      ${ex.note?`<p class="small muted">${esc(pick(ex.note))}</p>`:''}</section>`:''}
+   <section class="card gold"><h2>${esc(t('activity'))}</h2><p>${esc(pick(u.a))}</p>
+     <h4 class="h4g">${esc(t('materials'))}</h4><div class="chips">${mats.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div></section>
+   <section class="card"><h2>${esc(t('checkQ'))}</h2><div class="qa">${qs.map((q,i)=>`<details><summary>${esc(q)}</summary>${qa[i]?`<p>${esc(qa[i])}</p>`:''}</details>`).join('')}</div>
+     <p class="small muted">${esc(t('qaNote'))}</p></section>
+   <div class="pager">${prev}${next}</div>
+  </div>`;
 }
 function viewModule(n,k){
   const L = LEVELS[n] && lv(n), set = modSet(n), m = set && set[k-1];
@@ -898,7 +944,7 @@ function viewModule(n,k){
      <div class="tile"><span class="small muted">${esc(t('ages'))}</span><strong>${esc(L.ages)}</strong></div></div>
    <section class="card"><h2>${esc(t('outcomes'))}</h2><ul class="outs">${m.o.map(x=>`<li><span aria-hidden="true">✓</span>${esc(x)}</li>`).join('')}</ul></section>
    ${X.dg&&X.dg.length?`<section class="card"><h2>${esc(t('bigPicture'))}</h2><div class="dgset">${diagramHTML(X.dg)}</div></section>`:''}
-   <section class="card"><h2>${esc(t('lessonPlan'))}</h2><ol class="lpath">${m.l.map((x,i)=>`<li><span class="lp-n">${i+1}</span><div>${esc(x)}</div></li>`).join('')}</ol></section>
+   ${unitSet(n,k)?`<section class="card"><h2>${esc(t('unitsT'))}</h2><p class="small muted">${esc(t('unitsLead'))}</p>${unitCards(n,k,unitSet(n,k))}</section>`:`<section class="card"><h2>${esc(t('lessonPlan'))}</h2><ol class="lpath">${m.l.map((x,i)=>`<li><span class="lp-n">${i+1}</span><div>${esc(x)}</div></li>`).join('')}</ol></section>`}
    ${ex?`<section class="card"><h2>${esc(t('workedEx'))}</h2>${ex.title?`<p><strong>${esc(pick(ex.title))}</strong></p>`:''}
       ${ex.steps?`<ol class="lpath">${pick(ex.steps).map((x,i)=>`<li><span class="lp-n">${i+1}</span><div>${esc(x)}</div></li>`).join('')}</ol>`:''}
       ${ex.code?codeBlock(`${ex.lang||''}${ex.out?' · '+t('ranNote'):''}`, ex.code, true):''}
@@ -1152,6 +1198,7 @@ function route(){
   else if(h==='stats') html = viewStatsHome();
   else if(/^stats-[0-8]$/.test(h)) html = viewStatsLevel(+h.split('-')[1]);
   else if(h==='qg') html = viewQG();
+  else if(/^unit-[0-8]-\d+-\d+$/.test(h)){ const [,a,b,c] = h.split('-'); html = viewUnit(+a,+b,+c); r = 'level-'+a; }
   else if(/^mod-[0-8]-\d+$/.test(h)){ const [,a,b] = h.split('-'); html = viewModule(+a,+b); r = 'level-'+a; }
   else if(h==='business') html = viewBusiness();
   else if(h==='tracks') html = viewTracks();
