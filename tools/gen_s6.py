@@ -1,4 +1,5 @@
 from lib import *
+from qgviz import *
 from scipy import stats
 rng = np.random.default_rng(606)
 
@@ -27,12 +28,17 @@ var_s = max((ms_s - ms_e) / k, 0); var_e = ms_e
 h2 = 4 * var_s / (var_s + var_e)
 print(f"MS sire = {ms_s:.2f}, MS error = {ms_e:.2f}, k = {k:.2f}")
 print(f"sigma2_sire = {var_s:.3f}, sigma2_error = {var_e:.3f}, h2 = {h2:.2f}")
-lam = var_e / var_s                                      # shrinkage ratio
-blup = (n_i / (n_i + lam)) * (m_i - mu)                  # sire transmitting ability
-ebv = 2 * blup                                           # breeding value = 2 x transmitting ability
-tab = pd.DataFrame({"lambs": n_i, "raw_mean": m_i.round(2), "EBV_kg": ebv.round(2)}).sort_values("EBV_kg", ascending=False)
-print(tab.head(6)); print("...")
-print(tab.tail(3))
+t = var_s / (var_s + var_e)                              # intraclass correlation = h2 / 4
+se_h2 = 4 * np.sqrt(2 * (1 - t)**2 * (1 + (k - 1) * t)**2 / (k * (k - 1) * (s - 1)))   # Falconer & Mackay
+print(f"SE(h2) = {se_h2:.2f}; approx. 95% CI {max(h2 - 1.96*se_h2, 0):.2f} to {min(h2 + 1.96*se_h2, 1):.2f}")
+var_a = 4 * var_s                                        # additive genetic variance
+lam = var_e / var_s                                      # shrinkage ratio = (4 - h2) / h2
+rel = n_i / (n_i + lam)                                  # reliability of each sire's EBV
+ebv = 2 * rel * (m_i - mu)                               # EBV = 2 x BLUP of the sire effect
+sep = np.sqrt((1 - rel) * var_a)                         # standard error of prediction
+tab = pd.DataFrame({"lambs": n_i, "raw_mean": m_i, "EBV_kg": ebv, "reliab": rel, "SEP_kg": sep}).round(2)
+tab = tab.sort_values("EBV_kg", ascending=False)
+print(tab.head(5)); print("..."); print(tab.tail(3))
 ''',
  '''
 library(lme4)
@@ -48,16 +54,19 @@ ni, mi = g6.size(), g6.mean(); s_, N_ = len(ni), len(d6)
 mss = (ni * (mi - mu6)**2).sum() / (s_ - 1); mse = ((d6.weaning_wt_kg - g6.transform('mean'))**2).sum() / (N_ - s_)
 k_ = (N_ - (ni**2).sum() / N_) / (s_ - 1); vs = max((mss - mse) / k_, 0); h2 = 4 * vs / (vs + mse)
 ebv = 2 * (ni / (ni + mse / vs)) * (mi - mu6); top = ebv.sort_values(ascending=False)
+ns1 = ex1['_ns']; se1 = ns1['se_h2']; lo1, hi1 = max(h2 - 1.96*se1, 0), min(h2 + 1.96*se1, 1); rel1 = ns1['rel']; sep1 = ns1['sep']
 rawtop = mi.idxmax()
-ex1['read'] = {'en': [f'Heritability is about {h2:.2f}: roughly {100*h2:.0f}% of the variation in weaning weight is passed on additively, enough for steady progress by selection.',
+ex1['read'] = {'en': [f'h² = {h2:.2f} ± {se1:.2f} (SE): {100*h2:.0f}% of the phenotypic variance in weaning weight is additive genetic, but with only {s_} sires the 95% interval runs from {lo1:.2f} to {hi1:.2f}. These data were simulated with a true h² of 0.27, which lies inside it. A precise half-sib estimate needs 50–100+ sires.',
+                      f'Reliability of a sire EBV = n / (n + λ), with λ = (4 − h²)/h² = {mse/vs:.0f}. Here reliabilities are only {rel1.min():.2f}–{rel1.max():.2f}, so the error bars (EBV ± 1.96 × SEP) overlap for most sires.',
                       'A sire’s EBV is its estimated genetic merit passed to offspring, in kg above or below the flock average.',
                       'BLUP shrinks sires with few lambs towards zero: a high raw mean from 4 lambs is less trustworthy than the same mean from 8.',
                       f'Top sires by EBV: {", ".join(top.index[:3])}. The sire with the highest raw mean is {rawtop}{" (also top by EBV)" if rawtop == top.index[0] else ", but shrinkage moves it down"}.'],
-               'am': [f'Heritability ወደ {h2:.2f} ገደማ ነው፡ በጡት መጣያ ክብደት ውስጥ ካለው ልዩነት ወደ {100*h2:.0f}% ገደማ በዘር ይተላለፋል፤ ይህ በምርጫ ቋሚ እድገት ለማምጣት በቂ ነው።',
+               'am': [f'h² = {h2:.2f} ± {se1:.2f} (SE)፡ በጡት መጣያ ክብደት የphenotypic variance {100*h2:.0f}% additive genetic ነው፤ ግን {s_} አውራዎች ብቻ ስላሉ 95% ክልሉ ከ{lo1:.2f} እስከ {hi1:.2f} ይደርሳል። ይህ ዳታ በእውነተኛ h² 0.27 የተመሰለ ነው፤ ይህም በክልሉ ውስጥ ነው። ትክክለኛ የhalf-sib ግምት 50–100+ አውራዎች ይፈልጋል።',
+                      f'የአውራ EBV አስተማማኝነት (reliability) = n / (n + λ)፣ λ = (4 − h²)/h² = {mse/vs:.0f}። እዚህ አስተማማኝነቶቹ {rel1.min():.2f}–{rel1.max():.2f} ብቻ ናቸው፤ ስለዚህ የስህተት መስመሮቹ (EBV ± 1.96 × SEP) ለአብዛኞቹ አውራዎች ይደራረባሉ።',
                       'የአውራ EBV ለዘሮቹ የሚያስተላልፈው የተገመተ የዘረመል ብቃት ነው፤ ከመንጋው አማካይ በላይ ወይም በታች በኪሎግራም።',
                       'BLUP ጥቂት ጠቦቶች ያሏቸውን አውራዎች ወደ ዜሮ ያጠጋል፡ ከ4 ጠቦቶች የተገኘ ከፍተኛ ጥሬ አማካይ ከ8 ጠቦቶች ከተገኘ ተመሳሳይ አማካይ ያነሰ ታማኝ ነው።',
                       f'በEBV ከፍተኛዎቹ አውራዎች፡ {", ".join(top.index[:3])}። ከፍተኛ ጥሬ አማካይ ያለው አውራ {rawtop} ነው{" (በEBVም ከፍተኛ)" if rawtop == top.index[0] else "፤ ግን shrinkage ወደ ታች ያወርደዋል"}።']}
-ex1['decide'] = {'en': f'Keep {", ".join(top.index[:4])} as breeding rams for the next season and cull the bottom sires; record more lambs per ram to sharpen the EBVs.', 'am': f'{", ".join(top.index[:4])}ን ለሚቀጥለው ወቅት የዝርያ አውራዎች አድርጋችሁ አቆዩ፣ ዝቅተኛዎቹን አስወግዱ፤ EBVsን ለማሳመር በአንድ አውራ ብዙ ጠቦቶችን መዝግቡ።'}
+ex1['decide'] = {'en': f'Use {top.index[0]} most widely; keep {", ".join(top.index[1:4])} as breeding rams and cull the bottom sires, treating the middle of the ranking as provisional. Record 20+ lambs per ram and more sires to raise reliability.', 'am': f'{top.index[0]}ን በብዛት ተጠቀሙ፤ {", ".join(top.index[1:4])}ን የዝርያ አውራዎች አድርጋችሁ አቆዩ፣ ዝቅተኛዎቹን አስወግዱ፤ የደረጃው መካከለኛ ክፍል ጊዜያዊ መሆኑን አስታውሱ። አስተማማኝነትን ለማሳደግ በአንድ አውራ 20+ ጠቦቶችንና ብዙ አውራዎችን መዝግቡ።'}
 ex1['biz'] = {'en': 'Selling performance-recorded rams with EBVs earns more than selling unrecorded rams; breeders pay for the EBV service.', 'am': 'EBV ያላቸው በአፈጻጸም የተመዘገቡ አውራዎችን መሸጥ ካልተመዘገቡት ይበልጥ ያስገኛል፤ አርቢዎች ለEBV አገልግሎቱ ይከፍላሉ።'}
 
 # ---------- GWAS
@@ -90,8 +99,9 @@ def scan(cov):
         df = n - D.shape[1]; se = np.sqrt(r @ r / df * np.linalg.inv(D.T @ D)[-1, -1])
         p[j] = 2 * stats.t.sf(abs(b[-1] / se), df)
     return p
+pv = {}
 for label, cov in [("No correction", None), ("With 3 PCs", pcs)]:
-    p = scan(cov)
+    p = pv[label] = scan(cov)
     order = np.argsort(p); bh = p[order] * m / np.arange(1, m + 1)
     fdr_hits = order[: (np.where(bh < 0.05)[0].max() + 1) if (bh < 0.05).any() else 0]
     bonf = np.where(p < 0.05 / m)[0]
@@ -126,21 +136,26 @@ gp = geno.copy(); gp['trait'] = np.round(gp_y, 2); save_csv(gp, 's6_genomic_pred
 ex3 = example('s6-gp',
  {'en': 'How accurately can we predict an animal’s merit from its DNA alone?', 'am': 'የእንስሳን ብቃት ከDNAው ብቻ በምን ያህል ትክክለኛነት መተንበይ እንችላለን?'},
  {'en': 'The same 240 genotyped animals, now with a trait controlled by many small genes.', 'am': 'እነዚያው 240 genotype የተደረጉ እንስሳት፣ አሁን በብዙ ትናንሽ ጂኖች የሚቆጣጠር ባሕሪ ያላቸው።'},
- {'en': 'Genomic prediction → ridge regression (equivalent to rrBLUP/GBLUP) with 5-fold cross-validation; accuracy = correlation between predicted and observed', 'am': 'Genomic prediction → ridge regression (ከrrBLUP/GBLUP ጋር ተመጣጣኝ) ከ5-fold cross-validation ጋር፤ ትክክለኛነት = በተተነበየውና በታየው መካከል ያለ ተዛምዶ'},
+ {'en': 'Genomic prediction → ridge regression (equivalent to rrBLUP/GBLUP) with 5-fold cross-validation; predictive ability = cor(predicted, observed); accuracy = ability / √h²', 'am': 'Genomic prediction → ridge regression (ከrrBLUP/GBLUP ጋር ተመጣጣኝ) ከ5-fold cross-validation ጋር፤ predictive ability = cor(የተተነበየ, የታየ)፤ ትክክለኛነት (accuracy) = ability / √h²'},
  's6_genomic_prediction.csv',
  '''
 import pandas as pd, numpy as np
 from sklearn.linear_model import Ridge
-from sklearn.model_selection import KFold
+from sklearn.model_selection import KFold, cross_val_predict
 d = pd.read_csv("s6_genomic_prediction.csv")
 y = d.trait.values; X = d.filter(like="snp").values.astype(float); X = X - X.mean(0)
 kf = KFold(5, shuffle=True, random_state=1)
+res = {}
 for alpha in [1, 30, 100, 300, 1000]:
-    acc = []
+    ability = []                                                 # predictive ability = cor(predicted, observed)
     for tr, te in kf.split(X):
         model = Ridge(alpha=alpha).fit(X[tr], y[tr])
-        acc.append(np.corrcoef(model.predict(X[te]), y[te])[0, 1])
-    print(f"ridge alpha = {alpha:5d}: accuracy = {np.mean(acc):.2f} (folds {min(acc):.2f}-{max(acc):.2f})")
+        ability.append(np.corrcoef(model.predict(X[te]), y[te])[0, 1])
+    res[alpha] = ability
+    print(f"ridge alpha = {alpha:5d}: predictive ability = {np.mean(ability):.2f} (folds {min(ability):.2f}-{max(ability):.2f})")
+best = max(res, key=lambda a: np.mean(res[a])); h2 = 0.78     # h2 of this trait (from REML; here known from the simulation)
+pred = cross_val_predict(Ridge(alpha=best), X, y, cv=kf)
+print(f"best alpha = {best}: accuracy of GEBV = ability / sqrt(h2) = {np.mean(res[best]):.2f} / {np.sqrt(h2):.2f} = {np.mean(res[best]) / np.sqrt(h2):.2f}")
 ''',
  '''
 library(rrBLUP)
@@ -158,17 +173,15 @@ mean(acc)        # Bayesian alternatives: BGLR (BayesA, BayesB, BayesC)
 Xc = Xg - Xg.mean(0)
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import KFold
-accs = {}
-for a_ in [1, 30, 100, 300, 1000]:
-    acc = [np.corrcoef(Ridge(alpha=a_).fit(Xc[tr], gp_y.round(2)[tr]).predict(Xc[te]), gp_y.round(2)[te])[0, 1] for tr, te in KFold(5, shuffle=True, random_state=1).split(Xc)]
-    accs[a_] = np.mean(acc)
-best_a = max(accs, key=accs.get)
+ns3 = ex3['_ns']; res3 = ns3['res']; best_a = ns3['best']; ab = float(np.mean(res3[best_a])); acc3 = ab / np.sqrt(ns3['h2'])
 ex3['read'] = {'en': ['Cross-validation hides one fifth of the animals, predicts them from the rest, and repeats five times: an honest test of prediction.',
-                      f'Accuracy peaks at alpha = {best_a} (about {accs[best_a]:.2f}); too little shrinkage overfits, too much ignores real signals.',
-                      'Accuracy grows with the size of the training population and with heritability; 240 animals is a small start.'],
+                      f'Predictive ability (the correlation between predicted and observed values) peaks at alpha = {best_a} ({ab:.2f}); too little shrinkage overfits, too much ignores real signals.',
+                      f'The observed value contains environmental noise, so the accuracy of the genomic breeding value (correlation with the TRUE breeding value) is ability / √h² = {ab:.2f} / {np.sqrt(ns3["h2"]):.2f} = {acc3:.2f}. Always say which of the two you report.',
+                      'Accuracy grows with the size of the training population, with heritability and with relatedness between training and selection candidates; 240 animals is a small start.'],
                'am': ['Cross-validation ከእንስሳቱ አንድ አምስተኛውን ደብቆ ከሌሎቹ ይተነብያቸዋል፣ አምስት ጊዜ ይደግማል፡ የትንበያ ታማኝ ፈተና ነው።',
-                      f'ትክክለኛነቱ በalpha = {best_a} ላይ ከፍተኛ ነው (ወደ {accs[best_a]:.2f} ገደማ)፤ በጣም ትንሽ shrinkage ከመጠን በላይ ይገጥማል፣ በጣም ብዙ እውነተኛ ምልክቶችን ችላ ይላል።',
-                      'ትክክለኛነት በሥልጠና ሕዝቡ መጠንና በheritability ይጨምራል፤ 240 እንስሳት ትንሽ ጅምር ነው።']}
+                      f'Predictive ability (በተተነበየውና በታየው እሴት መካከል ያለ ተዛምዶ) በalpha = {best_a} ላይ ከፍተኛ ነው ({ab:.2f})፤ በጣም ትንሽ shrinkage ከመጠን በላይ ይገጥማል፣ በጣም ብዙ እውነተኛ ምልክቶችን ችላ ይላል።',
+                      f'የታየው እሴት የአካባቢ ጫጫታ ስላለው የጂኖሚክ breeding value ትክክለኛነት (ከእውነተኛው breeding value ጋር ያለ ተዛምዶ) = ability / √h² = {ab:.2f} / {np.sqrt(ns3["h2"]):.2f} = {acc3:.2f} ነው። ከሁለቱ የትኛውን እንደምትዘግብ ሁልጊዜ ግለጽ።',
+                      'ትክክለኛነት በሥልጠና ሕዝቡ መጠን፣ በheritability እና በሥልጠና ሕዝቡና በምርጫ ዕጩዎች መካከል ባለው ዝምድና ይጨምራል፤ 240 እንስሳት ትንሽ ጅምር ነው።']}
 ex3['decide'] = {'en': 'Use genomic predictions to pre-select young animals before they have their own records, and grow the training population every year.', 'am': 'ወጣት እንስሳትን የራሳቸው መዝገብ ከመኖራቸው በፊት ቀድመው ለመምረጥ ጂኖሚክ ትንበያዎችን ተጠቀሙ፤ የሥልጠና ሕዝቡንም በየዓመቱ አሳድጉ።'}
 ex3['biz'] = {'en': 'Genomic evaluation services (genotype + prediction) are a growing business for breeding companies and cooperatives.', 'am': 'የጂኖሚክ ግምገማ አገልግሎቶች (genotype + ትንበያ) ለዝርያ ማሻሻያ ኩባንያዎችና ለማኅበራት እያደገ ያለ ንግድ ናቸው።'}
 
@@ -367,6 +380,9 @@ M_am = [
   'a': 'የአፈር ኦርጋኒክ ካርቦንን ከናሙና ነጥቦች በkriging ካርታ አድርጉ፤ የአፈር ጥበቃ ፕሮግራምን ውጤት በdifference-in-differences ገምቱ።', 'm': 'ጂኦ-ማጣቀሻ ያላቸው ናሙናዎች፣ R (gstat፣ sf) ወይም Python',
   'q': ['ለማዳበሪያ፣ ለዝናብና ለምርት DAG ሥል።', 'difference-in-differences ምን ግምት ይፈልጋል?', 'የvariogram range ምን ይነግርሃል?'], 'tip': 'ዘዴውን ከመምረጥህ በፊት የምክንያት ንድፉን ሥል።'}]
 
+ex1['viz'] = viz_h2(ex1['_ns'])
+ex2['viz'] = viz_gwas(ex2['_ns'])
+ex3['viz'] = viz_gp(ex3['_ns'])
 S6 = {'name': {'en': 'Quantitative Researcher', 'am': 'የቁጥር ተመራማሪ'},
       'stage': {'en': 'PhD · 3–5 years', 'am': 'PhD · 3–5 ዓመት'},
       'goal': {'en': 'Researchers estimate genetic parameters and breeding values, map genes, predict merit from DNA, build and honestly validate prediction and forecasting models, reason with Bayesian methods, and separate cause from correlation in agricultural data.',

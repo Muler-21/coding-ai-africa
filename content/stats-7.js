@@ -325,29 +325,381 @@ window.STATS[7] = {
    "csv": "s7_breeding_scenarios.csv",
    "head": "scenario,intensity_i,accuracy_r,generation_interval_yr,extra_cost_birr_per_year\nPhenotypic selection on own weight,1.4,0.45,3.5,0\nBLUP with relatives (records + pedigree),1.4,0.65,3.5,60000\nGenomic selection on young rams,1.75,0.6,2.0,450000",
    "n": 3,
-   "py": "import pandas as pd, numpy as np\nd = pd.read_csv(\"s7_breeding_scenarios.csv\")\nsd_p, h2, lambs, price = 3.5, 0.25, 8000, 120\nsd_a = np.sqrt(h2) * sd_p\nd[\"gain_kg_per_yr\"] = d.intensity_i * d.accuracy_r * sd_a / d.generation_interval_yr\n# gains add up: after 10 years each lamb carries 10 years of gain; value of 1 year of gain:\nd[\"value_birr_per_yr\"] = d.gain_kg_per_yr * lambs * price\nd[\"net_birr_per_yr\"] = d.value_birr_per_yr - d.extra_cost_birr_per_year\nd[\"10yr_cumulative_kg\"] = 10 * d.gain_kg_per_yr\npd.set_option(\"display.width\", 120)\nprint(d[[\"scenario\", \"gain_kg_per_yr\", \"value_birr_per_yr\", \"extra_cost_birr_per_year\", \"net_birr_per_yr\", \"10yr_cumulative_kg\"]].round(2).to_string(index=False))",
-   "r": "d <- read.csv(\"s7_breeding_scenarios.csv\")\nsd_a <- sqrt(0.25) * 3.5\nd$gain <- with(d, intensity_i * accuracy_r * sd_a / generation_interval_yr)\nd$net  <- d$gain * 8000 * 120 - d$extra_cost_birr_per_year\nd\n# whole-programme stochastic simulation: AlphaSimR",
-   "out": "                                scenario  gain_kg_per_yr  value_birr_per_yr  extra_cost_birr_per_year  net_birr_per_yr  10yr_cumulative_kg\n      Phenotypic selection on own weight            0.32           302400.0                         0         302400.0                3.15\nBLUP with relatives (records + pedigree)            0.45           436800.0                     60000         376800.0                4.55\n         Genomic selection on young rams            0.92           882000.0                    450000         432000.0                9.19",
+   "py": "import pandas as pd, numpy as np\nd = pd.read_csv(\"s7_breeding_scenarios.csv\")\nsd_p, h2, lambs, price = 3.5, 0.25, 8000, 120\nsd_a = np.sqrt(h2) * sd_p\nd[\"gain_kg_per_yr\"] = d.intensity_i * d.accuracy_r * sd_a / d.generation_interval_yr   # breeder's equation\nd[\"value_of_1yr_gain\"] = d.gain_kg_per_yr * lambs * price      # extra revenue per year from ONE year of gain\npd.set_option(\"display.width\", 120)\nprint(d[[\"scenario\", \"gain_kg_per_yr\", \"value_of_1yr_gain\", \"extra_cost_birr_per_year\"]].round(2).to_string(index=False))\n# Gains are permanent and add up: in year t the lambs carry t years of gain.\n# Assumptions: no time lag before gain reaches lambs sold, no discounting (NPV is covered in the module).\nyears = np.arange(1, 11)\ncum = {r.scenario: np.cumsum(years * r.value_of_1yr_gain - r.extra_cost_birr_per_year) for r in d.itertuples()}\nprint(\"\\nCumulative net benefit (million birr):\")\nfor name, c in cum.items():\n    print(f\"  {name:42s} year 1: {c[0]/1e6:5.2f}   year 5: {c[4]/1e6:5.2f}   year 10: {c[9]/1e6:6.2f}\")",
+   "r": "d <- read.csv(\"s7_breeding_scenarios.csv\")\nsd_a <- sqrt(0.25) * 3.5\nd$gain <- with(d, intensity_i * accuracy_r * sd_a / generation_interval_yr)\nd$value <- d$gain * 8000 * 120\ncum <- sapply(seq_len(nrow(d)), function(i) cumsum((1:10) * d$value[i] - d$extra_cost_birr_per_year[i]))\ncolnames(cum) <- d$scenario; round(cum / 1e6, 2)\n# whole-programme stochastic simulation: AlphaSimR",
+   "out": "                                scenario  gain_kg_per_yr  value_of_1yr_gain  extra_cost_birr_per_year\n      Phenotypic selection on own weight            0.32           302400.0                         0\nBLUP with relatives (records + pedigree)            0.45           436800.0                     60000\n         Genomic selection on young rams            0.92           882000.0                    450000\n\nCumulative net benefit (million birr):\n  Phenotypic selection on own weight         year 1:  0.30   year 5:  4.54   year 10:  16.63\n  BLUP with relatives (records + pedigree)   year 1:  0.38   year 5:  6.25   year 10:  23.42\n  Genomic selection on young rams            year 1:  0.43   year 5: 10.98   year 10:  44.01",
    "read": {
     "en": [
-     "Gain per year rises with selection intensity and accuracy, and falls with the generation interval.",
-     "Genomic selection gives the most gain per year (0.92 kg) mainly by halving the generation interval.",
-     "After costs, the best strategy is: Genomic selection on young rams. Gains are permanent and accumulate, so a 10-year view matters more than one year."
+     "ΔG per year = i × r × σA / L: it rises with selection intensity (i) and accuracy (r), and falls with the generation interval (L). Here σA = √0.25 × 3.5 = 1.75 kg.",
+     "Genomic selection on young rams gives the most gain (0.92 kg per year), because it shortens L from 3.5 to 2 years and allows a higher intensity (i = 1.75 vs 1.40), even though its accuracy (0.60) is lower than BLUP (0.65).",
+     "Because each year of gain stays in the flock, benefits grow every year while costs stay flat. After 10 years the cumulative net benefit is highest for Genomic selection on young rams (44.0 million birr) versus 23.4 million for BLUP with relatives (records + pedigree)."
     ],
     "am": [
-     "በዓመት ትርፍ በምርጫ መጠንና በትክክለኛነት ይጨምራል፣ በትውልድ ልዩነት ይቀንሳል።",
-     "Genomic selection በዓመት ከፍተኛውን ትርፍ ይሰጣል (0.92 kg)፤ በዋናነት የትውልድ ልዩነቱን በግማሽ በመቀነስ።",
-     "ከወጪዎች በኋላ ምርጡ ስትራቴጂ፡ Genomic selection on young rams። ትርፎች ቋሚና ተደማሪ ስለሆኑ ከአንድ ዓመት ይልቅ የ10 ዓመት እይታ ይበልጥ አስፈላጊ ነው።"
+     "ΔG በዓመት = i × r × σA / L፡ በምርጫ መጠን (i) እና በትክክለኛነት (r) ይጨምራል፣ በትውልድ ልዩነት (L) ይቀንሳል። እዚህ σA = √0.25 × 3.5 = 1.75 kg ነው።",
+     "Genomic selection on young rams ከፍተኛውን ትርፍ ይሰጣል (በዓመት 0.92 kg)፤ Lን ከ3.5 ወደ 2 ዓመት ስለሚያሳጥርና ከፍተኛ የምርጫ መጠን (i = 1.75 vs 1.40) ስለሚፈቅድ ነው፤ ምንም እንኳ ትክክለኛነቱ (0.60) ከBLUP (0.65) ያነሰ ቢሆንም።",
+     "እያንዳንዱ ዓመት ትርፍ በመንጋው ውስጥ ስለሚቆይ ጥቅሞች በየዓመቱ ያድጋሉ፣ ወጪዎች ግን አይለወጡም። ከ10 ዓመት በኋላ ድምር የተጣራ ጥቅም ለGenomic selection on young rams ከፍተኛ ነው (44.0 ሚሊዮን ብር)፤ ለBLUP with relatives (records + pedigree) ደግሞ 23.4 ሚሊዮን።"
     ]
    },
    "decide": {
-    "en": "Adopt \"Genomic selection on young rams\" now; move to genomic selection when genotyping costs fall or the number of lambs sold grows enough for the extra gain to pay.",
-    "am": "«Genomic selection on young rams»ን አሁን ተቀበሉ፤ የgenotyping ወጪ ሲቀንስ ወይም የሚሸጡት ጠቦቶች ቁጥር ተጨማሪው ትርፍ እንዲያዋጣ ሲያድግ ወደ genomic selection ተሸጋገሩ።"
+    "en": "Choose Genomic selection on young rams: it pays back its extra cost from the first year and leads by a wide margin after 10 years. Secure genotyping funds for at least 10 years and keep recording weights, because genomic predictions need a phenotyped training flock.",
+    "am": "Genomic selection on young ramsን ምረጡ፡ ተጨማሪ ወጪውን ከመጀመሪያው ዓመት ጀምሮ ይመልሳል፣ ከ10 ዓመት በኋላም በሰፊ ልዩነት ይመራል። የgenotyping ገንዘብ ቢያንስ ለ10 ዓመታት አረጋግጡ፤ ክብደትንም መመዝገብ ቀጥሉ፤ ጂኖሚክ ትንበያዎች phenotype የተደረገ የሥልጠና መንጋ ይፈልጋሉና።"
    },
    "biz": {
     "en": "Breeding-programme design and evaluation is a high-value consulting service for cooperatives, ranches and investors.",
     "am": "የዝርያ ማሻሻያ ፕሮግራም ንድፍና ግምገማ ለማኅበራት፣ ለራንቾችና ለባለሀብቶች ከፍተኛ ዋጋ ያለው የማማከር አገልግሎት ነው።"
-   }
+   },
+   "viz": [
+    {
+     "type": "hbar",
+     "title": {
+      "en": "Genetic gain per year, ΔG = i · r · σA / L",
+      "am": "በዓመት የዘረመል ትርፍ፣ ΔG = i · r · σA / L"
+     },
+     "note": {
+      "en": "σA = 1.75 kg for all three; they differ in intensity i, accuracy r and generation interval L (years).",
+      "am": "σA = 1.75 kg ለሦስቱም፤ በመጠን i፣ በትክክለኛነት r እና በትውልድ ልዩነት L (ዓመታት) ይለያያሉ።"
+     },
+     "x": {
+      "label": {
+       "en": "kg of weaning weight per year",
+       "am": "በዓመት የጡት መጣያ ክብደት kg"
+      }
+     },
+     "fmt": 2,
+     "cats": [
+      {
+       "en": "Phenotypic (i 1.40, r 0.45, L 3.5)",
+       "am": "Phenotypic (i 1.40, r 0.45, L 3.5)"
+      },
+      {
+       "en": "BLUP + pedigree (i 1.40, r 0.65, L 3.5)",
+       "am": "BLUP + pedigree (i 1.40, r 0.65, L 3.5)"
+      },
+      {
+       "en": "Genomic (i 1.75, r 0.60, L 2.0)",
+       "am": "Genomic (i 1.75, r 0.60, L 2.0)"
+      }
+     ],
+     "series": [
+      {
+       "name": {
+        "en": "ΔG per year",
+        "am": "ΔG በዓመት"
+       },
+       "slot": 1,
+       "v": [
+        0.32,
+        0.45,
+        0.92
+       ]
+      }
+     ],
+     "table": {
+      "cols": [
+       {
+        "en": "Strategy",
+        "am": "ስትራቴጂ"
+       },
+       "i",
+       "r",
+       "L",
+       {
+        "en": "ΔG (kg/yr)",
+        "am": "ΔG (kg/ዓመት)"
+       },
+       {
+        "en": "Extra cost (birr/yr)",
+        "am": "ተጨማሪ ወጪ (ብር/ዓመት)"
+       }
+      ],
+      "rows": [
+       [
+        "Phenotypic selection on own weight",
+        1.4,
+        0.45,
+        3.5,
+        0.315,
+        0
+       ],
+       [
+        "BLUP with relatives (records + pedigree)",
+        1.4,
+        0.65,
+        3.5,
+        0.455,
+        60000
+       ],
+       [
+        "Genomic selection on young rams",
+        1.75,
+        0.6,
+        2.0,
+        0.919,
+        450000
+       ]
+      ]
+     }
+    },
+    {
+     "type": "xy",
+     "title": {
+      "en": "Cumulative net benefit over 10 years",
+      "am": "በ10 ዓመታት ድምር የተጣራ ጥቅም"
+     },
+     "note": {
+      "en": "Year t revenue gain = t × ΔG × 8,000 lambs × 120 birr/kg, minus the yearly extra cost. No lag, no discounting.",
+      "am": "የዓመት t ገቢ ትርፍ = t × ΔG × 8,000 ጠቦቶች × 120 ብር/kg፣ ዓመታዊ ተጨማሪ ወጪ ተቀንሶ። መዘግየትና discounting የለም።"
+     },
+     "x": {
+      "label": {
+       "en": "Year",
+       "am": "ዓመት"
+      },
+      "int": true,
+      "min": 1,
+      "max": 10
+     },
+     "y": {
+      "label": {
+       "en": "Million birr",
+       "am": "ሚሊዮን ብር"
+      },
+      "min": 0
+     },
+     "rpad": 122,
+     "series": [
+      {
+       "name": {
+        "en": "Phenotypic",
+        "am": "Phenotypic"
+       },
+       "slot": 1,
+       "kind": "line",
+       "markers": true,
+       "x": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+       ],
+       "y": [
+        0.3,
+        0.91,
+        1.81,
+        3.02,
+        4.54,
+        6.35,
+        8.47,
+        10.89,
+        13.61,
+        16.63
+       ],
+       "endlabel": {
+        "en": "Phenotypic",
+        "am": "Phenotypic"
+       },
+       "tip": [
+        "0.30 M birr|Phenotypic · year 1",
+        "0.91 M birr|Phenotypic · year 2",
+        "1.81 M birr|Phenotypic · year 3",
+        "3.02 M birr|Phenotypic · year 4",
+        "4.54 M birr|Phenotypic · year 5",
+        "6.35 M birr|Phenotypic · year 6",
+        "8.47 M birr|Phenotypic · year 7",
+        "10.89 M birr|Phenotypic · year 8",
+        "13.61 M birr|Phenotypic · year 9",
+        "16.63 M birr|Phenotypic · year 10"
+       ]
+      },
+      {
+       "name": {
+        "en": "BLUP + pedigree",
+        "am": "BLUP + pedigree"
+       },
+       "slot": 2,
+       "kind": "line",
+       "markers": true,
+       "x": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+       ],
+       "y": [
+        0.38,
+        1.19,
+        2.44,
+        4.13,
+        6.25,
+        8.81,
+        11.81,
+        15.24,
+        19.12,
+        23.42
+       ],
+       "endlabel": {
+        "en": "BLUP + pedigree",
+        "am": "BLUP + pedigree"
+       },
+       "tip": [
+        "0.38 M birr|BLUP + pedigree · year 1",
+        "1.19 M birr|BLUP + pedigree · year 2",
+        "2.44 M birr|BLUP + pedigree · year 3",
+        "4.13 M birr|BLUP + pedigree · year 4",
+        "6.25 M birr|BLUP + pedigree · year 5",
+        "8.81 M birr|BLUP + pedigree · year 6",
+        "11.81 M birr|BLUP + pedigree · year 7",
+        "15.24 M birr|BLUP + pedigree · year 8",
+        "19.12 M birr|BLUP + pedigree · year 9",
+        "23.42 M birr|BLUP + pedigree · year 10"
+       ]
+      },
+      {
+       "name": {
+        "en": "Genomic",
+        "am": "Genomic"
+       },
+       "slot": 3,
+       "kind": "line",
+       "markers": true,
+       "x": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+       ],
+       "y": [
+        0.43,
+        1.75,
+        3.94,
+        7.02,
+        10.98,
+        15.82,
+        21.55,
+        28.15,
+        35.64,
+        44.01
+       ],
+       "endlabel": {
+        "en": "Genomic",
+        "am": "Genomic"
+       },
+       "tip": [
+        "0.43 M birr|Genomic · year 1",
+        "1.75 M birr|Genomic · year 2",
+        "3.94 M birr|Genomic · year 3",
+        "7.02 M birr|Genomic · year 4",
+        "10.98 M birr|Genomic · year 5",
+        "15.82 M birr|Genomic · year 6",
+        "21.55 M birr|Genomic · year 7",
+        "28.15 M birr|Genomic · year 8",
+        "35.64 M birr|Genomic · year 9",
+        "44.01 M birr|Genomic · year 10"
+       ]
+      }
+     ],
+     "table": {
+      "cols": [
+       {
+        "en": "Year",
+        "am": "ዓመት"
+       },
+       {
+        "en": "Phenotypic",
+        "am": "Phenotypic"
+       },
+       {
+        "en": "BLUP + pedigree",
+        "am": "BLUP + pedigree"
+       },
+       {
+        "en": "Genomic",
+        "am": "Genomic"
+       }
+      ],
+      "rows": [
+       [
+        1,
+        0.3,
+        0.38,
+        0.43
+       ],
+       [
+        2,
+        0.91,
+        1.19,
+        1.75
+       ],
+       [
+        3,
+        1.81,
+        2.44,
+        3.94
+       ],
+       [
+        4,
+        3.02,
+        4.13,
+        7.02
+       ],
+       [
+        5,
+        4.54,
+        6.25,
+        10.98
+       ],
+       [
+        6,
+        6.35,
+        8.81,
+        15.82
+       ],
+       [
+        7,
+        8.47,
+        11.81,
+        21.55
+       ],
+       [
+        8,
+        10.89,
+        15.24,
+        28.15
+       ],
+       [
+        9,
+        13.61,
+        19.12,
+        35.64
+       ],
+       [
+        10,
+        16.63,
+        23.42,
+        44.01
+       ]
+      ]
+     }
+    }
+   ]
   },
   {
    "id": "s7-allocation",
@@ -388,7 +740,351 @@ window.STATS[7] = {
    "biz": {
     "en": "Seed companies save millions by optimising trial networks; this analysis is the product.",
     "am": "የዘር ኩባንያዎች የሙከራ ኔትወርኮቻቸውን በማመቻቸት በሚሊዮኖች ይቆጥባሉ፤ ይህ ትንተና ራሱ ምርቱ ነው።"
-   }
+   },
+   "viz": [
+    {
+     "type": "xy",
+     "title": {
+      "en": "Heritability of entry means vs number of locations",
+      "am": "የዝርያ አማካዮች heritability ከቦታዎች ብዛት ጋር"
+     },
+     "note": {
+      "en": "Each point uses the most replicates the 30,000-birr budget allows. Years and locations raise H² far more than replicates, because σ²GL, σ²GY and σ²GLY are larger than plot error.",
+      "am": "እያንዳንዱ ነጥብ የ30,000 ብር በጀቱ የሚፈቅደውን ከፍተኛ ድግግሞሽ ይጠቀማል። ዓመታትና ቦታዎች H²ን ከድግግሞሾች በብዙ እጥፍ ያሳድጋሉ፤ σ²GL፣ σ²GY እና σ²GLY ከማሳ ስህተት ስለሚበልጡ።"
+     },
+     "x": {
+      "label": {
+       "en": "Number of locations",
+       "am": "የቦታዎች ብዛት"
+      },
+      "int": true,
+      "min": 1,
+      "max": 12
+     },
+     "y": {
+      "label": {
+       "en": "H² of the entry mean",
+       "am": "የዝርያ አማካይ H²"
+      },
+      "min": 0,
+      "max": 1
+     },
+     "rpad": 46,
+     "series": [
+      {
+       "name": {
+        "en": "1 year",
+        "am": "1 ዓመት"
+       },
+       "slot": 1,
+       "kind": "line",
+       "markers": true,
+       "x": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0
+       ],
+       "y": [
+        0.356,
+        0.478,
+        0.539,
+        0.577,
+        0.602,
+        0.619,
+        0.633,
+        0.643,
+        0.652,
+        0.658,
+        0.664,
+        0.669
+       ],
+       "endlabel": {
+        "en": "1 yr",
+        "am": "1 ዓመት"
+       },
+       "tip": [
+        "H² 0.356|1 loc × 1 yr × 4 reps · 1,600 birr",
+        "H² 0.478|2 loc × 1 yr × 4 reps · 3,200 birr",
+        "H² 0.539|3 loc × 1 yr × 4 reps · 4,800 birr",
+        "H² 0.577|4 loc × 1 yr × 4 reps · 6,400 birr",
+        "H² 0.602|5 loc × 1 yr × 4 reps · 8,000 birr",
+        "H² 0.619|6 loc × 1 yr × 4 reps · 9,600 birr",
+        "H² 0.633|7 loc × 1 yr × 4 reps · 11,200 birr",
+        "H² 0.643|8 loc × 1 yr × 4 reps · 12,800 birr",
+        "H² 0.652|9 loc × 1 yr × 4 reps · 14,400 birr",
+        "H² 0.658|10 loc × 1 yr × 4 reps · 16,000 birr",
+        "H² 0.664|11 loc × 1 yr × 4 reps · 17,600 birr",
+        "H² 0.669|12 loc × 1 yr × 4 reps · 19,200 birr"
+       ]
+      },
+      {
+       "name": {
+        "en": "2 years",
+        "am": "2 ዓመት"
+       },
+       "slot": 2,
+       "kind": "line",
+       "markers": true,
+       "x": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0
+       ],
+       "y": [
+        0.464,
+        0.598,
+        0.662,
+        0.699,
+        0.724,
+        0.741,
+        0.754,
+        0.764,
+        0.772,
+        0.775,
+        0.781,
+        0.786
+       ],
+       "endlabel": {
+        "en": "2 yr",
+        "am": "2 ዓመት"
+       },
+       "tip": [
+        "H² 0.464|1 loc × 2 yr × 4 reps · 3,200 birr",
+        "H² 0.598|2 loc × 2 yr × 4 reps · 6,400 birr",
+        "H² 0.662|3 loc × 2 yr × 4 reps · 9,600 birr",
+        "H² 0.699|4 loc × 2 yr × 4 reps · 12,800 birr",
+        "H² 0.724|5 loc × 2 yr × 4 reps · 16,000 birr",
+        "H² 0.741|6 loc × 2 yr × 4 reps · 19,200 birr",
+        "H² 0.754|7 loc × 2 yr × 4 reps · 22,400 birr",
+        "H² 0.764|8 loc × 2 yr × 4 reps · 25,600 birr",
+        "H² 0.772|9 loc × 2 yr × 4 reps · 28,800 birr",
+        "H² 0.775|10 loc × 2 yr × 3 reps · 24,000 birr",
+        "H² 0.781|11 loc × 2 yr × 3 reps · 26,400 birr",
+        "H² 0.786|12 loc × 2 yr × 3 reps · 28,800 birr"
+       ]
+      },
+      {
+       "name": {
+        "en": "3 years",
+        "am": "3 ዓመት"
+       },
+       "slot": 3,
+       "kind": "line",
+       "markers": true,
+       "x": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0
+       ],
+       "y": [
+        0.516,
+        0.653,
+        0.716,
+        0.753,
+        0.777,
+        0.793,
+        0.803,
+        0.812,
+        0.815,
+        0.822,
+        0.828,
+        0.832
+       ],
+       "endlabel": {
+        "en": "3 yr",
+        "am": "3 ዓመት"
+       },
+       "tip": [
+        "H² 0.516|1 loc × 3 yr × 4 reps · 4,800 birr",
+        "H² 0.653|2 loc × 3 yr × 4 reps · 9,600 birr",
+        "H² 0.716|3 loc × 3 yr × 4 reps · 14,400 birr",
+        "H² 0.753|4 loc × 3 yr × 4 reps · 19,200 birr",
+        "H² 0.777|5 loc × 3 yr × 4 reps · 24,000 birr",
+        "H² 0.793|6 loc × 3 yr × 4 reps · 28,800 birr",
+        "H² 0.803|7 loc × 3 yr × 3 reps · 25,200 birr",
+        "H² 0.812|8 loc × 3 yr × 3 reps · 28,800 birr",
+        "H² 0.815|9 loc × 3 yr × 2 reps · 21,600 birr",
+        "H² 0.822|10 loc × 3 yr × 2 reps · 24,000 birr",
+        "H² 0.828|11 loc × 3 yr × 2 reps · 26,400 birr",
+        "H² 0.832|12 loc × 3 yr × 2 reps · 28,800 birr"
+       ]
+      },
+      {
+       "name": {
+        "en": "Marked designs",
+        "am": "ምልክት የተደረገባቸው ንድፎች"
+       },
+       "slot": 0,
+       "kind": "points",
+       "size": 5,
+       "legend": false,
+       "x": [
+        12,
+        3
+       ],
+       "y": [
+        0.832,
+        0.529
+       ],
+       "labels": [
+        [
+         0,
+         {
+          "en": "best: 12×3×2",
+          "am": "ምርጥ፡ 12×3×2"
+         }
+        ],
+        [
+         1,
+         {
+          "en": "common: 3×1×3",
+          "am": "የተለመደ፡ 3×1×3"
+         },
+         "below"
+        ]
+       ],
+       "tip": [
+        "H² 0.832|best design",
+        "H² 0.529|3 loc × 1 yr × 3 reps"
+       ]
+      }
+     ],
+     "table": {
+      "cols": [
+       {
+        "en": "Locations",
+        "am": "ቦታዎች"
+       },
+       {
+        "en": "Years",
+        "am": "ዓመታት"
+       },
+       {
+        "en": "Reps",
+        "am": "ድግግሞሾች"
+       },
+       {
+        "en": "Plots",
+        "am": "ማሳዎች"
+       },
+       {
+        "en": "Cost (birr)",
+        "am": "ወጪ (ብር)"
+       },
+       "H²"
+      ],
+      "rows": [
+       [
+        12,
+        3,
+        2,
+        72,
+        28800,
+        0.832
+       ],
+       [
+        11,
+        3,
+        2,
+        66,
+        26400,
+        0.828
+       ],
+       [
+        10,
+        3,
+        2,
+        60,
+        24000,
+        0.822
+       ],
+       [
+        12,
+        3,
+        1,
+        36,
+        14400,
+        0.821
+       ],
+       [
+        9,
+        3,
+        2,
+        54,
+        21600,
+        0.815
+       ],
+       [
+        11,
+        3,
+        1,
+        33,
+        13200,
+        0.815
+       ],
+       [
+        8,
+        3,
+        3,
+        72,
+        28800,
+        0.812
+       ],
+       [
+        10,
+        3,
+        1,
+        30,
+        12000,
+        0.808
+       ],
+       [
+        8,
+        3,
+        2,
+        48,
+        19200,
+        0.807
+       ],
+       [
+        7,
+        3,
+        3,
+        63,
+        25200,
+        0.803
+       ]
+      ]
+     }
+    }
+   ]
   },
   {
    "id": "s7-index",
@@ -429,7 +1125,138 @@ window.STATS[7] = {
    "biz": {
     "en": "Bull-ranking and semen-catalogue services built on economic indices are sold by AI centres and breed societies.",
     "am": "በኢኮኖሚ indices ላይ የተገነቡ የኮርማ ደረጃና የዘር ፈሳሽ ካታሎግ አገልግሎቶች በሰው ሠራሽ ማዳቀያ ማዕከላትና በዝርያ ማኅበራት ይሸጣሉ።"
-   }
+   },
+   "viz": [
+    {
+     "type": "hbar",
+     "title": {
+      "en": "Economic response per generation, by trait (birr per cow)",
+      "am": "በትውልድ የኢኮኖሚ ምላሽ በባሕሪ (ብር በላም)"
+     },
+     "note": {
+      "en": "Response in each trait × its economic value. Negative = money lost (a longer calving interval or lower fat).",
+      "am": "በእያንዳንዱ ባሕሪ ያለ ምላሽ × የኢኮኖሚ ዋጋው። አሉታዊ = የጠፋ ገንዘብ (ረዥም የመውለጃ ልዩነት ወይም ዝቅተኛ ስብ)።"
+     },
+     "x": {
+      "label": {
+       "en": "Birr per cow per generation",
+       "am": "ብር በላም በትውልድ"
+      }
+     },
+     "fmt": 0,
+     "cats": [
+      {
+       "en": "Milk",
+       "am": "ወተት"
+      },
+      {
+       "en": "Fat %",
+       "am": "ስብ %"
+      },
+      {
+       "en": "Calving interval",
+       "am": "የመውለጃ ልዩነት"
+      },
+      {
+       "en": "Total",
+       "am": "ድምር"
+      }
+     ],
+     "series": [
+      {
+       "name": {
+        "en": "Economic selection index",
+        "am": "የኢኮኖሚ selection index"
+       },
+       "slot": 1,
+       "v": [
+        5650.0,
+        -478.0,
+        -862.0,
+        4310.0
+       ]
+      },
+      {
+       "name": {
+        "en": "Selection on milk only",
+        "am": "በወተት ብቻ ምርጫ"
+       },
+       "slot": 2,
+       "v": [
+        5906.0,
+        -347.0,
+        -1500.0,
+        4059.0
+       ]
+      }
+     ],
+     "table": {
+      "cols": [
+       {
+        "en": "Trait",
+        "am": "ባሕሪ"
+       },
+       {
+        "en": "Response: index",
+        "am": "ምላሽ፡ index"
+       },
+       {
+        "en": "Response: milk only",
+        "am": "ምላሽ፡ ወተት ብቻ"
+       },
+       {
+        "en": "Value (birr/unit)",
+        "am": "ዋጋ (ብር/መለኪያ)"
+       },
+       {
+        "en": "Birr: index",
+        "am": "ብር፡ index"
+       },
+       {
+        "en": "Birr: milk only",
+        "am": "ብር፡ ወተት ብቻ"
+       }
+      ],
+      "rows": [
+       [
+        "milk_kg_per_lactation",
+        225.986,
+        236.25,
+        25.0,
+        5650.0,
+        5906.0
+       ],
+       [
+        "fat_percent",
+        -0.159,
+        -0.116,
+        3000.0,
+        -478.0,
+        -347.0
+       ],
+       [
+        "calving_interval_days",
+        1.724,
+        3.001,
+        -500.0,
+        -862.0,
+        -1500.0
+       ],
+       [
+        {
+         "en": "Total",
+         "am": "ድምር"
+        },
+        "",
+        "",
+        "",
+        4310.0,
+        4059.0
+       ]
+      ]
+     }
+    }
+   ]
   }
  ]
 };

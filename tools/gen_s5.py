@@ -1,4 +1,5 @@
 from lib import *
+from qgviz import *
 from scipy import stats
 rng = np.random.default_rng(505)
 
@@ -330,6 +331,7 @@ M_am = [
   'a': 'ለአራት የማዳበሪያ አማራጮች partial budget እና MRR ትንተና አካሂዳችሁ የአንድ ገጽ የትርፍ ምክር ጻፉ።', 'm': 'የሙከራ አማካዮች፣ የአካባቢ ዋጋዎች፣ ስፕሬድሺት፣ Python ወይም R',
   'q': ['dominated ሕክምና ምንድነው?', 'የሙከራ ምርቶችን ለምን ዝቅ እናደርጋለን?', 'በstratified ናሙናዎች ውስጥ የዳሰሳ ክብደቶች ለምን ያስፈልጋሉ?'], 'tip': 'የትርፍ ፈተና የሌለው ምክር ምክር አይደለም።'}]
 
+ex1['viz'] = viz_met(ex1['_ns'])
 S5 = {'name': {'en': 'Applied Agricultural Analyst', 'am': 'የግብርና ተግባራዊ ተንታኝ'},
       'stage': {'en': 'MSc / professional · 1–3 years', 'am': 'ሁለተኛ ዲግሪ / ባለሙያ · 1–3 ዓመት'},
       'goal': {'en': 'Analysts handle the data agriculture really produces: unbalanced and incomplete trials, many sites and years, counts and proportions, many traits, repeated measures, surveys and money. Every analysis ends in a recommendation with a profit test.',

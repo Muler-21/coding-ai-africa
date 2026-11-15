@@ -451,7 +451,691 @@ window.STATS[5] = {
    "biz": {
     "en": "MET analysis is the core paid service for seed companies and national breeding programmes.",
     "am": "የMET ትንተና ለዘር ኩባንያዎችና ለብሔራዊ የዝርያ ማሻሻያ ፕሮግራሞች ዋናው የሚከፈልበት አገልግሎት ነው።"
-   }
+   },
+   "viz": [
+    {
+     "type": "xy",
+     "title": {
+      "en": "Finlay–Wilkinson stability: yield vs environment index",
+      "am": "Finlay–Wilkinson መረጋጋት፡ ምርት ከአካባቢ መለኪያ ጋር"
+     },
+     "note": {
+      "en": "Each line is a genotype’s regression on the site mean. Slope 1 = average response; steeper = responds to good sites; flatter = steady in poor sites. G01 has the highest mean; G07 is the most stable of the top five.",
+      "am": "እያንዳንዱ መስመር የአንድ ዝርያ regression በቦታው አማካይ ላይ ነው። Slope 1 = አማካይ ምላሽ፤ ቁልቁል = ለጥሩ ቦታዎች ይመልሳል፤ ጠፍጣፋ = በደካማ ቦታዎች የተረጋጋ። G01 ከፍተኛ አማካይ አለው፤ G07 ከከፍተኛዎቹ አምስት በጣም የተረጋጋ ነው።"
+     },
+     "x": {
+      "label": {
+       "en": "Environment index: site mean − grand mean (t/ha)",
+       "am": "የአካባቢ መለኪያ፡ የቦታ አማካይ − ጠቅላላ አማካይ (t/ha)"
+      }
+     },
+     "y": {
+      "label": {
+       "en": "Yield (t/ha)",
+       "am": "ምርት (t/ha)"
+      }
+     },
+     "series": [
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.366,
+        2.341
+       ],
+       "legend": true,
+       "tip": [
+        "1.37 t/ha (fitted)|G02",
+        "2.34 t/ha (fitted)|G02"
+       ]
+      },
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.187,
+        3.489
+       ],
+       "legend": false,
+       "tip": [
+        "1.19 t/ha (fitted)|G03",
+        "3.49 t/ha (fitted)|G03"
+       ]
+      },
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.536,
+        2.091
+       ],
+       "legend": false,
+       "tip": [
+        "1.54 t/ha (fitted)|G04",
+        "2.09 t/ha (fitted)|G04"
+       ]
+      },
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.256,
+        2.962
+       ],
+       "legend": false,
+       "tip": [
+        "1.26 t/ha (fitted)|G05",
+        "2.96 t/ha (fitted)|G05"
+       ]
+      },
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.96,
+        2.576
+       ],
+       "legend": false,
+       "tip": [
+        "1.96 t/ha (fitted)|G06",
+        "2.58 t/ha (fitted)|G06"
+       ]
+      },
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.347,
+        2.843
+       ],
+       "legend": false,
+       "tip": [
+        "1.35 t/ha (fitted)|G08",
+        "2.84 t/ha (fitted)|G08"
+       ]
+      },
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.671,
+        3.172
+       ],
+       "legend": false,
+       "tip": [
+        "1.67 t/ha (fitted)|G09",
+        "3.17 t/ha (fitted)|G09"
+       ]
+      },
+      {
+       "name": {
+        "en": "Other genotypes",
+        "am": "ሌሎች ዝርያዎች"
+       },
+       "slot": 0,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.119,
+        3.029
+       ],
+       "legend": false,
+       "tip": [
+        "1.12 t/ha (fitted)|G10",
+        "3.03 t/ha (fitted)|G10"
+       ]
+      },
+      {
+       "name": {
+        "en": "G01: slope 0.73",
+        "am": "G01፡ slope 0.73"
+       },
+       "slot": 1,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        2.055,
+        3.032
+       ],
+       "endlabel": "G01"
+      },
+      {
+       "name": {
+        "en": "G01 site means",
+        "am": "G01 የቦታ አማካዮች"
+       },
+       "slot": 1,
+       "kind": "points",
+       "legend": false,
+       "x": [
+        -0.675,
+        -0.335,
+        -0.19,
+        0.215,
+        0.327,
+        0.658
+       ],
+       "y": [
+        1.943,
+        2.24,
+        2.637,
+        2.817,
+        2.703,
+        2.957
+       ],
+       "tip": [
+        "1.94 t/ha|G01 · Sirinka",
+        "2.24 t/ha|G01 · Bako",
+        "2.64 t/ha|G01 · Adet",
+        "2.82 t/ha|G01 · Holetta",
+        "2.70 t/ha|G01 · Kulumsa",
+        "2.96 t/ha|G01 · Debre Zeit"
+       ]
+      },
+      {
+       "name": {
+        "en": "G07: slope 0.97",
+        "am": "G07፡ slope 0.97"
+       },
+       "slot": 2,
+       "kind": "line",
+       "x": [
+        -0.675,
+        0.658
+       ],
+       "y": [
+        1.762,
+        3.061
+       ],
+       "endlabel": "G07"
+      },
+      {
+       "name": {
+        "en": "G07 site means",
+        "am": "G07 የቦታ አማካዮች"
+       },
+       "slot": 2,
+       "kind": "points",
+       "legend": false,
+       "x": [
+        -0.675,
+        -0.335,
+        -0.19,
+        0.215,
+        0.327,
+        0.658
+       ],
+       "y": [
+        1.73,
+        2.237,
+        2.18,
+        2.6,
+        2.62,
+        3.153
+       ],
+       "tip": [
+        "1.73 t/ha|G07 · Sirinka",
+        "2.24 t/ha|G07 · Bako",
+        "2.18 t/ha|G07 · Adet",
+        "2.60 t/ha|G07 · Holetta",
+        "2.62 t/ha|G07 · Kulumsa",
+        "3.15 t/ha|G07 · Debre Zeit"
+       ]
+      }
+     ],
+     "rpad": 40,
+     "table": {
+      "cols": [
+       {
+        "en": "Genotype",
+        "am": "ዝርያ"
+       },
+       {
+        "en": "Mean (t/ha)",
+        "am": "አማካይ (t/ha)"
+       },
+       {
+        "en": "FW slope",
+        "am": "FW slope"
+       },
+       {
+        "en": "IPCA1",
+        "am": "IPCA1"
+       }
+      ],
+      "rows": [
+       [
+        "G01",
+        2.55,
+        0.73,
+        -0.23
+       ],
+       [
+        "G09",
+        2.43,
+        1.13,
+        0.1
+       ],
+       [
+        "G07",
+        2.42,
+        0.97,
+        -0.03
+       ],
+       [
+        "G03",
+        2.35,
+        1.73,
+        0.66
+       ],
+       [
+        "G06",
+        2.27,
+        0.46,
+        -0.53
+       ],
+       [
+        "G05",
+        2.12,
+        1.28,
+        0.28
+       ],
+       [
+        "G08",
+        2.1,
+        1.12,
+        0.09
+       ],
+       [
+        "G10",
+        2.09,
+        1.43,
+        0.42
+       ],
+       [
+        "G02",
+        1.86,
+        0.73,
+        -0.23
+       ],
+       [
+        "G04",
+        1.82,
+        0.42,
+        -0.54
+       ]
+      ]
+     }
+    },
+    {
+     "type": "xy",
+     "title": {
+      "en": "AMMI1 biplot: mean yield vs interaction (IPCA1)",
+      "am": "AMMI1 biplot፡ አማካይ ምርት ከinteraction (IPCA1) ጋር"
+     },
+     "note": {
+      "en": "IPCA1 explains 64% of G × E. Points near the horizontal line interact little with sites. A genotype and a site with IPCA1 scores of the same sign interact positively.",
+      "am": "IPCA1 የG × E 64% ያብራራል። ከአግድሙ መስመር አጠገብ ያሉ ነጥቦች ከቦታዎች ጋር ትንሽ ይገናኛሉ። ተመሳሳይ ምልክት ያለው IPCA1 ያላቸው ዝርያና ቦታ በአዎንታዊ ይገናኛሉ።"
+     },
+     "x": {
+      "label": {
+       "en": "Mean yield (t/ha)",
+       "am": "አማካይ ምርት (t/ha)"
+      }
+     },
+     "y": {
+      "label": {
+       "en": "IPCA1 score",
+       "am": "IPCA1 ውጤት"
+      }
+     },
+     "refs": [
+      {
+       "kind": "h",
+       "v": 0,
+       "label": {
+        "en": "no interaction",
+        "am": "interaction የለም"
+       }
+      },
+      {
+       "kind": "v",
+       "v": 2.201,
+       "label": {
+        "en": "grand mean",
+        "am": "ጠቅላላ አማካይ"
+       }
+      }
+     ],
+     "series": [
+      {
+       "name": {
+        "en": "Genotypes",
+        "am": "ዝርያዎች"
+       },
+       "slot": 1,
+       "kind": "points",
+       "x": [
+        2.549,
+        1.86,
+        2.353,
+        1.817,
+        2.12,
+        2.272,
+        2.42,
+        2.104,
+        2.431,
+        2.086
+       ],
+       "y": [
+        -0.229,
+        -0.235,
+        0.66,
+        -0.537,
+        0.284,
+        -0.527,
+        -0.031,
+        0.093,
+        0.099,
+        0.423
+       ],
+       "labels": [
+        [
+         0,
+         "G01"
+        ],
+        [
+         1,
+         "G02"
+        ],
+        [
+         2,
+         "G03"
+        ],
+        [
+         3,
+         "G04"
+        ],
+        [
+         4,
+         "G05"
+        ],
+        [
+         5,
+         "G06"
+        ],
+        [
+         6,
+         "G07"
+        ],
+        [
+         7,
+         "G08"
+        ],
+        [
+         8,
+         "G09"
+        ],
+        [
+         9,
+         "G10"
+        ]
+       ],
+       "tip": [
+        "2.55 t/ha, IPCA1 -0.23|G01",
+        "1.86 t/ha, IPCA1 -0.23|G02",
+        "2.35 t/ha, IPCA1 +0.66|G03",
+        "1.82 t/ha, IPCA1 -0.54|G04",
+        "2.12 t/ha, IPCA1 +0.28|G05",
+        "2.27 t/ha, IPCA1 -0.53|G06",
+        "2.42 t/ha, IPCA1 -0.03|G07",
+        "2.10 t/ha, IPCA1 +0.09|G08",
+        "2.43 t/ha, IPCA1 +0.10|G09",
+        "2.09 t/ha, IPCA1 +0.42|G10"
+       ]
+      },
+      {
+       "name": {
+        "en": "Sites",
+        "am": "ቦታዎች"
+       },
+       "slot": 2,
+       "kind": "points",
+       "shape": "square",
+       "x": [
+        2.011,
+        1.866,
+        2.86,
+        2.416,
+        2.528,
+        1.526
+       ],
+       "y": [
+        -0.089,
+        -0.367,
+        0.688,
+        0.158,
+        0.385,
+        -0.775
+       ],
+       "labels": [
+        [
+         0,
+         "Adet"
+        ],
+        [
+         1,
+         "Bako"
+        ],
+        [
+         2,
+         "Debre Zeit"
+        ],
+        [
+         3,
+         "Holetta"
+        ],
+        [
+         4,
+         "Kulumsa"
+        ],
+        [
+         5,
+         "Sirinka"
+        ]
+       ],
+       "tip": [
+        "2.01 t/ha, IPCA1 -0.09|Adet",
+        "1.87 t/ha, IPCA1 -0.37|Bako",
+        "2.86 t/ha, IPCA1 +0.69|Debre Zeit",
+        "2.42 t/ha, IPCA1 +0.16|Holetta",
+        "2.53 t/ha, IPCA1 +0.38|Kulumsa",
+        "1.53 t/ha, IPCA1 -0.78|Sirinka"
+       ]
+      }
+     ],
+     "table": {
+      "cols": [
+       {
+        "en": "Name",
+        "am": "ስም"
+       },
+       {
+        "en": "Type",
+        "am": "ዓይነት"
+       },
+       {
+        "en": "Mean (t/ha)",
+        "am": "አማካይ (t/ha)"
+       },
+       {
+        "en": "IPCA1",
+        "am": "IPCA1"
+       }
+      ],
+      "rows": [
+       [
+        "G01",
+        "G",
+        2.55,
+        -0.23
+       ],
+       [
+        "G02",
+        "G",
+        1.86,
+        -0.23
+       ],
+       [
+        "G03",
+        "G",
+        2.35,
+        0.66
+       ],
+       [
+        "G04",
+        "G",
+        1.82,
+        -0.54
+       ],
+       [
+        "G05",
+        "G",
+        2.12,
+        0.28
+       ],
+       [
+        "G06",
+        "G",
+        2.27,
+        -0.53
+       ],
+       [
+        "G07",
+        "G",
+        2.42,
+        -0.03
+       ],
+       [
+        "G08",
+        "G",
+        2.1,
+        0.09
+       ],
+       [
+        "G09",
+        "G",
+        2.43,
+        0.1
+       ],
+       [
+        "G10",
+        "G",
+        2.09,
+        0.42
+       ],
+       [
+        "Adet",
+        "E",
+        2.01,
+        -0.09
+       ],
+       [
+        "Bako",
+        "E",
+        1.87,
+        -0.37
+       ],
+       [
+        "Debre Zeit",
+        "E",
+        2.86,
+        0.69
+       ],
+       [
+        "Holetta",
+        "E",
+        2.42,
+        0.16
+       ],
+       [
+        "Kulumsa",
+        "E",
+        2.53,
+        0.38
+       ],
+       [
+        "Sirinka",
+        "E",
+        1.53,
+        -0.78
+       ]
+      ]
+     }
+    }
+   ]
   },
   {
    "id": "s5-eonr",

@@ -153,6 +153,80 @@ pre.out{border-left:3px solid var(--good)}
 details.code-box>summary{cursor:pointer;font-weight:600;font-size:14px;padding:6px 0;display:flex;gap:10px;align-items:center}
 .copy-row{display:flex;justify-content:flex-end;margin-bottom:6px}
 .btn.sm{font-size:12.5px;padding:4px 10px}
+/* ---------- charts (palette validated for CVD on both surfaces) ---------- */
+:root{--v1:#2a78d6;--v2:#eb6834;--v3:#1baf7a;--v0:#b4bdb6;--vgrid:#eceee9;--vaxis:#c3cbc2}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){--v1:#3987e5;--v2:#d95926;--v3:#199e70;--v0:#4f5e55;--vgrid:#223029;--vaxis:#3a4a41} }
+:root[data-theme="dark"]{--v1:#3987e5;--v2:#d95926;--v3:#199e70;--v0:#4f5e55;--vgrid:#223029;--vaxis:#3a4a41}
+.vizset{display:grid;gap:12px}
+.viz{margin:0;display:grid;gap:8px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);min-width:0}
+.viz figcaption{display:grid;gap:3px}
+.viz figcaption strong{font-size:15px;line-height:1.35}
+.viz figcaption .small{line-height:1.45}
+.vizlegend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted)}
+.vizlegend span{display:inline-flex;align-items:center;gap:6px}
+.lk{display:inline-block;flex:none;background:var(--c)}
+.lk.line{width:16px;height:2px;border-radius:1px}
+.lk.dot{width:9px;height:9px;border-radius:50%}
+.lk.dot.sq{border-radius:2px}
+.lk.ring{width:9px;height:9px;border-radius:50%;background:transparent;border:2px solid var(--c)}
+.lk.rect{width:12px;height:10px;border-radius:2px}
+.c0{--c:var(--v0)}.c1{--c:var(--v1)}.c2{--c:var(--v2)}.c3{--c:var(--v3)}
+.vizplot{min-width:0}
+.vizplot svg{display:block;max-width:100%;overflow:visible}
+svg.vz text{font-family:var(--font-body);font-size:12px;fill:var(--muted)}
+svg.vz text.axt{font-size:12.5px}
+svg.vz text.cat{fill:var(--ink);font-size:12.5px}
+svg.vz text.val{fill:var(--ink);font-size:12px;font-variant-numeric:tabular-nums}
+svg.vz text.lab{fill:var(--ink);font-size:12px;paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+svg.vz .grid{stroke:var(--vgrid);stroke-width:1}
+svg.vz .axis{stroke:var(--vaxis);stroke-width:1}
+svg.vz .ref{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 3;fill:none}
+svg.vz .leader{stroke:var(--muted);stroke-width:1}
+svg.vz .ln{fill:none;stroke:var(--c);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+svg.vz .ln.mute{stroke-width:1.5}
+svg.vz .band{fill:var(--c);opacity:.14;stroke:none}
+svg.vz .pt{fill:var(--c);stroke:var(--surface);stroke-width:2}
+svg.vz .pt.thin{stroke-width:.75}
+svg.vz .pt.hollow{fill:var(--surface);stroke:var(--c);stroke-width:2}
+svg.vz .whisk{stroke:var(--c);stroke-width:2;stroke-linecap:round}
+svg.vz .bar,svg.vz .segb{fill:var(--c)}
+svg.vz text.inseg{fill:#fff;font-size:13px;font-weight:600}
+svg.vz text.inseg.dark{fill:var(--ink)}
+svg.vz .hit{fill:transparent;stroke:none;cursor:default}
+svg.vz .hit:hover,svg.vz .hit:focus{stroke:var(--ink);stroke-width:1.5;outline:none}
+svg.vz .hitrow,svg.vz .hitbar{fill:transparent}
+svg.vz .hitrow:hover,svg.vz .hitrow:focus{fill:var(--ink);fill-opacity:.05;outline:none}
+svg.vz .hitbar:hover,svg.vz .hitbar:focus{fill:var(--ink);fill-opacity:.08;outline:none}
+#vtip{position:fixed;z-index:60;pointer-events:none;background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.14);border-radius:8px;padding:6px 10px;font-size:13px;line-height:1.35;display:none;max-width:280px}
+#vtip b{display:block;font-size:14px;font-variant-numeric:tabular-nums}
+#vtip span{color:var(--muted)}
+.viztable summary{cursor:pointer;font-size:13.5px;color:var(--accent);font-weight:600}
+.viztable .tablewrap{max-height:340px;overflow:auto;margin-top:6px}
+.qggrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
+.qgcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:8px;align-content:start;min-width:0;scroll-margin-top:72px}
+.qgcard h3{font-size:17px;margin:0}
+.qgcard h4{margin:4px 0 0;font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
+.qgcard p{margin:0}
+.fx{font-family:'Cambria Math','STIX Two Math','Latin Modern Math','Times New Roman',serif;font-size:17.5px;line-height:2;background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:8px 12px;overflow-x:auto;white-space:nowrap}
+@media (max-width:560px){.fx{font-size:15.5px}}
+.fx var{font-style:italic}
+.fx b{font-weight:700}
+dl.sym{display:grid;grid-template-columns:max-content 1fr;gap:3px 12px;margin:0;font-size:14.5px}
+dl.sym dt{font-family:'Cambria Math','Times New Roman',serif;font-style:italic;font-weight:600}
+dl.sym dd{margin:0;color:var(--muted)}
+.qgtoc{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.qgtoc a{font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:var(--surface)}
+#qgsim{scroll-margin-top:72px}
+.simgrid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin:6px 0 10px}
+.sliders{display:grid;gap:10px}
+.sl{display:grid;gap:2px;font-size:14px}
+.sl span{display:flex;justify-content:space-between;gap:8px}
+.sl output{font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+.sl input{width:100%;accent-color:var(--accent)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;align-content:start}
+.tile{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:2px;background:var(--surface)}
+.tile strong{font-size:22px;line-height:1.2}
+.ex{scroll-margin-top:72px}
 .decide{padding:10px 12px;border-radius:8px;background:var(--accent-soft);border-left:3px solid var(--accent)}
 .bizline{padding:10px 12px;border-radius:8px;background:var(--gold-soft);border-left:3px solid var(--gold);font-size:15px}
 .tag-s{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
@@ -202,7 +276,9 @@ html[lang="am"] .nav-link{font-size:15.5px}
 <script src="content/modules-6.js"></script>
 <script src="content/modules-7.js"></script>
 <script src="content/modules-8.js"></script>
+<script src="content/viz.js"></script>
 <script src="content/stats-core.js"></script>
+<script src="content/qg.js"></script>
 <script src="content/stats-0.js"></script>
 <script src="content/stats-1.js"></script>
 <script src="content/stats-2.js"></script>
@@ -248,7 +324,7 @@ const UI = {
       gradingTitle:'Grading inside each level',thPart:'Part',thWeight:'Weight',g1:'Projects',g2:'Practical tests',g3:'Enterprise results (users, sales, profit)',g4:'Code reviews and peer teaching',g5:'Reflection journal',
       portfolio:'<strong>Portfolio:</strong> from Level 2 up, every learner keeps one GitHub profile holding all projects, with a README per project and, from Level 6, a CITATION.cff and Zenodo DOI for anything others might cite.',
       aboutLead:'Coding & AI for Africa is a free curriculum designed by Mulusew Kassa Bitew.',author:'Author',aName:'Name',aPos:'Position',aAff:'Affiliation',aWeb:'Website',aApps:'Other apps',
-      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License',outcomes:'Learners will be able to',lessonPlan:'Lesson plan',activity:'Hands-on: build from what you have',materials:'Materials',checkQ:'Check understanding',tipT:'Teacher tip',openAll:'Open all modules',closeAll:'Close all modules',lessonN:'Lesson',statsNav:'Statistics for agriculture',statsOverview:'Overview',statsLevels:'Statistics levels',chooserT:'Which design or test should I use?',thQuestion:'Your question',thDesignTest:'Design or test',thLevelS:'Level',toolsT:'Tools from today to the future',thTools:'Tools',bizT:'Statistics businesses you can build',thBiz:'Business',thSells:'What it sells',thPays:'Who pays',examplesT:'Worked field examples',exQ:'Research question',exD:'Design',exData:'Data',exRows:'rows; first rows shown',exFile:'Full data file',pyT:'Python code (run to produce the output below)',rT:'Same analysis in R (standard code, not run in this build)',outT:'Output',readT:'How to read it',decideT:'Decision',bizNote:'Business angle',copy:'Copy',copied2:'Copied',copyFail:'Select and copy by hand',statsStart:'Start at Level S0',noEx:'This level is hands-on: activities are in the modules above.',statsLead:'From counting seeds to leading breeding programmes and AI experiments.'},
+      citeTitle:'How to cite',copyCite:'Copy citation',citeCopied:'Citation copied.',citeBlocked:'Copy blocked here: select the citation text and copy it by hand.',citeNote:'The repository includes a CITATION.cff file, so GitHub and Zenodo show this citation automatically.',license:'License',outcomes:'Learners will be able to',lessonPlan:'Lesson plan',activity:'Hands-on: build from what you have',materials:'Materials',checkQ:'Check understanding',tipT:'Teacher tip',openAll:'Open all modules',closeAll:'Close all modules',lessonN:'Lesson',statsNav:'Statistics for agriculture',statsOverview:'Overview',statsLevels:'Statistics levels',chooserT:'Which design or test should I use?',thQuestion:'Your question',thDesignTest:'Design or test',thLevelS:'Level',toolsT:'Tools from today to the future',thTools:'Tools',bizT:'Statistics businesses you can build',thBiz:'Business',thSells:'What it sells',thPays:'Who pays',examplesT:'Worked field examples',exQ:'Research question',exD:'Design',exData:'Data',exRows:'rows; first rows shown',exFile:'Full data file',pyT:'Python code (run to produce the output below)',rT:'Same analysis in R (standard code, not run in this build)',outT:'Output',readT:'How to read it',decideT:'Decision',bizNote:'Business angle',copy:'Copy',copied2:'Copied',copyFail:'Select and copy by hand',statsStart:'Start at Level S0',noEx:'This level is hands-on: activities are in the modules above.',vizT:'Charts',tableView:'Show the data table',qgNav:'Quantitative genetics',qgOpen:'Open the quantitative genetics toolkit',qgLead:'Formulas, symbols and an interactive selection simulator, each linked to a worked example.',symT:'Symbols',useT:'When to use it',seeEx:'Worked example',simLink:'Simulator on this page',formulaT:'Formula',statsLead:'From counting seeds to leading breeding programmes and AI experiments.'},
   am:{brand:'ኮዲንግና AI ለአፍሪካ',home:'ዋና ገጽ',levels:'ደረጃዎች',more:'ኮርስ',tracks:'የልዩ ሙያ መስመሮች',business:'ንግድና ሀብት',resources:'ነፃ ምንጮች',progress:'የኔ እድገት',certificates:'ሰርተፊኬቶች',about:'ደራሲና ማጣቀሻ',
       goal:'ግብ',modules:'ሞጁሎች',tools:'መሳሪያዎች',signature:'ዋና ፕሮጀክት',africa:'የአፍሪካ ፈተናና ሥራ ፈጠራ',exit:'የማለፊያ ፈተና',practice:'የልምምድ ፕሮጀክቶች',checklist:'ማረጋገጫ ዝርዝር',practiceN:'ልምምድ',
       bizSkills:'የሚሰጡ የንግድ ክህሎቶች',milestone:'የሚደረስበት ምዕራፍ',also:'በዚህ ደረጃ ደግሞ',levelRes:'ለዚህ ደረጃ ነፃ ምንጮች',
@@ -273,7 +349,7 @@ const UI = {
       gradingTitle:'በእያንዳንዱ ደረጃ ውስጥ ያለው ውጤት አሰጣጥ',thPart:'ክፍል',thWeight:'ድርሻ',g1:'ፕሮጀክቶች',g2:'ተግባራዊ ፈተናዎች',g3:'የሥራ ፈጠራ ውጤቶች (ተጠቃሚዎች፣ ሽያጭ፣ ትርፍ)',g4:'የኮድ ግምገማና አቻን ማስተማር',g5:'የነጸብራቅ ማስታወሻ',
       portfolio:'<strong>የሥራ ማኅደር፡</strong> ከደረጃ 2 ጀምሮ እያንዳንዱ ተማሪ ሁሉንም ፕሮጀክቶች የያዘ አንድ የGitHub ፕሮፋይል ይኖረዋል፤ ለእያንዳንዱ ፕሮጀክት README፣ ከደረጃ 6 ጀምሮ ደግሞ ሌሎች ሊጠቅሱት ለሚችሉት ሁሉ CITATION.cff እና የZenodo DOI ይኖረዋል።',
       aboutLead:'ኮዲንግና AI ለአፍሪካ በMulusew Kassa Bitew የተዘጋጀ ነፃ ሥርዓተ ትምህርት ነው።',author:'ደራሲ',aName:'ስም',aPos:'የሥራ መደብ',aAff:'ተቋም',aWeb:'ድረ-ገጽ',aApps:'ሌሎች መተግበሪያዎች',
-      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ',outcomes:'ተማሪዎች የሚችሉት',lessonPlan:'የትምህርት ዕቅድ',activity:'በተግባር፡ በእጅ ካለው ሥራ',materials:'ቁሳቁሶች',checkQ:'ግንዛቤን ፈትሽ',tipT:'ለመምህሩ ምክር',openAll:'ሁሉንም ሞጁሎች ክፈት',closeAll:'ሁሉንም ሞጁሎች ዝጋ',lessonN:'ትምህርት',statsNav:'ስታቲስቲክስ ለግብርና',statsOverview:'አጠቃላይ እይታ',statsLevels:'የስታቲስቲክስ ደረጃዎች',chooserT:'የትኛውን ንድፍ ወይም ፈተና ልጠቀም?',thQuestion:'ጥያቄህ',thDesignTest:'ንድፍ ወይም ፈተና',thLevelS:'ደረጃ',toolsT:'ከዛሬ እስከ ወደፊት መሣሪያዎች',thTools:'መሣሪያዎች',bizT:'ልትገነባቸው የምትችላቸው የስታቲስቲክስ ንግዶች',thBiz:'ንግድ',thSells:'የሚሸጠው',thPays:'የሚከፍለው',examplesT:'የተሠሩ የመስክ ምሳሌዎች',exQ:'የምርምር ጥያቄ',exD:'ንድፍ',exData:'ዳታ',exRows:'ረድፎች፤ የመጀመሪያዎቹ ረድፎች ቀርበዋል',exFile:'ሙሉ የዳታ ፋይል',pyT:'የPython ኮድ (ከታች ያለውን ውጤት ለማግኘት የተሠራ)',rT:'ተመሳሳይ ትንተና በR (መደበኛ ኮድ፣ በዚህ ግንባታ አልተሠራም)',outT:'ውጤት',readT:'እንዴት እንደሚነበብ',decideT:'ውሳኔ',bizNote:'የንግድ ዕይታ',copy:'ቅዳ',copied2:'ተቀድቷል',copyFail:'መርጠህ በእጅ ቅዳ',statsStart:'ከደረጃ S0 ጀምር',noEx:'ይህ ደረጃ በተግባር የሚሰጥ ነው፤ እንቅስቃሴዎቹ ከላይ ባሉት ሞጁሎች ውስጥ ናቸው።',statsLead:'ዘር ከመቁጠር እስከ የዝርያ ማሻሻያ ፕሮግራሞችንና የAI ሙከራዎችን መምራት።'}
+      citeTitle:'እንዴት መጥቀስ እንደሚቻል',copyCite:'ማጣቀሻውን ቅዳ',citeCopied:'ማጣቀሻው ተቀድቷል።',citeBlocked:'እዚህ መቅዳት አልተቻለም፤ የማጣቀሻውን ጽሑፍ መርጠህ በእጅ ቅዳ።',citeNote:'ማከማቻው CITATION.cff ፋይል ስላለው GitHub እና Zenodo ይህን ማጣቀሻ በራስ-ሰር ያሳያሉ።',license:'ፈቃድ',outcomes:'ተማሪዎች የሚችሉት',lessonPlan:'የትምህርት ዕቅድ',activity:'በተግባር፡ በእጅ ካለው ሥራ',materials:'ቁሳቁሶች',checkQ:'ግንዛቤን ፈትሽ',tipT:'ለመምህሩ ምክር',openAll:'ሁሉንም ሞጁሎች ክፈት',closeAll:'ሁሉንም ሞጁሎች ዝጋ',lessonN:'ትምህርት',statsNav:'ስታቲስቲክስ ለግብርና',statsOverview:'አጠቃላይ እይታ',statsLevels:'የስታቲስቲክስ ደረጃዎች',chooserT:'የትኛውን ንድፍ ወይም ፈተና ልጠቀም?',thQuestion:'ጥያቄህ',thDesignTest:'ንድፍ ወይም ፈተና',thLevelS:'ደረጃ',toolsT:'ከዛሬ እስከ ወደፊት መሣሪያዎች',thTools:'መሣሪያዎች',bizT:'ልትገነባቸው የምትችላቸው የስታቲስቲክስ ንግዶች',thBiz:'ንግድ',thSells:'የሚሸጠው',thPays:'የሚከፍለው',examplesT:'የተሠሩ የመስክ ምሳሌዎች',exQ:'የምርምር ጥያቄ',exD:'ንድፍ',exData:'ዳታ',exRows:'ረድፎች፤ የመጀመሪያዎቹ ረድፎች ቀርበዋል',exFile:'ሙሉ የዳታ ፋይል',pyT:'የPython ኮድ (ከታች ያለውን ውጤት ለማግኘት የተሠራ)',rT:'ተመሳሳይ ትንተና በR (መደበኛ ኮድ፣ በዚህ ግንባታ አልተሠራም)',outT:'ውጤት',readT:'እንዴት እንደሚነበብ',decideT:'ውሳኔ',bizNote:'የንግድ ዕይታ',copy:'ቅዳ',copied2:'ተቀድቷል',copyFail:'መርጠህ በእጅ ቅዳ',statsStart:'ከደረጃ S0 ጀምር',noEx:'ይህ ደረጃ በተግባር የሚሰጥ ነው፤ እንቅስቃሴዎቹ ከላይ ባሉት ሞጁሎች ውስጥ ናቸው።',vizT:'ቻርቶች',tableView:'የዳታ ሰንጠረዡን አሳይ',qgNav:'ቁጥራዊ ዘረመል',qgOpen:'የቁጥራዊ ዘረመል መሣሪያ ሳጥኑን ክፈት',qgLead:'ቀመሮች፣ ምልክቶችና በይነተገናኝ የምርጫ አስመሳይ፤ እያንዳንዱ ከተሠራ ምሳሌ ጋር የተገናኘ።',symT:'ምልክቶች',useT:'መቼ እንደሚጠቀሙበት',seeEx:'የተሠራ ምሳሌ',simLink:'በዚህ ገጽ ያለው አስመሳይ',formulaT:'ቀመር',statsLead:'ዘር ከመቁጠር እስከ የዝርያ ማሻሻያ ፕሮግራሞችንና የAI ሙከራዎችን መምራት።'}
 };
 const t = k => (UI[state.lang] && UI[state.lang][k]) || UI.en[k] || k;
 
@@ -638,7 +714,7 @@ function renderNav(route){
   document.getElementById('sideNav').innerHTML =
    `<div class="nav-group">${link('home',t('home'))}</div>
     <div class="nav-group"><div class="nav-label">${esc(t('levels'))}</div>${LEVELS.map(L=>link('level-'+L.n,levelName(L),L.n,levelPct(L.n))).join('')}</div>
-    <div class="nav-group"><div class="nav-label">${esc(t('statsNav'))}</div>${link('stats',t('statsOverview'))}${SL().map(n=>link('stats-'+n,pick(window.STATS[n].name),'S'+n)).join('')}</div>
+    <div class="nav-group"><div class="nav-label">${esc(t('statsNav'))}</div>${link('stats',t('statsOverview'))}${SL().map(n=>link('stats-'+n,pick(window.STATS[n].name),'S'+n)).join('')}${window.QG?link('qg',t('qgNav'),'QG'):''}</div>
     <div class="nav-group"><div class="nav-label">${esc(t('more'))}</div>${link('business',t('business'))}${link('tracks',t('tracks'))}${link('resources',t('resources'))}${link('progress',t('progress'))}${link('certificates',t('certificates'))}${link('about',t('about'))}</div>`;
 }
 
@@ -726,6 +802,7 @@ function exampleHTML(e){
     <div><h4>${esc(t('exData'))} · ${e.n} ${esc(t('exRows'))}</h4>${csvTable(e.head)}<p class="small muted">${esc(t('exFile'))}: <a href="content/data/${esc(e.csv)}" target="_blank" rel="noopener">${esc(e.csv)}</a></p></div>
     ${codeBlock(t('pyT'), e.py, true)}
     <div><h4>${esc(t('outT'))}</h4><pre class="code out">${esc(e.out)}</pre></div>
+    ${e.viz?`<div><h4>${esc(t('vizT'))}</h4>${vizHTML(e.viz)}</div>`:''}
     ${codeBlock(t('rT'), e.r, false)}
     <div><h4>${esc(t('readT'))}</h4><ul class="clean">${pick(e.read).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
     <div class="decide"><strong>${esc(t('decideT'))}:</strong> ${esc(pick(e.decide))}</div>
@@ -741,10 +818,87 @@ function viewStatsHome(){
      ${pick(C.intro).map((p,i)=>`<p class="${i===0?'lead':''}">${p}</p>`).join('')}
      <div><a class="btn primary" href="#stats-0">${esc(t('statsStart'))}</a></div></div>
    <section class="card"><h2>${esc(t('statsLevels'))}</h2><div class="ladder">${lv.map(n=>{const S=window.STATS[n];return `<a class="rung" href="#stats-${n}"><div class="rung-top"><span class="rung-n">S${n}</span><span class="rung-name">${esc(pick(S.name))}</span></div><span class="small muted">${esc(pick(S.stage))}</span><span class="small muted">${(S.ex||[]).length} ${esc(t('examplesT').toLowerCase())}</span></a>`}).join('')}</div></section>
+   ${window.QG?`<section class="card qglink"><h2>${esc(pick(QG.title))}</h2><p>${esc(t('qgLead'))}</p><div><a class="btn primary" href="#qg">${esc(t('qgOpen'))} →</a></div></section>`:''}
    <section class="card"><h2>${esc(t('chooserT'))}</h2>${tbl([t('thQuestion'),t('thDesignTest'),t('thLevelS')], pick(C.chooser).map(r=>`<tr><td>${esc(r[0])}</td><td><strong>${esc(r[1])}</strong></td><td>${tag(r[2])}</td></tr>`))}</section>
    <section class="card"><h2>${esc(t('bizT'))}</h2>${tbl([t('thBiz'),t('thSells'),t('thPays'),t('thLevelS')], pick(C.biz).map(r=>`<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${tag(r[3])}</td></tr>`))}</section>
    <section class="card"><h2>${esc(t('toolsT'))}</h2>${tbl([t('thLevelS'),t('thTools')], pick(C.tools).map(r=>`<tr><td>${tag(r[0])}</td><td>${esc(r[1])}</td></tr>`))}</section>
   </div>`;
+}
+/* ---------- quantitative genetics toolkit ---------- */
+function exLabel(route, id){
+  const n = +route.split('-')[1], S = (window.STATS||{})[n], e = S && (S.ex||[]).find(x=>x.id===id);
+  return e ? `S${n} · ${pick(e.t)}` : route;
+}
+function viewQG(){
+  const Q = window.QG; if(!Q) return viewStatsHome();
+  const card = (c, k) => `<article class="qgcard" id="qg-${k+1}"><h3>${esc(pick(c.t))}</h3>
+    <div class="fx" aria-label="${esc(t('formulaT'))}">${c.f}</div>
+    <h4>${esc(t('symT'))}</h4><dl class="sym">${pick(c.sym).map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join('')}</dl>
+    <h4>${esc(t('useT'))}</h4><p>${esc(pick(c.use))}</p>
+    ${(c.ex||[]).length?`<p class="small">${(c.ex).map(([r,id])=> r==='qg' ? `<a href="#qg/qgsim">${esc(t('simLink'))} ↓</a>` : `<a href="#${r}/ex-${id}">${esc(t('seeEx'))}: ${esc(exLabel(r,id))} →</a>`).join('<br>')}</p>`:''}
+  </article>`;
+  const S = pick(Q.sim);
+  const slider = (id, lab, min, max, step, val) => `<label class="sl"><span>${esc(lab)} <output id="o-${id}"></output></span><input type="range" id="s-${id}" min="${min}" max="${max}" step="${step}" value="${val}"></label>`;
+  return `<div class="col">
+   <div class="card accent"><span class="eyebrow">${esc(t('statsNav'))}</span><h1>${esc(pick(Q.title))}</h1>${pick(Q.intro).map((p,i)=>`<p class="${i?'':'lead'}">${esc(p)}</p>`).join('')}
+     <nav class="qgtoc">${Q.cards.map((c,k)=>`<a href="#qg/qg-${k+1}">${esc(pick(c.t))}</a>`).join('')}<a href="#qg/qgsim">${esc(pick(Q.simT))}</a></nav></div>
+   <div class="qggrid">${Q.cards.map(card).join('')}</div>
+   <section class="card" id="qgsim"><h2>${esc(pick(Q.simT))}</h2><p>${esc(S.lead)}</p>
+     <div class="simgrid">
+       <div class="sliders">${slider('h2',S.h2,0.05,0.9,0.01,0.25)}${slider('p',S.p,0.01,0.8,0.01,0.2)}${slider('sd',S.sd+' (kg)',0.5,10,0.1,3.5)}${slider('mu',S.mu+' (kg)',5,60,0.5,20)}${slider('L',S.L,0.5,8,0.5,3.5)}</div>
+       <div class="tiles" id="simTiles"></div>
+     </div>
+     <div class="vizlegend"><span><i class="lk rect c1" style="opacity:.45"></i>${esc(S.sel)}</span><span><i class="lk line c1"></i>${esc(S.parents)}</span><span><i class="lk line c2"></i>${esc(S.off)}</span></div>
+     <div id="simPlot" class="vizplot"></div>
+     <p class="small muted">${esc(S.note)}</p>
+   </section>
+  </div>`;
+}
+function qnorm(p){ // Acklam's inverse normal CDF
+  const a=[-39.6968302866538,220.946098424521,-275.928510446969,138.357751867269,-30.6647980661472,2.50662827745924],
+        b=[-54.4760987982241,161.585836858041,-155.698979859887,66.8013118877197,-13.2806815528857],
+        c=[-0.00778489400243029,-0.322396458041136,-2.40075827716184,-2.54973253934373,4.37466414146497,2.93816398269878],
+        d=[0.00778469570904146,0.32246712907004,2.445134137143,3.75440866190742], pl=0.02425;
+  let q,r;
+  if(p<pl){ q=Math.sqrt(-2*Math.log(p)); return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); }
+  if(p>1-pl){ q=Math.sqrt(-2*Math.log(1-p)); return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); }
+  q=p-0.5; r=q*q; return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);
+}
+function bindQG(){
+  const ids=['h2','p','sd','mu','L'], el=id=>document.getElementById('s-'+id);
+  if(!el('h2')) return;
+  const S = pick(QG.sim), dens = (x,m,s)=>Math.exp(-0.5*((x-m)/s)**2)/(s*Math.sqrt(2*Math.PI));
+  const f2 = v => v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  function draw(){
+    const v = Object.fromEntries(ids.map(k=>[k, +el(k).value]));
+    document.getElementById('o-h2').textContent = f2(v.h2);
+    document.getElementById('o-p').textContent = Math.round(v.p*100)+'%';
+    document.getElementById('o-sd').textContent = v.sd.toFixed(1);
+    document.getElementById('o-mu').textContent = v.mu.toFixed(1);
+    document.getElementById('o-L').textContent = v.L.toFixed(1);
+    const z = qnorm(1-v.p), i = dens(z,0,1)/v.p, Sd = i*v.sd, R = v.h2*Sd, Ry = R/v.L;
+    const tile = (lab,val,unit)=>`<div class="tile"><span class="small muted">${esc(lab)}</span><strong>${val}</strong>${unit?`<span class="small muted">${unit}</span>`:''}</div>`;
+    document.getElementById('simTiles').innerHTML = tile(S.i,f2(i),'')+tile(S.S,f2(Sd),'kg')+tile(S.R,f2(R),'kg')+tile(S.Ry,f2(Ry),'kg')+tile(S.R10,f2(10*Ry),'kg');
+    const box = document.getElementById('simPlot'), W = Math.max(260, box.clientWidth), H = 230, m = {l:12,r:12,t:28,b:42};
+    const x0 = v.mu-4*v.sd, x1 = v.mu+4*v.sd+R, X = x=>m.l+(x-x0)/(x1-x0)*(W-m.l-m.r), top = dens(v.mu,v.mu,v.sd)*1.05, Y = y=>H-m.b-(y/top)*(H-m.b-m.t);
+    const pts = (mu,a,b)=>{ const o=[]; for(let k=0;k<=160;k++){ const x=a+(b-a)*k/160; o.push(`${X(x).toFixed(1)},${Y(dens(x,mu,v.sd)).toFixed(1)}`);} return o; };
+    const cut = v.mu+z*v.sd, tail = pts(v.mu, cut, x1);
+    let g = '';
+    const step = (()=>{ const raw=(x1-x0)/5, p10=Math.pow(10,Math.floor(Math.log10(raw))), e=raw/p10; return (e>=5?5:e>=2?2:1)*p10; })();
+    for(let tk=Math.ceil(x0/step)*step; tk<=x1; tk+=step) g += `<line class="grid" x1="${X(tk)}" x2="${X(tk)}" y1="${m.t}" y2="${H-m.b}"/><text x="${X(tk)}" y="${H-m.b+16}" text-anchor="middle">${+tk.toFixed(2)}</text>`;
+    g += `<line class="axis" x1="${m.l}" x2="${W-m.r}" y1="${H-m.b}" y2="${H-m.b}"/><text class="axt" x="${W/2}" y="${H-6}" text-anchor="middle">${esc(S.x)} (kg)</text>`;
+    g += `<path class="c1" style="fill:var(--c);opacity:.32" d="M${X(cut)},${Y(0)}L${tail.join('L')}L${X(x1)},${Y(0)}Z"/>`;
+    g += `<path class="ln c1" d="M${pts(v.mu,x0,x1).join('L')}"/><path class="ln c2" d="M${pts(v.mu+R,x0,x1).join('L')}"/>`;
+    const marks = [[v.mu,'μ',0],[v.mu+Sd,'μ + S',1],[v.mu+R,'μ + R',2]];
+    marks.forEach(([x,lab,k])=>{ g += `<line class="ref" x1="${X(x)}" x2="${X(x)}" y1="${m.t-4+k*0}" y2="${H-m.b}"/>`; });
+    const lx = marks.map(([x])=>X(x)); const ly=[m.t-10,m.t-10,m.t-10];
+    if(Math.abs(lx[2]-lx[0])<46) ly[2]=m.t+6; if(Math.abs(lx[1]-lx[2])<46) ly[1]=m.t+(ly[2]===m.t+6?22:6);
+    marks.forEach(([x,lab],k)=>{ g += `<text class="lab" x="${lx[k]}" y="${ly[k]}" text-anchor="middle">${lab}</text>`; });
+    box.innerHTML = `<svg class="vz" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(pick(QG.simT))}">${g}</svg>`;
+  }
+  ids.forEach(k=>el(k).addEventListener('input',draw));
+  window.addEventListener('resize', ()=>{ if(document.getElementById('simPlot')) draw(); });
+  draw();
 }
 function viewStatsLevel(n){
   const S = (window.STATS||{})[n]; if(!S) return viewStatsHome();
@@ -754,7 +908,7 @@ function viewStatsLevel(n){
   return `<div class="col">
    <div class="hero-level"><span class="big-n">S${n}</span><div style="display:flex;flex-direction:column;gap:8px">
      <span class="eyebrow">${esc(t('statsNav'))} · ${esc(pick(S.stage))}</span><h1>${esc(pick(S.name))}</h1></div></div>
-   <section class="card"><h2>${esc(t('goal'))}</h2><p class="lead">${esc(pick(S.goal))}</p></section>
+   <section class="card"><h2>${esc(t('goal'))}</h2><p class="lead">${esc(pick(S.goal))}</p>${window.QG&&n>=5&&n<=7?`<p><a class="btn" href="#qg">${esc(t('qgOpen'))} →</a></p>`:''}</section>
    <section class="card"><h2>${esc(t('modules'))}</h2>${modAccordion(pick(S.mods))}</section>
    <section class="card"><h2>${esc(t('examplesT'))}</h2>${(S.ex||[]).length?S.ex.map(exampleHTML).join(''):`<p class="muted">${esc(t('noEx'))}</p>`}</section>
    <div class="pager">${prev}${next}</div>
@@ -861,12 +1015,14 @@ function viewAbout(){
 }
 
 /* ---------- router ---------- */
+window.APPI = {pick: x => pick(x), t: k => t(k)};
 function route(){
-  const h = (location.hash||'#home').slice(1);
+  const [h, anchor] = (location.hash||'#home').slice(1).split('/');
   let html, r = h;
   if(/^level-[0-8]$/.test(h)) html = viewLevel(+h.split('-')[1]);
   else if(h==='stats') html = viewStatsHome();
   else if(/^stats-[0-8]$/.test(h)) html = viewStatsLevel(+h.split('-')[1]);
+  else if(h==='qg') html = viewQG();
   else if(h==='business') html = viewBusiness();
   else if(h==='tracks') html = viewTracks();
   else if(h==='resources') html = viewResources();
@@ -880,6 +1036,11 @@ function route(){
   document.getElementById('sideNav').classList.remove('open');
   document.getElementById('menuBtn').setAttribute('aria-expanded','false');
   bindView();
+  if(h==='qg') bindQG();
+  if(window.drawViz) drawViz();
+  const target = anchor && document.getElementById(anchor);
+  if(target) requestAnimationFrame(() => target.scrollIntoView({block:'start'}));
+  return !!target;
 }
 
 function setStatus(id,msg){ const el=document.getElementById(id); if(el) el.textContent=msg; }
@@ -942,7 +1103,7 @@ document.getElementById('langAm').addEventListener('click',()=>setLang('am'));
 document.getElementById('menuBtn').addEventListener('click',e=>{
   const nav=document.getElementById('sideNav'); const open=nav.classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded',String(open));
 });
-window.addEventListener('hashchange',()=>{ route(); window.scrollTo(0,0); });
+window.addEventListener('hashchange',()=>{ if(!route()) window.scrollTo(0,0); });
 setLang(state.lang==='am'?'am':'en');
 
 /* ---------- GitHub Pages only: offline cache + visitor count ---------- */

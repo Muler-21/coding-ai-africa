@@ -91,6 +91,8 @@ A second track takes learners from counting seeds in KG to designing national br
 | S7 | Leading Scientist | Postdoc → PI → enterprise leader | 6 | Breeder’s equation in birr per year, optimal locations × years × reps, Smith–Hazel economic index |
 | S8 | Future of Agricultural Data Science | Lifelong | 5 | Thompson-sampling adaptive trials, conformal prediction intervals |
 
+**Quantitative genetics, shown precisely.** The genetics examples (S5 G × E, S6 heritability/BLUP, GWAS and genomic prediction, S7 breeding economics and selection indices) come with interactive charts: variance partition, h² with its confidence interval, sire EBV caterpillar plots showing BLUP shrinkage, Manhattan and Q–Q plots, predictive ability vs accuracy, Finlay–Wilkinson and AMMI biplots, gain-per-year and cumulative-profit curves, and economic index responses. Every chart is computed from the same code run as the printed output, has hover details and a data-table view, and uses a colour-blind-safe palette in light and dark mode. A **Quantitative genetics toolkit** page gives 13 formula cards (Hardy–Weinberg to GBLUP, GWAS, G × E and inbreeding) with every symbol defined, links to the worked examples, and a response-to-selection simulator.
+
 The app also has a **test chooser** (22 farm questions mapped to the right design or test), a **tools ladder** (paper and spreadsheet → R and Python → cloud and AI) and **nine statistics-based businesses**. The generators in `tools/` rebuild every example from its data, so readings and decisions always match the numbers.
 
 ## Fully bilingual: English and አማርኛ
@@ -126,6 +128,8 @@ No accounts and no personal data. Progress ticks stay in the learner's own brows
 | `index.html` | The app: layout, logic and level content |
 | `content/modules-0.js` … `modules-8.js` | The 57 complete modules, English and Amharic |
 | `content/stats-core.js`, `stats-0.js` … `stats-8.js` | Statistics track: overview, test chooser, 50 modules and 26 worked examples |
+| `content/viz.js` | Chart renderer (SVG, light/dark, tooltips, table view) |
+| `content/qg.js` | Quantitative genetics toolkit: formula cards and simulator text |
 | `content/data/` | Datasets for the worked examples (CSV) |
 | `tools/` | Python generators that run every example and write the stats files |
 | `sw.js` | Offline cache |

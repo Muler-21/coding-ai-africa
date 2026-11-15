@@ -1,4 +1,5 @@
 from lib import *
+from qgviz import *
 from scipy import stats
 rng = np.random.default_rng(707)
 
@@ -17,32 +18,37 @@ import pandas as pd, numpy as np
 d = pd.read_csv("s7_breeding_scenarios.csv")
 sd_p, h2, lambs, price = 3.5, 0.25, 8000, 120
 sd_a = np.sqrt(h2) * sd_p
-d["gain_kg_per_yr"] = d.intensity_i * d.accuracy_r * sd_a / d.generation_interval_yr
-# gains add up: after 10 years each lamb carries 10 years of gain; value of 1 year of gain:
-d["value_birr_per_yr"] = d.gain_kg_per_yr * lambs * price
-d["net_birr_per_yr"] = d.value_birr_per_yr - d.extra_cost_birr_per_year
-d["10yr_cumulative_kg"] = 10 * d.gain_kg_per_yr
+d["gain_kg_per_yr"] = d.intensity_i * d.accuracy_r * sd_a / d.generation_interval_yr   # breeder's equation
+d["value_of_1yr_gain"] = d.gain_kg_per_yr * lambs * price      # extra revenue per year from ONE year of gain
 pd.set_option("display.width", 120)
-print(d[["scenario", "gain_kg_per_yr", "value_birr_per_yr", "extra_cost_birr_per_year", "net_birr_per_yr", "10yr_cumulative_kg"]].round(2).to_string(index=False))
+print(d[["scenario", "gain_kg_per_yr", "value_of_1yr_gain", "extra_cost_birr_per_year"]].round(2).to_string(index=False))
+# Gains are permanent and add up: in year t the lambs carry t years of gain.
+# Assumptions: no time lag before gain reaches lambs sold, no discounting (NPV is covered in the module).
+years = np.arange(1, 11)
+cum = {r.scenario: np.cumsum(years * r.value_of_1yr_gain - r.extra_cost_birr_per_year) for r in d.itertuples()}
+print("\\nCumulative net benefit (million birr):")
+for name, c in cum.items():
+    print(f"  {name:42s} year 1: {c[0]/1e6:5.2f}   year 5: {c[4]/1e6:5.2f}   year 10: {c[9]/1e6:6.2f}")
 ''',
  '''
 d <- read.csv("s7_breeding_scenarios.csv")
 sd_a <- sqrt(0.25) * 3.5
 d$gain <- with(d, intensity_i * accuracy_r * sd_a / generation_interval_yr)
-d$net  <- d$gain * 8000 * 120 - d$extra_cost_birr_per_year
-d
+d$value <- d$gain * 8000 * 120
+cum <- sapply(seq_len(nrow(d)), function(i) cumsum((1:10) * d$value[i] - d$extra_cost_birr_per_year[i]))
+colnames(cum) <- d$scenario; round(cum / 1e6, 2)
 # whole-programme stochastic simulation: AlphaSimR
 ''', None, None)
-s7 = sc.copy(); sda = np.sqrt(.25) * 3.5
-s7['g'] = s7.intensity_i * s7.accuracy_r * sda / s7.generation_interval_yr; s7['net'] = s7.g * 8000 * 120 - s7.extra_cost_birr_per_year
-bestg = s7.loc[s7.g.idxmax(), 'scenario']; bestn = s7.loc[s7.net.idxmax(), 'scenario']
-ex71['read'] = {'en': ['Gain per year rises with selection intensity and accuracy, and falls with the generation interval.',
-                       f'Genomic selection gives the most gain per year ({s7.g.max():.2f} kg) mainly by halving the generation interval.',
-                       f'After costs, the best strategy is: {bestn}. Gains are permanent and accumulate, so a 10-year view matters more than one year.'],
-                'am': ['በዓመት ትርፍ በምርጫ መጠንና በትክክለኛነት ይጨምራል፣ በትውልድ ልዩነት ይቀንሳል።',
-                       f'Genomic selection በዓመት ከፍተኛውን ትርፍ ይሰጣል ({s7.g.max():.2f} kg)፤ በዋናነት የትውልድ ልዩነቱን በግማሽ በመቀነስ።',
-                       f'ከወጪዎች በኋላ ምርጡ ስትራቴጂ፡ {bestn}። ትርፎች ቋሚና ተደማሪ ስለሆኑ ከአንድ ዓመት ይልቅ የ10 ዓመት እይታ ይበልጥ አስፈላጊ ነው።']}
-ex71['decide'] = {'en': f'Adopt "{bestn}" now; move to genomic selection when genotyping costs fall or the number of lambs sold grows enough for the extra gain to pay.', 'am': f'«{bestn}»ን አሁን ተቀበሉ፤ የgenotyping ወጪ ሲቀንስ ወይም የሚሸጡት ጠቦቶች ቁጥር ተጨማሪው ትርፍ እንዲያዋጣ ሲያድግ ወደ genomic selection ተሸጋገሩ።'}
+ns71 = ex71['_ns']; cum71 = ns71['cum']; g71 = ns71['d'].set_index('scenario').gain_kg_per_yr
+bestg = g71.idxmax(); bestn = max(cum71, key=lambda k: cum71[k][-1]); second = sorted(cum71, key=lambda k: -cum71[k][-1])[1]
+ex71['read'] = {'en': ['ΔG per year = i × r × σA / L: it rises with selection intensity (i) and accuracy (r), and falls with the generation interval (L). Here σA = √0.25 × 3.5 = 1.75 kg.',
+                       f'{bestg} gives the most gain ({g71.max():.2f} kg per year), because it shortens L from 3.5 to 2 years and allows a higher intensity (i = 1.75 vs 1.40), even though its accuracy (0.60) is lower than BLUP (0.65).',
+                       f'Because each year of gain stays in the flock, benefits grow every year while costs stay flat. After 10 years the cumulative net benefit is highest for {bestn} ({cum71[bestn][-1]/1e6:.1f} million birr) versus {cum71[second][-1]/1e6:.1f} million for {second}.'],
+                'am': ['ΔG በዓመት = i × r × σA / L፡ በምርጫ መጠን (i) እና በትክክለኛነት (r) ይጨምራል፣ በትውልድ ልዩነት (L) ይቀንሳል። እዚህ σA = √0.25 × 3.5 = 1.75 kg ነው።',
+                       f'{bestg} ከፍተኛውን ትርፍ ይሰጣል (በዓመት {g71.max():.2f} kg)፤ Lን ከ3.5 ወደ 2 ዓመት ስለሚያሳጥርና ከፍተኛ የምርጫ መጠን (i = 1.75 vs 1.40) ስለሚፈቅድ ነው፤ ምንም እንኳ ትክክለኛነቱ (0.60) ከBLUP (0.65) ያነሰ ቢሆንም።',
+                       f'እያንዳንዱ ዓመት ትርፍ በመንጋው ውስጥ ስለሚቆይ ጥቅሞች በየዓመቱ ያድጋሉ፣ ወጪዎች ግን አይለወጡም። ከ10 ዓመት በኋላ ድምር የተጣራ ጥቅም ለ{bestn} ከፍተኛ ነው ({cum71[bestn][-1]/1e6:.1f} ሚሊዮን ብር)፤ ለ{second} ደግሞ {cum71[second][-1]/1e6:.1f} ሚሊዮን።']}
+ex71['decide'] = {'en': f'Choose {bestn}: it pays back its extra cost from the first year and leads by a wide margin after 10 years. Secure genotyping funds for at least 10 years and keep recording weights, because genomic predictions need a phenotyped training flock.',
+                  'am': f'{bestn}ን ምረጡ፡ ተጨማሪ ወጪውን ከመጀመሪያው ዓመት ጀምሮ ይመልሳል፣ ከ10 ዓመት በኋላም በሰፊ ልዩነት ይመራል። የgenotyping ገንዘብ ቢያንስ ለ10 ዓመታት አረጋግጡ፤ ክብደትንም መመዝገብ ቀጥሉ፤ ጂኖሚክ ትንበያዎች phenotype የተደረገ የሥልጠና መንጋ ይፈልጋሉና።'}
 ex71['biz'] = {'en': 'Breeding-programme design and evaluation is a high-value consulting service for cooperatives, ranches and investors.', 'am': 'የዝርያ ማሻሻያ ፕሮግራም ንድፍና ግምገማ ለማኅበራት፣ ለራንቾችና ለባለሀብቶች ከፍተኛ ዋጋ ያለው የማማከር አገልግሎት ነው።'}
 
 vc = pd.DataFrame({'component': ['genotype', 'genotype_x_location', 'genotype_x_year', 'genotype_x_location_x_year', 'plot_error'], 'variance': [0.080, 0.040, 0.030, 0.050, 0.100]})
@@ -191,6 +197,9 @@ M7_am = [
   'a': 'በክልልህ ላሉ የዘር ኩባንያዎችና ማኅበራት አገልግሎት ለሚሰጥ የግብርና ትንተና ኩባንያ የንግድ ዕቅድ ጻፍ።', 'm': 'የንግድ ዕቅድ አብነት፣ የገበያ ዳታ',
   'q': ['ለትንተና በብዛት የሚከፍለው የትኛው ደንበኛ ነው፣ ለምን?', 'የዝርያ ሙከራ ትንተናን ዋጋ እንዴት ታወጣለህ?', 'ክፍት ምንጭ ሆኖ አሁንም ትርፋማ የሚሆነው ምንድነው?'], 'tip': 'ስታቲስቲክስን ሳይሆን ውሳኔዎችንና የተቆጠበ ገንዘብን ሽጥ።'}]
 
+ex71['viz'] = viz_gain(ex71['_ns'])
+ex72['viz'] = viz_alloc(ex72['_ns'])
+ex73['viz'] = viz_index(ex73['_ns'])
 S7 = {'name': {'en': 'Leading Scientist', 'am': 'መሪ ሳይንቲስት'},
       'stage': {'en': 'Postdoc → principal investigator → enterprise leader', 'am': 'Postdoc → ዋና ተመራማሪ → የድርጅት መሪ'},
       'goal': {'en': 'Leaders design whole breeding and testing programmes for maximum gain per year and per birr, integrate big data and multi-omics, simulate before investing, and build organisations that sell statistical decisions.',
