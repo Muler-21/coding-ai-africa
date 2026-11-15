@@ -69,6 +69,19 @@ Every module is ready to teach: **duration, learning outcomes, a lesson-by-lesso
   <img src="docs/screenshot-mobile.png" alt="Business and wealth page on a phone" width="200">
 </p>
 
+### Every module is visual and complete
+
+Each level page shows its modules as cards. Each card opens a full module page with:
+
+- outcomes and at-a-glance tiles;
+- **concept diagrams**: robot-path grids with arrow cards for KG, Scratch-style block scripts for primary, and flow, cycle, layer, tree and comparison diagrams from secondary school upwards;
+- a visual lesson path;
+- a **worked example**: an unplugged activity for young learners, runnable Python for Grade 5 upwards (the outputs shown were produced by running the code), and real configuration files for DevOps and HPC;
+- the hands-on activity with materials;
+- check-yourself questions with answers you can reveal.
+
+There are 57 module pages, all in English and Amharic. The content generators are in `tools/` (`l0_2.py`, `l3_5.py`, `l6_8.py`).
+
 ## Statistics for agriculture: S0 to S8
 
 A second track takes learners from counting seeds in KG to designing national breeding programmes. It has **50 bilingual modules** and **26 worked examples on real-style agricultural datasets**. Each example gives:
@@ -128,6 +141,7 @@ No accounts and no personal data. Progress ticks stay in the learner's own brows
 | `index.html` | The app: layout, logic and level content |
 | `content/modules-0.js` … `modules-8.js` | The 57 complete modules, English and Amharic |
 | `content/stats-core.js`, `stats-0.js` … `stats-8.js` | Statistics track: overview, test chooser, 50 modules and 26 worked examples |
+| `content/modviz.js`, `modx-0.js` … `modx-8.js` | Module diagrams, worked examples and answers |
 | `content/viz.js` | Chart renderer (SVG, light/dark, tooltips, table view) |
 | `content/qg.js` | Quantitative genetics toolkit: formula cards and simulator text |
 | `content/data/` | Datasets for the worked examples (CSV) |
